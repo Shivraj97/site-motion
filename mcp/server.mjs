@@ -15,7 +15,7 @@ import { tmpdir } from "node:os";
 import { basename, dirname, extname, join, resolve } from "node:path";
 import { createInterface } from "node:readline";
 import { createRequire } from "node:module";
-import { buildHtml, listStyles, loadStyle, loadTokens, ROOT } from "../lib/build.mjs";
+import { buildHtml, listStyles, loadStyle, loadTokens, proNote, ROOT } from "../lib/build.mjs";
 import { exportStyle, mergeDesignMd, FORMATS as STYLE_FORMATS } from "../lib/style-export.mjs";
 import { findProject, resolveInputs } from "../lib/project.mjs";
 
@@ -165,7 +165,7 @@ const TOOLS = [
 function listScenes({ scene } = {}) {
   if (scene !== undefined) {
     const name = String(scene);
-    if (!sceneNames().includes(name)) throw new ToolError(`No scene "${name}". Scenes: ${sceneNames().join(", ")}`);
+    if (!sceneNames().includes(name)) throw new ToolError(proNote(name) || `No scene "${name}". Scenes: ${sceneNames().join(", ")}`);
     const dir = join(ROOT, "scenes", name);
     return { scene: name, ...readJson(join(dir, "meta.json")), defaultContent: readJson(join(dir, "content.json")) ?? {} };
   }
@@ -273,7 +273,7 @@ function buildScene({ scene, tokens, content, style, out, transparent = false } 
     if (!existsSync(join(sceneArg, "scene.js"))) throw new ToolError(`No scene.js in ${sceneArg}`);
     sceneName = basename(sceneArg);
   } else {
-    if (!sceneNames().includes(scene)) throw new ToolError(`No scene "${scene}". Scenes: ${sceneNames().join(", ")}`);
+    if (!sceneNames().includes(scene)) throw new ToolError(proNote(scene) || `No scene "${scene}". Scenes: ${sceneNames().join(", ")}`);
     sceneArg = join(ROOT, "scenes", scene);
     sceneName = scene;
   }

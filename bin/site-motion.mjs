@@ -22,7 +22,7 @@
 // With a site-motion.json in this folder or above, add, build, make and sync use its tokens and style; flags win.
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, dirname, join, relative, resolve } from "node:path";
-import { buildHtml, listStyles, loadStyle, ROOT } from "../lib/build.mjs";
+import { buildHtml, listStyles, loadStyle, proNote, ROOT } from "../lib/build.mjs";
 import { render } from "../lib/render.mjs";
 
 const [, , command, ...args] = process.argv;
@@ -71,7 +71,7 @@ function init() {
   const tokensFile = resolve(`${opts.name || "brand"}.json`);
   const contentFile = resolve(`${basename(target)}.json`);
   const src = { tokens: join(ROOT, "tokens", `${preset}.json`), content: join(ROOT, "scenes", basename(target), "content.json") };
-  if (!existsSync(join(ROOT, "scenes", basename(target)))) fail(`No scene "${target}". Scenes: ${readdirSync(join(ROOT, "scenes")).join(", ")}`);
+  if (!existsSync(join(ROOT, "scenes", basename(target)))) fail(proNote(target) || `No scene "${target}". Scenes: ${readdirSync(join(ROOT, "scenes")).join(", ")}`);
   if (!existsSync(src.tokens)) fail(`No token preset "${preset}". Presets: ${readdirSync(join(ROOT, "tokens")).map((f) => f.replace(/\.json$/, "")).join(", ")}`);
   for (const [from, to] of [[src.tokens, tokensFile], [src.content, contentFile]]) {
     if (existsSync(to)) console.log(`kept    ${to} (already exists)`);
@@ -486,7 +486,7 @@ async function planCmd() {
     const [slot, scene] = rest.filter((a) => !a.startsWith("--"));
     if (!p.data.plan.slots[slot]) fail(`no slot "${slot}". Slots: ${Object.keys(p.data.plan.slots).join(", ")}`);
     const found = P.sceneCatalog().find((s) => s.name === scene);
-    if (!found) fail(`no scene "${scene}". Scenes: ${P.sceneCatalog().map((s) => s.name).join(", ")}`);
+    if (!found) fail(proNote(scene) || `no scene "${scene}". Scenes: ${P.sceneCatalog().map((s) => s.name).join(", ")}`);
     const other = Object.entries(p.data.plan.slots).find(([k, v]) => k !== slot && v.scene === scene);
     p.data.plan.slots[slot] = { ...p.data.plan.slots[slot], scene, why: "picked by hand", weak: false, follows: found.directable.length > 0, alt: undefined };
     p.data = writeProject(p.file, p.data);
@@ -547,6 +547,7 @@ if (command === "init" && target) {
   await shotCmd();
 } else if (command === "list") {
   console.log("scenes:  " + readdirSync(join(ROOT, "scenes")).join(", "));
+  if (existsSync(join(ROOT, "PRO-SCENES.json"))) { const pro = JSON.parse(readFileSync(join(ROOT, "PRO-SCENES.json"), "utf8")); console.log(`pro:     ${Object.keys(pro.scenes).length} more scenes are site-motion Pro; watch them at ${pro.site}`); }
   console.log("tokens:  " + readdirSync(join(ROOT, "tokens")).map((f) => f.replace(/\.json$/, "")).join(", "));
   console.log("styles:  " + listStyles().join(", ") + "  (or native)");
 } else if (command === "build" && target) {
