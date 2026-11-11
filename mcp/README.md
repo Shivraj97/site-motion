@@ -20,7 +20,17 @@ The paths below assume that location. Use the absolute path to your clone if it 
 claude mcp add site-motion --scope user -- node ~/.claude/skills/site-motion/mcp/server.mjs
 ```
 
-`--scope user` makes it available in every project; leave it out to add it to the current project only. Check it with `claude mcp list`. Claude Code starts the server in your project folder, so builds land in the project's `out/`.
+`--scope user` makes it available in every project; leave it out to add it to the current project only. `--scope project` writes a `.mcp.json` your team shares:
+
+```json
+{
+  "mcpServers": {
+    "site-motion": { "command": "node", "args": [".claude/skills/site-motion/mcp/server.mjs"] }
+  }
+}
+```
+
+(that example assumes the skill is cloned into the project's own `.claude/skills/site-motion`). Check it with `claude mcp list`. Claude Code starts the server in your project folder, so builds land in the project's `out/`.
 
 Motion renders take 1–5 minutes. The server sends progress notifications while it works. If a long render still times out, raise the limit when you start Claude Code: `MCP_TOOL_TIMEOUT=600000 claude`.
 
@@ -70,11 +80,15 @@ Command `node`, argument the absolute path to `mcp/server.mjs`, transport stdio.
 | `build_scene` | `scene`, `tokens?` (preset name, token file path or token object), `content?` (partial object or file path), `out?`, `transparent?` | The path of one standalone HTML file that plays live. Warns about content keys the scene doesn't use. |
 | `plan_site` | `action?` (`new`, `show`, `sheet`, `swap`, `apply`), `pages?`, `about?`, `brief?` (markdown or a path), `url?`, `slot?`, `scene?`, `sheet?` | One scene per section of the whole site, in one look, written into `site-motion.json`. Attaches the contact sheet with the consistency verdict; agents should show it to the user before `apply`. |
 | `export_style` | `format?` (`css`, `tailwind`, `dtcg`, `design-md`), `style?`, `tokens?`, `out?` | The project's look as code for the site's own components (defaults to the project's lockfile). With `out`, writes the file; for `design-md` only the marked site-motion section of an existing DESIGN.md is replaced. |
+| `add_scene` | `scene`, `tokens?` (first add only), `content?` (a JSON file), `dir?`, `view?`, `play?`, `force?` | Copies the scene into the project (`<dir>/<scene>/` plus one embeddable `<dir>/<scene>.html`) and returns the iframe to paste. The first add writes `site-motion.json` and locks the look to the scene's home pack (a variant uses its concept's). `asset:` files the content names are copied too, so `shot-demo` works. |
+| `sync_project` | none | Rebuilds every added scene after its `content.json`, the brand or the look changes. Product demos keep the `view` and `play` they were added with. |
+| `check_scene` | `scene`, `jumps?` | Determinism, loop seam, AA contrast, text fit (and for demos, jumps and framing), in the project's brand and look. Inside a project a bare name checks your added copy. Returns `ok` and the report. |
+| `shot_from_image` | `image`, `name`, `url?`, `frame?`, `out?` | A screenshot becomes a `shot-demo` folder (image, tokens, starter content.json) and attaches the ruled grid to name hotspots on. |
 | `render_scene` | `file`, `formats?` (`png`, `sheet`, `mp4`, `webm`, `webp`, `gif`), `range?` (`full`/`loop`), `scale?`, `fps?`, `out?`, `attachImage?` | Output paths and sizes. Attaches the contact sheet (or poster) as an image so the agent can check the frames. |
 
-A typical run: `list_scenes`, then `theme_from_url` on the brand's site, then `build_scene` with those tokens and the product's real copy, then `render_scene` with `["png", "sheet"]`. Look at the sheet, fix the copy, and finish with `render_scene` `["mp4", "webp"]`.
+For a site you own, the project flow: `plan_site` (or `add_scene` one by one), edit each scene's `content.json`, `sync_project`, `check_scene`, then `render_scene` for video. For a one-off file: `list_scenes`, then `theme_from_url` on the brand's site, then `build_scene` with those tokens and the product's real copy, then `render_scene` with `["png", "sheet"]`. Look at the sheet, fix the copy, and finish with `render_scene` `["mp4", "webp"]`.
 
-`build_scene` runs inside the server. `theme_from_url` and `render_scene` run the CLI (`bin/site-motion.mjs`) as a child process. Chrome and ffmpeg output can then never reach the protocol stream, and cancelling a call stops the CLI along with its Chrome and ffmpeg.
+`build_scene` runs inside the server. The other tools run the CLI (`bin/site-motion.mjs`) as a child process. Chrome and ffmpeg output can then never reach the protocol stream, and cancelling a call stops the CLI along with its Chrome and ffmpeg.
 
 ## Develop
 

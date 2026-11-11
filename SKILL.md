@@ -175,7 +175,7 @@ Handles with `render` take a value you compute from `t`, so they stay pure. **Fi
 
 Work in this order:
 
-1. **Place and size.** Where will it sit? Build with `--view`: default is the 1600×900 hero; `strip` (1600×756) beside copy, `card` (800×600) in a grid, `compact` (720×900) in a phone column. A smaller view crops the design and follows the cursor; a key with `fixed: true` opts out, and `content.views.<view>` overrides any content for that view. Choose how it plays with `--play loop | once | hover`: `once` plays when first in view and stops on the poster; `hover` rests on the poster and plays while hovered.
+1. **Place and size.** Where will it sit? Build with `--view`: default is the 1600×900 hero; `strip` (1600×756) beside copy, `card` (800×600) in a grid, `compact` (720×900) in a phone column. A smaller view crops the design and follows the cursor; a key with `fixed: true` opts out, and `content.views.<view>` overrides any content for that view. Choose how it plays with `--play loop | once | hover`: `once` plays when first in view and stops on the poster; `hover` rests on the poster and plays while hovered. In a project, pass both to `add` (`add agent-checkout --view card --play once`): they are kept in `site-motion.json` and every `sync` rebuilds the demo the same way.
 2. **Story: 3–5 beats and one payoff, 10–16 seconds.** Every cursor move needs a reason. Fill in what the motion means; if you can't, cut it.
 3. **Screen.** A full, structured screen in quiet colour. Real words only where the story is, about 3–7 strings; filler everywhere else, at the edges rather than where the eye lands.
 4. **Choreograph.** Keep elements mounted and animate them in and out, so exits play. Stagger groups and overlap beats.
@@ -292,7 +292,7 @@ A WebGL scene starts with `// @vendor three-full three-kit`. That gives three.js
 
 `setup` may be `async`; the exporter waits for it, and fails loudly if it throws, instead of recording blank frames.
 
-- **Models:** reference a file in content as `"asset:models/<name>.glb"` and the build embeds it, so the page stays one offline file.
+- **Models:** reference a file in content as `"asset:models/<name>.glb"` and the build embeds it, so the page stays one offline file. `add` copies every `asset:` file into the scene's folder under the same path, so an added scene (including `shot-demo`) builds and syncs on its own.
   - **Licences:** CC0 only by default (Kenney, Quaternius, Poly Haven), recorded in `assets/LICENSES.json`.
   - **Getting files:** download by hand or through an official API, never by scraping. Poly Pizza's terms forbid scripted downloads, and its licences vary per model.
 - **No model fits?** Build it in code: extrude the brand's SVG, use rounded boxes or a lathe, and `InstancedMesh` for repeats.

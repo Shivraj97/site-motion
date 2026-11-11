@@ -238,12 +238,12 @@ node bin/site-motion.mjs init --tokens ./brand.json --style ink # site-motion.js
 node bin/site-motion.mjs style list | show | set <pack|code>    # the project's look (--only knob,knob for a partial apply)
 node bin/site-motion.mjs sync                                   # restyle every added scene after a brand or look change
 node bin/site-motion.mjs style export --format css|tailwind|dtcg|design-md [--out file]   # the look for your own components
-node bin/site-motion.mjs check <scene|all> [--style ink]        # determinism, loop seam, and (--baseline) pixel baselines
+node bin/site-motion.mjs check <scene|all> [--style ink]        # determinism, loop seam, contrast, text fit; in a project: your copy, its brand and look
 node bin/site-motion.mjs lint <scene|all> | --project           # source rules: determinism, token colours, no raw values on followed axes
 node bin/site-motion.mjs score <scene[@look]…> | --project      # does the set look like one site? names the odd one out
 node bin/site-motion.mjs plan --brief b.md | --url … | --pages … # one scene per section, one look, a contact sheet to approve
 node bin/site-motion.mjs plan show | sheet | swap <slot> <scene> | apply
-node bin/site-motion.mjs add <scene> --tokens mint              # copy the scene's source into your project (you own it)
+node bin/site-motion.mjs add <scene> --tokens mint              # copy the scene's source into your project (you own it); demos: --view card --play once
 node bin/site-motion.mjs init <scene> --tokens mint             # writes ./brand.json and ./<scene>.json to edit
 node bin/site-motion.mjs build <scene> --tokens … --content …   # one HTML file
 node bin/site-motion.mjs render <file.html> --formats mp4,webm,webp,gif,png,sheet

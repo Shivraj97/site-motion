@@ -43,7 +43,7 @@ test("initialize, tools/list and build_scene over stdio", async (t) => {
   c.notify("notifications/initialized");
 
   const list = await c.request("tools/list", {});
-  assert.deepEqual(list.result.tools.map((x) => x.name).sort(), ["build_scene", "export_style", "list_scenes", "plan_site", "render_scene", "theme_from_url"]);
+  assert.deepEqual(list.result.tools.map((x) => x.name).sort(), ["add_scene", "build_scene", "check_scene", "export_style", "list_scenes", "plan_site", "render_scene", "shot_from_image", "sync_project", "theme_from_url"]);
   for (const tool of list.result.tools) assert.equal(tool.inputSchema.type, "object");
 
   const scenes = await c.request("tools/call", { name: "list_scenes", arguments: {} });
@@ -153,5 +153,24 @@ test("plan_site: a brief becomes a plan in site-motion.json; swap changes a pick
   assert.equal(swapped.result.structuredContent.plan["home.feature"].scene, "drop-pile");
   const bad = await c.request("tools/call", { name: "plan_site", arguments: { action: "swap", slot: "home.nope", scene: "loom" } });
   assert.equal(bad.result.isError, true);
+  await c.close();
+});
+
+test("add_scene and sync_project: a project gets a demo whose view and play survive the rebuild", async (t) => {
+  const dir = mkdtempSync(join(tmpdir(), "sm-mcp-add-"));
+  t.after(() => rmSync(dir, { recursive: true, force: true }));
+  const c = client(dir, t);
+  await c.request("initialize", { protocolVersion: "2025-06-18", capabilities: {}, clientInfo: { name: "test", version: "0" } });
+  const added = await c.request("tools/call", { name: "add_scene", arguments: { scene: "agent-checkout", tokens: "mint", view: "card", play: "once" } });
+  assert.equal(added.result.isError, false, added.result.content[0].text);
+  assert.equal(added.result.structuredContent.look, "soft-ui");
+  assert.match(added.result.structuredContent.embed, /aspect-ratio:800\/600/);
+  const lock = JSON.parse(readFileSync(join(dir, "site-motion.json"), "utf8"));
+  assert.deepEqual(lock.embeds, { "agent-checkout": { view: "card", play: "once" } });
+  const synced = await c.request("tools/call", { name: "sync_project", arguments: {} });
+  assert.equal(synced.result.isError, false, synced.result.content[0].text);
+  assert.match(synced.result.structuredContent.synced[0], /agent-checkout\.html .*view card, play once/);
+  const missing = await c.request("tools/call", { name: "add_scene", arguments: { scene: "no-such-scene" } });
+  assert.equal(missing.result.isError, true);
   await c.close();
 });

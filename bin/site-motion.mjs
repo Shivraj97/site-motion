@@ -159,13 +159,19 @@ async function add() {
   const { addScene, defaultAddDir } = await import("../lib/add.mjs");
   const { projectForAdd, recordScene, resolveInputs } = await import("../lib/project.mjs");
   const { sceneDir, sceneMeta } = await import("../lib/build.mjs");
-  const meta = sceneMeta(sceneDir(target));
+  const { withParent } = await import("../lib/variant.mjs");
+  // a variant has no look of its own: it is drawn in its concept's home pack, so it locks the project to that
+  const own = sceneMeta(sceneDir(target));
+  let parentMeta = null;
+  try { parentMeta = own.variantOf ? sceneMeta(sceneDir(own.variantOf)) : null; } catch {}
+  const meta = withParent(own, parentMeta);
   // the first add in a project locks the look to this scene's home pack; later adds follow the lockfile
   const { project: p, created } = projectForAdd({ meta, cli: { tokens: opts.tokens, style: opts.style }, dir: String(opts.dir || defaultAddDir()) });
   const { tokens, style } = resolveInputs({ project: p, cli: { tokens: opts.tokens } });
   const dir = resolve(p.dir, String(opts.dir || p.data.dir || defaultAddDir(p.dir)));
-  const r = addScene({ scene: target, dir, tokens, content: opts.content || null, style, force: !!opts.force });
-  recordScene(p, r.name);
+  const embed = { view: opts.view ? String(opts.view) : null, play: opts.play ? String(opts.play) : null };
+  const r = addScene({ scene: target, dir, tokens, content: opts.content || null, style, force: !!opts.force, ...embed });
+  recordScene(p, r.name, embed);
   const rel = (q) => relative(process.cwd(), q) || ".";
   if (created) console.log(`locked  style "${p.data.style}" (from ${r.name}) in ${rel(p.file)}: every scene you add next matches it`);
   else console.log(`style   "${styleName(style)}" (from ${rel(p.file)})`);
@@ -175,7 +181,9 @@ async function add() {
   console.log(`embed   ${rel(r.bundle)}  (one self-contained file)`);
   console.log(`\nYou own these files. Edit the copy in content.json, the brand in tokens.json, the motion in scene.js.`);
   console.log(`Preview: serve the folder and open ${rel(r.sceneOut)}/index.html (it re-reads the JSON on refresh).`);
-  console.log(`Embed:   <iframe src="/${rel(r.bundle).replace(/^public\//, "")}" style="width:100%;aspect-ratio:16/9;border:0" loading="lazy" title="${r.name}"></iframe>`);
+  const { VIEWS } = await import("../lib/build.mjs");
+  const size = embed.view && VIEWS[embed.view];
+  console.log(`Embed:   <iframe src="/${rel(r.bundle).replace(/^public\//, "")}" style="width:100%;aspect-ratio:${size ? size.join("/") : "16/9"};border:0" loading="lazy" title="${r.name}"></iframe>`);
   console.log(`Rebuild every embed after edits or a look change:\n  node ${process.argv[1]} sync`);
 }
 
@@ -264,25 +272,37 @@ async function sync() {
   const { tokens, style } = resolveInputs({ project: p });
   const dir = resolve(p.dir, p.data.dir || defaultAddDir(p.dir));
   for (const name of p.data.scenes) {
-    const r = syncScene({ sceneOut: join(dir, name), tokens, style });
-    console.log(`synced  ${relative(process.cwd(), r.bundle)}  (style ${r.style})`);
+    const embed = p.data.embeds?.[name] || {};
+    const r = syncScene({ sceneOut: join(dir, name), tokens, style, ...embed });
+    const how = [embed.view && `view ${embed.view}`, embed.play && `play ${embed.play}`].filter(Boolean).join(", ");
+    console.log(`synced  ${relative(process.cwd(), r.bundle)}  (style ${r.style}${how ? ", " + how : ""})`);
   }
   if (!p.data.scenes.length) console.log("no scenes added yet");
+}
+
+// Inside a project, a bare scene name means your added copy (the one you edited), not the library original.
+async function projectCopy(name) {
+  const p = await project();
+  if (!p || /[\\/]/.test(String(name))) return name;
+  const { defaultAddDir } = await import("../lib/add.mjs");
+  const copy = join(resolve(p.dir, String(p.data.dir || defaultAddDir(p.dir))), String(name));
+  return existsSync(join(copy, "scene.js")) ? copy : name;
 }
 
 async function check() {
   const { checkHtml, report } = await import("../lib/check.mjs");
   const { mkdtempSync } = await import("node:fs");
   const { tmpdir } = await import("node:os");
-  const names = sceneArgs();
-  const tokens = opts.tokens || "default";
+  const names = target === "all" ? sceneArgs() : await Promise.all(sceneArgs().map(projectCopy));
+  // a project's brand and look (site-motion.json) unless flags say otherwise
+  const { tokens, style } = await inputs();
   const mode = opts.baseline === true ? "compare" : opts.baseline;
   const baseline = mode ? { dir: resolve(String(opts["baseline-dir"] || ".sm-baseline"), basename(String(tokens)).replace(/\.json$/, "")), mode } : null;
   const tmp = mkdtempSync(join(tmpdir(), "sm-check-"));
   let failed = 0;
   for (const name of names) {
     const html = join(tmp, `${basename(name)}.html`);
-    writeFileSync(html, buildHtml({ scene: name, tokens, style: opts.style || "native" }));
+    writeFileSync(html, buildHtml({ scene: name, tokens, style }));
     // product-UI demos always get the jump check (a snapped state is the classic faux-UI tell); others with --jumps
     const metaFile = join(existsSync(join(String(name), "meta.json")) ? String(name) : join(ROOT, "scenes", String(name)), "meta.json");
     const family = existsSync(metaFile) ? JSON.parse(readFileSync(metaFile, "utf8")).family : null;
@@ -298,12 +318,13 @@ async function check() {
 // the compact view, contact sheets at the shown width and at phone width, and a note for what was and wasn't looked at.
 async function rehearse() {
   const { checkHtml, report } = await import("../lib/check.mjs");
-  const tokens = opts.tokens || "default", style = opts.style || "native", name = basename(String(target));
+  const { tokens, style } = await inputs();
+  const scene = await projectCopy(target), name = basename(String(target));
   const dir = resolve(String(opts.out || join("out", "rehearsal", name)));
   mkdirSync(dir, { recursive: true });
   const hero = join(dir, `${name}.html`), compact = join(dir, `${name}-compact.html`);
-  writeFileSync(hero, buildHtml({ scene: target, tokens, style, content: opts.content }));
-  writeFileSync(compact, buildHtml({ scene: target, tokens, style, content: opts.content, view: "compact" }));
+  writeFileSync(hero, buildHtml({ scene, tokens, style, content: opts.content }));
+  writeFileSync(compact, buildHtml({ scene, tokens, style, content: opts.content, view: "compact" }));
   const full = await checkHtml(hero, { name, jumps: true, framing: true });
   console.log(report(full));
   const small = await checkHtml(compact, { name: name + " (compact)" });
@@ -506,7 +527,9 @@ async function planCmd() {
       console.log(`added   ${slot.padEnd(18)} ${relative(process.cwd(), r.bundle)}`);
     }
     console.log(`\nEvery scene is in ${relative(process.cwd(), dir) || "."}/ in the "${p.data.style}" look. Put each embed in its section:`);
-    for (const [slot, pick] of Object.entries(p.data.plan.slots)) console.log(`  ${slot.padEnd(18)} <iframe src="/${relative(p.dir, join(dir, pick.scene + ".html")).replace(/^public\//, "")}" style="width:100%;aspect-ratio:16/9;border:0" loading="lazy" title="${pick.scene}"></iframe>`);
+    const { VIEWS } = await import("../lib/build.mjs");
+    const ratio = (scene) => { const v = p.data.embeds?.[scene]?.view; return v && VIEWS[v] ? VIEWS[v].join("/") : "16/9"; };
+    for (const [slot, pick] of Object.entries(p.data.plan.slots)) console.log(`  ${slot.padEnd(18)} <iframe src="/${relative(p.dir, join(dir, pick.scene + ".html")).replace(/^public\//, "")}" style="width:100%;aspect-ratio:${ratio(pick.scene)};border:0" loading="lazy" title="${pick.scene}"></iframe>`);
     console.log(`\nNext: write each scene's copy in its content.json, then site-motion sync. Check the set with site-motion score --project.`);
     return;
   }

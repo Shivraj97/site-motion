@@ -42,6 +42,7 @@ Workflow: list_scenes → pick the scene whose story fits the product → (theme
 Colours come only from tokens; copy only from content (never edit a scene for copy). Use fictional names for third-party brands.
 One look per site: if list_scenes reports a project (a site-motion.json), leave tokens and style out of build_scene and the project's brand and style pack apply to every scene. Without a project, pick one style pack from list_scenes (the home pack of the first scene chosen) and pass that same style to every build_scene for the site.
 A whole site: plan_site maps every section (from page names, a brief, or the live site's headings) to one scene in one look and draws a contact sheet. Show the sheet to the user and get their approval (swap picks they don't like) before plan_site action "apply" adds the scenes.
+In a project: add_scene copies a scene in (the site owns it), edit its content.json for the words and numbers, then sync_project rebuilds every embed; check_scene before shipping. A product screenshot becomes a demo with shot_from_image, then add_scene shot-demo with its content.json.
 Beyond the scenes: export_style gives the same look as CSS variables, a Tailwind v4 @theme, DTCG tokens or a DESIGN.md section. When you build the site's own buttons, cards and transitions, use those values (shadows, radii, easing, label style) instead of inventing new ones.`;
 
 const TOOLS = [
@@ -154,6 +155,66 @@ const TOOLS = [
         attachImage: { type: "boolean", description: "Attach the contact sheet (or poster) to the result as an image. Default true." },
       },
       required: ["file"],
+      additionalProperties: false,
+    },
+    annotations: { readOnlyHint: false, destructiveHint: false, openWorldHint: false },
+  },
+  {
+    name: "add_scene",
+    title: "Add a scene's source to the project",
+    description: "Copy a scene into the project so the site owns it (shadcn-style): <dir>/<scene>/ (scene.js, scene.css, content.json, tokens.json, style.json, a dev page) plus one embeddable <dir>/<scene>.html. The first add creates site-motion.json and locks the site's look to that scene's home pack (a variant uses its concept's). Edit content.json for the words, then sync_project. Product demos (ui-demo scenes) take view (hero, strip, card, compact) and play (loop, once, hover), which sync keeps.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        scene: { type: "string", description: "Scene name from list_scenes (e.g. step-rail, score-sheet--hero, shot-demo)." },
+        tokens: { type: "string", description: "Only before the first add: a preset name or a token file path. After that the project's brand applies." },
+        content: { type: "string", description: "A content JSON file to start from (deep-merged over the scene's defaults). asset: files it names are copied into the scene folder." },
+        dir: { type: "string", description: "Folder for the scenes. Defaults to public/motion if the project has public/, else motion." },
+        view: { type: "string", enum: ["hero", "strip", "card", "compact"], description: "Product demos only: the cut of the 1600×900 design." },
+        play: { type: "string", enum: ["loop", "once", "hover"], description: "Product demos only: when it plays." },
+        force: { type: "boolean", description: "Overwrite a scene added before (its edited files are replaced)." },
+      },
+      required: ["scene"],
+      additionalProperties: false,
+    },
+    annotations: { readOnlyHint: false, destructiveHint: true, openWorldHint: false },
+  },
+  {
+    name: "sync_project",
+    title: "Rebuild every added scene",
+    description: "After editing a scene's content.json, or changing the brand or the look (site-motion.json): rewrite each added scene's tokens and style and rebuild its embed. scene.js, scene.css and content.json are never touched.",
+    inputSchema: { type: "object", properties: {}, additionalProperties: false },
+    annotations: { readOnlyHint: false, destructiveHint: false, openWorldHint: false },
+  },
+  {
+    name: "check_scene",
+    title: "Check a scene before it ships",
+    description: "Run site-motion's checks on a scene in the project's brand and look: determinism, the loop seam, WCAG AA contrast, text that doesn't fit its box, and for product demos one-frame jumps and framing. Inside a project a bare name checks your added copy. Returns ok plus the report; fix what is marked ✗. Takes 10-60 s.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        scene: { type: "string", description: "A scene name (your added copy inside a project) or a path to a scene folder." },
+        jumps: { type: "boolean", description: "Also check for one-frame jumps on a non-demo scene." },
+      },
+      required: ["scene"],
+      additionalProperties: false,
+    },
+    annotations: { readOnlyHint: true, openWorldHint: false },
+  },
+  {
+    name: "shot_from_image",
+    title: "Start a product demo from a screenshot",
+    description: "Turn a screenshot of the product into a shot-demo folder: the image (plus a jpg for the embed), a ruled grid labelled in image pixels (attached, to name hotspots on), tokens read from the screen's colours, and a starter content.json. Next: name hotspots and write edits, cursor and camera beats in that content.json (see SKILL.md, 'From a screenshot'), then build_scene shot-demo with it, or add_scene shot-demo with content.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        image: { type: "string", description: "Path to the screenshot (PNG or JPEG; a 2x capture keeps zooms sharp)." },
+        name: { type: "string", description: "Short name for the product (used for the folder and tokens)." },
+        url: { type: "string", description: "The address shown in the browser frame." },
+        frame: { type: "string", enum: ["browser", "window", "phone", "none"], description: "Device frame; guessed from the image shape when left out." },
+        out: { type: "string", description: "Output folder. Defaults to shots/<name>." },
+      },
+      required: ["image", "name"],
       additionalProperties: false,
     },
     annotations: { readOnlyHint: false, destructiveHint: false, openWorldHint: false },
@@ -414,6 +475,51 @@ async function renderScene({ file, formats, range, scale, fps, out, attachImage 
 
 const children = new Set();
 
+// add_scene, sync_project, check_scene, shot_from_image: the project commands, run as the CLI in WORKDIR like plan_site
+async function addSceneTool({ scene, tokens, content, dir, view, play, force } = {}, ctx) {
+  const args = ["add", String(scene)];
+  if (tokens) args.push("--tokens", String(tokens));
+  if (content) args.push("--content", String(content));
+  if (dir) args.push("--dir", String(dir));
+  if (view) args.push("--view", String(view));
+  if (play) args.push("--play", String(play));
+  if (force) args.push("--force");
+  const r = await runCli(args, { cwd: WORKDIR, ctx, label: "adding", timeoutMs: 120_000 });
+  if (r.code !== 0) throw new ToolError(cliError(r));
+  const found = findProject(WORKDIR);
+  return { scene, look: found?.data.style, folder: r.stdout.match(/^added\s+(\S+)/m)?.[1], embed: r.stdout.match(/^Embed:\s+(.+)$/m)?.[1], log: r.stdout.trim() };
+}
+
+async function syncProjectTool(_args, ctx) {
+  const r = await runCli(["sync"], { cwd: WORKDIR, ctx, label: "syncing", timeoutMs: 5 * 60_000 });
+  if (r.code !== 0) throw new ToolError(cliError(r));
+  return { synced: [...r.stdout.matchAll(/^synced\s+(.+)$/gm)].map((m) => m[1]), log: r.stdout.trim() };
+}
+
+async function checkSceneTool({ scene, jumps } = {}, ctx) {
+  const args = ["check", String(scene)];
+  if (jumps) args.push("--jumps");
+  const r = await runCli(args, { cwd: WORKDIR, ctx, label: "checking", timeoutMs: 10 * 60_000 });
+  // a failed check exits 1 with a report: that is a result to act on, not a tool error
+  if (r.code !== 0 && !/passed/.test(r.stdout)) throw new ToolError(cliError(r));
+  return { scene, ok: r.code === 0, report: r.stdout.trim() };
+}
+
+async function shotTool({ image, name, url, frame, out } = {}, ctx) {
+  const args = ["shot", String(image), "--name", String(name)];
+  if (url) args.push("--url", String(url));
+  if (frame) args.push("--frame", String(frame));
+  if (out) args.push("--out", String(out));
+  const r = await runCli(args, { cwd: WORKDIR, ctx, label: "reading the screenshot", timeoutMs: 180_000 });
+  if (r.code !== 0) throw new ToolError(cliError(r));
+  const folder = r.stdout.match(/^wrote\s+(\S+?)\/?\s/m)?.[1];
+  const dir = folder ? resolve(WORKDIR, folder) : resolve(WORKDIR, out ? String(out) : join("shots", String(name)));
+  const result = { folder: dir, content: join(dir, "content.json"), tokens: join(dir, "tokens.json"), grid: join(dir, "grid.png"), log: r.stdout.trim() };
+  const content = [{ type: "text", text: JSON.stringify(result, null, 2) }];
+  if (existsSync(result.grid) && statSync(result.grid).size < 4 * 1024 * 1024) content.push({ type: "image", data: readFileSync(result.grid).toString("base64"), mimeType: "image/png" });
+  return { result, content };
+}
+
 function cliError(r) {
   const msg = (r.stderr.match(/site-motion: ([\s\S]*)/)?.[1] || r.stderr || r.stdout).trim();
   return msg ? msg.split("\n").slice(-12).join("\n") : `site-motion exited with ${r.code}`;
@@ -480,6 +586,10 @@ async function callTool(id, params) {
     else if (name === "plan_site") value = await planSiteTool(args, ctx);
     else if (name === "theme_from_url") value = await themeFromUrl(args, ctx);
     else if (name === "render_scene") value = await renderScene(args, ctx);
+    else if (name === "add_scene") value = await addSceneTool(args, ctx);
+    else if (name === "sync_project") value = await syncProjectTool(args, ctx);
+    else if (name === "check_scene") value = await checkSceneTool(args, ctx);
+    else if (name === "shot_from_image") value = await shotTool(args, ctx);
     if (controller.signal.aborted) return; // cancelled: the spec says send nothing
     const content = value.content || [{ type: "text", text: JSON.stringify(value, null, 2) }];
     const structured = value.content ? value.result : value;
