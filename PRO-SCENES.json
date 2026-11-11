@@ -1,6 +1,6 @@
 {
   "$comment": "site-motion Pro scenes: not in this repo, watchable on the site. Written by the private repo's publish script.",
-  "site": "https://site-motion-two.vercel.app",
+  "site": "https://sitemotion.dev",
   "scenes": {
     "agent-chat": "Close the month from one message",
     "agent-fleet": "One failed agent, found and back in seconds",

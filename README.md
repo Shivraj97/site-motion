@@ -2,9 +2,9 @@
 
 Animated website scenes in your own design system, without a motion designer.
 
-[![Four site-motion scenes playing: a payment stamped and sealed, tools woven into one fabric, onboarding steps, and an agent paying by card](assets/readme/scenes.webp)](https://site-motion-two.vercel.app)
+[![Four site-motion scenes playing: a payment stamped and sealed, tools woven into one fabric, onboarding steps, and an agent paying by card](assets/readme/scenes.webp)](https://sitemotion.dev)
 
-**[Watch every scene](https://site-motion-two.vercel.app)** · **[Product demos](https://site-motion-two.vercel.app/demos)** · **[Style Studio](https://site-motion-two.vercel.app/studio)** · **[Docs](https://site-motion-two.vercel.app/docs)**
+**[Watch every scene](https://sitemotion.dev)** · **[Product demos](https://sitemotion.dev/demos)** · **[Style Studio](https://sitemotion.dev/studio)** · **[Docs](https://sitemotion.dev/docs)**
 
 Give it your brand's tokens (colours, type, radius) and a few lines of copy, and it gives you a scene that tells your product's story: a payment stamped, signed and sealed; tools woven into one fabric; a storm your users never notice. Every scene is one HTML file:
 
@@ -69,7 +69,7 @@ Every pack has a short code (`site-motion style list`), such as `sm1.00200000000
 
 Every public scene follows style packs. A scene only takes the parts of a look it was built for (its `meta.json` `directable` list), so anything it draws on purpose, like a painted landscape, stays as drawn.
 
-Or try looks in the browser: the [Style Studio](https://site-motion-two.vercel.app/studio) puts one scene side by side, before and after, as you turn each knob, then gives you the code, a CLI line or a prompt for your coding agent.
+Or try looks in the browser: the [Style Studio](https://sitemotion.dev/studio) puts one scene side by side, before and after, as you turn each knob, then gives you the code, a CLI line or a prompt for your coding agent.
 
 ### Plan the whole site at once
 
@@ -174,7 +174,7 @@ Each scene is organised by the story it tells, not by how it looks. Every scene 
 | `phone-stack` | notifications: alerts land on a lock screen, and a tap opens the newest in the app | DOM + ui-kit |
 | `shot-demo` | your product: your own screenshot, typed into and clicked through, with a camera | DOM + ui-kit |
 
-<details><summary><b>49 more, site-motion Pro</b>: watch them at <a href="https://site-motion-two.vercel.app">site-motion-two.vercel.app</a>; they aren't in this repo</summary>
+<details><summary><b>49 more, site-motion Pro</b>: watch them at <a href="https://sitemotion.dev">sitemotion.dev</a>; they aren't in this repo</summary>
 
 | Scene | Story | Renderer |
 |---|---|---|
@@ -258,7 +258,7 @@ Token presets: `default`, `mint`, `ledger`, `night`.
 
 ## Product demos and agents
 
-A product demo is your product's screen rebuilt in the browser, with a cursor doing one job and a camera following it. Start from one of the free demos (`click-to-done`, `dashboard-push`, `phone-stack`, `agent-checkout`), from a screenshot with `shot`, or ask Claude to build a new screen with `runtime/ui-kit.js`. The walkthrough is in [the docs](https://site-motion-two.vercel.app/docs).
+A product demo is your product's screen rebuilt in the browser, with a cursor doing one job and a camera following it. Start from one of the free demos (`click-to-done`, `dashboard-push`, `phone-stack`, `agent-checkout`), from a screenshot with `shot`, or ask Claude to build a new screen with `runtime/ui-kit.js`. The walkthrough is in [the docs](https://sitemotion.dev/docs).
 
 **MCP server:** `node mcp/server.mjs` serves six tools over stdio (list scenes, theme from a URL, build, render, export the look, plan a site) for Cursor, Codex or any MCP client.
 
