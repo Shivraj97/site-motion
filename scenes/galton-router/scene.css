@@ -1,0 +1,15 @@
+.gr { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.gr-svg { position: absolute; inset: 0; }
+.gr-copy { position: absolute; left: 96px; top: 150px; width: 470px; }
+.gr-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
+.gr-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(50px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); }
+.gr-sub { margin-top: 18px; font-size: 18px; line-height: 1.5; color: var(--c-muted); }
+.gr-rule { position: absolute; left: 96px; top: 520px; display: inline-flex; align-items: center; gap: 12px; padding: 10px 16px 10px 10px; border-radius: var(--sm-radius-md, 12px); background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, var(--stroke-w, 1px)) var(--sm-stroke-color, var(--c-stroke, var(--c-line))), var(--sm-shadow-2, 0 0 0 0 transparent); font-size: 16px; opacity: 0; }
+.gr-rule-k { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; padding: 4px 8px; border-radius: var(--sm-radius-sm, 6px); background: var(--c-accent-fill, var(--c-accent)); color: var(--c-on-accent, #fff); }
+.gr-rate { position: absolute; left: 96px; top: 610px; display: flex; flex-direction: column; gap: 4px; }
+.gr-rate b { font-family: var(--font-display, var(--font-sans)); font-weight: var(--sm-type-weight, 400); font-size: calc(96px * var(--sm-type-k, 1)); letter-spacing: var(--sm-type-tracking, -0.04em); line-height: 1; font-variant-numeric: tabular-nums; }
+.gr-rate span { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.gr-bin { position: absolute; text-align: center; }
+.gr-bin-name { font-size: 14px; font-weight: 500; }
+.gr-bin-pct { font-family: var(--font-mono); font-size: 18px; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.gr-bin-note { font-family: var(--font-mono); font-size: 11px; color: var(--c-muted); margin-top: 2px; }

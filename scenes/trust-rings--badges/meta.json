@@ -1,0 +1,21 @@
+{
+  "variantOf": "trust-rings",
+  "role": "trust",
+  "differs": {
+    "mechanic": "The concentric rings roll apart along one line and each becomes an empty seal that a travelling press stamps in turn, instead of requests passing inward through the rings and one being stopped.",
+    "layout": "A full-width row of five lettered seals under a top-spanning heading, with a status line across the foot, instead of a target of rings on the left beside a copy and audit-log column.",
+    "data": "A list of credentials with audit dates whose control counts sum into one passing total (0 to 212 of 212), instead of three requests tallied allowed versus blocked.",
+    "moment": "The full row stamped, every seal inked and dated with the bar full; the parent is remembered for the access-policy ring closing round on a blocked request."
+  },
+  "renderer": "SVG",
+  "blurb": "The control rings roll apart into a row of seals; a press stamps each framework with its audit date while the passing controls add up.",
+  "featured": false,
+  "directable": [
+    "stroke",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture"
+  ]
+}

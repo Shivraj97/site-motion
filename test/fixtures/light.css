@@ -1,0 +1,13 @@
+/* Synthetic fixture stylesheet (light site). */
+html { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+body { background: #fbfaf7; color: #1f2328; margin: 0; }
+a { color: #0f766e; text-decoration: none; }
+a:hover { color: #ff0000; }
+h1 { color: #111111; font-size: 56px; }
+.btn { display: inline-block; padding: 10px 16px; border-radius: 8px; }
+.btn-primary { background-color: #0f766e; color: #ffffff; }
+.btn-ghost { background: transparent; border: 1px solid #d0d7de; }
+.btn-primary:hover { background-color: #115e59; }
+@media (max-width: 640px) { body { background: #000000; } }
+@media (prefers-color-scheme: dark) { body { background: #0d1117; color: #e6edf3; } }
+@media print { body { background: #ff00ff; } }

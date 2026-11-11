@@ -1,0 +1,18 @@
+.wh { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.wh-svg { position: absolute; inset: 0; }
+.wh-copy { position: absolute; left: 96px; top: 92px; width: 720px; }
+.wh-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 14px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 18px; }
+.wh-h { margin: 0; font-family: var(--font-display, var(--font-sans)); font-size: calc(78px * var(--sm-type-k, 1)); line-height: 1.02; letter-spacing: var(--sm-type-tracking, -0.03em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
+.wh-sub { margin-top: 22px; font-size: 20px; line-height: 1.5; color: var(--c-muted); max-width: 520px; }
+.wh-start { position: absolute; left: 1004px; top: 84px; width: 220px; }
+.wh-start-name { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.wh-start-n { font-family: var(--font-display, var(--font-sans)); font-size: calc(36px * var(--sm-type-k, 1)); letter-spacing: var(--sm-type-tracking, -0.03em); font-weight: var(--sm-type-weight, 400); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.wh-start-note { font-family: var(--font-mono); font-size: 13px; color: var(--c-muted); margin-top: 2px; }
+.wh-paid { position: absolute; left: 116px; top: 812px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 14px; letter-spacing: var(--sm-label-tracking, .1em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-ink); }
+.wh-figrow { position: absolute; left: 96px; display: flex; align-items: flex-end; gap: 22px; }
+.wh-clip { overflow: hidden; padding: 30px 6px 0 0; }
+.wh-num { display: flex; font-family: var(--font-display, var(--font-sans)); font-size: calc(210px * var(--sm-type-k, 1)); line-height: 0.8; letter-spacing: var(--sm-type-tracking, -0.05em); font-weight: var(--sm-type-weight, 400); color: var(--c-ink); padding-bottom: 14px; font-variant-numeric: tabular-nums; }
+.wh-g { display: block; }
+.wh-cap { width: 190px; padding-bottom: 22px; }
+.wh-cap-t { font-size: 21px; line-height: 1.3; color: var(--c-ink); }
+.wh-cap-d { margin-top: 10px; font-family: var(--font-mono); font-size: 13px; color: var(--c-muted); }

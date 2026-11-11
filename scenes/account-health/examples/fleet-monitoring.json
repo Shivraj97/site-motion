@@ -1,0 +1,26 @@
+{
+  "title": "Service health",
+  "label": "A fleet health table with five services: tier, health score, a 30-day sparkline, region and on-call engineer. One service degrades to critical, a failover runbook runs at the low point, and over the following days it recovers to operational; one other service stays degraded throughout.",
+  "eyebrow": "Fleet monitoring",
+  "heading": "Catch the slide.\nRun the fix.",
+  "sub": "Error rate, latency and saturation become one health score per service. When one falls, its runbook fires before the pager does.",
+  "days": 30,
+  "columns": { "account": "Service", "segment": "Tier", "health": "Health", "trend": "Last 30 days", "meta": "Region", "owner": "On call" },
+  "thresholds": { "healthy": 75, "watch": 55 },
+  "states": { "healthy": "Operational", "watch": "Degraded", "risk": "Critical" },
+  "cursor": "Day {day} of {days}",
+  "footer": "{healthy} of {total} services operational · {risk} critical",
+  "accounts": [
+    { "name": "checkout-api", "mark": "CA", "segment": "Tier 1", "meta": "us-east", "owner": "Sam Ortiz",
+      "series": [96, 97, 96, 97, 97, 96, 97, 98, 97, 97, 98, 97, 96, 97, 97, 98, 97, 98, 97, 97, 98, 98, 97, 98, 98, 97, 98, 98, 99, 98] },
+    { "name": "payments-worker", "mark": "PW", "segment": "Tier 1", "meta": "eu-west", "owner": "Lena Fischer",
+      "series": [94, 95, 94, 95, 94, 93, 94, 92, 90, 86, 80, 72, 63, 54, 46, 40, 37, 41, 49, 58, 67, 75, 81, 86, 89, 91, 92, 93, 93, 94],
+      "playbook": { "label": "Runbook", "name": "Fail over to eu-central", "pending": "running", "status": "done" } },
+    { "name": "search-index", "mark": "SI", "segment": "Tier 2", "meta": "us-west", "owner": "Raj Patel",
+      "series": [68, 67, 69, 68, 66, 67, 68, 69, 67, 66, 68, 67, 69, 68, 67, 66, 68, 69, 68, 67, 66, 68, 67, 69, 68, 67, 68, 69, 68, 68] },
+    { "name": "media-cdn", "mark": "MC", "segment": "Tier 2", "meta": "global", "owner": "Sam Ortiz",
+      "series": [92, 93, 92, 93, 94, 93, 92, 93, 94, 93, 94, 94, 93, 94, 95, 94, 93, 94, 95, 94, 95, 95, 94, 95, 96, 95, 95, 96, 95, 96] },
+    { "name": "notify-queue", "mark": "NQ", "segment": "Tier 3", "meta": "ap-south", "owner": "Mia Chen",
+      "series": [85, 86, 85, 84, 86, 85, 86, 87, 86, 85, 86, 87, 86, 87, 88, 87, 86, 87, 88, 87, 88, 88, 87, 88, 89, 88, 88, 89, 88, 89] }
+  ]
+}

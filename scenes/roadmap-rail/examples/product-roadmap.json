@@ -1,0 +1,37 @@
+{
+  "title": "This year's roadmap",
+  "label": "A product roadmap from Q1 to Q4 with three tracks: Product, Platform and Customers. A Today marker walks the year; shipped milestones fill in, ranges fill as it passes, planned ones stay outlined. At the public API launch in August its flag opens into a card.",
+  "eyebrow": "Roadmap",
+  "heading": "What we're shipping\nthis year.",
+  "sub": "Our public plan, updated every quarter. Ask us about anything on it.",
+  "axis": { "periods": ["Q1", "Q2", "Q3", "Q4"], "sub": 3 },
+  "playhead": { "label": "Today" },
+  "status": { "done": "shipped", "active": "in progress", "planned": "planned" },
+  "tracks": [
+    {
+      "name": "Product",
+      "milestones": [
+        { "title": "New editor", "date": "Feb 10", "at": 0.45 },
+        { "title": "Comments", "date": "Apr 14 – May 30", "at": 1.15, "end": 1.65 },
+        { "title": "Dashboards", "date": "Nov 2", "at": 3.35 }
+      ]
+    },
+    {
+      "name": "Platform",
+      "milestones": [
+        { "title": "Usage-based billing", "date": "Mar 3", "at": 0.7 },
+        { "title": "Public API v2", "date": "Aug 12", "at": 2.45, "highlight": true, "status": "Generally available", "note": "Every object in the app, behind one documented, versioned API with webhooks." },
+        { "title": "Regional hosting", "date": "Oct 1 – Dec 10", "at": 3.0, "end": 3.8 }
+      ]
+    },
+    {
+      "name": "Customers",
+      "milestones": [
+        { "title": "Onboarding checklist", "date": "Jan 27", "at": 0.3 },
+        { "title": "Academy courses", "date": "May 5 – Jul 25", "at": 1.4, "end": 2.27 },
+        { "title": "Community forum", "date": "Sep 8", "at": 2.75 },
+        { "title": "Partner program", "date": "Dec 1", "at": 3.67 }
+      ]
+    }
+  ]
+}

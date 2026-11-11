@@ -1,0 +1,25 @@
+.ts { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.ts-svg { position: absolute; inset: 0; }
+.ts-copy { position: absolute; left: 96px; top: 84px; width: 470px; }
+.ts-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
+.ts-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(50px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
+.ts-sub { margin-top: 16px; font-size: 18px; line-height: 1.5; color: var(--c-muted); max-width: 470px; }
+.ts-yr { font-family: var(--font-mono); font-size: 13px; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+
+/* a moment, pinned to its ring: year, title on the leader, one line of note */
+.ts-m { position: absolute; width: 236px; }
+.ts-m.is-l { text-align: right; }
+.ts-m-y { display: flex; align-items: center; gap: 8px; height: 18px; font-family: var(--font-mono); font-size: 13px; color: var(--c-muted); font-variant-numeric: tabular-nums; }
+.ts-m.is-l .ts-m-y { justify-content: flex-start; flex-direction: row-reverse; }
+.ts-m-y i { flex: none; width: 9px; height: 9px; transform: rotate(45deg); border-radius: 2px; box-shadow: 0 0 0 1.5px var(--c-stroke, var(--c-ink)); } /* sm-native: a notch marker is a small diamond */
+.ts-m-t { font-size: 18px; font-weight: 500; line-height: 22px; color: var(--c-ink); white-space: nowrap; }
+.ts-m-n { margin-top: 3px; font-size: 14px; line-height: 19px; color: var(--c-muted); }
+
+/* today's card, the payoff */
+.ts-card { position: absolute; box-sizing: border-box; padding: 16px 20px 18px; background: var(--c-surface); border-radius: var(--sm-radius-md, var(--r-md)); box-shadow: 0 0 0 var(--sm-stroke-regular, 2px) var(--sm-stroke-color, var(--c-stroke, var(--c-ink))); }
+.ts-card-e { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.ts-fig { display: flex; align-items: baseline; gap: 10px; margin-top: 8px; white-space: nowrap; }
+.ts-fig-clip { display: inline-block; overflow: hidden; line-height: 1.05; }
+.ts-fig-v { display: inline-block; font-family: var(--font-display, var(--font-sans)); font-size: calc(68px * var(--sm-type-k, 1)); letter-spacing: var(--sm-type-tracking, -0.03em); font-weight: var(--sm-type-weight, 500); font-variant-numeric: tabular-nums; color: var(--c-ink); }
+.ts-fig-u { font-size: 20px; color: var(--c-muted); }
+.ts-card-n { margin-top: 8px; font-size: 15px; line-height: 1.45; color: var(--c-muted); }

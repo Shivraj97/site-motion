@@ -1,0 +1,27 @@
+.lf-canvas { position: absolute; inset: 0; width: 1600px; height: 900px; }
+.lf-copy { position: absolute; left: 1030px; top: 262px; width: 470px; }
+.lf-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.lf-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(46px * var(--sm-type-k, 1)); line-height: 1.06; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
+.lf-sub { margin-top: 18px; width: 430px; font-size: 18px; line-height: 1.5; color: var(--c-muted); }
+.lf-points { margin-top: 26px; display: flex; flex-direction: column; gap: 10px; }
+.lf-point { position: relative; padding-left: 26px; font-size: 15px; line-height: 1.4; color: var(--c-ink); }
+.lf-point::before { content: ""; position: absolute; left: 0; top: 9px; width: 14px; height: 3px; border-radius: 2px; background: var(--c-accent); }
+
+.lf-chip { position: absolute; top: 40px; width: 138px; box-sizing: border-box; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 8px 10px 8px 8px; border-radius: var(--r-md); background: var(--c-surface); box-shadow: inset 0 0 0 var(--sm-stroke-fine, var(--stroke-w, 1.2px)) var(--sm-stroke-color, var(--c-line)), var(--sm-shadow-1, 0 0 0 0 transparent); }
+.lf-mark { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; font-weight: 600; }
+.lf-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.lf-name { font-size: 15px; line-height: 1.2; color: var(--c-ink); white-space: nowrap; }
+.lf-status { position: relative; display: block; width: 84px; height: 16px; overflow: hidden; }
+.lf-st { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 6px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; line-height: 16px; letter-spacing: var(--sm-label-tracking, .02em); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.lf-st::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--c-positive, var(--c-accent)); }
+.lf-pend::before { background: var(--c-faint, var(--c-muted)); }
+
+.lf-tag { position: absolute; left: 0; top: 0; height: 18px; display: flex; align-items: center; gap: 8px; opacity: 0; }
+.lf-tag-line { width: 38px; height: 2px; background: var(--c-ink); }
+.lf-tag-txt { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-ink); white-space: nowrap; }
+
+.lf-beam { position: absolute; display: flex; justify-content: center; align-items: center; gap: 12px; }
+.lf-count { position: relative; display: inline-block; width: 26px; height: 40px; overflow: hidden; font-family: var(--font-display, var(--font-sans)); font-size: calc(34px * var(--sm-type-k, 1)); line-height: 40px; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
+.lf-digit { position: absolute; left: 0; top: 0; width: 100%; text-align: center; }
+.lf-count-label { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .1em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.lf-ring { position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 2px var(--c-accent); opacity: 0; pointer-events: none; } /* sm-native: the connected highlight is a state, not a stroke weight */

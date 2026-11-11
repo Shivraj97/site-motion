@@ -1,0 +1,42 @@
+{
+  "title": "Know the moment money moves",
+  "label": "A phone's lock screen at 9:41. Three notifications from Ledgerly arrive one after another, each sending a soft ring outward behind the phone: a payment received, an invoice viewed, a payout scheduled. A finger taps the newest, which opens into the app's payout screen: $8,470.00 on its way, initiated today, in transit, arriving Thursday. A swipe up returns to the lock screen and the notifications clear.",
+  "time": "9:41",
+  "date": "Tuesday, November 10",
+  "app": { "text": "L", "name": "Ledgerly" },
+  "now": "now",
+  "notes": [
+    { "at": 0.9, "title": "Payment received", "body": "Northwind paid invoice #1042 · $2,400" },
+    { "at": 2.2, "title": "Invoice viewed", "body": "Acme opened invoice #1043 just now" },
+    { "at": 3.5, "title": "Payout scheduled", "body": "$8,470 arrives Thursday, Nov 13" }
+  ],
+  "screen": {
+    "back": "Payouts",
+    "eyebrow": "Payout",
+    "amount": "$8,470.00",
+    "to": "To Business account ••4821",
+    "steps": [
+      { "label": "Initiated", "when": "Today, 9:41" },
+      { "label": "In transit", "when": "Wed, Nov 11" },
+      { "label": "Arrives", "when": "Thu, Nov 13" }
+    ],
+    "done": 1,
+    "button": "View details"
+  },
+  "cursor": [
+    { "at": 4.5, "show": true },
+    { "at": 5.05, "to": "note-2", "anchor": [0.55, 0.5], "click": true },
+    { "at": 5.5, "hide": true },
+    { "at": 8.2, "to": "home", "move": 0.01 },
+    { "at": 8.3, "show": true },
+    { "at": 8.95, "to": "home", "anchor": [0.5, 0.2] },
+    { "at": 9.35, "to": "swipe", "move": 0.4 },
+    { "at": 9.5, "hide": true }
+  ],
+  "camera": [
+    { "at": 4.2, "dur": 1.1, "zoom": 1.3, "focus": "note-2", "offset": [0, 40] },
+    { "at": 5.6, "dur": 1.2, "zoom": 1.6, "focus": "steps", "offset": [0, -40] },
+    { "at": 7.7, "dur": 1.1, "zoom": 1 }
+  ],
+  "times": { "open": 5.2, "close": 9.25, "clear": 9.9 }
+}

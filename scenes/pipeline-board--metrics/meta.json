@@ -1,0 +1,14 @@
+{
+  "variantOf": "pipeline-board",
+  "role": "metrics",
+  "differs": {
+    "mechanic": "The whole cohort slides right at constant height, one stage at a time, leaving dashed outlines where it stood and dimming the cards that stopped, instead of single cards being lifted from column to column.",
+    "layout": "A stepped bar chart on a baseline, with the copy and a large focal figure in a left column, replacing the full-width kanban of lane trays under a heading.",
+    "data": "Conversion: reached counts per stage, stage-to-stage rates (movers divided by reached) and a median cycle time from the won cards, instead of per-column counts and totals of an open board.",
+    "moment": "The last cards land in the final column, the lead-to-won figure steps down to 25% and the result and cycle time arrive beside it."
+  },
+  "renderer": "DOM",
+  "blurb": "Deal cards slide across stage by stage and stack into a stepped chart, so every conversion rate and the lead-to-won figure come from the cards that moved.",
+  "featured": false,
+  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "motif", "texture", "color"]
+}

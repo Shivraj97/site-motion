@@ -1,0 +1,22 @@
+{
+  "variantOf": "score-sheet",
+  "role": "hero",
+  "differs": {
+    "mechanic": "One run plays as a single melodic line that travels note to note across the staves and resolves on a chord, instead of a playhead sweeping a timeline of parallel bars.",
+    "layout": "Hero scale: a large two-line headline over three wide, quiet five-line staves with names in the score margin, the piece ending at a final double bar with the result beside it.",
+    "data": "A path: seven sequential hand-offs between three agents ending in one outcome, instead of ten overlapping steps across four lanes that show parallelism.",
+    "moment": "The phrase comes to rest and three dark noteheads roll up into one chord on a single stem across all three staves, with Approved beside it."
+  },
+  "renderer": "SVG",
+  "blurb": "One agent run plays across three staves as a single phrase of notes and resolves into a chord: the approved result.",
+  "featured": false,
+  "directable": [
+    "stroke",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

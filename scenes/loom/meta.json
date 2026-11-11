@@ -1,0 +1,20 @@
+{
+  "story": "integrations",
+  "stories": [
+    "integrations",
+    "many-to-one"
+  ],
+  "renderer": "Canvas 2D",
+  "blurb": "Each tool is a band of warp threads, woven into one fabric that rolls onto your product's beam.",
+  "order": 2,
+  "featured": true,
+  "home": "field",
+  "directable": [
+    "stroke",
+    "elevation",
+    "label",
+    "type",
+    "texture",
+    "color"
+  ]
+}

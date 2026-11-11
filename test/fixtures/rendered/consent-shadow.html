@@ -1,0 +1,17 @@
+<!doctype html>
+<!-- Synthetic fixture: a consent dialog inside an open shadow root (Usercentrics/Osano style), with a big bright accept button. -->
+<html lang="en"><head><meta charset="utf-8"><title>Moss — consent shadow fixture</title>
+<style>
+  body { margin: 0; background: #ffffff; color: #111827; font-family: Inter, sans-serif; }
+  main { padding: 60px; } p { font-size: 18px; max-width: 640px; }
+  .cta { display: inline-block; padding: 12px 20px; background: #4f46e5; color: #fff; border-radius: 8px; text-decoration: none; }
+</style></head>
+<body>
+  <main><h1>Plant care, on schedule</h1><p>Watering reminders for every plant in the house, tuned to the season and your windowsill.</p><a class="cta" href="/start">Get reminders</a></main>
+  <div id="privacy-shell"></div>
+  <script>
+    const root = document.getElementById("privacy-shell").attachShadow({ mode: "open" });
+    root.innerHTML = '<style>.box{position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;width:720px;height:360px;background:#fde047;padding:32px;font:18px sans-serif}button{width:300px;height:72px;background:#16a34a;color:#fff;border:0;font-size:22px}</style>'
+      + '<div class="box"><p>We use cookies and similar technologies. Do you consent?</p><button>Accept all</button><button>Settings</button></div>';
+  </script>
+</body></html>

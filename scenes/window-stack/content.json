@@ -1,0 +1,26 @@
+{
+  "title": "Agent in every tool",
+  "label": "A chat window where a teammate asks the coding agent for a change; the agent's terminal window slides in over it, reads files and plans with live timers, asks which data to show, and the agent replies in chat with a pull request.",
+  "seed": 11,
+  "legible": false,
+  "copy": { "title": "Where your team already works", "body": "Relay runs in your terminal, answers in chat, and opens the pull request.", "code": "curl -fsS relay.dev/install | sh" },
+  "chat": {
+    "app": "Chat",
+    "channel": "#payments-retry",
+    "members": "6 members",
+    "people": [ { "name": "priya" }, { "name": "tom" }, { "name": "lena" }, { "name": "kai" } ],
+    "messages": [
+      { "from": "priya", "ago": "5m", "at": 0.6, "text": "retries on failed payouts should back off, not hammer the bank" },
+      { "from": "tom", "ago": "4m", "at": 1.4, "text": "agreed. @relay can you take a stab?" },
+      { "from": "relay", "ago": "now", "at": 11.2, "bot": true, "text": "Added exponential backoff with jitter and a retry dashboard.", "button": "View PR" }
+    ]
+  },
+  "agent": {
+    "title": "relay-agent",
+    "steps": [ { "text": "Thought", "secs": 3 }, { "text": "Read 4 files, 1 search", "secs": 2 }, { "text": "Planned", "secs": 2 }, { "text": "Edited payouts/retry.ts", "secs": 3 } ],
+    "question": { "text": "What should the retry dashboard show?", "options": ["Retries per bank", "Only failures"], "pick": 0 },
+    "status": "Writing tests",
+    "mode": "Plan (shift+tab to cycle)",
+    "model": "/ commands · @ files · ! shell"
+  }
+}

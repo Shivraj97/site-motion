@@ -1,0 +1,29 @@
+{
+  "title": "Messy in, structured out",
+  "label": "Four different documents feed into a printer one by one; it prints a receipt line by line with every extracted invoice field, its value and a confidence score, ending in a schema check and a barcode, then the receipt tears off.",
+  "eyebrow": "Extraction",
+  "heading": "Any file in.\nA record you can\ntrust out.",
+  "sub": "Every field comes with its confidence, checked against your schema.",
+  "printerLabel": "extract · v3",
+  "inputs": [
+    { "kind": "PDF", "name": "Invoice scan", "meta": "2 pages · skewed" },
+    { "kind": "EML", "name": "Email thread", "meta": "Re: Re: Fwd: inv" },
+    { "kind": "JPG", "name": "Phone photo", "meta": "blurry corner" },
+    { "kind": "M4A", "name": "Voice note", "meta": "0:42 · noisy" }
+  ],
+  "receipt": {
+    "title": "INVOICE · INV-2291",
+    "date": "04 NOV 2026",
+    "fields": [
+      { "k": "Vendor", "v": "Northwind Ltd", "c": 0.99 },
+      { "k": "Issued", "v": "04 Nov 2026", "c": 0.97 },
+      { "k": "Due", "v": "04 Dec 2026", "c": 0.93 },
+      { "k": "Currency", "v": "GBP", "c": 1.0 },
+      { "k": "Subtotal", "v": "1,240.00", "c": 0.98 },
+      { "k": "VAT 20%", "v": "248.00", "c": 0.98 },
+      { "k": "Total", "v": "1,488.00", "c": 0.99, "total": true }
+    ],
+    "footer": ["SCHEMA  invoice.v3   ✓ valid", "ROUTED  → AP approvals"],
+    "serial": "0042 9118 2291"
+  }
+}

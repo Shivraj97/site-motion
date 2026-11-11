@@ -1,0 +1,9 @@
+.wc { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.wc-svg { position: absolute; inset: 0; }
+.wc-copy { position: absolute; left: 0; top: 92px; width: 1600px; text-align: center; }
+.wc-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 16px; }
+.wc-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(58px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.025em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
+.wc-sub { margin: 20px auto 0; width: 700px; font-size: 19px; line-height: 1.5; color: var(--c-muted); }
+.wc-btn { position: absolute; display: flex; align-items: center; justify-content: center; gap: 12px; font-family: var(--font-sans); font-size: 25px; font-weight: 500; letter-spacing: -0.01em; color: var(--c-on-accent, var(--c-ink)); white-space: nowrap; }
+.wc-btn-arrow { display: inline-block; font-family: var(--font-mono); font-size: 22px; }
+.wc-fine { position: absolute; left: 0; width: 1600px; text-align: center; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }

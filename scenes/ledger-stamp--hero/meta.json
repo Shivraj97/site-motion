@@ -1,0 +1,21 @@
+{
+  "variantOf": "ledger-stamp",
+  "role": "hero",
+  "differs": {
+    "layout": "One large document fills the right half beside a big heading, instead of a belt of small cards through three stations with an audit trail.",
+    "data": "One payment at a time with its amount at display size, instead of a queue of eight with a held exception and a running log.",
+    "moment": "The press slams down and leaves a rotated, speckled APPROVED impression on the paper, close up; the parent is remembered for the belt indexing between stations."
+  },
+  "renderer": "SVG",
+  "blurb": "One payment close up: its checks tick, a press slams APPROVED onto it, it is signed and sealed, then the next rises from the pile.",
+  "featured": false,
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture"
+  ]
+}

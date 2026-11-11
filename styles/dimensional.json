@@ -1,0 +1,7 @@
+{
+  "description": "Dimensional: isometric blocks and stacked layers, deep shadows, tonal accent ramps, a soft glow and an unhurried pace.",
+  "family": ["iso-blocks", "css3d-stack"],
+  "stroke": "fine", "elevation": "deep", "corner": "token", "depth": "iso", "texture": "none", "glow": "soft",
+  "colorMode": "tonal", "label": "mono-caps", "type": "display",
+  "motion": "studio", "tempo": "languid", "stagger": "cascade", "motif": "corner-ticks"
+}

@@ -1,0 +1,21 @@
+{
+  "story": "reconciliation",
+  "stories": [
+    "reconciliation",
+    "expenses",
+    "compliance"
+  ],
+  "renderer": "SVG + DOM",
+  "blurb": "Trays lift out of a delivery crate one by one and tick off their line on the packing slip; the one that came up short glows amber and floats up with its note.",
+  "featured": false,
+  "home": "outline",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif"
+  ]
+}

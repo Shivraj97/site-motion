@@ -1,0 +1,22 @@
+{
+  "story": "observability",
+  "stories": [
+    "observability",
+    "reliability",
+    "workflows"
+  ],
+  "renderer": "Canvas 2D + DOM",
+  "blurb": "Every running job is a blip on a radar scope; one starts failing, and a cursor reaches in and pauses it until its retry.",
+  "featured": false,
+  "home": "field",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "texture",
+    "motif"
+  ]
+}

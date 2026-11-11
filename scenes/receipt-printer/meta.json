@@ -1,0 +1,23 @@
+{
+  "story": "messy-to-structured",
+  "stories": [
+    "messy-to-structured",
+    "ai"
+  ],
+  "renderer": "DOM + SVG",
+  "blurb": "Documents feed a slot and a receipt prints every extracted field with its confidence.",
+  "order": 6,
+  "featured": false,
+  "home": "soft-ui",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "glow"
+  ]
+}

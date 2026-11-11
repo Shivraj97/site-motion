@@ -1,0 +1,26 @@
+{
+  "title": "Ten years, ten rings",
+  "label": "The cut end of a log rising from the bottom edge as a half circle, heartwood at the centre of the bottom edge and bark round the top. Rings grow outward one per year from the founding year, 2017, to today, 2026, and each year is written on its ring up the middle of the slice. As a ring finishes, a pin on it draws a leader out to the side and labels that year's moment, alternating left and right: founded in a spare room in Lisbon in 2017, the first paying customer in 2018, a $4M seed round in 2020, a second office in Toronto in 2021, a team of 60 in 2023 and customers in 30 countries in 2024. The outermost ring, 2026, is today: it flushes with the accent colour and a leader climbs from it to a card reading 140 people, in Lisbon, Toronto and remote.",
+  "eyebrow": "Our story",
+  "heading": "Ten years,\none ring at a time.",
+  "sub": "We started in a spare room in 2017. Each ring is a year, and these are the moments that shaped them.",
+  "years": [
+    { "year": 2017, "first": "Founded", "note": "Two engineers, one spare room in Lisbon." },
+    { "year": 2018, "first": "First paying customer", "note": "A logistics team in Rotterdam." },
+    { "year": 2019 },
+    { "year": 2020, "first": "Seed round", "note": "$4M for our first designer and support lead." },
+    { "year": 2021, "first": "Toronto office", "note": "A second home for the team." },
+    { "year": 2022 },
+    { "year": 2023, "first": "A team of 60", "note": "Half of us now work remotely." },
+    { "year": 2024, "first": "Customers in 30 countries", "note": "Support now runs round the clock." },
+    { "year": 2025 },
+    { "year": 2026 }
+  ],
+  "today": {
+    "label": "Today",
+    "value": "140",
+    "unit": "people",
+    "note": "in Lisbon, Toronto and remote, still answering support ourselves on Fridays."
+  },
+  "seed": 23
+}

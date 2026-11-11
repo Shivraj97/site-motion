@@ -1,0 +1,7 @@
+{
+  "description": "Soft product UI: real interface cards lifted on soft shadows with a hairline ring, accent on ink, cascading entrances.",
+  "family": ["card-story", "drop-pile", "receipt-printer", "window-stack"],
+  "stroke": "ring", "elevation": "soft", "corner": "token", "depth": "lifted", "texture": "none", "glow": "none",
+  "colorMode": "accent-on-ink", "label": "mono-caps", "type": "standard",
+  "motion": "productive", "tempo": "steady", "stagger": "cascade", "motif": "none"
+}

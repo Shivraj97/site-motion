@@ -1,0 +1,22 @@
+{
+  "title": "Tear off your first record",
+  "label": "A call to action built from a small receipt printer. Under the heading the printer's light blinks and it prints one short slip: a header, four lines of the offer (Starter plan, 500 documents a month, no card needed, total 0.00) and a line saying you can cancel any time. The last part to come out is a coloured stub that reads Start extracting free. The printer's cutter runs along the perforation, the stub tears off, drops and settles at a slight tilt as the button, and its arrow nudges once. Then the slip clears and the printer waits again.",
+  "eyebrow": "Extraction",
+  "heading": "Send us your messiest file.\nKeep the record.",
+  "sub": "Start free with 500 documents a month. Every field is checked against your schema.",
+  "printerLabel": "extract · v3",
+  "receipt": {
+    "title": "YOUR FIRST SLIP",
+    "date": "TODAY",
+    "fields": [
+      { "k": "Plan", "v": "Starter" },
+      { "k": "Documents", "v": "500 / month" },
+      { "k": "Card", "v": "not needed" },
+      { "k": "Total", "v": "0.00", "total": true }
+    ],
+    "footer": ["CANCEL ANY TIME"]
+  },
+  "button": "Start extracting free",
+  "fine": "Set up in about five minutes",
+  "seed": 8
+}

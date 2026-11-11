@@ -1,0 +1,15 @@
+<!doctype html>
+<!-- Synthetic fixture: every colour is applied by script at runtime, so source-reading can't see it. -->
+<html lang="en"><head><meta charset="utf-8"><title>Harbor — js-styled fixture</title></head>
+<body>
+  <h1>Ship manifests, sorted</h1>
+  <p>Every container, every port, one ledger. Track arrivals and departures without a spreadsheet.</p>
+  <p>Built for freight teams who would rather be at the dock than in a browser tab.</p>
+  <a class="cta" href="/start">Start tracking</a>
+  <script>
+    document.body.style.cssText = "margin:0;padding:48px;background:#0e1b2b;color:#e8eef5;font-family:'Space Grotesk',sans-serif";
+    const s = document.createElement("style");
+    s.textContent = ".cta{display:inline-block;padding:14px 22px;border-radius:10px;background:#ff7a1a;color:#1a0d02;text-decoration:none} p{font-size:18px;max-width:640px}";
+    document.head.appendChild(s);
+  </script>
+</body></html>

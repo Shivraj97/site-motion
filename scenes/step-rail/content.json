@@ -1,0 +1,17 @@
+{
+  "title": "How it works, step by step",
+  "label": "A how-it-works section drawn as five numbered steps on a horizontal rail. A token labelled New workspace travels the rail; as it reaches each step, that step's card opens to show what the step produced: a workspace name, three connected sources, twelve invited teammates and three approval rules. Each finished step is ticked behind the token. At the last step, Go live, the card lands its result: live in 12 minutes, from sign-up to the first report.",
+  "eyebrow": "How it works",
+  "heading": "From sign-up to live,\nin five short steps.",
+  "sub": "Every step ends with something you can check, so you always know what is done and what comes next.",
+  "token": "New workspace",
+  "states": { "pending": "Up next", "active": "Working", "done": "Done" },
+  "steps": [
+    { "title": "Create workspace", "detail": "Name it, pick a data region and choose who can see it.", "time": "1 min", "result": { "kind": "line", "text": "ops-team · eu-west" } },
+    { "title": "Connect your data", "detail": "Link the warehouse, billing and CRM, read-only.", "time": "3 min", "result": { "kind": "chips", "items": ["Warehouse", "Billing", "CRM"] } },
+    { "title": "Invite your team", "detail": "Add teammates and give each a role in one pass.", "time": "2 min", "result": { "kind": "people", "items": ["AK", "MR", "JL", "SN"], "text": "12 invited" } },
+    { "title": "Set approval rules", "detail": "Decide what needs a second pair of eyes.", "time": "4 min", "result": { "kind": "list", "items": ["Refunds over $500", "New vendors", "Plan changes"] } },
+    { "title": "Go live", "detail": "Turn on sync and send the first weekly report.", "time": "2 min" }
+  ],
+  "payoff": { "label": "Live in", "value": "12 min", "note": "from sign-up to first report" }
+}

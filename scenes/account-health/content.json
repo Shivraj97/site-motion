@@ -1,0 +1,30 @@
+{
+  "title": "Account health",
+  "label": "A customer health table with seven accounts. Each row shows the account, its plan, a health score with a status pill, a 30-day sparkline, its renewal date and its owner. As the month replays, one account's usage slides into at risk: its line drops, its row is highlighted, and an exec check-in playbook is sent at the low point. Over the following days its line recovers and its score climbs back to healthy, and the footer returns to seven of seven accounts healthy.",
+  "eyebrow": "Customer success",
+  "heading": "See churn coming.\nWin the account back.",
+  "sub": "Health scores from product usage, support and billing, updated daily. When an account slips, the right playbook runs before renewal does.",
+  "days": 30,
+  "columns": { "account": "Account", "segment": "Plan", "health": "Health", "trend": "Last 30 days", "meta": "Renews", "owner": "Owner" },
+  "thresholds": { "healthy": 70, "watch": 50 },
+  "states": { "healthy": "Healthy", "watch": "Watch", "risk": "At risk" },
+  "cursor": "Day {day} of {days}",
+  "footer": "{healthy} of {total} accounts healthy · {risk} at risk",
+  "accounts": [
+    { "name": "Harbor & Pine Freight", "mark": "HP", "segment": "Enterprise", "meta": "Mar 14", "owner": "Priya Shah",
+      "series": [82, 83, 83, 84, 83, 85, 86, 85, 86, 87, 86, 86, 87, 88, 87, 88, 88, 89, 88, 89, 90, 89, 90, 90, 91, 90, 91, 91, 92, 92] },
+    { "name": "Lumen Dental Group", "mark": "LD", "segment": "Growth", "meta": "Jan 30", "owner": "Marcus Lee",
+      "series": [74, 75, 75, 76, 75, 76, 77, 76, 77, 78, 77, 78, 78, 77, 78, 79, 78, 79, 80, 79, 80, 80, 81, 80, 81, 81, 82, 81, 82, 82] },
+    { "name": "Tidewater Credit Union", "mark": "TC", "segment": "Enterprise", "meta": "Feb 02", "owner": "Ana Ruiz",
+      "series": [84, 85, 84, 86, 85, 84, 85, 84, 83, 84, 83, 82, 80, 76, 69, 60, 52, 44, 38, 34, 37, 43, 51, 58, 65, 70, 74, 77, 79, 81],
+      "playbook": { "label": "Playbook", "name": "Exec check-in", "pending": "sending", "status": "sent" } },
+    { "name": "Kestrel Analytics", "mark": "KA", "segment": "Growth", "meta": "Apr 21", "owner": "Tom Becker",
+      "series": [88, 88, 87, 88, 89, 88, 88, 89, 88, 87, 88, 88, 89, 89, 88, 89, 90, 89, 89, 90, 89, 90, 90, 89, 90, 91, 90, 90, 91, 90] },
+    { "name": "Bluefield Schools", "mark": "BS", "segment": "Education", "meta": "Aug 09", "owner": "Priya Shah",
+      "series": [71, 72, 72, 73, 72, 74, 73, 74, 75, 74, 75, 75, 76, 75, 76, 77, 76, 77, 77, 78, 77, 78, 78, 79, 78, 79, 79, 80, 79, 80] },
+    { "name": "Orchard Health Partners", "mark": "OH", "segment": "Enterprise", "meta": "May 17", "owner": "Jonah Okafor",
+      "series": [90, 91, 90, 91, 92, 91, 92, 91, 92, 93, 92, 92, 93, 92, 93, 93, 94, 93, 93, 94, 93, 94, 94, 93, 94, 94, 95, 94, 95, 95] },
+    { "name": "Granite Peak Outfitters", "mark": "GP", "segment": "Starter", "meta": "Dec 03", "owner": "Marcus Lee",
+      "series": [79, 78, 79, 80, 79, 78, 79, 80, 81, 80, 79, 80, 81, 80, 81, 82, 81, 80, 81, 82, 81, 82, 83, 82, 81, 82, 83, 84, 83, 84] }
+  ]
+}

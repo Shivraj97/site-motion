@@ -1,0 +1,24 @@
+{
+  "variantOf": "account-health",
+  "role": "proof",
+  "differs": {
+    "layout": "One account's chart fills a large card beside a quote column, instead of a seven-row table under a headline: the sparkline becomes the whole stage, with axis, bands and month labels.",
+    "data": "A single account's weekly score across a year, with two outcomes measured off it (points above its old level, weeks from playbook to healthy), instead of seven 30-day sparklines and a count of healthy rows.",
+    "mechanic": "Two brackets grow with the line: one under the climb from the playbook to the healthy crossing, one at the year's end rising from a dashed old-level line, and each outcome number beside the quote arrives when its bracket closes.",
+    "moment": "The line finishes above the dashed line marking where it was before the dip, the +9 bracket closes, and the quote's two numbers stand read off the chart."
+  },
+  "renderer": "SVG + DOM",
+  "blurb": "A customer's year on one large health line: it dips into at risk, the playbook lands at the low point, and it recovers past where it was, with the two outcomes beside the quote read off the line.",
+  "featured": false,
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

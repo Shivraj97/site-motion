@@ -1,0 +1,37 @@
+{
+  "title": "Woven together",
+  "label": "Integration threads run down from labelled spools through a loom; a shuttle carries the weft back and forth and the woven cloth, in the brand's colours, rolls down onto a beam named after the product.",
+  "eyebrow": "Integrations",
+  "heading": "Every tool you use,\nwoven into one.",
+  "sub": "Not connected by lines. Made into a single fabric.",
+  "product": "One workspace",
+  "threads": [
+    {
+      "name": "Slack"
+    },
+    {
+      "name": "GitHub"
+    },
+    {
+      "name": "Stripe"
+    },
+    {
+      "name": "Postgres"
+    },
+    {
+      "name": "Linear"
+    },
+    {
+      "name": "Notion"
+    },
+    {
+      "name": "HubSpot"
+    },
+    {
+      "name": "S3"
+    }
+  ],
+  "rowHeight": 10,
+  "perTool": 6,
+  "cycles": 3
+}

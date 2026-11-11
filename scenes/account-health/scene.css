@@ -1,0 +1,55 @@
+.ah { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.ah-wrap { position: absolute; inset: 0; padding: 0 96px; display: flex; flex-direction: column; justify-content: center; }
+
+.ah-copy { display: flex; justify-content: space-between; align-items: flex-end; gap: 64px; }
+.ah-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.ah-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(48px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; color: var(--c-ink); font-weight: var(--sm-type-weight, 400); }
+.ah-sub { max-width: 440px; font-size: 18px; line-height: 1.5; color: var(--c-muted); padding-bottom: 4px; }
+
+/* the table: one grid; header and rows inherit its columns through subgrid */
+.ah-card { margin-top: 40px; display: grid; overflow: hidden; justify-content: space-between; column-gap: 28px; padding: 4px 0 6px; background: var(--c-surface); border-radius: var(--sm-radius-lg, var(--r-lg, 20px)); box-shadow: 0 0 0 var(--sm-stroke-hair, 1px) var(--sm-stroke-color, var(--c-line)), var(--sm-shadow-1, 0 0 0 0 transparent); }
+.ah-row { position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center; }
+.ah-acc, .ah-head > :first-child { padding-left: 24px; }
+.ah-row > :last-child { padding-right: 24px; }
+.ah-item { border-top: var(--sm-stroke-hair, 1px) solid var(--c-line); }
+.ah-head { height: 44px; }
+.ah-hc { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.ah-hc-trend { display: flex; justify-content: space-between; }
+.ah-cursor { text-transform: none; letter-spacing: 0; font-variant-numeric: tabular-nums; color: var(--c-ink); }
+
+.ah-bar { position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 0 3px 3px 0; opacity: 0; } /* sm-native: a state rail, not a corner */
+.ah-acc { grid-row: 1; display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.ah-mark { width: 32px; height: 32px; flex: none; display: grid; place-items: center; border-radius: var(--sm-radius-sm, var(--r-sm, 6px)); font-size: 13px; font-weight: 600; letter-spacing: -0.01em; }
+.ah-name { font-size: 16px; font-weight: 500; color: var(--c-ink); }
+.ah-cell { grid-row: 1; white-space: nowrap; }
+.ah-seg { font-family: var(--font-mono); font-size: 12.5px; color: var(--c-muted); padding: 4px 9px; border-radius: var(--sm-radius-sm, var(--r-sm, 6px)); box-shadow: inset 0 0 0 var(--sm-stroke-hair, 1px) var(--c-line); }
+.ah-health { display: flex; align-items: center; gap: 12px; }
+.ah-score { width: 36px; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--c-ink); text-align: right; opacity: 0; }
+.ah-pill { display: inline-flex; align-items: center; gap: 7px; padding: 4px 11px 4px 9px; border-radius: 999px; font-size: 13px; font-weight: 500; opacity: 0; } /* sm-native: a pill stays a pill */
+.ah-dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.ah-pill-stack { display: grid; }
+.ah-pill-l { grid-area: 1 / 1; white-space: nowrap; }
+.ah-trend { position: relative; align-self: stretch; }
+.ah-spark { position: absolute; left: 0; overflow: visible; }
+.ah-meta { font-size: 15px; color: var(--c-ink); font-variant-numeric: tabular-nums; }
+.ah-own { display: flex; align-items: center; gap: 10px; }
+.ah-av { width: 28px; height: 28px; flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--c-raised); color: var(--c-ink); font-size: 11.5px; font-weight: 600; box-shadow: inset 0 0 0 var(--sm-stroke-hair, 1px) var(--c-line); }
+.ah-own-n { font-size: 15px; color: var(--c-ink); }
+
+/* the playbook strip opens under the row that slipped; the chip hangs from the trough */
+.ah-strip { grid-row: 2; grid-column: 1 / -1; height: 0; }
+.ah-stem { position: absolute; width: 1px; background: var(--c-faint); opacity: 0; }
+.ah-chip { position: absolute; display: flex; align-items: center; gap: 7px; height: 30px; padding: 0 12px 0 10px; border-radius: 999px; background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-line)), var(--sm-shadow-1, 0 0 0 0 transparent); font-size: 13.5px; white-space: nowrap; color: var(--c-ink); opacity: 0; } /* sm-native: a pill stays a pill */
+.ah-chip-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c-accent); flex: none; }
+.ah-chip-k { font-family: var(--font-mono); font-size: 12.5px; color: var(--c-muted); }
+.ah-chip-n { font-weight: 500; }
+.ah-chip-st { display: grid; }
+.ah-chip-pend, .ah-chip-sent { grid-area: 1 / 1; }
+.ah-chip-pend { color: var(--c-muted); }
+.ah-chip-sent { color: var(--c-positive-text, var(--c-positive)); font-weight: 500; opacity: 0; }
+
+.ah-foot { display: flex; align-items: center; gap: 14px; margin-top: 18px; padding-left: 24px; opacity: 0; }
+.ah-fbar { display: flex; gap: 2px; width: 120px; height: 6px; }
+.ah-fseg { flex: 0 0 0; min-width: 0; border-radius: 3px; } /* sm-native: a bar segment, rounded like a pill */
+.ah-ftext { font-size: 15px; color: var(--c-ink); font-variant-numeric: tabular-nums; }
+.ah-spacer { flex: none; }

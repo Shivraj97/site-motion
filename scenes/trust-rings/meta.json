@@ -1,0 +1,22 @@
+{
+  "story": "trust",
+  "stories": [
+    "trust",
+    "compliance",
+    "privacy"
+  ],
+  "renderer": "SVG",
+  "blurb": "Requests pass concentric control rings around the data; the unauthorised one is stopped as its ring closes, and every decision is logged.",
+  "featured": false,
+  "home": "outline",
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "title": "Before and after",
+  "label": "Two water slides side by side on one ground line, mirrored so their paid pools meet in the middle. The same 1,000 visitors (fifty riders, each twenty visitors) enter the top of each. On the Before slide, the old onboarding, riders have to jump open gaps between ramps and many fly off into the lost trough: 380 sign up, 180 start a trial, 100 pay. On the After slide, guided onboarding, the ramps have guard rails and joined chutes: 620 sign up, 400 start a trial, 240 pay. The two paid pools fill to clearly different water levels, and a bracket between them marks the gap: 2.4 times more paid customers from the same visitors.",
+  "eyebrow": "Onboarding, before and after",
+  "heading": "Same traffic. Far more of it pays.",
+  "sub": "We sent the same visitors down both slides. Guided onboarding keeps them on.",
+  "unit": "visitors",
+  "riders": 50,
+  "spawnUntil": 4.9,
+  "sides": [
+    {
+      "name": "Before",
+      "note": "Old onboarding",
+      "stages": [
+        { "name": "Visit", "value": 1000 },
+        { "name": "Sign up", "value": 380 },
+        { "name": "Trial", "value": 180 },
+        { "name": "Paid", "value": 100 }
+      ]
+    },
+    {
+      "name": "After",
+      "note": "Guided onboarding",
+      "stages": [
+        { "name": "Visit", "value": 1000 },
+        { "name": "Sign up", "value": 620 },
+        { "name": "Trial", "value": 400 },
+        { "name": "Paid", "value": 240 }
+      ]
+    }
+  ],
+  "ofPrev": "of",
+  "lost": "lost on the way",
+  "compare": "more paid customers",
+  "compareNote": "from the same {n} visitors"
+}

@@ -1,0 +1,38 @@
+{
+  "title": "Smart routing",
+  "label": "Payments drop through a pegboard into five processor bins. A switch first tips them toward the weaker processors; when a routing rule arrives the switch flips, the flow moves to the processors that approve the most, and the live share climbs.",
+  "eyebrow": "Smart routing",
+  "heading": "Every payment finds\nthe processor most\nlikely to say yes.",
+  "sub": "Add a rule and watch the traffic move.",
+  "bins": [
+    {
+      "name": "Processor A",
+      "note": "approves 71%"
+    },
+    {
+      "name": "Processor B",
+      "note": "approves 78%"
+    },
+    {
+      "name": "Processor C",
+      "note": "approves 84%"
+    },
+    {
+      "name": "Processor D",
+      "note": "approves 95%",
+      "good": true
+    },
+    {
+      "name": "Processor E",
+      "note": "approves 97%",
+      "good": true
+    }
+  ],
+  "rule": {
+    "at": 4.6,
+    "label": "EU cards → highest approval"
+  },
+  "rateLabel": "of recent payments sent to 95%+ processors",
+  "count": 120,
+  "spawnUntil": 8.6
+}

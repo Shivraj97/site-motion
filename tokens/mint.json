@@ -1,0 +1,14 @@
+{
+  "name": "Mint — infrastructure, light",
+  "color": {
+    "paper": "#f4f5f1", "surface": "#ffffff", "raised": "#eef0ea", "ink": "#121411", "muted": "#6a6f66", "faint": "#a9ada4",
+    "line": "#d6d9d1", "accent": "#5bd96a", "accentInk": "#1d5c27", "onAccent": "#0d2e12", "positive": "#2f9e44", "warning": "#e8a33d"
+  },
+  "palette": ["#c8efcb", "#a6e3ae", "#8fb4ff", "#f1c6f6", "#f6d29c", "#d6cff5", "#e9ece4"],
+  "font": {
+    "sans": "'Inter', system-ui, sans-serif",
+    "mono": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+    "import": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=block"
+  },
+  "radius": { "sm": 6, "md": 12, "lg": 20 }
+}

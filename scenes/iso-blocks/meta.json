@@ -1,0 +1,18 @@
+{
+  "story": "infrastructure",
+  "stories": [
+    "infrastructure",
+    "platform"
+  ],
+  "renderer": "SVG",
+  "blurb": "Isometric blocks with live data on their faces rise over a tiled floor.",
+  "order": 11,
+  "featured": false,
+  "home": "dimensional",
+  "directable": [
+    "stroke",
+    "motion",
+    "texture",
+    "color"
+  ]
+}

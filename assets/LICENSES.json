@@ -1,0 +1,17 @@
+{
+  "note": "Every file under assets/ and where it came from. CC0 only by default; anything else needs an explicit credit line here and in the scene's content.credit.",
+  "packs": [
+    {
+      "path": "models/kenney-furniture/",
+      "name": "Furniture Kit (2.0)",
+      "author": "Kenney (www.kenney.nl)",
+      "licence": "CC0 1.0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "licenceText": "models/kenney-furniture/License.txt",
+      "source": "https://kenney.nl/assets/furniture-kit",
+      "attributionRequired": false,
+      "obtained": "2026-11-05, downloaded by hand from kenney.nl by the user (not scraped)",
+      "files": "140 GLB files from the kit's 'Models/GLTF format' folder"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Sales pipeline",
+  "label": "A sales pipeline as a kanban board with four columns: Lead, Qualified, Proposal and Won, each showing its deal count and total value. Deals advance one column at a time and the totals follow them, until the Halden Foods annual plan moves into Won and becomes a green 'Won · $36k' chip.",
+  "eyebrow": "Sales pipeline",
+  "heading": "Know what closes\nbefore the quarter does.",
+  "sub": "Every deal has an owner and a value. Move a card and the forecast moves with it.",
+  "format": { "prefix": "$", "suffix": "k" },
+  "stages": ["Lead", "Qualified", "Proposal", "Won"],
+  "cards": [
+    { "id": "tidewater", "title": "Tidewater Labs", "owner": "Priya Shah", "value": 14, "tag": "Inbound", "stage": 0 },
+    { "id": "copperline", "title": "Copperline Studio", "owner": "Leo Grant", "value": 8, "tag": "Referral", "stage": 0 },
+    { "id": "summit", "title": "Summit Dental", "owner": "Priya Shah", "value": 11, "tag": "Inbound", "stage": 0 },
+    { "id": "baywater", "title": "Baywater Retail", "owner": "Nina Cole", "value": 26, "tag": "Outbound", "stage": 1 },
+    { "id": "greystone", "title": "Greystone Legal", "owner": "Leo Grant", "value": 19, "tag": "Partner", "stage": 1 },
+    { "id": "halden", "title": "Halden Foods annual plan", "owner": "Nina Cole", "value": 36, "tag": "Expansion", "stage": 1 },
+    { "id": "vista", "title": "Vista Clinics", "owner": "Priya Shah", "value": 42, "tag": "Enterprise", "stage": 2 },
+    { "id": "oakridge", "title": "Oakridge Supply", "owner": "Leo Grant", "value": 17, "tag": "Renewal", "stage": 3 },
+    { "id": "marlow", "title": "Marlow & Finch", "owner": "Nina Cole", "value": 9, "tag": "Upsell", "stage": 3 }
+  ],
+  "moves": ["tidewater", "halden", "baywater", "summit", "halden"],
+  "success": "Won · {value}"
+}

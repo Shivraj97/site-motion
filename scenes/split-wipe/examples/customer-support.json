@@ -1,0 +1,102 @@
+{
+  "title": "Before and after, one sweep",
+  "label": "A before and after slider. On the left of a vertical divider, seven customer requests are scattered across email, chat, phone notes, a spreadsheet and social messages, with a counter reading five tools and three hours twenty minutes a day. The divider sweeps to the left edge; each fragment it reaches snaps into its own row in one support queue with a resolved status, and the counter re-reads one tool and ten minutes a day. Then the divider sweeps back.",
+  "eyebrow": "Customer support",
+  "heading": "Five inboxes.\nOne queue.",
+  "sub": "Every email, chat, call and DM becomes a ticket with an owner and a status.",
+  "beforeLabel": "Before",
+  "afterLabel": "After",
+  "product": {
+    "name": "Support queue",
+    "mark": "Q"
+  },
+  "doneLabel": "resolved",
+  "fromLabel": "from",
+  "counter": {
+    "toolsLabel": "Tools in use",
+    "timeLabel": "Triage a day",
+    "was": "was",
+    "h": "h",
+    "min": "min"
+  },
+  "items": [
+    {
+      "kind": "email",
+      "source": "Email",
+      "raw": "Refund not received, order 4471",
+      "meta": "2nd follow-up",
+      "badge": 2,
+      "title": "Refund order 4471",
+      "status": "Refunded",
+      "tone": "done",
+      "before": 40,
+      "after": 2
+    },
+    {
+      "kind": "message",
+      "source": "Chat",
+      "from": "DM",
+      "raw": "app logs me out every time I pay",
+      "title": "Fix logout at checkout",
+      "status": "Fixed in 2.4",
+      "tone": "active",
+      "before": 35,
+      "after": 2
+    },
+    {
+      "kind": "note",
+      "source": "Phone",
+      "raw": "Call back Mrs Dale re: delivery",
+      "title": "Call back about late delivery",
+      "status": "Called back",
+      "tone": "done",
+      "before": 25,
+      "after": 1
+    },
+    {
+      "kind": "cell",
+      "source": "Spreadsheet",
+      "ref": "F22",
+      "raw": "Ticket 88 – escalate??",
+      "title": "Escalate ticket 88",
+      "status": "Escalated",
+      "tone": "active",
+      "before": 30,
+      "after": 1
+    },
+    {
+      "kind": "message",
+      "source": "Social",
+      "from": "RB",
+      "raw": "where is my parcel?? 5 days now",
+      "title": "Trace parcel for order 4502",
+      "status": "Shipped",
+      "tone": "done",
+      "before": 30,
+      "after": 2
+    },
+    {
+      "kind": "email",
+      "source": "Email",
+      "raw": "Can I get a copy of my invoice?",
+      "meta": "Billing",
+      "badge": 1,
+      "title": "Send invoice copy",
+      "status": "Sent",
+      "tone": "done",
+      "before": 20,
+      "after": 1
+    },
+    {
+      "kind": "cell",
+      "source": "Spreadsheet",
+      "ref": "A9",
+      "raw": "same bug as #81? merge?",
+      "title": "Merge duplicate bug reports",
+      "status": "Merged",
+      "tone": "done",
+      "before": 20,
+      "after": 1
+    }
+  ]
+}

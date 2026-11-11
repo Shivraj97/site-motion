@@ -1,0 +1,21 @@
+{
+  "title": "Year in review: tree rings",
+  "label": "A cross-section of a log, seen face on, with dark heartwood at the centre and bark around the edge. Rings grow outward one per year from 2019 to 2026, each one as thick as that year's order volume, so busy years leave wide rings and quiet years thin ones. A callout rides outward along a measuring line with each year and its figure, coloured notches on three rings mark firsts such as the first enterprise customer, and a plaque pinned to the heartwood shows the running total, added up from the rings, landing on 48,210 orders.",
+  "eyebrow": "Year in review",
+  "heading": "Every year\nleaves a ring.",
+  "sub": "Each ring is one year of orders, as wide as the year was busy. The notches mark the firsts.",
+  "unit": "orders",
+  "totalLabel": "orders since 2019",
+  "firstsLabel": "Firsts",
+  "years": [
+    { "year": 2019, "value": 1240 },
+    { "year": 2020, "value": 2860, "first": "First enterprise customer" },
+    { "year": 2021, "value": 4120 },
+    { "year": 2022, "value": 6480, "first": "Shipping to a new country" },
+    { "year": 2023, "value": 5310 },
+    { "year": 2024, "value": 8950, "first": "First 1,000-order month" },
+    { "year": 2025, "value": 11700 },
+    { "year": 2026, "value": 7550, "note": "so far" }
+  ],
+  "seed": 19
+}

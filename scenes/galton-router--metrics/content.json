@@ -1,0 +1,19 @@
+{
+  "title": "Routing mix",
+  "label": "A day's routing read as a distribution. In the top right corner a small pegboard drops 200 payments one at a time; each bounces left or right off four rows of pegs and leaves through one of five exits onto its own track, which carries it across the page into a wide bin. The payments stack in the bins as dots and build a histogram over the full width. Under each bin the share is counted from the payments that landed: Processor A 4%, Processor B 6%, Processor C 10%, Processor D 38% and Processor E 42%. A dashed line marks the 30% target for each top processor; D and E rise above it. At the top, the share sent to processors that approve 95% or more settles at 80% of 200 payments, under the rule EU cards to highest approval.",
+  "eyebrow": "Routing mix",
+  "heading": "Where every payment\nended up.",
+  "sub": "Shares are counted from the payments that landed. Nothing is modelled.",
+  "bins": [
+    { "name": "Processor A", "note": "approves 71%", "share": 4 },
+    { "name": "Processor B", "note": "approves 78%", "share": 6 },
+    { "name": "Processor C", "note": "approves 84%", "share": 10 },
+    { "name": "Processor D", "note": "approves 95%", "share": 38, "good": true },
+    { "name": "Processor E", "note": "approves 97%", "share": 42, "good": true }
+  ],
+  "rule": { "label": "EU cards → highest approval" },
+  "rateLabel": "of {n} payments sent to processors approving 95%+",
+  "target": { "share": 30, "label": "target for each top processor" },
+  "count": 200,
+  "spawnUntil": 7.4
+}

@@ -1,0 +1,18 @@
+{
+  "story": "messy-to-structured",
+  "stories": [
+    "messy-to-structured",
+    "data"
+  ],
+  "renderer": "p5.js",
+  "blurb": "Noisy strands pass a gate and leave as clean, ordered lanes.",
+  "order": 8,
+  "featured": false,
+  "home": "field",
+  "directable": [
+    "stroke",
+    "label",
+    "type",
+    "texture"
+  ]
+}

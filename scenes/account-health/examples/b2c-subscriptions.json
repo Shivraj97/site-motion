@@ -1,0 +1,24 @@
+{
+  "title": "Member engagement",
+  "label": "An engagement table with four member cohorts: plan, engagement score, a 30-day sparkline, member count and lifecycle owner. One cohort cools into lapsing, a win-back email goes out at the low point, and over the following days engagement climbs back to engaged.",
+  "eyebrow": "Retention",
+  "heading": "Know who's drifting.\nBring them back.",
+  "sub": "Sessions, streaks and saves add up to one engagement score per cohort. When it dips, the win-back goes out the same day.",
+  "days": 30,
+  "columns": { "account": "Cohort", "segment": "Plan", "health": "Engagement", "trend": "Last 30 days", "meta": "Members", "owner": "Owner" },
+  "thresholds": { "healthy": 65, "watch": 45 },
+  "states": { "healthy": "Engaged", "watch": "Cooling", "risk": "Lapsing" },
+  "cursor": "Day {day} of {days}",
+  "footer": "{healthy} of {total} cohorts engaged · {risk} lapsing",
+  "accounts": [
+    { "name": "Spring starters", "mark": "SP", "segment": "Monthly", "meta": "12,480", "owner": "Dana Kim",
+      "series": [72, 74, 73, 75, 76, 75, 77, 78, 77, 79, 78, 80, 79, 81, 82] },
+    { "name": "Annual members", "mark": "AN", "segment": "Annual", "meta": "8,215", "owner": "Leo Grant",
+      "series": [84, 85, 84, 85, 86, 85, 86, 86, 87, 86, 87, 88, 87, 88, 88] },
+    { "name": "Holiday trials", "mark": "HT", "segment": "Trial", "meta": "21,906", "owner": "Dana Kim",
+      "series": [78, 77, 78, 76, 74, 69, 60, 49, 40, 35, 41, 52, 61, 68, 73],
+      "playbook": { "label": "Win-back", "name": "“We saved your plan” email", "pending": "sending", "status": "sent" } },
+    { "name": "Family plans", "mark": "FA", "segment": "Family", "meta": "4,032", "owner": "Leo Grant",
+      "series": [69, 70, 71, 70, 72, 71, 73, 72, 74, 73, 74, 75, 74, 76, 76] }
+  ]
+}

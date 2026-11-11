@@ -1,0 +1,17 @@
+.lsh { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.lsh-svg { position: absolute; inset: 0; }
+.lsh-copy { position: absolute; left: 110px; top: 236px; width: 640px; }
+.lsh-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 14px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 22px; }
+.lsh-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(84px * var(--sm-type-k, 1)); line-height: 1.0; letter-spacing: var(--sm-type-tracking, -0.03em); white-space: pre-line; color: var(--c-ink); font-weight: var(--sm-type-weight, 400); }
+.lsh-sub { margin-top: 28px; font-size: 20px; line-height: 1.5; color: var(--c-muted); max-width: 520px; }
+
+.lsh-type { font-family: var(--font-mono); font-size: 15px; letter-spacing: .06em; fill: var(--c-muted); }
+.lsh-payee { font-family: var(--font-sans); font-size: 28px; fill: var(--c-ink); }
+.lsh-amount { font-family: var(--font-display, var(--font-sans)); font-weight: 600; font-size: calc(104px * var(--sm-type-k, 1)); letter-spacing: var(--sm-type-tracking, -0.035em); fill: var(--c-ink); font-variant-numeric: tabular-nums; }
+.lsh-cents { font-size: calc(44px * var(--sm-type-k, 1)); fill: var(--c-muted); letter-spacing: -0.01em; }
+.lsh-check { font-family: var(--font-sans); font-size: 22px; fill: var(--c-ink); }
+.lsh-signer { font-family: var(--font-mono); font-size: 15px; fill: var(--c-muted); }
+.lsh-stamp { font-family: var(--font-sans); font-weight: 700; font-size: 44px; letter-spacing: .12em; }
+.lsh-stamp-date { font-family: var(--font-mono); font-size: 15px; letter-spacing: .1em; }
+.lsh-seal { font-family: var(--font-mono); font-size: 14px; font-weight: 500; letter-spacing: .1em; fill: var(--c-on-accent, var(--c-ink)); }
+.lsh-seal-hash { font-family: var(--font-mono); font-size: 13px; fill: var(--c-on-accent, var(--c-ink)); opacity: .85; }

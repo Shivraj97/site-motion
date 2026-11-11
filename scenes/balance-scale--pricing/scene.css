@@ -1,0 +1,28 @@
+.bp { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.bp-svg { position: absolute; inset: 0; }
+.bp-copy { position: absolute; left: 96px; top: 88px; width: 470px; }
+.bp-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.bp-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(56px * var(--sm-type-k, 1)); line-height: 1.02; letter-spacing: var(--sm-type-tracking, -0.025em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
+.bp-sub { margin-top: 18px; font-size: 18px; line-height: 1.5; color: var(--c-muted); width: 430px; }
+
+.bp-mult { position: absolute; left: 96px; top: 452px; width: 470px; }
+.bp-mult-num { font-family: var(--font-display, var(--font-sans)); font-weight: var(--sm-type-weight, 400); font-size: calc(168px * var(--sm-type-k, 1)); line-height: 1; letter-spacing: var(--sm-type-tracking, -0.05em); font-variant-numeric: tabular-nums; color: var(--c-muted); transform-origin: 0 80%; white-space: nowrap; margin-left: -6px; }
+.bp-mult-label { margin-top: 10px; font-size: 18px; color: var(--c-ink); white-space: nowrap; }
+.bp-mult-eq { margin-top: 6px; font-family: var(--font-mono); font-size: 14px; color: var(--c-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.bp-verdict { position: absolute; left: 845px; top: 112px; width: 400px; text-align: center; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.bp-verdict-on { color: var(--bp-ours, var(--c-ink)); }
+
+.bp-amt { font-family: var(--font-mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+
+.bp-strip { position: absolute; left: 580px; top: 748px; width: 924px; display: flex; gap: 24px; }
+.bp-col { display: flex; flex-direction: column; gap: 10px; }
+.bp-col-pay { width: 230px; }
+.bp-col-get { width: 670px; }
+.bp-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 6px; border-bottom: var(--sm-stroke-fine, 1px) solid var(--c-line); font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.bp-head-sum { font-family: var(--font-mono); text-transform: none; letter-spacing: 0; font-size: 13px; color: var(--c-ink); font-variant-numeric: tabular-nums; }
+.bp-cells { display: flex; gap: 16px; }
+.bp-cell { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.bp-cell-label { font-size: 14px; color: var(--c-ink); white-space: nowrap; }
+.bp-cell-f { font-family: var(--font-mono); font-size: 12px; color: var(--c-muted); white-space: nowrap; }
+.bp-cell-amt { font-family: var(--font-mono); font-size: 14px; color: var(--c-ink); white-space: nowrap; font-variant-numeric: tabular-nums; }

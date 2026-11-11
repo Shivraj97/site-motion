@@ -1,0 +1,14 @@
+{
+  "variantOf": "water-slide-funnel",
+  "role": "hero",
+  "differs": {
+    "layout": "Hero scale: a big three-line headline holds the top left while one long flume sweeps across the rest of the frame (top run, plunge, loop-the-loop, hairpin, return run) into one wide Paid pool under the headline, instead of copy beside a staircase of four ramps and five pools.",
+    "data": "One figure, the share of visitors who pay (6%, from 60 of 1,000), instead of four stage counts and three drop-off pools.",
+    "mechanic": "A single large rider per loop rides the whole course with simulated speed (slow push-off, fast plunge, slowing over the loop top) and a ballistic jump off a lip, instead of a stream of a hundred small riders hopping ramp to ramp.",
+    "moment": "The splash into the Paid pool: a jet and spray go up, a wave runs across the water and the big 6% rises out of the pool on it and floats there, instead of counters ticking and pools filling."
+  },
+  "renderer": "SVG",
+  "blurb": "One rider rides a single long slide with a loop-the-loop into the Paid pool, and its splash lifts the share of visitors who pay out of the water.",
+  "featured": false,
+  "directable": ["stroke", "corner", "label", "type", "motion", "motif"]
+}

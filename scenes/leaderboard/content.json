@@ -1,0 +1,20 @@
+{
+  "title": "Contributions, counted",
+  "label": "A contributor table for a community app. Contributions land one after another, points count up, and the rows re-sort themselves by total.",
+  "eyebrow": "Contributions",
+  "heading": "Contributions,\ncounted",
+  "body": "Propose changes, test ideas, join discussions and help make decisions. Your contributions earn points and build a record of what you’ve helped improve.",
+  "columns": ["CONTRIBUTOR", "CONTRIBUTIONS", "POINTS ADDED", "POINTS"],
+  "people": [
+    { "name": "Maya", "chip": "Feature shipped", "added": 320, "points": 3200 },
+    { "name": "Jon", "chip": "14 proposals", "added": 210, "points": 2600 },
+    { "name": "Ari", "chip": "Early builder", "added": 180, "points": 2200 },
+    { "name": "Yoku", "chip": "2 new apps", "added": 140, "points": 1900 }
+  ],
+  "events": [
+    { "at": 2.2, "who": "Ari", "chip": "Proposal passed", "add": 900 },
+    { "at": 4.6, "who": "Yoku", "chip": "Tested 6 changes", "add": 1500 },
+    { "at": 7.0, "who": "Jon", "chip": "Feature shipped", "add": 700 }
+  ],
+  "note": "Every contributor is verified as one real human. Bots don’t get a seat at the table."
+}

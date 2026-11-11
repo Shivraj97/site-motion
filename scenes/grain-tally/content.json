@@ -1,0 +1,17 @@
+{
+  "title": "The number, made of the work",
+  "label": "Thousands of grains, each one a batch of four events, breathe as a dust ring, pour into the digits of the week's total, then melt into one bar per source with its exact count, and drift back into the ring.",
+  "eyebrow": "This week",
+  "heading": "The number,\nmade of the work.",
+  "sub": "Every grain is four real events. Watch them add up, then sort by where they came from.",
+  "perGrain": 4,
+  "legend": "1 grain = {per} events",
+  "unit": "events this week",
+  "sources": [
+    { "name": "API", "count": 4720 },
+    { "name": "Webhooks", "count": 3160 },
+    { "name": "Cron", "count": 2080 },
+    { "name": "Email", "count": 1440 },
+    { "name": "Agents", "count": 1080 }
+  ]
+}

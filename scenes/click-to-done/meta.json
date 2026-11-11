@@ -1,0 +1,11 @@
+{
+  "story": "onboarding",
+  "stories": ["onboarding", "product", "collaboration", "conversion"],
+  "renderer": "DOM",
+  "blurb": "A real product screen: the cursor types two emails, picks a role and sends; the camera pulls back as the team grows.",
+  "order": 42,
+  "featured": false,
+  "home": "soft-ui",
+  "family": "ui-demo",
+  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "color"]
+}

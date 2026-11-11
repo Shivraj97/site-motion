@@ -1,0 +1,21 @@
+{
+  "story": "metrics",
+  "stories": [
+    "metrics",
+    "scale",
+    "many-to-one"
+  ],
+  "renderer": "Canvas 2D",
+  "blurb": "Grains of real events pour into the digits of the total, then sort themselves into one bar per source.",
+  "order": 17,
+  "featured": true,
+  "home": "field",
+  "directable": [
+    "stroke",
+    "label",
+    "type",
+    "motion",
+    "texture",
+    "color"
+  ]
+}

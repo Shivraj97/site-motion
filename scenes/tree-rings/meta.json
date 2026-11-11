@@ -1,0 +1,20 @@
+{
+  "story": "milestones",
+  "stories": [
+    "milestones",
+    "metrics",
+    "scale"
+  ],
+  "renderer": "SVG",
+  "blurb": "A log slice grows one ring per year, each as thick as that year's orders; notches mark the firsts and the plaque at the heart adds them up.",
+  "featured": false,
+  "home": "ink",
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif"
+  ]
+}

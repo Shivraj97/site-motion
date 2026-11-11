@@ -1,0 +1,20 @@
+{
+  "story": "reliability",
+  "stories": [
+    "reliability",
+    "infrastructure"
+  ],
+  "renderer": "WebGL shader",
+  "blurb": "A storm builds over one region of a status map; traffic reroutes and nothing fails.",
+  "order": 3,
+  "featured": true,
+  "home": "field",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "texture"
+  ]
+}

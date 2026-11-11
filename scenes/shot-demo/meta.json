@@ -1,0 +1,11 @@
+{
+  "story": "product",
+  "stories": ["product", "onboarding", "conversion", "analytics"],
+  "renderer": "DOM + screenshot",
+  "blurb": "Your own screenshot, demoed: the cursor types into your real fields and clicks your real button, the values change in your face, the camera and a spotlight land on the result.",
+  "order": 45,
+  "featured": false,
+  "home": "soft-ui",
+  "family": "ui-demo",
+  "directable": ["motion", "color"]
+}

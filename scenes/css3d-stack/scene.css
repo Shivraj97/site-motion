@@ -1,0 +1,22 @@
+.c3 { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.c3-copy { position: absolute; left: 110px; top: 300px; width: 480px; }
+.c3-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
+.c3-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(54px * var(--sm-type-k, 1)); line-height: 1.03; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); }
+.c3-sub { margin-top: 18px; font-size: 19px; line-height: 1.5; color: var(--c-muted); }
+
+/* isometric view: orthographic (no perspective), the floor plane turned to 54.7° and 45° */
+.c3-view { position: absolute; left: 1080px; top: 610px; width: 0; height: 0; transform-style: preserve-3d; transform: rotateX(54.7356deg) rotateZ(-45deg); }
+.c3-stack { position: absolute; left: -210px; top: -140px; width: 420px; height: 280px; transform-style: preserve-3d; }
+.c3-layer { --T: 22px; position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
+.c3-face { position: absolute; backface-visibility: hidden; }
+.c3-top { --lit: 0; inset: 0; transform: translateZ(var(--T)); border-radius: calc(18px * var(--sm-corner-k, 1)); padding: 22px 26px; background: color-mix(in srgb, var(--layer) calc(var(--lit-lo, 28%) + var(--lit) * var(--lit-span, 50%)), var(--c-surface)); box-shadow: inset 0 0 0 var(--sm-stroke-regular, var(--stroke-w, 1.5px)) var(--sm-stroke-color, var(--c-stroke, var(--c-ink))), 0 0 0 calc(var(--lit) * 6px) color-mix(in srgb, var(--c-accent) 35%, transparent); color: var(--c-ink); display: flex; flex-direction: column; gap: 10px; }
+.c3-row { display: flex; justify-content: space-between; align-items: baseline; }
+.c3-name { font-size: 28px; font-weight: 600; letter-spacing: -0.01em; }
+.c3-tag { font-family: var(--font-mono); font-size: 14px; color: color-mix(in srgb, var(--c-muted) 55%, var(--c-ink)); }
+.c3-sub-l { font-size: 18px; color: color-mix(in srgb, var(--c-muted) 55%, var(--c-ink)); }
+.c3-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.c3-chip { font-family: var(--font-mono); font-size: 14px; padding: 6px 10px; border-radius: calc(8px * var(--sm-corner-k, 1)); background: var(--c-surface); box-shadow: inset 0 0 0 1px var(--c-line); }
+/* the two visible sides: the far edge of the plan (y = 340) folds down, and so does the right edge (x = 460) */
+.c3-side-y { left: 18px; right: 18px; top: 100%; height: var(--T); transform-origin: 50% 0; transform: translateZ(var(--T)) rotateX(-90deg); background: color-mix(in srgb, var(--layer) 55%, var(--c-ink)); }
+.c3-side-x { top: 18px; bottom: 18px; left: 100%; width: var(--T); transform-origin: 0 50%; transform: translateZ(var(--T)) rotateY(90deg); background: color-mix(in srgb, var(--layer) 40%, var(--c-ink)); }
+.c3-token { position: absolute; left: 0; top: 0; padding: 10px 16px; border-radius: 999px; background: var(--c-accent-fill, var(--c-accent)); color: var(--c-on-accent, #fff); font-family: var(--font-mono); font-size: 16px; white-space: nowrap; box-shadow: 0 0 0 6px color-mix(in srgb, var(--c-accent) 25%, transparent), var(--sm-shadow-2, 0 10px 24px -8px rgba(0,0,0,.35)); opacity: 0; }

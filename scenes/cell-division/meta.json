@@ -1,0 +1,21 @@
+{
+  "story": "branching",
+  "stories": [
+    "branching",
+    "infrastructure",
+    "data",
+    "platform"
+  ],
+  "renderer": "Canvas 2D",
+  "blurb": "A database cell called main buds two branch cells; one is changed and fuses back, the other dissolves, and main carries the change.",
+  "featured": false,
+  "home": "outline",
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif"
+  ]
+}

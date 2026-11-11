@@ -1,0 +1,14 @@
+{
+  "variantOf": "galton-router",
+  "role": "metrics",
+  "differs": {
+    "mechanic": "Payments leave a small quincunx through planned exits and ride their own tracks across the page into wide bins, where they stack as dots, instead of a switch flipping mid-run and moving the flow inside one big board.",
+    "layout": "The pegboard shrinks to the top right corner and the bins become a full-width histogram with a target line, with the copy and a headline figure in a top band, replacing the board-on-the-right, copy-on-the-left hero.",
+    "data": "A distribution: a share per route counted from the 200 payments that landed, landing exactly on the content's shares, against a target share, instead of a live rate of the last 24 payments.",
+    "moment": "The last payments drop into the bins, D and E stand above the dashed target line and every share settles: 4, 6, 10, 38 and 42%, with 80% sent to 95%+ processors."
+  },
+  "renderer": "SVG",
+  "blurb": "Payments drop through a small pegboard and ride their tracks into full-width bins, so each route's share is counted from the payments that landed.",
+  "featured": false,
+  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "motif", "texture", "color"]
+}

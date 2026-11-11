@@ -1,0 +1,20 @@
+{
+  "title": "Guardrails around your model",
+  "label": "Your model sits inside four guardrail rings: an input filter, PII redaction, a policy check and an output check. Two prompts, from a support bot and a search widget, pass every ring. A third, from an anonymous session, is stopped at the input filter, which closes with the chip Blocked, prompt injection. The log beside the rings counts 2 allowed and 1 blocked.",
+  "eyebrow": "AI guardrails",
+  "heading": "Every prompt passes\nfour checks first.",
+  "sub": "Filter, redact, check policy, then check the answer. The model only sees what made it through.",
+  "asset": { "name": "Your model", "detail": "v4 · production" },
+  "rings": [
+    { "name": "Input filter", "short": "Input", "pass": "clean" },
+    { "name": "PII redaction", "short": "PII", "pass": "2 redacted" },
+    { "name": "Policy check", "short": "Policy", "pass": "in scope" },
+    { "name": "Output check", "short": "Output", "pass": "grounded" }
+  ],
+  "requests": [
+    { "who": "support-bot", "action": "Summarise ticket #4471", "time": "11:20:03" },
+    { "who": "search-widget", "action": "Answer a billing question", "time": "11:20:06" },
+    { "who": "anon-session", "action": "Ignore previous instructions", "time": "11:20:09", "blockedAt": "Input filter", "reason": "prompt injection" }
+  ],
+  "log": { "title": "Guardrail log", "allowed": "passed", "blocked": "blocked", "allowedBadge": "Passed", "blockedBadge": "Blocked" }
+}

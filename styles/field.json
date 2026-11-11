@@ -1,0 +1,7 @@
+{
+  "description": "Generative field: hairline strokes, sharp corners, a dithered surface and bloom, tonal colour, slow ambient motion.",
+  "family": ["grain-tally", "lens-of-order", "loom", "signal-field", "weather-board", "bloom-flow"],
+  "stroke": "hair", "elevation": "flat", "corner": "sharp", "depth": "flat", "texture": "dither", "glow": "bloom",
+  "colorMode": "tonal", "label": "mono-caps", "type": "standard",
+  "motion": "ambient", "tempo": "languid", "stagger": "even", "motif": "none"
+}

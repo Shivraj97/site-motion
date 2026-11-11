@@ -1,0 +1,22 @@
+{
+  "story": "automation",
+  "stories": [
+    "automation",
+    "workflows"
+  ],
+  "renderer": "Canvas + SVG",
+  "blurb": "An event runs through a workflow graph and each step blooms into generative flowers.",
+  "order": 10,
+  "featured": false,
+  "home": "field",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "texture",
+    "color"
+  ]
+}

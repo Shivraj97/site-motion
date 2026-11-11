@@ -1,0 +1,31 @@
+.ps { background: var(--c-paper); overflow: hidden; }
+.ps-ring { position: absolute; left: 400px; top: 50px; width: 800px; height: 800px; border-radius: 50%; box-shadow: inset 0 0 0 2.5px color-mix(in srgb, var(--c-accent-fill, var(--c-accent)) 75%, transparent), 0 0 90px color-mix(in srgb, var(--c-accent) 35%, transparent), inset 0 0 90px color-mix(in srgb, var(--c-accent) 18%, transparent); opacity: 0; } /* sm-native: a signal ring is a line of light, not a stroke style */
+
+.ps-screen { background: linear-gradient(165deg, color-mix(in srgb, var(--c-accent) 34%, var(--c-paper)) 0%, var(--c-paper) 55%, color-mix(in srgb, var(--p-2) 40%, var(--c-paper)) 100%); }
+.ps-mark { position: absolute; left: 189px; top: 600px; width: 0; height: 0; }
+.ps-lock { position: absolute; inset: 0; }
+.ps-date { position: absolute; left: 0; right: 0; top: 104px; text-align: center; font: 500 19px/1 var(--font-sans); color: var(--c-ink); }
+.ps-time { position: absolute; left: 0; right: 0; top: 128px; text-align: center; font: var(--sm-type-weight, 600) calc(104px * var(--sm-type-k, 1))/1 var(--font-display, var(--font-sans)); letter-spacing: var(--sm-type-tracking, -0.03em); color: var(--c-ink); }
+
+.ps-note { position: absolute; left: 16px; top: 0; width: 346px; height: 86px; display: flex; gap: 12px; align-items: center; padding: 0 14px; border-radius: 22px; background: color-mix(in srgb, var(--c-surface) 94%, transparent); box-shadow: 0 0 0 var(--sm-stroke-hair, 1px) color-mix(in srgb, var(--c-ink) 6%, transparent), var(--sm-shadow-2, 0 10px 24px -14px color-mix(in srgb, var(--c-ink) 40%, transparent)); transform-origin: 50% 0; opacity: 0; } /* sm-native: iOS-style notification corners belong to the device, not the brand */
+.ps-icon { flex: none; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; background: var(--c-accent-fill, var(--c-accent)); color: var(--c-on-accent); font: 700 18px/1 var(--font-sans); } /* sm-native: an app icon's squircle is the platform's */
+.ps-note-txt { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.ps-note-top { display: flex; justify-content: space-between; font: 12px/1 var(--font-sans); color: var(--c-muted); text-transform: uppercase; letter-spacing: .04em; }
+.ps-note-txt b { font: 600 15px/1.2 var(--font-sans); color: var(--c-ink); }
+.ps-note-body { font: 14px/1.25 var(--font-sans); color: var(--c-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.ps-app { position: absolute; inset: 0; background: var(--c-paper); opacity: 0; z-index: 4; transform-origin: 50% 60%; }
+.ps-app-body { position: absolute; inset: 64px 26px 40px; }
+.ps-back { font: 500 16px/1 var(--font-sans); color: var(--c-accent-ink); }
+.ps-eyebrow { margin-top: 42px; font: 500 12px/1 var(--sm-label-font, var(--font-mono)); letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.ps-amount { margin-top: 12px; font: var(--sm-type-weight, 600) calc(46px * var(--sm-type-k, 1))/1 var(--font-display, var(--font-sans)); letter-spacing: var(--sm-type-tracking, -0.02em); color: var(--c-ink); font-variant-numeric: tabular-nums; }
+.ps-to { margin-top: 10px; font: 15px/1 var(--font-sans); color: var(--c-muted); }
+.ps-steps { position: relative; margin-top: 44px; padding: 20px 20px 4px; border-radius: var(--sm-radius-md, var(--r-md)); background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-hair, 1px) var(--c-line); }
+.ps-rail { position: absolute; left: 31px; top: 34px; width: 2px; height: 128px; background: var(--c-line); }
+.ps-rail-fill { position: absolute; left: 31px; top: 34px; width: 2px; height: 128px; background: var(--c-accent-fill, var(--c-accent)); transform-origin: 50% 0; transform: scaleY(0); }
+.ps-step { --on: 0; position: relative; display: flex; gap: 18px; align-items: flex-start; height: 64px; }
+.ps-step-dot { flex: none; width: 24px; height: 24px; margin-top: 2px; border-radius: 50%; background: color-mix(in srgb, var(--c-accent-fill, var(--c-accent)) calc(var(--on) * 100%), var(--c-raised)); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--c-accent-fill, var(--c-accent)) calc(var(--on) * 100%), var(--c-line)), 0 0 0 4px var(--c-surface); }
+.ps-step div { display: flex; flex-direction: column; gap: 6px; }
+.ps-step b { font: 600 16px/1.1 var(--font-sans); color: var(--c-ink); }
+.ps-step span { font: 14px/1 var(--font-sans); color: var(--c-muted); }
+.ps-btn { position: absolute; left: 0; right: 0; bottom: 0; height: 54px; display: grid; place-items: center; border-radius: 999px; background: var(--c-ink); color: var(--c-paper); font: 600 16px/1 var(--font-sans); }

@@ -1,0 +1,23 @@
+{
+  "title": "Content calendar",
+  "label": "An editorial workflow as a kanban board with four columns: Draft, Review, Scheduled and Published, each showing how many pieces it holds. Pieces, each with the author's initials and a format tag, advance one stage at a time, until the guide 'Pricing pages that convert' is published and its card turns into a green 'Live · Guide' chip.",
+  "eyebrow": "Content",
+  "heading": "From first draft\nto published, in one view.",
+  "sub": "Writers, editors and the person who hits publish share the same board, so nothing waits on a status update.",
+  "stages": ["Draft", "Review", "Scheduled", "Published"],
+  "cards": [
+    { "id": "onboarding", "title": "Onboarding emails, rewritten", "owner": "Kai Brooks", "tag": "Email", "stage": 0 },
+    { "id": "q3", "title": "Q3 product changelog", "owner": "Noor Haddad", "tag": "Changelog", "stage": 0 },
+    { "id": "interview", "title": "Customer interview: a 40-person agency", "owner": "Eli Strand", "tag": "Story", "stage": 0 },
+    { "id": "seo", "title": "Search basics for small teams", "owner": "Kai Brooks", "tag": "Blog", "stage": 0 },
+    { "id": "pricing", "title": "Pricing pages that convert", "owner": "Noor Haddad", "tag": "Guide", "stage": 1 },
+    { "id": "webinar", "title": "Webinar recap: planning week", "owner": "Eli Strand", "tag": "Video", "stage": 1 },
+    { "id": "hiring", "title": "How we hire writers", "owner": "Kai Brooks", "tag": "Blog", "stage": 1 },
+    { "id": "templates", "title": "Five brief templates", "owner": "Noor Haddad", "tag": "Download", "stage": 2 },
+    { "id": "release", "title": "Release notes 4.2", "owner": "Eli Strand", "tag": "Changelog", "stage": 2 },
+    { "id": "style", "title": "Our style guide, public", "owner": "Kai Brooks", "tag": "Guide", "stage": 3 },
+    { "id": "launch", "title": "Launch checklist", "owner": "Noor Haddad", "tag": "Blog", "stage": 3 }
+  ],
+  "moves": ["q3", "webinar", "onboarding", "release", "pricing", "pricing"],
+  "success": "Live · {tag}"
+}

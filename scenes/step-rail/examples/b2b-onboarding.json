@@ -1,0 +1,16 @@
+{
+  "title": "Onboarding in four steps",
+  "label": "A B2B onboarding section drawn as four numbered steps on a rail. A token labelled Your workspace travels from step to step: connect data shows four connected sources, invite team shows three teammates and eight invites, set rules shows two alert rules, and the last step, go live, lands the result: live in 4 minutes, the median from first login.",
+  "eyebrow": "Getting started",
+  "heading": "Set up once.\nLive before lunch.",
+  "sub": "Connect your tools, bring your team and set the rules that matter. We handle the rest.",
+  "token": "Your workspace",
+  "states": { "pending": "Up next", "active": "In progress", "done": "Done" },
+  "steps": [
+    { "title": "Connect data", "detail": "Pick your sources. Read-only, nothing to install.", "time": "90 s", "result": { "kind": "chips", "items": ["Warehouse", "CRM", "Billing", "Support"] } },
+    { "title": "Invite team", "detail": "Bring in the people who act on the numbers.", "time": "60 s", "result": { "kind": "people", "items": ["DM", "RS", "KO"], "text": "8 teammates" } },
+    { "title": "Set rules", "detail": "Choose what to watch and who hears about it.", "time": "60 s", "result": { "kind": "list", "items": ["Alert on churn risk", "Digest on Mondays"] } },
+    { "title": "Go live", "detail": "Dashboards fill in and alerts start flowing.", "time": "30 s" }
+  ],
+  "payoff": { "label": "Live in", "value": "4 min", "note": "median, from first login" }
+}

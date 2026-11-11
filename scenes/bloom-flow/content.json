@@ -1,0 +1,23 @@
+{
+  "title": "Workflow in bloom",
+  "label": "A security workflow on a dotted storyboard. A phishing report arrives, an AI agent analyses it, a condition checks the verdict, the email is quarantined and the reporter thanked, and a case is filed. Each step lights up with its run time as line-art flowers open beside it.",
+  "seed": 9,
+  "story": "Story · Phishing triage",
+  "counter": { "label": "Runs today", "from": 12840 },
+  "kinds": {
+    "webhook": { "label": "Webhook", "glyph": "↘", "colour": "#dbd7ff" },
+    "agent": { "label": "AI agent", "glyph": "✦", "colour": "#fecadd" },
+    "condition": { "label": "Condition", "glyph": "?", "colour": "#ffcc78" },
+    "action": { "label": "Action", "glyph": "→", "colour": "#9cd4b6" },
+    "case": { "label": "Case", "glyph": "▤", "colour": "#96bdf3" }
+  },
+  "nodes": [
+    { "id": "in", "kind": "webhook", "label": "Phishing report received", "x": 800, "y": 150, "at": 0.7, "ms": 12, "side": 1, "blooms": 2 },
+    { "id": "ai", "kind": "agent", "label": "Analyse the email", "x": 800, "y": 290, "at": 1.9, "ms": 840, "side": -1, "blooms": 4 },
+    { "id": "if", "kind": "condition", "label": "Is it malicious?", "x": 800, "y": 430, "at": 3.1, "ms": 3, "side": 1, "blooms": 2 },
+    { "id": "q", "kind": "action", "label": "Quarantine in mail", "x": 570, "y": 590, "at": 4.3, "ms": 210, "side": -1, "blooms": 3 },
+    { "id": "r", "kind": "action", "label": "Thank the reporter", "x": 1030, "y": 590, "at": 4.6, "ms": 95, "side": 1, "blooms": 3 },
+    { "id": "c", "kind": "case", "label": "Open a case for review", "x": 800, "y": 750, "at": 5.9, "ms": 160, "side": -1, "blooms": 3 }
+  ],
+  "edges": [["in", "ai"], ["ai", "if"], ["if", "q"], ["if", "r"], ["q", "c"], ["r", "c"]]
+}

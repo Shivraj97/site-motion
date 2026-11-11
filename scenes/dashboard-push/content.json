@@ -1,0 +1,43 @@
+{
+  "title": "See the week that mattered",
+  "label": "A revenue dashboard in a browser window. The revenue line draws from Monday to Sunday and the revenue total builds from it to $48,210. A cursor scrubs along the line showing each day's value, the camera moves in on Sunday, the best day, marked up 24 percent on last week, then pulls back. The cursor switches the range to 30 days and every chart, figure and channel bar changes to the month, then back to the week.",
+  "url": "app.ledgerly.io/overview",
+  "brand": { "text": "L", "name": "Ledgerly" },
+  "tabs": ["Overview", "Revenue", "Customers"],
+  "ranges": ["7D", "30D", "90D"],
+  "chartTitle": "Revenue",
+  "currency": "$",
+  "axis": [0, 10000],
+  "week": {
+    "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    "values": [5210, 6140, 5820, 7380, 6930, 8260, 8470],
+    "kpis": [{ "label": "Revenue", "delta": "+24%" }, { "label": "New customers", "value": 312, "delta": "+18%" }, { "label": "Avg. order", "value": 154, "prefix": "$", "delta": "+6%" }]
+  },
+  "month": {
+    "labels": ["Oct 12", "Oct 19", "Oct 26", "Nov 2", "Nov 9"],
+    "values": [4120, 4380, 4050, 4610, 4890, 4470, 4720, 5030, 5280, 4960, 5340, 5610, 5190, 5480, 5820, 5550, 5910, 6240, 5870, 6180, 6530, 6110, 6420, 6790, 6380, 6930, 7260, 6870, 8260, 8470],
+    "kpis": [{ "label": "Revenue", "delta": "+11%" }, { "label": "New customers", "value": 1284, "delta": "+9%" }, { "label": "Avg. order", "value": 146, "prefix": "$", "delta": "+2%" }]
+  },
+  "channelsTitle": "Top channels",
+  "channels": [
+    { "name": "Organic", "week": 42, "month": 38 },
+    { "name": "Referral", "week": 27, "month": 31 },
+    { "name": "Paid", "week": 18, "month": 20 },
+    { "name": "Email", "week": 13, "month": 11 }
+  ],
+  "best": "Best day this week",
+  "bestDelta": "↑ 24% on last Sunday",
+  "cursor": [
+    { "at": 3.5, "to": "pt-1", "anchor": [0.5, 0.5] },
+    { "at": 4.15, "to": "pt-3", "move": 0.6 },
+    { "at": 4.8, "to": "pt-6", "move": 0.6 },
+    { "at": 8.55, "to": "range-1", "click": true },
+    { "at": 11.05, "to": "range-0", "click": true },
+    { "at": 13.2, "to": [1260, 862] }
+  ],
+  "camera": [
+    { "at": 5.0, "dur": 1.25, "zoom": 1.85, "focus": "pt-6", "offset": [-60, 70] },
+    { "at": 7.05, "dur": 1.15, "zoom": 1 }
+  ],
+  "times": { "draw": 0.25, "hover": [3.0, 7.4], "annotate": [5.75, 7.0] }
+}

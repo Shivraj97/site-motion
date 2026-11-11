@@ -1,0 +1,17 @@
+{
+  "title": "How the agent works",
+  "label": "An AI agent's run drawn as five numbered steps on a rail. A token labelled Request 2041 travels from step to step: read request shows the customer's message, make a plan shows three ticked steps, call tools shows three tool calls, check the result shows an 84 dollar refund issued, and the last step, answer, lands the result: answered in 38 seconds with two sources cited.",
+  "eyebrow": "Under the hood",
+  "heading": "Every answer shows\nits work.",
+  "sub": "The agent reads, plans, calls your tools and checks the result before it replies. Each step is logged.",
+  "token": "Request #2041",
+  "states": { "pending": "Queued", "active": "Running", "done": "Done" },
+  "steps": [
+    { "title": "Read request", "detail": "Understand what the customer is asking for.", "time": "2 s", "result": { "kind": "line", "text": "“Order 7781 arrived broken. Refund?”" } },
+    { "title": "Make a plan", "detail": "Break the request into steps it can check.", "time": "4 s", "result": { "kind": "list", "items": ["Find the order", "Check the policy", "Issue the refund"] } },
+    { "title": "Call tools", "detail": "Use the systems you connected, nothing else.", "time": "19 s", "result": { "kind": "chips", "items": ["orders.get", "policy.search", "refunds.create"] } },
+    { "title": "Check result", "detail": "Confirm the action matches the policy.", "time": "6 s", "result": { "kind": "value", "value": "$84.00", "unit": "refund issued" } },
+    { "title": "Answer", "detail": "Reply in plain words, with the sources.", "time": "7 s" }
+  ],
+  "payoff": { "label": "Answered in", "value": "38 s", "note": "3 tools called, 2 sources cited" }
+}

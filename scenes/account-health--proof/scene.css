@@ -1,0 +1,48 @@
+.ahp { background: transparent; } /* the stage paints the paper; a style motif sits between */
+
+/* the chart card: one account's year, large */
+.ahp-card { position: absolute; left: 96px; top: 112px; width: 884px; height: 676px; background: var(--c-surface); border-radius: var(--sm-radius-lg, var(--r-lg, 20px)); box-shadow: 0 0 0 var(--sm-stroke-hair, 1px) var(--sm-stroke-color, var(--c-line)), var(--sm-shadow-1, 0 0 0 0 transparent); opacity: 0; }
+.ahp-head { position: absolute; left: 0; right: 0; top: 0; height: 84px; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; border-bottom: var(--sm-stroke-hair, 1px) solid var(--c-line); }
+.ahp-acc { display: flex; align-items: center; gap: 14px; white-space: nowrap; }
+.ahp-mark { width: 40px; height: 40px; flex: none; display: grid; place-items: center; border-radius: var(--sm-radius-sm, var(--r-sm, 6px)); font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+.ahp-name { font-size: 18px; font-weight: 500; color: var(--c-ink); }
+.ahp-sub { margin-top: 3px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.ahp-live { display: flex; align-items: center; gap: 14px; white-space: nowrap; opacity: 0; }
+.ahp-cursor { width: 112px; text-align: right; font-family: var(--font-mono); font-size: 13px; color: var(--c-muted); font-variant-numeric: tabular-nums; }
+.ahp-score { width: 52px; text-align: right; font-family: var(--font-display, var(--font-sans)); font-size: calc(34px * var(--sm-type-k, 1)); font-weight: var(--sm-type-weight, 500); letter-spacing: var(--sm-type-tracking, -0.02em); font-variant-numeric: tabular-nums; color: var(--c-ink); }
+.ahp-pill { display: inline-flex; align-items: center; gap: 7px; padding: 5px 12px 5px 10px; border-radius: 999px; font-size: 13.5px; font-weight: 500; } /* sm-native: a pill stays a pill */
+.ahp-dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.ahp-pill-stack { display: grid; }
+.ahp-pill-l { grid-area: 1 / 1; white-space: nowrap; }
+
+.ahp-plot { position: absolute; left: 0; top: 0; overflow: visible; }
+.ahp-ylab, .ahp-xlab, .ahp-band { font-family: var(--font-mono); font-size: 12.5px; fill: var(--c-muted); }
+.ahp-band { font-family: var(--sm-label-font, var(--font-mono)); letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); font-size: 12px; }
+.ahp-mk { font-family: var(--font-mono); font-size: 13px; fill: var(--c-muted); }
+.ahp-mk-strong { font-family: var(--font-sans); font-size: 15px; font-weight: 500; fill: var(--c-ink); }
+.ahp-gain { font-family: var(--font-sans); font-size: 18px; font-weight: 600; fill: var(--c-positive-text, var(--c-positive)); }
+
+/* the playbook chip, hung over the trough */
+.ahp-chip { position: absolute; display: flex; align-items: center; gap: 7px; padding: 0 13px 0 11px; border-radius: 999px; background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-line)), var(--sm-shadow-1, 0 0 0 0 transparent); font-size: 14px; white-space: nowrap; color: var(--c-ink); opacity: 0; } /* sm-native: a pill stays a pill */
+.ahp-chip-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c-accent); flex: none; }
+.ahp-chip-k { font-family: var(--font-mono); font-size: 12.5px; color: var(--c-muted); }
+.ahp-chip-n { font-weight: 500; }
+.ahp-chip-st { display: grid; }
+.ahp-chip-pend, .ahp-chip-sent { grid-area: 1 / 1; }
+.ahp-chip-pend { color: var(--c-muted); }
+.ahp-chip-sent { color: var(--c-positive-text, var(--c-positive)); font-weight: 500; opacity: 0; }
+
+/* the story: quote, who said it, and the two numbers off the line */
+.ahp-side { position: absolute; left: 1040px; top: 112px; width: 464px; height: 676px; display: flex; flex-direction: column; justify-content: space-between; }
+.ahp-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin: 6px 0 22px; }
+.ahp-quote { margin: 0; font-family: var(--font-display, var(--font-sans)); font-size: calc(34px * var(--sm-type-k, 1)); line-height: 1.26; letter-spacing: var(--sm-type-tracking, -0.015em); font-weight: var(--sm-type-weight, 400); color: var(--c-ink); text-indent: -0.42em; }
+.ahp-att { display: flex; align-items: center; gap: 14px; margin-top: 30px; }
+.ahp-av { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border-radius: 50%; font-size: 14px; font-weight: 600; }
+.ahp-att-n { font-size: 16px; font-weight: 500; color: var(--c-ink); }
+.ahp-att-r { margin-top: 2px; font-size: 14px; color: var(--c-muted); }
+.ahp-outs { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; padding-top: 28px; border-top: var(--sm-stroke-hair, 1px) solid var(--c-line); }
+.ahp-out-v { display: flex; align-items: baseline; gap: 8px; height: 76px; white-space: nowrap; opacity: 0; }
+.ahp-out-n { font-family: var(--font-display, var(--font-sans)); font-size: calc(72px * var(--sm-type-k, 1)); line-height: 1; letter-spacing: var(--sm-type-tracking, -0.03em); font-weight: var(--sm-type-weight, 400); font-variant-numeric: tabular-nums; color: var(--c-ink); }
+.ahp-out-s { font-size: 20px; color: var(--c-muted); }
+.ahp-out-gain .ahp-out-n { color: var(--c-positive-text, var(--c-positive)); }
+.ahp-out-l { margin-top: 12px; text-wrap: balance; font-size: 16px; line-height: 1.4; color: var(--c-muted); }

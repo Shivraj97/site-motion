@@ -1,0 +1,72 @@
+/* Type scale for a 1600 × 900 stage shown at ~1200 px: primary ≥ 24 px, secondary ≥ 18 px, ornament ≥ 15 px.
+ * Looks: object outlines (plates, tray, request card, tags) take --sm-stroke-fine/-hair in --sm-stroke-color; soft inner
+ * rules keep their tint and take only the weight; corners take --sm-radius-*; labels take the --sm-label-* voice;
+ * the headline and the request prompt take --sm-type-*; the request card, tray and plates take --sm-shadow-* (the
+ * dog-eared cards are SVG shapes, so a box shadow would show past the fold: they stay flat). Every fallback is the native value. */
+.ph { background: var(--c-paper); }
+.ph-svg, .ph-tethers { position: absolute; left: 0; top: 0; pointer-events: none; }
+.ph-svg { z-index: 0; }
+.ph-tethers { z-index: 6; }
+.ph-num { font-family: var(--font-mono); font-size: 15px; letter-spacing: .06em; fill: var(--ph-label); }
+
+/* copy */
+.ph-copy { position: absolute; left: 64px; top: 64px; width: 480px; z-index: 5; }
+.ph-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .1em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 18px; }
+.ph-h { font-family: var(--font-display, var(--font-sans)); font-weight: var(--sm-type-weight, 400); font-size: calc(52px * var(--sm-type-k, 1)); line-height: 1.02; letter-spacing: var(--sm-type-tracking, -0.015em); white-space: pre-line; color: var(--c-ink); text-wrap: balance; }
+.ph-sub { margin-top: 20px; font-size: 20px; line-height: 1.45; color: var(--c-muted); max-width: 470px; }
+
+/* label plates: flat, ruled twice, two screws */
+.ph-plate { position: absolute; box-shadow: var(--sm-shadow-1, none); z-index: 1; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; height: 38px; padding: 0 12px; border: var(--sm-stroke-fine, 1px) solid var(--sm-stroke-color, var(--ph-rule)); border-radius: var(--sm-radius-sm, 2px); background: var(--c-surface); font-family: var(--sm-label-font, var(--font-mono)); font-size: 24px; line-height: 1; letter-spacing: var(--sm-label-tracking, .04em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-ink); white-space: nowrap; }
+.ph-plate::before { content: ""; position: absolute; inset: 3px; border: var(--sm-stroke-hair, 1px) solid var(--ph-rule-soft); border-radius: calc(var(--sm-radius-sm, 2px) / 2); pointer-events: none; }
+.ph-screw { width: 6px; height: 6px; border-radius: 50%; border: var(--sm-stroke-hair, 1px) solid var(--ph-rule); flex: none; }
+.ph-plate-red { border-color: var(--ph-redline); color: var(--ph-redline); }
+.ph-plate-red .ph-screw { border-color: var(--ph-redline); }
+
+/* intake tray front: cards rise from behind it */
+.ph-tray { position: absolute; box-shadow: var(--sm-shadow-1, none); z-index: 250; background: var(--c-paper); border: var(--sm-stroke-fine, 1px) solid var(--sm-stroke-color, var(--ph-rule)); border-radius: min(var(--sm-radius-md, 2px), 2px) min(var(--sm-radius-md, 2px), 2px) var(--sm-radius-md, 2px) var(--sm-radius-md, 2px); } /* top corners stay tight so the tray's side walls meet them */
+.ph-tray::before { content: ""; position: absolute; left: 8px; right: 8px; top: 8px; height: 0; border-top: var(--sm-stroke-hair, 1px) solid var(--ph-rule-soft); }
+.ph-plate-tray { left: 50%; top: 47px; }
+
+/* cards: flat document glyphs, dog-eared, a title in two lines at most, a mono type tag */
+.ph-card { position: absolute; left: 0; top: 0; height: 120px; z-index: 10; }
+.ph-card-bg { position: absolute; left: 0; top: 0; }
+.ph-card-t { position: absolute; left: 16px; top: 10px; font-size: 24px; line-height: 28px; font-weight: 500; letter-spacing: -0.01em; color: var(--c-ink); }
+.ph-sec { position: absolute; right: 16px; top: 10px; width: 16px; height: 30px; font-family: var(--font-display, var(--font-sans)); font-size: 28px; line-height: 30px; }
+.ph-sec i { position: absolute; left: 0; top: 0; font-style: normal; opacity: 0; }
+.ph-sec i.ph-on { opacity: 1; }
+.ph-sec-p { color: transparent; -webkit-text-stroke: 1.1px var(--ph-pending); }
+.ph-sec-v { color: var(--ph-verified); }
+.ph-card-b { position: absolute; left: 16px; top: 82px; }
+.ph-tag { display: inline-block; font-family: var(--sm-label-font, var(--font-mono)); font-size: 18px; line-height: 24px; letter-spacing: var(--sm-label-tracking, .04em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); padding: 0 6px; border: var(--sm-stroke-hair, 1px) solid var(--ph-rule); border-radius: var(--sm-radius-sm, 2px); background: var(--c-surface); white-space: nowrap; }
+
+/* a card that has left for a request leaves its outline behind */
+.ph-ghost { position: absolute; left: 0; top: 0; opacity: 0; background: var(--ph-cell); border: var(--sm-stroke-hair, 1px) dashed var(--ph-pending); border-radius: var(--sm-radius-md, 1px); }
+
+/* the request card */
+.ph-panel { position: absolute; box-shadow: var(--sm-shadow-2, none); z-index: 3; background: var(--c-surface); border: var(--sm-stroke-fine, 1px) solid var(--sm-stroke-color, var(--ph-rule)); border-radius: var(--sm-radius-md, 2px); }
+.ph-panel-h { position: absolute; left: 0; right: 0; top: 0; height: 44px; padding: 0 20px 0 24px; display: flex; align-items: center; gap: 12px; border-bottom: var(--sm-stroke-hair, 1px) solid var(--ph-rule-soft); font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.ph-panel-k { color: var(--c-ink); }
+.ph-panel-n { font-family: var(--font-mono); font-style: normal; color: var(--ph-label); letter-spacing: .02em; } /* a counter, not a label: stays mono */
+.ph-legend { margin-left: auto; display: flex; gap: 14px; font-family: var(--font-mono); font-style: normal; text-transform: none; letter-spacing: 0; color: var(--ph-label); }
+.ph-lg { display: inline-flex; align-items: baseline; gap: 5px; }
+.ph-lg i { font-style: normal; font-family: var(--font-display, var(--font-sans)); font-size: 20px; line-height: 1; }
+.ph-lg-p { color: transparent; -webkit-text-stroke: 1px var(--ph-pending); }
+.ph-lg-v { color: var(--ph-verified); }
+.ph-idle { position: absolute; left: 24px; top: 60px; font-size: 24px; color: var(--ph-label); }
+.ph-prompt { position: absolute; left: 24px; top: 56px; font-size: calc(30px * var(--sm-type-k, 1)); line-height: 1.15; font-weight: 500; letter-spacing: var(--sm-type-tracking, -0.015em); color: var(--c-ink); opacity: 0; }
+.ph-slotno { position: absolute; right: 22px; font-family: var(--font-mono); font-size: 15px; letter-spacing: .06em; color: var(--ph-label); }
+.ph-hole { position: absolute; left: 24px; border: var(--sm-stroke-hair, 1px) dashed var(--ph-rule); border-radius: var(--sm-radius-md, 2px); }
+.ph-rec { position: absolute; left: 24px; height: 76px; background: var(--c-surface); border-bottom: var(--sm-stroke-hair, 1px) solid var(--ph-rule-soft); opacity: 0; }
+.ph-result { position: absolute; left: 24px; right: 24px; bottom: 12px; height: 30px; display: flex; align-items: baseline; gap: 10px; font-size: 22px; line-height: 30px; font-weight: 500; letter-spacing: -0.005em; color: var(--c-ink); white-space: nowrap; opacity: 0; }
+.ph-result i { font-style: normal; font-family: var(--font-display, var(--font-sans)); font-size: 26px; color: var(--ph-verified); }
+
+/* the ledger */
+.ph-feed { position: absolute; z-index: 5; }
+.ph-feed-h { display: flex; align-items: center; gap: 12px; height: 40px; border-bottom: var(--sm-stroke-hair, 1px) solid var(--ph-rule); font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .1em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.ph-feed-dot { width: 6px; height: 6px; background: var(--c-ink); flex: none; }
+.ph-feed-stat { margin-left: auto; color: var(--ph-label); letter-spacing: .04em; text-transform: none; }
+.ph-rows { position: relative; height: 144px; overflow: hidden; }
+.ph-row { position: absolute; left: 0; right: 0; top: 0; height: 48px; display: grid; grid-template-columns: 92px 1fr auto; align-items: center; gap: 16px; border-bottom: var(--sm-stroke-hair, 1px) solid var(--ph-rule-soft); white-space: nowrap; }
+.ph-row .ph-tag { justify-self: start; }
+.ph-row-t { min-width: 0; font-size: 22px; color: var(--c-ink); }
+.ph-row-to { font-family: var(--sm-label-font, var(--font-mono)); font-style: var(--sm-label-style, normal); font-size: 18px; letter-spacing: .02em; color: var(--c-muted); }

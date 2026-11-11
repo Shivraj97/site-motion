@@ -1,0 +1,11 @@
+{
+  "story": "payments",
+  "stories": ["payments", "agents", "automation", "product"],
+  "renderer": "DOM",
+  "blurb": "An agent's virtual card at work: a purchase request comes in, the checkout autofills with a masked card, the limit meter moves by exactly the amount and the receipt joins the list.",
+  "order": 53,
+  "featured": false,
+  "home": "soft-ui",
+  "family": "ui-demo",
+  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "color"]
+}

@@ -1,0 +1,80 @@
+{
+  "title": "Let your travel agent book inside policy",
+  "label": "A virtual card dashboard for a travel-booking agent called Ferry, in a browser window. A request to book a $412.80 flight on Larkspur Air comes in and the trip budget marks that amount. The agent's pointer clicks Autofill and the camera moves in as the checkout fills field by field with a masked card ending 7306. The agent clicks Book. The camera pulls back, the budget meter moves by exactly $412.80 from $1,736.20 to $2,149.00 of a $3,000.00 budget, a receipt slides out of the checkout into the bookings list, and three steps tick off: booked, in policy, receipt logged.",
+  "url": "trips.waypost.example/agents/ferry",
+  "currency": "$",
+  "brand": { "text": "W", "name": "Waypost" },
+  "nav": ["Travellers", "Trips", "Policy", "Expenses", "Settings"],
+  "active": 1,
+  "agent": { "name": "Ferry", "role": "Travel booking agent", "status": "Card active" },
+  "actions": ["Pause", "Edit policy"],
+  "card": { "kind": "Trip card", "number": "•••• •••• •••• 7306", "holder": "Ferry", "expiry": "03/27" },
+  "meter": { "label": "Q4 trip budget", "limit": 3000, "of": "of", "left": "Left to book", "ok": "In policy" },
+  "request": {
+    "label": "Booking request",
+    "from": "from Ferry",
+    "idle": "No trips waiting",
+    "merchant": "Larkspur Air",
+    "item": "Denver to Boston, economy, Nov 18"
+  },
+  "form": {
+    "title": "Passenger payment",
+    "autofill": "Autofill from card",
+    "pay": "Book",
+    "paid": "Booked",
+    "fields": [
+      { "label": "Cardholder", "placeholder": "Full name", "value": "Ferry, Waypost" },
+      { "label": "Card number", "placeholder": "Card number", "value": "•••• •••• •••• 7306" },
+      { "label": "Expiry", "placeholder": "MM/YY", "value": "03/27" },
+      { "label": "CVC", "placeholder": "CVC", "value": "•••" },
+      { "label": "Postal code", "placeholder": "Postal", "value": "80202" }
+    ]
+  },
+  "steps": ["Booked", "In policy", "Receipt logged"],
+  "transactionsTitle": "Bookings",
+  "transactions": [
+    { "merchant": "Harbour Row Hotel", "sub": "Chicago, 2 nights", "status": "Settled", "amount": 486.4 },
+    { "merchant": "Larkspur Air", "sub": "Denver to Austin", "status": "Settled", "amount": 368.2 },
+    { "merchant": "Northgate Rail", "sub": "Seattle to Portland", "status": "Settled", "amount": 92.6 },
+    { "merchant": "Cobalt Inn", "sub": "Austin, 3 nights", "status": "Settled", "amount": 542 },
+    { "merchant": "Tern Airways", "sub": "Boston to Denver", "status": "Settled", "amount": 187 },
+    { "merchant": "Citywheel Cars", "sub": "Airport transfer", "status": "Settled", "amount": 60 }
+  ],
+  "footer": "Quarter started Oct 1",
+  "receipt": {
+    "sub": "Today",
+    "status": "E-ticket",
+    "lines": [
+      { "k": "Base fare", "v": 358 },
+      { "k": "Taxes, fees", "v": 54.8 }
+    ],
+    "total": "Total",
+    "meta": [
+      { "k": "Card", "v": "•••• 7306" },
+      { "k": "Fare class", "v": "Economy" },
+      { "k": "Ref", "v": "WP-KX71Q" }
+    ]
+  },
+  "cursor": [
+    { "at": 1.0, "show": true },
+    { "at": 1.95, "to": "autofill", "click": true },
+    { "at": 4.8, "to": "pay", "click": true },
+    { "at": 5.75, "to": [640, 500] },
+    { "at": 5.95, "hide": true }
+  ],
+  "camera": [
+    { "at": 1.35, "dur": 1.15, "zoom": 1.55, "focus": "form", "anchor": [0.5, 0.5] },
+    { "at": 5.0, "dur": 1.25, "zoom": 1 }
+  ],
+  "views": {
+    "compact": {
+      "camera": [
+        { "at": -1, "dur": 0.5, "zoom": 1, "focus": [668, 450], "fixed": true },
+        { "at": 5.2, "dur": 0.9, "zoom": 1, "focus": [990, 450], "fixed": true },
+        { "at": 6.5, "dur": 0.9, "zoom": 1, "focus": [1100, 450], "fixed": true },
+        { "at": 11.8, "dur": 0.9, "zoom": 1, "focus": [668, 450], "fixed": true }
+      ]
+    }
+  },
+  "times": { "request": 0.55, "fields": [0.25, 0.8, 1.4, 1.75, 2.1], "cps": 36, "spin": 0.6, "receipt": 1.0, "fold": 2.9, "reset": 11.8 }
+}

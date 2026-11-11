@@ -1,0 +1,14 @@
+{
+  "variantOf": "roadmap-rail",
+  "role": "story",
+  "differs": {
+    "mechanic": "A marker climbs one vertical rail in steps, stopping at each milestone so it lights up, instead of a playhead sweeping across three parallel tracks and filling bars.",
+    "layout": "A tall rail beside a left copy column, years down its left side and milestones stacked to its right, with today at the top, instead of a wide quarter grid under the headline.",
+    "data": "One ordered path of dated company milestones across years, each with one line, ending in today's figure, instead of three tracks of quarter-dated roadmap work with shipped and planned counts.",
+    "moment": "The marker reaches the top and today's card unfurls from it with the company's headline figure while every milestone below pulses once, the end of the story rather than a launch mid-year."
+  },
+  "renderer": "SVG",
+  "blurb": "A company's history on a vertical rail: a marker climbs from the founding year, each milestone lights as it passes, and today's card opens at the top.",
+  "featured": false,
+  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "motif", "texture", "color"]
+}

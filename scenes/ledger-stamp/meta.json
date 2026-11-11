@@ -1,0 +1,23 @@
+{
+  "story": "approvals",
+  "stories": [
+    "approvals",
+    "compliance",
+    "trust"
+  ],
+  "renderer": "SVG",
+  "blurb": "Payments are checked, stamped, signed and sealed on an indexed belt; one over the limit is held for a second approver.",
+  "order": 1,
+  "featured": true,
+  "home": "ink",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture"
+  ]
+}

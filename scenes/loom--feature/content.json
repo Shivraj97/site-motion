@@ -1,0 +1,20 @@
+{
+  "title": "Thread in a new tool",
+  "label": "A close view of a loom already weaving three tools, Slack, GitHub and Stripe, each a band of coloured warp threads. A new spool labelled Figma rolls onto the rod, and a threading hook draws its threads down through the heddle eyes and the reed to the cloth. From the next row on the cloth is woven four bands wide in Figma's colour, the cloth steps out where the new band begins, Figma's chip turns to Connected, and the beam's count reads four tools.",
+  "eyebrow": "Integrations",
+  "heading": "Add a tool in\nabout a minute.",
+  "sub": "Pick it from the list and it's threaded in. The next row of work already carries it, next to everything you had.",
+  "points": ["No migration, nothing re-woven", "Existing tools keep running"],
+  "product": "One workspace",
+  "countLabel": "tools woven in",
+  "threads": [
+    { "name": "Slack", "mark": "S", "palette": 2 },
+    { "name": "GitHub", "mark": "G", "palette": 3 },
+    { "name": "Stripe", "mark": "S", "palette": 4 },
+    { "name": "Figma", "mark": "F", "colour": "accent", "new": true }
+  ],
+  "status": { "pending": "Threading", "done": "Connected" },
+  "firstRow": "First row with",
+  "perTool": 5,
+  "rowHeight": 16
+}

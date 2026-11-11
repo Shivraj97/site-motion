@@ -1,0 +1,78 @@
+{
+  "title": "Before and after, one sweep",
+  "label": "A before and after slider. On the left of a vertical divider, five money loose ends are scattered across a photo of a receipt, an email bill, a note, a spreadsheet cell and a calendar reminder, with a counter reading five apps and three hours a month. The divider sweeps to the left edge; each fragment it reaches snaps into its own row in one monthly budget with a category and a status, and the counter re-reads one app and ten minutes a month. Then the divider sweeps back.",
+  "eyebrow": "Personal finance",
+  "heading": "Receipts everywhere.\nOne budget.",
+  "sub": "Snap it, forward it or type it once. Every spend lands in a category with a status.",
+  "beforeLabel": "Before",
+  "afterLabel": "After",
+  "product": {
+    "name": "Monthly budget",
+    "mark": "B"
+  },
+  "doneLabel": "sorted",
+  "fromLabel": "from",
+  "counter": {
+    "toolsLabel": "Apps in use",
+    "timeLabel": "Time a month",
+    "was": "was",
+    "h": "h",
+    "min": "min"
+  },
+  "items": [
+    {
+      "kind": "doc",
+      "source": "Photos",
+      "raw": "IMG_2207.jpg (receipt)",
+      "title": "Groceries · £46.15",
+      "status": "Categorised",
+      "tone": "done",
+      "before": 25,
+      "after": 1
+    },
+    {
+      "kind": "email",
+      "source": "Email",
+      "raw": "Your electricity bill is ready",
+      "meta": "Utilities",
+      "badge": 1,
+      "title": "Electricity · £64.20",
+      "status": "Paid",
+      "tone": "done",
+      "before": 30,
+      "after": 2
+    },
+    {
+      "kind": "note",
+      "source": "Notes",
+      "raw": "coffee 3.80 + lunch 12??",
+      "title": "Eating out · £15.80",
+      "status": "Categorised",
+      "tone": "done",
+      "before": 20,
+      "after": 1
+    },
+    {
+      "kind": "cell",
+      "source": "Spreadsheet",
+      "ref": "C3",
+      "raw": "rent split w/ Sam?",
+      "title": "Rent share · £850.00",
+      "status": "Budgeted",
+      "tone": "active",
+      "before": 60,
+      "after": 3
+    },
+    {
+      "kind": "event",
+      "source": "Calendar",
+      "ref": "Fri",
+      "raw": "gym renews – cancel?",
+      "title": "Gym membership · £29.00",
+      "status": "Reviewed",
+      "tone": "active",
+      "before": 45,
+      "after": 3
+    }
+  ]
+}

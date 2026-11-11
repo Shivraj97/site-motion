@@ -1,0 +1,22 @@
+{
+  "story": "memory",
+  "stories": [
+    "memory",
+    "knowledge",
+    "classification"
+  ],
+  "renderer": "SVG + DOM",
+  "blurb": "Documents travel from an intake tray into labelled pigeonholes; a request pulls the three it needs, each source mark commits from pending to verified, and they return to the wall.",
+  "order": 19,
+  "featured": false,
+  "home": "ink",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif"
+  ]
+}

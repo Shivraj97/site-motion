@@ -1,0 +1,21 @@
+{
+  "title": "Every request, checked in rings",
+  "label": "Customer data sits at the centre of five concentric rings, one for each control: single sign-on, device posture, access policy, encryption at rest and the audit trail. Requests travel in from outside. At each ring a request pauses, a chip shows the check it passed and the ring segment lights. Two requests reach the data. A third, from a reporting service, is stopped at the access policy ring, which closes all the way round with the chip Blocked, no role. Every decision lands in the audit log beside the rings, which counts 2 allowed and 1 blocked.",
+  "eyebrow": "Security & compliance",
+  "heading": "Every request earns\nits way to your data.",
+  "sub": "Five controls stand between a request and customer records. Each one is checked in order, and every decision is written to the audit log.",
+  "asset": { "name": "Customer data", "detail": "4.2M records · EU" },
+  "rings": [
+    { "name": "Single sign-on", "short": "SSO", "pass": "verified" },
+    { "name": "Device posture", "short": "Device", "pass": "managed" },
+    { "name": "Access policy", "short": "Policy", "pass": "role: analyst" },
+    { "name": "Encryption at rest", "short": "Keys", "pass": "AES-256" },
+    { "name": "Audit trail", "short": "Audit", "pass": "recorded" }
+  ],
+  "requests": [
+    { "who": "maria.lopez", "action": "Read account list", "time": "09:41:02" },
+    { "who": "j.chen", "action": "Update billing contact", "time": "09:41:05" },
+    { "who": "svc-reporting", "action": "Export all customers", "time": "09:41:09", "blockedAt": "Access policy", "reason": "no role" }
+  ],
+  "log": { "title": "Audit log · last minute", "allowed": "allowed", "blocked": "blocked", "allowedBadge": "Allowed", "blockedBadge": "Blocked" }
+}

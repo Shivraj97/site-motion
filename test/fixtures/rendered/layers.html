@@ -1,0 +1,9 @@
+<!doctype html>
+<!-- Synthetic fixture: cascade layers. "components" is declared after "base" so it wins, whatever the source order. -->
+<html lang="en"><head><meta charset="utf-8"><title>Loam — layers fixture</title>
+<style>
+  @layer base, components;
+  @layer components { body { background: #f6f1e7; color: #1b1b1b; } .btn { background: #b4441f; color: #fff; border-radius: 4px; padding: 12px 18px; display: inline-block; } }
+  @layer base { body { background: #222222; color: #ffffff; margin: 0; padding: 48px; font-family: Inter, sans-serif; } }
+</style></head>
+<body><h1>Soil, tested</h1><p style="font-size:18px">Send a sample, get a nutrient map in a week.</p><a class="btn" href="/kit">Order a kit</a></body></html>

@@ -1,0 +1,32 @@
+{
+  "title": "A hash-chained audit trail",
+  "label": "One large ledger page. Five entries are written one at a time as sentences, such as R. Okafor approved PX-2041 for $12,480.00 at 09:41, each with a rubber stamp in the margin and a round seal holding a short hash, joined to the seal above by a chain link. K. Doyle edits the amount of the second entry to $21,480.00. Its hash no longer matches, and from that row down the links snap open and the seals turn to the warning colour with the words hash mismatch. The edit is rejected and struck out, the original amount returns, the chain re-links, and the attempt is written as a new entry stamped rejected at the foot of the page.",
+  "eyebrow": "Audit trail",
+  "heading": "Every entry sealed\nto the one before it.",
+  "sub": "Each approval is hashed with the entry above it. Change one past number and the chain breaks from there down, so the edit is refused and written into the log.",
+  "pageLabel": "Ledger · 05 Nov · page 14",
+  "prevPage": "page 13",
+  "statusOk": "{n} entries · every link intact",
+  "statusBad": "Hash mismatch at {ref} · {b} of {links} links broken",
+  "footnote": "Append-only. A change is a new entry, never an overwrite.",
+  "headLabel": "head",
+  "sealed": "sealed",
+  "mismatch": "hash mismatch",
+  "prev": "prev",
+  "was": "was",
+  "pending": "pending",
+  "pendingNote": "not chained yet",
+  "entryNo": "ENTRY",
+  "firstEntry": 418,
+  "for": "for",
+  "to": "to",
+  "rejectedNote": "edit rejected",
+  "entries": [
+    { "actor": "A. Mensah", "verb": "filed", "ref": "INV-1187", "amount": "$3,920.50", "time": "09:38", "stamp": "FILED" },
+    { "actor": "R. Okafor", "verb": "approved", "ref": "PX-2041", "amount": "$12,480.00", "time": "09:41", "stamp": "APPROVED" },
+    { "actor": "J. Patel", "verb": "refunded", "ref": "RF-0932", "amount": "$86.40", "time": "09:43", "stamp": "REFUNDED" },
+    { "actor": "L. Chen", "verb": "signed", "ref": "PR-0011", "amount": "$96,350.00", "time": "09:46", "stamp": "SIGNED" },
+    { "actor": "M. Ruiz", "verb": "approved", "ref": "INV-1188", "amount": "$15,600.00", "time": "09:48", "stamp": "APPROVED" }
+  ],
+  "tamper": { "row": 1, "actor": "K. Doyle", "verb": "tried to change", "amount": "$21,480.00", "time": "09:52", "stamp": "REJECTED" }
+}

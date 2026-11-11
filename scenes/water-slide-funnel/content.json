@@ -1,0 +1,19 @@
+{
+  "title": "Conversion funnel",
+  "label": "A water-slide cascade with one ramp per funnel stage: visit, sign up, trial, paid. Riders (each ten visitors) slide down; at every lip some splash into the pool under it, the drop-off at that stage, and the rest hop onto the next ramp. Each stage counts the riders that reach it, and the last pool fills with paying customers.",
+  "eyebrow": "Product analytics",
+  "heading": "See exactly where\nyour visitors\nfall off.",
+  "sub": "Every rider is ten real visitors. Every pool is the people you lost at that step.",
+  "unit": "visitors",
+  "stages": [
+    { "name": "Visit", "value": 1000 },
+    { "name": "Sign up", "value": 420 },
+    { "name": "Trial", "value": 180 },
+    { "name": "Paid", "value": 60 }
+  ],
+  "firstNote": "this week",
+  "ofPrev": "of",
+  "leftAt": "left at",
+  "riders": 100,
+  "spawnUntil": 5.6
+}

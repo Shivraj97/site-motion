@@ -1,0 +1,18 @@
+{
+  "title": "Patient records, behind three checks",
+  "label": "Patient records sit inside three rings: patient consent, de-identification and clinical access. A clinician's request passes all three and opens the care plan. A research pipeline's request passes consent and de-identification but is stopped at clinical access, which closes with the chip Blocked, no care link. The access log beside the rings shows 1 allowed and 1 blocked.",
+  "eyebrow": "Privacy by design",
+  "heading": "Only the care team\nsees the chart.",
+  "sub": "Consent, de-identification and access checks run on every read, and each one is on record for your compliance team.",
+  "asset": { "name": "Patient records", "detail": "HIPAA · encrypted" },
+  "rings": [
+    { "name": "Patient consent", "short": "Consent", "pass": "on file" },
+    { "name": "De-identification", "short": "De-ID", "pass": "applied" },
+    { "name": "Clinical access", "short": "Access", "pass": "care team" }
+  ],
+  "requests": [
+    { "who": "dr.okafor", "action": "Open care plan", "time": "08:15:40" },
+    { "who": "research-etl", "action": "Pull full records", "time": "08:15:44", "blockedAt": "Clinical access", "reason": "no care link" }
+  ],
+  "log": { "title": "Access log", "allowed": "allowed", "blocked": "blocked", "allowedBadge": "Allowed", "blockedBadge": "Blocked" }
+}

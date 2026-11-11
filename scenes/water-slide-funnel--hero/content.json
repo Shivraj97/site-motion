@@ -1,0 +1,14 @@
+{
+  "title": "From visit to paid",
+  "label": "A hero section. A big headline holds the top left. One long water slide sweeps across the rest of the frame: from a start platform labelled Visit, 1,000 this week, a single round rider pushes off, slides down a curving flume, plunges into a loop-the-loop, banks round a hairpin turn and races back along the bottom to a ski-jump lip, then flies off and splashes into a large pool labelled Paid. The splash sends a wave across the pool and the figure 6% rises out of the water on it, beside the words of visitors become paying customers, 60 of 1,000 this week. The rider surfaces, floats and sinks away, and the next rider appears on the platform.",
+  "eyebrow": "Product analytics",
+  "heading": "Watch a visitor\nslide all the way\nto paid.",
+  "sub": "Follow each visitor from their first visit to their first payment, and see the share that makes it.",
+  "stages": [
+    { "name": "Visit", "value": 1000 },
+    { "name": "Paid", "value": 60 }
+  ],
+  "note": "this week",
+  "caption": "of visitors become paying customers",
+  "of": "of"
+}

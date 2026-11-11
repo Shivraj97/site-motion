@@ -1,0 +1,18 @@
+{
+  "title": "One payment, stamped",
+  "label": "One large payment document sits on a short pile beside the heading, its amount at display size. Its three policy checks tick one by one, a stamp press slams down and leaves APPROVED inked onto it at a slight angle, the approver's signature writes itself and a seal is pressed beside it. The finished payment slides off and the next one rises from the pile: a payout, an invoice and a payroll run in turn.",
+  "eyebrow": "Payment approvals",
+  "heading": "Nothing pays\nuntil it's\napproved.",
+  "sub": "Each payment is checked against policy, stamped, signed and sealed before any money moves.",
+  "stampOk": "APPROVED",
+  "stampDate": "05 NOV · 09:41",
+  "signer": "R. Okafor",
+  "signerRole": "Approver",
+  "seal": "SEALED",
+  "checks": ["Within limit", "Payee verified", "2 of 2 approvers"],
+  "docs": [
+    { "type": "Payout", "ref": "PX-2041", "payee": "Northwind Freight", "amount": "$12,480.00" },
+    { "type": "Invoice", "ref": "INV-1188", "payee": "Lumen Labs", "amount": "$15,600.00" },
+    { "type": "Payroll", "ref": "PR-0011", "payee": "42 employees", "amount": "$96,350.00" }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "title": "Pipeline board",
+  "label": "A sales pipeline drawn as a kanban board with five columns: Lead, Qualified, Demo, Proposal and Won. Each column shows how many deals it holds and their total value. Deal cards, each with an owner's initials and a value, advance one column at a time while the counts and totals update; finally the Northwind Logistics rollout moves from Proposal into Won and its value becomes a green 'Won · $48k' chip.",
+  "eyebrow": "Pipeline",
+  "heading": "Every deal on one board,\nmoving toward won.",
+  "sub": "Counts and totals come from the cards in each column, so the forecast is always the board you are looking at.",
+  "format": { "prefix": "$", "suffix": "k" },
+  "stages": ["Lead", "Qualified", "Demo", "Proposal", "Won"],
+  "cards": [
+    { "id": "brightline", "title": "Brightline Dental Group", "owner": "Sam Lee", "value": 12, "tag": "Inbound", "stage": 0 },
+    { "id": "orbit", "title": "Orbit Freight onboarding", "owner": "Jon Park", "value": 22, "tag": "Outbound", "stage": 0 },
+    { "id": "meadow", "title": "Meadow Health trial", "owner": "Sam Lee", "value": 15, "tag": "Trial", "stage": 0 },
+    { "id": "cedar", "title": "Cedar & Pine Studio", "owner": "Ana Ruiz", "value": 6, "tag": "Referral", "stage": 0 },
+    { "id": "fieldstone", "title": "Fieldstone Clinics, 40 seats", "owner": "Maya Ortiz", "value": 36, "tag": "Inbound", "stage": 1 },
+    { "id": "lumen", "title": "Lumen Schools district", "owner": "Ana Ruiz", "value": 54, "tag": "Public sector", "stage": 1 },
+    { "id": "kettle", "title": "Kettle Coffee franchise", "owner": "Sam Lee", "value": 9, "tag": "Partner", "stage": 1 },
+    { "id": "atlas", "title": "Atlas Property Management", "owner": "Jon Park", "value": 28, "tag": "Outbound", "stage": 2 },
+    { "id": "riverbend", "title": "Riverbend Credit Union", "owner": "Maya Ortiz", "value": 64, "tag": "Security review", "stage": 2 },
+    { "id": "northwind", "title": "Northwind Logistics rollout", "owner": "Maya Ortiz", "value": 48, "tag": "Expansion", "stage": 3 },
+    { "id": "pinecrest", "title": "Pinecrest Hotels renewal", "owner": "Ana Ruiz", "value": 31, "tag": "Renewal", "stage": 3 },
+    { "id": "harbor", "title": "Harbor Analytics upgrade", "owner": "Jon Park", "value": 24, "tag": "Upsell", "stage": 4 },
+    { "id": "quarry", "title": "Quarry Outdoor wholesale", "owner": "Ana Ruiz", "value": 18, "tag": "Partner", "stage": 4 }
+  ],
+  "moves": ["brightline", "fieldstone", "atlas", "orbit", "riverbend", "northwind"],
+  "success": "Won · {value}"
+}

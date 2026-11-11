@@ -1,0 +1,7 @@
+{
+  "description": "Outlined illustration: an ink outline on everything, hard offset shadows, round corners, friendly sentence-case labels and a little bounce.",
+  "family": ["live-room", "leaderboard"],
+  "stroke": "ink", "elevation": "tinted", "corner": "round", "depth": "flat", "texture": "none", "glow": "none",
+  "colorMode": "categorical", "label": "sans-sentence", "type": "standard",
+  "motion": "expressive", "tempo": "steady", "stagger": "even", "motif": "dot-grid"
+}

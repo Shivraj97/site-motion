@@ -1,0 +1,23 @@
+{
+  "story": "retention",
+  "stories": [
+    "retention",
+    "reliability",
+    "engagement"
+  ],
+  "renderer": "SVG",
+  "blurb": "A health table replays the month: one account slips to at risk, a playbook fires at the low point, and it recovers.",
+  "featured": false,
+  "home": "field",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "variantOf": "loom",
+  "role": "feature",
+  "differs": {
+    "mechanic": "The loom stops for one intro: a new spool rolls onto the rod and a threading hook draws its threads down through the heddle eyes and the reed before weaving resumes.",
+    "layout": "A close crop of four wide bands on the left with the heddle and reed visible, copy on the right, instead of eight narrow bands beside left copy.",
+    "data": "A count going from three tools to four, read off the newest woven row, and a cloth that steps from three bands wide to four.",
+    "moment": "The first row woven in the new tool's colour: the cloth widens at that row and the new chip turns to Connected."
+  },
+  "renderer": "Canvas 2D",
+  "blurb": "A new tool's spool is threaded into a loom already weaving, and from the next row on the cloth carries its colour.",
+  "featured": false,
+  "directable": [
+    "stroke",
+    "elevation",
+    "label",
+    "type",
+    "texture",
+    "color",
+    "motif"
+  ]
+}

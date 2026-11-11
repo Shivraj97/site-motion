@@ -1,0 +1,22 @@
+{
+  "name": "site-motion",
+  "version": "0.1.0",
+  "description": "Animated website assets (SVG, Canvas, DOM) from your design tokens. Live embeds plus frame-exact MP4, WebM, GIF, WebP and posters.",
+  "type": "module",
+  "bin": {
+    "site-motion": "bin/site-motion.mjs",
+    "site-motion-mcp": "mcp/server.mjs"
+  },
+  "scripts": {
+    "test": "node --test 'lib/*.test.mjs' 'mcp/*.test.mjs'"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shivraj97/site-motion.git"
+  },
+  "homepage": "https://site-motion-two.vercel.app"
+}

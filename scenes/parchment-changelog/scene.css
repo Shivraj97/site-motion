@@ -1,0 +1,21 @@
+.pc { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.pc-svg { position: absolute; inset: 0; }
+.pc-copy { position: absolute; left: 96px; top: 150px; width: 440px; }
+.pc-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
+.pc-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(50px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); }
+.pc-sub { margin-top: 18px; font-size: 18px; line-height: 1.5; color: var(--c-muted); max-width: 400px; }
+.pc-sheet { position: absolute; }
+.pc-row { position: absolute; left: 40px; width: 590px; padding-top: 14px; }
+.pc-ver { position: absolute; left: 0; top: 14px; width: 130px; }
+.pc-ver-n { display: block; width: fit-content; font-family: var(--font-display, var(--font-sans)); font-size: calc(26px * var(--sm-type-k, 1)); letter-spacing: var(--sm-type-tracking, -0.02em); font-weight: var(--sm-type-weight, 500); line-height: 1.1; }
+.pc-date { display: block; width: fit-content; margin-top: 4px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .02em; white-space: nowrap; }
+.pc-items { position: absolute; left: 140px; top: 14px; width: 450px; }
+.pc-item { display: flex; align-items: center; gap: 12px; height: 27px; }
+.pc-pill { flex: none; display: inline-block; width: 78px; box-sizing: border-box; text-align: center; padding: 3px 0 2px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 10px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); font-weight: 500; border-radius: 999px; }
+.pc-text { display: inline-block; font-size: 16px; line-height: 1.3; white-space: nowrap; }
+.pc-tally { position: absolute; left: 96px; top: 540px; width: 440px; }
+.pc-tally-n { display: block; font-family: var(--font-display, var(--font-sans)); font-size: calc(88px * var(--sm-type-k, 1)); letter-spacing: var(--sm-type-tracking, -0.04em); font-weight: var(--sm-type-weight, 400); line-height: 1; font-variant-numeric: tabular-nums; }
+.pc-tally-l { display: block; margin-top: 8px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.pc-tags { display: flex; gap: 22px; margin-top: 22px; }
+.pc-tag { display: flex; align-items: center; gap: 10px; }
+.pc-tag b { font-family: var(--font-mono); font-size: 18px; font-weight: 500; font-variant-numeric: tabular-nums; min-width: 1.2em; }

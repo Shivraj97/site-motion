@@ -1,0 +1,22 @@
+{
+  "story": "automation",
+  "stories": [
+    "automation",
+    "workflows"
+  ],
+  "renderer": "Matter.js",
+  "blurb": "One trigger tips a chain of dominoes; each step lights as the wave reaches it.",
+  "order": 4,
+  "featured": true,
+  "home": "ink",
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Changelog scroll",
+  "label": "A parchment scroll hangs from a wooden roller and unrolls downward, one release at a time. Each release row, with its version, date and a few changes tagged New, Improved or Fixed, is inked as it appears: the writing goes on wet and blue-black, then settles to its normal tone, and the tag stamps press in. Older rows fade toward a brown, aged ink as newer ones arrive. A tally beside the scroll counts the stamped changes by tag. Before the loop ends the scroll rolls back up into its roller.",
+  "eyebrow": "Changelog",
+  "heading": "Every release,\nput in writing.",
+  "sub": "Each version is inked the day it ships. The older entries settle into the record.",
+  "tallyLabel": "changes on record",
+  "tags": { "new": "New", "improved": "Improved", "fixed": "Fixed" },
+  "releases": [
+    { "version": "v2.0", "date": "14 Jan 2026", "items": [["new", "Shared workspaces for teams"], ["new", "Dark mode across the app"], ["fixed", "Exports stalling on large files"]] },
+    { "version": "v2.1", "date": "03 Mar 2026", "items": [["improved", "Search is three times faster"], ["new", "Keyboard shortcuts panel"]] },
+    { "version": "v2.2", "date": "22 Apr 2026", "items": [["new", "Scheduled reports"], ["improved", "A shorter onboarding checklist"], ["fixed", "Reminders drifting across time zones"]] },
+    { "version": "v2.3", "date": "09 Jul 2026", "items": [["improved", "Offline edits sync in the background"], ["fixed", "Duplicate alerts on mobile"]] },
+    { "version": "v2.4", "date": "18 Sep 2026", "items": [["new", "Audit log for admins"], ["new", "Custom fields on every record"], ["improved", "Bulk edit up to 500 rows"]] },
+    { "version": "v2.5", "date": "30 Oct 2026", "items": [["fixed", "Avatar uploads in some browsers"], ["improved", "Dashboards load in half the time"]] }
+  ],
+  "seed": 23
+}

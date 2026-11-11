@@ -1,0 +1,29 @@
+{
+  "title": "Crate discrepancy",
+  "label": "An open wooden crate full of shredded paper stands beside an empty pallet, and a packing slip is clipped to a board on the right. Six trays of tableware lift out of the crate one at a time. While each tray is in the air its line on the slip is highlighted; when it lands on the pallet the line gets the received count and a tick. The tray of serving bowls comes out with two of its twelve places empty: it glows amber and floats up above the pallet with a note reading Short by 2, Ordered 12 · received 10, joined by a dashed line to its row on the slip, which turns amber with a warning mark. The slip's total lands on 48 units matched and 1 discrepancy.",
+  "eyebrow": "Receiving",
+  "heading": "Every delivery,\nchecked line by line.",
+  "sub": "Each item is matched to its purchase order as it comes out of the crate. Anything short, extra or wrong is flagged with a note for the supplier.",
+  "po": "PO-20418",
+  "crateNote": "Crate 1 of 1 · 6 lines",
+  "slipTitle": "Packing slip",
+  "supplier": "Harbor & Pine Supply",
+  "slipMeta": "Delivered 11 Nov · Dock 2",
+  "cols": ["Item", "Ord", "Rec"],
+  "matchedLabel": "units matched",
+  "flagLabel": "discrepancy",
+  "flagLabelPlural": "discrepancies",
+  "palletLabel": "Checked in",
+  "shortNote": "Short by {n}",
+  "overNote": "Over by {n}",
+  "countNote": "Ordered {ord} · received {rec}",
+  "lines": [
+    { "sku": "MUG-104", "name": "Stoneware mug", "ordered": 12, "received": 12 },
+    { "sku": "NAP-220", "name": "Linen napkin", "ordered": 8, "received": 8 },
+    { "sku": "TMB-310", "name": "Glass tumbler", "ordered": 6, "received": 6 },
+    { "sku": "BWL-415", "name": "Serving bowl", "ordered": 12, "received": 10 },
+    { "sku": "PLT-118", "name": "Dinner plate", "ordered": 12, "received": 12 },
+    { "sku": "CST-502", "name": "Oak coaster", "ordered": 10, "received": 10 }
+  ],
+  "seed": 7
+}

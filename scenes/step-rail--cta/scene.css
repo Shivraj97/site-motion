@@ -1,0 +1,32 @@
+.sc { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.sc-svg { position: absolute; inset: 0; }
+.sc-copy { position: absolute; left: 0; top: 160px; width: 1600px; text-align: center; }
+.sc-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 18px; }
+.sc-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(60px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.025em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
+.sc-sub { margin: 22px auto 0; width: 680px; text-wrap: balance; font-size: 19px; line-height: 1.5; color: var(--c-muted); }
+
+/* a step's label under its node: the title, then its time */
+.sc-step { position: absolute; width: 240px; text-align: center; }
+.sc-title { font-size: 15px; font-weight: 500; line-height: 1.25; color: var(--c-ink); white-space: nowrap; letter-spacing: -0.005em; }
+.sc-time { margin-top: 6px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .04em); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* the button: the last step on the rail, its badge carrying that step's number */
+.sc-btn { position: absolute; display: flex; align-items: center; padding: 0 34px 0 18px; gap: 18px;
+  border-radius: var(--sm-radius-lg, 42px);
+  background: var(--c-accent-fill, var(--c-accent)); color: var(--c-on-accent, var(--c-ink));
+  box-shadow: inset 0 0 0 var(--sm-stroke-hair, 0px) var(--sm-stroke-color, transparent), var(--sm-shadow-2, 0 0 0 0 transparent); }
+.sc-badge { flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--c-surface); display: grid; place-items: center; } /* sm-native: the badge is a node, nodes are circles */
+.sc-badge span { font-family: var(--font-mono); font-size: 15px; color: var(--c-ink); }
+.sc-btn-text { display: flex; flex-direction: column; gap: 5px; }
+.sc-btn-step { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .04em); font-style: var(--sm-label-style, normal); white-space: nowrap; line-height: 1; }
+.sc-btn-label { line-height: 1; font-family: var(--font-sans); font-size: 22px; font-weight: 500; letter-spacing: -0.01em; white-space: nowrap; }
+.sc-arrow { display: inline-block; margin-left: auto; font-family: var(--font-mono); font-size: 21px; }
+
+/* the token, and the tick it leaves in the badge */
+.sc-token { position: absolute; left: 0; top: 0; width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; opacity: 0; } /* sm-native: the token is a dot */
+.sc-tick { position: absolute; width: 48px; height: 48px; margin: -24px 0 0 -24px; }
+
+/* the readout: the sum of the step times, written when the token lands */
+.sc-out { position: absolute; left: 0; width: 1600px; display: flex; justify-content: center; align-items: baseline; gap: 12px; opacity: 0; }
+.sc-out-label, .sc-out-note { font-size: 18px; color: var(--c-muted); white-space: nowrap; }
+.sc-out-value { font-family: var(--font-display, var(--font-sans)); font-size: 32px; line-height: 1; letter-spacing: var(--sm-type-tracking, -0.02em); font-weight: var(--sm-type-weight, 500); color: var(--c-ink); white-space: nowrap; }

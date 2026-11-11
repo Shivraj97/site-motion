@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- Synthetic fixture: a component-library theme kept in custom properties (bare HSL channels). -->
+<html lang="en">
+<head><meta charset="utf-8"><title>Quarry — vars fixture</title>
+<style>
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 222 47% 11%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
+    --brand: 14 90% 53%;
+    --brand-hover: 14 90% 45%;
+    --accent: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --radius: 0.75rem;
+  }
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+  }
+  body { background-color: hsl(var(--background)); color: hsl(var(--foreground)); font-family: var(--font-body, "Inter Variable", sans-serif); }
+  .card { background: hsl(var(--accent)); border-radius: var(--radius); }
+</style>
+</head>
+<body>
+  <h1>Search every quarry</h1>
+  <div class="card"><a href="/x">Read more</a></div>
+</body>
+</html>

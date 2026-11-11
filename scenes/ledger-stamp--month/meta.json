@@ -1,0 +1,14 @@
+{
+  "variantOf": "ledger-stamp",
+  "role": "metrics",
+  "differs": {
+    "mechanic": "One rubber stamp travels a calendar grid and presses each working day's cell, backtracking to clear held payments, instead of documents riding a belt through three fixed presses.",
+    "layout": "A large desk-calendar page is the focal object on the left with the total beside it, replacing the belt of cards and the audit-trail list.",
+    "data": "A count over time: payments per day for a month, shown as ink density and summed into a total (1,284 signed, 0 unsigned), instead of a stream of individual payments.",
+    "moment": "The last held payment gets its second stamp, unsigned drops to 0, the month is sealed and the page tears off the pad."
+  },
+  "renderer": "SVG",
+  "blurb": "A month of approvals stamped onto a calendar page, busier days in denser ink, until every payment is signed and the month is sealed.",
+  "featured": false,
+  "directable": ["stroke", "corner", "label", "type", "motion", "motif", "texture"]
+}

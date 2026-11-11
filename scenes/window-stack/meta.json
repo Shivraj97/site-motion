@@ -1,0 +1,14 @@
+{
+  "story": "agents",
+  "stories": [
+    "agents",
+    "ai",
+    "integrations"
+  ],
+  "renderer": "Canvas + DOM",
+  "blurb": "App windows over a painted backdrop while an agent does the steps in every tool.",
+  "order": 14,
+  "featured": false,
+  "home": "soft-ui",
+  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "texture", "color"]
+}

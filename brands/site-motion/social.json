@@ -1,0 +1,86 @@
+{
+  "tokens": "night",
+  "out": "out/site-motion/social",
+  "footer": {
+    "wordmark": "site-motion",
+    "url": "github.com/Shivraj97/site-motion",
+    "cta": "Open source, MIT"
+  },
+  "items": [
+    {
+      "name": "ledger-stamp",
+      "source": "out/ledger-stamp-night/ledger-stamp-night.mp4",
+      "crop": [
+        600,
+        250,
+        1000,
+        600
+      ],
+      "still": 7.45,
+      "eyebrow": "render(t) · approvals",
+      "headline": "A website animation\nthat is a pure\nfunction of time.",
+      "sub": "Same t, same frame. So one HTML file plays live and exports frame-exact video.",
+      "frame": false
+    },
+    {
+      "name": "loom",
+      "source": "out/loom-night/loom-night.mp4",
+      "crop": [
+        620,
+        60,
+        940,
+        800
+      ],
+      "still": 6,
+      "eyebrow": "Integrations, redrawn",
+      "headline": "Not lines into\na logo.",
+      "sub": "Each tool is a band of thread, woven into one fabric.",
+      "frame": false
+    },
+    {
+      "name": "weather-board",
+      "source": "out/weather-board-night/weather-board-night.mp4",
+      "crop": [
+        640,
+        150,
+        900,
+        640
+      ],
+      "still": 4.6,
+      "eyebrow": "Reliability, redrawn",
+      "headline": "Storms happen.\nUsers never notice.",
+      "sub": "A storm over one region, traffic reroutes, zero failed requests.",
+      "frame": false
+    },
+    {
+      "name": "grain-tally",
+      "source": "out/grain-tally-night/grain-tally-night.mp4",
+      "crop": [
+        700,
+        160,
+        760,
+        640
+      ],
+      "still": 9.6,
+      "eyebrow": "Metrics, redrawn",
+      "headline": "The number,\nmade of the work.",
+      "sub": "Every grain is a batch of real events. No count-up.",
+      "frame": false
+    },
+    {
+      "name": "score-sheet",
+      "source": "out/score-sheet-night/score-sheet-night.mp4",
+      "crop": [
+        80,
+        230,
+        900,
+        520
+      ],
+      "still": 7.6,
+      "eyebrow": "Multi-agent, redrawn",
+      "headline": "Four agents,\none score.",
+      "sub": "A run written as music. Timing and parallel work you can see.",
+      "frame": false
+    }
+  ]
+}

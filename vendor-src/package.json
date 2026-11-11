@@ -1,0 +1,7 @@
+{
+  "name": "site-motion-vendor",
+  "private": true,
+  "description": "Builds vendor/three-full.min.js: three.js plus the addons site-motion scenes use, as one IIFE that sets window.THREE.",
+  "scripts": { "build": "bun build three-entry.js --minify --format=iife --outfile=../vendor/three-full.min.js" },
+  "dependencies": { "three": "0.186.1" }
+}

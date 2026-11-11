@@ -1,0 +1,50 @@
+.swp { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.swp-copy { position: absolute; left: 96px; top: 112px; width: 520px; }
+.swp-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.swp-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(64px * var(--sm-type-k, 1)); line-height: 1.02; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
+.swp-sub { margin-top: 22px; width: 440px; font-size: 18px; line-height: 1.5; color: var(--c-muted); }
+
+/* the quote: the closing evidence, in the left column */
+.swp-quote { position: absolute; left: 96px; top: 540px; width: 500px; }
+.swp-qmark { display: block; margin-bottom: 6px; }
+.swp-qtext { font-family: var(--font-display, var(--font-sans)); font-size: 26px; line-height: 1.36; letter-spacing: -0.01em; color: var(--c-ink); }
+.swp-who { display: flex; align-items: center; gap: 14px; margin-top: 24px; }
+.swp-av { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; font-weight: 600; }
+.swp-name { font-size: 16px; font-weight: 600; color: var(--c-ink); white-space: nowrap; }
+.swp-role { font-size: 14px; color: var(--c-muted); white-space: nowrap; margin-top: 2px; }
+
+/* the card: one window, the after state on top half of the edge, the before state below it */
+.swp-card { position: absolute; overflow: hidden; border-radius: var(--sm-radius-lg, var(--r-lg)); background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-line)), var(--sm-shadow-2, 0 24px 48px -28px rgba(0,0,0,.28)); }
+.swp-after, .swp-before { position: absolute; inset: 0; }
+.swp-after { background: var(--c-surface); }
+.swp-before { background-color: var(--c-raised); background-image: radial-gradient(color-mix(in srgb, var(--c-muted) 34%, transparent) 1.1px, transparent 1.6px); background-size: 22px 22px; background-position: 11px 11px; }
+
+.swp-head { position: absolute; left: 0; right: 0; top: 0; display: flex; align-items: center; gap: 12px; padding: 0 36px; box-sizing: border-box; border-bottom: var(--sm-stroke-hair, 1px) solid var(--c-line); }
+.swp-mark { flex: none; width: 28px; height: 28px; border-radius: var(--sm-radius-sm, var(--r-sm)); display: grid; place-items: center; font-weight: 600; font-size: 14px; }
+.swp-pname { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--c-ink); white-space: nowrap; }
+.swp-period { margin-left: auto; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.swp-after .swp-period { color: var(--c-ink); }
+
+.swp-row { position: absolute; left: 0; right: 0; box-sizing: border-box; }
+.swp-row + .swp-row { border-top: var(--sm-stroke-hair, 1px) solid var(--c-line); }
+.swp-label { position: absolute; left: 36px; top: 26px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.swp-val { position: absolute; left: 36px; top: 48px; font-family: var(--font-display, var(--font-sans)); font-size: calc(80px * var(--sm-type-k, 1)); line-height: 1.1; letter-spacing: var(--sm-type-tracking, -0.03em); font-weight: var(--sm-type-weight, 400); color: var(--c-ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.swp-val small { font-size: 0.4em; letter-spacing: 0; color: var(--c-muted); }
+.swp-before .swp-val { color: var(--c-muted); }
+.swp-side { position: absolute; right: 36px; top: 62px; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.swp-chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 12px; border-radius: 999px; font-size: 20px; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.swp-chip svg { display: block; }
+.swp-was { font-family: var(--font-mono); font-size: 13px; color: var(--c-muted); white-space: nowrap; }
+.swp-track { position: absolute; left: 36px; right: 36px; height: 10px; border-radius: 999px; background: color-mix(in srgb, var(--c-line) 60%, transparent); }
+.swp-after .swp-track { background: color-mix(in srgb, var(--c-line) 28%, transparent); }
+.swp-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; }
+.swp-ghost { position: absolute; left: 0; top: -3px; bottom: -3px; box-sizing: border-box; border-radius: 999px; border: var(--sm-stroke-fine, 1.5px) dashed var(--c-muted); }
+
+/* the edge: a rail with a grip, laid across the card and out past its right side where the two labels ride */
+.swp-edge { position: absolute; height: 0; z-index: 2; }
+.swp-line { position: absolute; left: 0; right: 0; top: 0; transform: translateY(-50%); background: var(--c-ink); }
+.swp-grip { position: absolute; top: 0; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%; background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-regular, 2px) var(--c-ink), var(--sm-shadow-2, 0 10px 22px -10px rgba(0,0,0,.4)); }
+.swp-grip svg { display: block; }
+.swp-tag { position: absolute; right: 0; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); white-space: nowrap; }
+.swp-tag--a { bottom: 8px; color: var(--c-ink); }
+.swp-tag--b { top: 8px; color: var(--c-muted); }

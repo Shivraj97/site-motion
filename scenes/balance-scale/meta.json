@@ -1,0 +1,21 @@
+{
+  "story": "pricing",
+  "stories": [
+    "pricing",
+    "review",
+    "metrics"
+  ],
+  "renderer": "SVG",
+  "blurb": "Quality and cost blocks land on three pan balances; the rivals sag toward cost while ours tips to quality and settles, each tilt computed from the scores.",
+  "featured": false,
+  "home": "outline",
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture"
+  ]
+}

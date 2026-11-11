@@ -1,0 +1,52 @@
+.cd { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.cd-svg, .cd-top { position: absolute; inset: 0; }
+.cd-top { pointer-events: none; }
+
+.cd-copy { position: absolute; left: 110px; top: 92px; width: 560px; }
+.cd-eyebrow, .cd-label { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.cd-eyebrow { margin-bottom: 14px; }
+.cd-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(50px * var(--sm-type-k, 1)); line-height: 1.06; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; color: var(--c-ink); font-weight: var(--sm-type-weight, 400); }
+.cd-sub { margin-top: 18px; font-size: 18px; line-height: 1.5; color: var(--c-muted); max-width: 480px; }
+
+/* svg text */
+.cd-sku { font-family: var(--font-mono); font-size: 12px; fill: var(--c-ink); }
+.cd-stencil { font-family: var(--font-mono); font-size: 30px; font-weight: 500; letter-spacing: .12em; }
+.cd-stencil-s { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; }
+
+/* the slip */
+.cd-sheet { position: absolute; box-sizing: border-box; background: var(--c-surface); border-radius: var(--sm-radius-sm, 4px); box-shadow: 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-stroke, var(--c-line))), var(--sm-shadow-2, 0 16px 34px -24px rgba(0,0,0,.35)); }
+.cd-head { position: absolute; left: 24px; right: 24px; top: 50px; display: flex; justify-content: space-between; align-items: baseline; white-space: nowrap; }
+.cd-po { font-family: var(--font-mono); font-size: 13px; color: var(--c-ink); }
+.cd-supplier { position: absolute; left: 24px; right: 24px; top: 76px; font-size: 19px; font-weight: 500; color: var(--c-ink); white-space: nowrap; }
+.cd-meta { position: absolute; left: 24px; right: 24px; top: 104px; font-family: var(--font-mono); font-size: 12px; color: var(--c-muted); white-space: nowrap; }
+.cd-cols, .cd-row { display: grid; grid-template-columns: 1fr 40px 40px 26px; column-gap: 10px; align-items: center; }
+.cd-cols { position: absolute; left: 24px; right: 24px; top: 132px; height: 30px; font-size: 12px; border-bottom: var(--sm-stroke-hair, 1px) solid var(--c-line); }
+.cd-cols span:nth-child(n+2), .cd-num { text-align: right; }
+.cd-row { position: absolute; left: 12px; right: 12px; height: 64px; padding: 0 12px; box-sizing: border-box; border-bottom: var(--sm-stroke-hair, 1px) solid var(--c-line); }
+.cd-band { position: absolute; inset: 0; opacity: 0; }
+.cd-band-check { background: color-mix(in srgb, var(--c-accent) 10%, var(--c-surface)); box-shadow: inset 3px 0 0 var(--c-accent); }
+.cd-band-flag { background: color-mix(in srgb, var(--c-warning) 16%, var(--c-surface)); box-shadow: inset 3px 0 0 var(--c-warning); }
+.cd-item { position: relative; display: flex; flex-direction: column; gap: 3px; white-space: nowrap; }
+.cd-name { font-size: 15px; color: var(--c-ink); line-height: 1.2; }
+.cd-code { font-family: var(--font-mono); font-size: 12px; color: var(--c-muted); }
+.cd-num { position: relative; font-size: 16px; color: var(--c-ink); font-variant-numeric: tabular-nums; height: 22px; line-height: 22px; }
+.cd-num > span { position: absolute; right: 0; top: 0; }
+.cd-dash { color: var(--c-muted); }
+.cd-val[data-flag] { color: var(--c-warning-text, var(--c-warning)); font-weight: 600; }
+.cd-mark { position: relative; width: 26px; height: 26px; }
+.cd-mark svg { position: absolute; inset: 0; overflow: visible; }
+
+.cd-sum { position: absolute; left: 24px; right: 24px; top: 556px; padding-top: 18px; border-top: var(--sm-stroke-regular, 1.5px) solid var(--sm-stroke-color, var(--c-ink)); }
+.cd-sum-row { display: flex; align-items: baseline; gap: 12px; white-space: nowrap; }
+.cd-big { display: inline-block; font-family: var(--font-display, var(--font-sans)); font-size: calc(64px * var(--sm-type-k, 1)); line-height: 1; letter-spacing: var(--sm-type-tracking, -0.03em); font-weight: var(--sm-type-weight, 400); color: var(--c-ink); font-variant-numeric: tabular-nums; min-width: 1.25em; }
+.cd-flagrow { margin-top: 14px; align-items: center; }
+.cd-flagrow b { display: inline-block; font-family: var(--font-display, var(--font-sans)); font-size: calc(30px * var(--sm-type-k, 1)); line-height: 1; font-weight: 500; color: var(--c-warning-text, var(--c-warning)); font-variant-numeric: tabular-nums; min-width: .7em; }
+.cd-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--c-warning); flex: none; margin: 0 2px 0 3px; }
+.cd-sum .cd-label { font-size: 14px; }
+
+/* the note that floats with the short tray */
+.cd-note { position: absolute; box-sizing: border-box; width: 268px; height: 70px; padding: 0 16px; display: flex; flex-direction: column; justify-content: center; gap: 4px; background: var(--c-surface); border-radius: var(--sm-radius-sm, 6px); box-shadow: 0 0 0 var(--sm-stroke-regular, 1.5px) var(--c-warning), var(--sm-shadow-2, 0 16px 30px -22px rgba(0,0,0,.4)); opacity: 0; white-space: nowrap; }
+.cd-note-k { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-warning-text, var(--c-warning)); font-weight: 500; }
+.cd-note-v { font-size: 18px; font-weight: 500; color: var(--c-ink); font-variant-numeric: tabular-nums; }
+
+.cd-pallet { position: absolute; transform: translateX(-50%); font-size: 12px; white-space: nowrap; }

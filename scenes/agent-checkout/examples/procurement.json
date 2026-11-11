@@ -1,0 +1,80 @@
+{
+  "title": "Let your supplies agent re-order on its own",
+  "label": "A virtual card dashboard for a procurement agent called Tally, in a browser window. A request to re-order $126.45 of office supplies from Fernhill Supply comes in and the monthly budget marks that amount. The agent's pointer clicks Autofill and the camera moves in as the checkout fills field by field with a masked card ending 5590. The agent clicks Order. The camera pulls back, the budget meter moves by exactly $126.45 from $538.55 to $665.00 of a $900.00 budget, a purchase order slides out of the checkout into the orders list, and three steps tick off: ordered, within budget, order logged.",
+  "url": "buy.rowan.example/agents/tally",
+  "currency": "$",
+  "brand": { "text": "R", "name": "Rowan" },
+  "nav": ["Buyers", "Orders", "Vendors", "Invoices", "Settings"],
+  "active": 0,
+  "agent": { "name": "Tally", "role": "Office supplies agent", "status": "Card active" },
+  "actions": ["Pause", "Edit budget"],
+  "card": { "kind": "Purchasing", "number": "•••• •••• •••• 5590", "holder": "Tally", "expiry": "08/27" },
+  "meter": { "label": "Monthly budget", "limit": 900, "of": "of", "left": "Left this month", "ok": "Within budget" },
+  "request": {
+    "label": "Re-order request",
+    "from": "from Tally",
+    "idle": "Nothing to re-order",
+    "merchant": "Fernhill Supply",
+    "item": "Paper, toner, 40 notebooks"
+  },
+  "form": {
+    "title": "Order payment",
+    "autofill": "Autofill from card",
+    "pay": "Order",
+    "paid": "Ordered",
+    "fields": [
+      { "label": "Account name", "placeholder": "Full name", "value": "Tally, Rowan Ops" },
+      { "label": "Card number", "placeholder": "Card number", "value": "•••• •••• •••• 5590" },
+      { "label": "Expiry", "placeholder": "MM/YY", "value": "08/27" },
+      { "label": "CVC", "placeholder": "CVC", "value": "•••" },
+      { "label": "Postal code", "placeholder": "Postal", "value": "60607" }
+    ]
+  },
+  "steps": ["Ordered", "Within budget", "Order logged"],
+  "transactionsTitle": "Orders",
+  "transactions": [
+    { "merchant": "Brookline Coffee", "sub": "Beans, filters", "status": "Delivered", "amount": 148.25 },
+    { "merchant": "Fernhill Supply", "sub": "Pens, folders", "status": "Delivered", "amount": 92.3 },
+    { "merchant": "Sparrow Cleaning", "sub": "Kitchen restock", "status": "Delivered", "amount": 84 },
+    { "merchant": "Lumen Bulbs", "sub": "Desk lamps, 6", "status": "Delivered", "amount": 118 },
+    { "merchant": "Oak & Twine", "sub": "Shipping boxes", "status": "Delivered", "amount": 62 },
+    { "merchant": "Greenmark Water", "sub": "Cooler bottles", "status": "Delivered", "amount": 34 }
+  ],
+  "footer": "Budget started Nov 1",
+  "receipt": {
+    "sub": "Today",
+    "status": "PO logged",
+    "lines": [
+      { "k": "Goods", "v": 116 },
+      { "k": "Sales tax", "v": 10.45 }
+    ],
+    "total": "Total",
+    "meta": [
+      { "k": "Card", "v": "•••• 5590" },
+      { "k": "Delivers", "v": "Nov 14" },
+      { "k": "PO", "v": "RW-3382" }
+    ]
+  },
+  "cursor": [
+    { "at": 1.0, "show": true },
+    { "at": 1.95, "to": "autofill", "click": true },
+    { "at": 4.8, "to": "pay", "click": true },
+    { "at": 5.75, "to": [640, 500] },
+    { "at": 5.95, "hide": true }
+  ],
+  "camera": [
+    { "at": 1.35, "dur": 1.15, "zoom": 1.55, "focus": "form", "anchor": [0.5, 0.5] },
+    { "at": 5.0, "dur": 1.25, "zoom": 1 }
+  ],
+  "views": {
+    "compact": {
+      "camera": [
+        { "at": -1, "dur": 0.5, "zoom": 1, "focus": [668, 450], "fixed": true },
+        { "at": 5.2, "dur": 0.9, "zoom": 1, "focus": [990, 450], "fixed": true },
+        { "at": 6.5, "dur": 0.9, "zoom": 1, "focus": [1100, 450], "fixed": true },
+        { "at": 11.8, "dur": 0.9, "zoom": 1, "focus": [668, 450], "fixed": true }
+      ]
+    }
+  },
+  "times": { "request": 0.55, "fields": [0.25, 0.8, 1.4, 1.75, 2.1], "cps": 36, "spin": 0.6, "receipt": 1.0, "fold": 2.9, "reset": 11.8 }
+}

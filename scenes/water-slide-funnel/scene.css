@@ -1,0 +1,17 @@
+.wf { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.wf-svg { position: absolute; inset: 0; }
+.wf-copy { position: absolute; left: 96px; top: 150px; width: 440px; }
+.wf-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
+.wf-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(50px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); }
+.wf-sub { margin-top: 18px; font-size: 18px; line-height: 1.5; color: var(--c-muted); max-width: 400px; }
+.wf-legend { position: absolute; left: 96px; top: 560px; display: flex; align-items: center; gap: 10px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.wf-legend i { width: 12px; height: 12px; border-radius: 50%; background: var(--p-2); box-shadow: 0 0 0 1.2px var(--c-stroke, var(--c-ink)); }
+.wf-stage { position: absolute; }
+.wf-stage-name { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.wf-stage-n { font-family: var(--font-display, var(--font-sans)); font-size: calc(40px * var(--sm-type-k, 1)); letter-spacing: var(--sm-type-tracking, -0.03em); font-weight: var(--sm-type-weight, 400); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.wf-stage-pct { font-family: var(--font-mono); font-size: 12px; color: var(--c-muted); margin-top: 2px; }
+.wf-pool { position: absolute; text-align: center; }
+.wf-pool-n { font-family: var(--font-mono); font-size: 16px; font-variant-numeric: tabular-nums; }
+.wf-pool-name { font-family: var(--sm-label-font, var(--font-mono)); font-size: 11px; letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-top: 2px; }
+.wf-goal .wf-pool-n { font-family: var(--font-display, var(--font-sans)); font-size: calc(30px * var(--sm-type-k, 1)); font-weight: var(--sm-type-weight, 500); color: var(--c-ink); }
+.wf-goal .wf-pool-name { color: var(--c-ink); }

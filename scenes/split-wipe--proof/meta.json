@@ -1,0 +1,14 @@
+{
+  "variantOf": "split-wipe",
+  "role": "proof",
+  "differs": {
+    "mechanic": "A horizontal divider steps down the card one row at a time, re-reading each metric as it passes, instead of a vertical divider sweeping fragments into rows.",
+    "layout": "Copy and the customer quote share a left column beside a tall results card with three stacked metric rows, replacing the heading over a full-width desk-and-table frame.",
+    "data": "A before / after comparison of three metrics, each with its computed change and a bar that shrinks or grows from a dashed outline of the old value, instead of nine scattered items.",
+    "moment": "The last row flips to its after value, the grip docks at the card's foot, and an attributed customer quote lands as the closing evidence."
+  },
+  "renderer": "DOM",
+  "blurb": "A before / after divider steps down a card of three metrics, each re-reading with its change, and a customer quote closes the case.",
+  "featured": false,
+  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "motif", "color"]
+}

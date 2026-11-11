@@ -1,0 +1,19 @@
+{
+  "title": "From a spare room to today",
+  "label": "A company history on a vertical timeline running from 2019 at the bottom to 2026 at the top. A marker climbs the rail, its flag showing the year, and stops at each milestone: founded in February 2019, the first paying customer in May 2020, a $4M seed round in September 2021, and a team of 40 in June 2023. Each milestone fills in with one short line beside it. At the top the marker reaches today, November 2026, and a card opens: 2,400 teams use the product every week, built by 140 people in Lisbon, Toronto and remote.",
+  "eyebrow": "Our story",
+  "heading": "How a spare room\nbecame a company.",
+  "sub": "The moments that shaped the company, from the first commit in 2019 to the people who rely on us today.",
+  "axis": { "periods": ["2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"] },
+  "milestones": [
+    { "title": "Founded", "date": "Feb 2019", "at": 0.1, "note": "Two engineers, one spare room, a spreadsheet that kept breaking." },
+    { "title": "First paying customer", "date": "May 2020", "at": 1.35, "note": "A 12-person logistics team in Rotterdam. They are still with us." },
+    { "title": "Seed round", "date": "Sep 2021", "at": 2.7, "note": "$4M to hire our first designer and a support lead." },
+    { "title": "A team of 40", "date": "Jun 2023", "at": 4.45, "note": "A second office opens in Toronto." },
+    {
+      "title": "Today", "date": "Nov 2026", "at": 7, "highlight": true, "status": "Today",
+      "value": "2,400", "unit": "teams every week",
+      "note": "Built by 140 people in Lisbon, Toronto and remote. We still answer support ourselves on Fridays."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "story": "messy-to-structured",
+  "stories": [
+    "messy-to-structured",
+    "ai",
+    "classification"
+  ],
+  "renderer": "Canvas 2D",
+  "blurb": "A lens drifts over a dithered field of maybes; inside it, every blob is classified, outlined and labelled.",
+  "order": 18,
+  "featured": true,
+  "home": "field",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion"
+  ]
+}

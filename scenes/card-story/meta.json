@@ -1,0 +1,23 @@
+{
+  "story": "automation",
+  "stories": [
+    "automation",
+    "product"
+  ],
+  "renderer": "DOM",
+  "blurb": "A feature list drives a product card through its states, removing a step each time.",
+  "order": 13,
+  "featured": false,
+  "home": "soft-ui",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

@@ -1,0 +1,29 @@
+.lsm { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.lsm-svg { position: absolute; inset: 0; }
+
+.lsm-copy { position: absolute; left: 1086px; top: 150px; width: 430px; }
+.lsm-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.lsm-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(48px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; color: var(--c-ink); font-weight: var(--sm-type-weight, 400); }
+.lsm-sub { margin-top: 16px; font-size: 18px; line-height: 1.5; color: var(--c-muted); max-width: 420px; }
+
+.lsm-metric { position: absolute; left: 1086px; top: 436px; width: 430px; padding-top: 22px; border-top: var(--sm-stroke-hair, 1px) solid var(--c-line); }
+.lsm-num { font-family: var(--font-display, var(--font-sans)); font-size: calc(132px * var(--sm-type-k, 1)); line-height: 1; letter-spacing: var(--sm-type-tracking, -0.045em); font-weight: var(--sm-type-weight, 400); color: var(--c-ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lsm-num-label { margin-top: 8px; font-size: 20px; color: var(--c-ink); }
+.lsm-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+.lsm-stat-k { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.lsm-stat-v { margin-top: 6px; font-size: 30px; line-height: 1.1; color: var(--c-ink); font-variant-numeric: tabular-nums; }
+.lsm-stat-v[data-kind="ok"] { color: var(--c-positive-text, var(--c-positive)); }
+.lsm-stat-v[data-kind="held"] { color: var(--c-warning-text, var(--c-warning)); }
+
+.lsm-month { font-family: var(--font-display, var(--font-sans)); font-size: calc(40px * var(--sm-type-k, 1)); letter-spacing: var(--sm-type-tracking, -0.02em); font-weight: var(--sm-type-weight, 500); fill: var(--c-ink); }
+.lsm-year { fill: var(--c-muted); font-weight: 400; }
+.lsm-plabel { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); fill: var(--c-muted); }
+.lsm-wd { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); fill: var(--c-muted); }
+.lsm-day { font-family: var(--font-mono); font-size: 14px; fill: var(--c-ink); }
+.lsm-count { font-family: var(--font-mono); font-size: 14px; font-weight: 500; fill: var(--c-ink); font-variant-numeric: tabular-nums; }
+.lsm-imp { font-family: var(--font-sans); font-weight: 700; font-size: 13px; letter-spacing: .14em; }
+.lsm-held { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: .04em; }
+.lsm-seal { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: .08em; fill: var(--c-on-accent, #fff); }
+.lsm-seal-hash { font-family: var(--font-mono); font-size: 12px; fill: var(--c-on-accent, #fff); }
+.lsm-seal-title { font-family: var(--font-sans); font-size: 17px; font-weight: 500; fill: var(--c-ink); }
+.lsm-seal-note { font-family: var(--font-mono); font-size: 13px; fill: var(--c-muted); }

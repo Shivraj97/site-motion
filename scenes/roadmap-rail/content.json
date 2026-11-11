@@ -1,0 +1,41 @@
+{
+  "title": "The year on one rail",
+  "label": "A product roadmap on a time axis from Q1 to Q4 2027 with three tracks: Product, Platform and Customers. Each track holds dated milestones, some single days and some ranges drawn as bars. A Today marker walks the axis: milestones behind it fill in, bars fill as it passes through them, and planned ones stay outlined. When it reaches the workflow builder launch in June, its flag opens into a card with the date and what ships.",
+  "eyebrow": "Roadmap 2027",
+  "heading": "Four quarters,\nthree tracks, one plan.",
+  "sub": "Shipped work fills in as the year moves. Dates are targets we review every month.",
+  "axis": { "periods": ["Q1 2027", "Q2 2027", "Q3 2027", "Q4 2027"], "sub": 3 },
+  "playhead": { "label": "Today" },
+  "status": { "done": "shipped", "active": "in progress", "planned": "planned" },
+  "tracks": [
+    {
+      "name": "Product",
+      "milestones": [
+        { "title": "Saved views", "date": "Jan 20", "at": 0.22 },
+        { "title": "Bulk editing", "date": "Feb 3 – Mar 28", "at": 0.37, "end": 0.98 },
+        { "title": "Workflow builder", "date": "Launches Jun 9", "at": 1.75, "highlight": true, "status": "Launch", "note": "Multi-step automations without code, open to every workspace on the Growth plan." },
+        { "title": "Mobile app beta", "date": "Aug 4", "at": 2.38 },
+        { "title": "Offline mode", "date": "Oct 6 – Dec 15", "at": 3.07, "end": 3.92 }
+      ]
+    },
+    {
+      "name": "Platform",
+      "milestones": [
+        { "title": "SSO and SCIM", "date": "Feb 17", "at": 0.52 },
+        { "title": "EU data residency", "date": "Apr 7 – Jun 30", "at": 1.07, "end": 2.0 },
+        { "title": "Audit log export", "date": "Aug 25", "at": 2.65 },
+        { "title": "99.95% uptime SLA", "date": "Nov 3", "at": 3.4 }
+      ]
+    },
+    {
+      "name": "Customers",
+      "milestones": [
+        { "title": "Migration guides", "date": "Jan 13", "at": 0.14 },
+        { "title": "Customer advisory board", "date": "Mar 10", "at": 0.77 },
+        { "title": "Template gallery", "date": "May 26", "at": 1.62 },
+        { "title": "Partner directory", "date": "Sep 15", "at": 2.95 },
+        { "title": "Annual user summit", "date": "Nov 18", "at": 3.58 }
+      ]
+    }
+  ]
+}

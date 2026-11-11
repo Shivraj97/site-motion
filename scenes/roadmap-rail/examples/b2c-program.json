@@ -1,0 +1,36 @@
+{
+  "title": "Your 12-week plan",
+  "label": "A twelve-week training plan on a time axis with three tracks: Training, Nutrition and Check-ins. A Today marker walks the weeks; completed sessions fill in, training blocks fill as it passes, later ones stay outlined. When it reaches the first 10K run in week 9 its flag opens into a card.",
+  "eyebrow": "Your plan",
+  "heading": "Twelve weeks\nto your first 10K.",
+  "sub": "Each week builds on the last. Your coach adjusts the plan after every check-in.",
+  "axis": { "periods": ["Wk 1", "Wk 2", "Wk 3", "Wk 4", "Wk 5", "Wk 6", "Wk 7", "Wk 8", "Wk 9", "Wk 10", "Wk 11", "Wk 12"], "sub": 1 },
+  "playhead": { "label": "This week" },
+  "status": { "done": "done", "active": "in progress", "planned": "ahead" },
+  "tracks": [
+    {
+      "name": "Training",
+      "milestones": [
+        { "title": "Base building", "date": "Weeks 1–4", "at": 0, "end": 4 },
+        { "title": "Speed work", "date": "Weeks 5–8", "at": 4.2, "end": 8 },
+        { "title": "First 10K run", "date": "Week 9", "at": 8.6, "highlight": true, "status": "New distance", "note": "Your longest run yet, paced from your last four weeks of training." },
+        { "title": "Taper", "date": "Weeks 11–12", "at": 10.3, "end": 11.8 }
+      ]
+    },
+    {
+      "name": "Nutrition",
+      "milestones": [
+        { "title": "Meal plan set", "date": "Week 1", "at": 0.5 },
+        { "title": "Race-week fuelling", "date": "Week 11", "at": 10.4 }
+      ]
+    },
+    {
+      "name": "Check-ins",
+      "milestones": [
+        { "title": "Coach call", "date": "Week 2", "at": 1.4 },
+        { "title": "Halfway review", "date": "Week 6", "at": 5.6 },
+        { "title": "Race-day plan", "date": "Week 12", "at": 11.2 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Night — developer tool, dark",
+  "color": {
+    "paper": "#14140f", "surface": "#1b1b16", "raised": "#24241e", "ink": "#ecebe4", "muted": "#9a9990", "faint": "#5c5b54",
+    "line": "#33332c", "accent": "#3ccf7a", "accentInk": "#2b7a52", "onAccent": "#0e1a12", "positive": "#3ccf7a", "warning": "#e6b450"
+  },
+  "palette": ["#9fb7c4", "#c9c2a5", "#7d8f6a", "#d8cfb8", "#5f6e78", "#b38a5a"],
+  "font": {
+    "sans": "'Inter', system-ui, sans-serif",
+    "mono": "'JetBrains Mono', ui-monospace, Menlo, monospace",
+    "import": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=block"
+  },
+  "radius": { "sm": 6, "md": 10, "lg": 14 }
+}

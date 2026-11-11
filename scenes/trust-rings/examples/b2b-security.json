@@ -1,0 +1,19 @@
+{
+  "title": "Workspace access, ring by ring",
+  "label": "A workspace's data sits inside four control rings: single sign-on, role-based access, encryption and audit. A support agent's request passes every ring and reaches the data. A contractor's request is stopped at the role-based access ring, which closes with the chip Blocked, no role. Both decisions are logged beside the rings: 1 allowed, 1 blocked.",
+  "eyebrow": "Enterprise security",
+  "heading": "Access is earned,\nnot assumed.",
+  "sub": "SSO, roles, encryption and audit wrap every workspace by default. Nothing to configure, nothing to forget.",
+  "asset": { "name": "Workspace data", "detail": "SOC 2 Type II" },
+  "rings": [
+    { "name": "SSO", "short": "SSO", "pass": "verified" },
+    { "name": "Role-based access", "short": "RBAC", "pass": "role: support" },
+    { "name": "Encryption", "short": "TLS", "pass": "1.3" },
+    { "name": "Audit", "short": "Audit", "pass": "logged" }
+  ],
+  "requests": [
+    { "who": "dana.k", "action": "View ticket history", "time": "14:02:11" },
+    { "who": "contractor-04", "action": "Open admin settings", "time": "14:02:16", "blockedAt": "RBAC", "reason": "no role" }
+  ],
+  "log": { "title": "Access log", "allowed": "allowed", "blocked": "blocked", "allowedBadge": "Allowed", "blockedBadge": "Blocked" }
+}

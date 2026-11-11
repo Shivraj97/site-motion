@@ -1,0 +1,7 @@
+{
+  "description": "Ink mechanics: flat shapes with crisp ink outlines, no shadows, ruled paper, mono labels. Machines that stamp, sort and tip.",
+  "family": ["domino-run", "galton-router", "ledger-stamp", "score-sheet"],
+  "stroke": "ink", "elevation": "flat", "corner": "tight", "depth": "flat", "texture": "none", "glow": "none",
+  "colorMode": "categorical", "label": "mono-caps", "type": "standard",
+  "motion": "studio", "tempo": "steady", "stagger": "even", "motif": "ruled"
+}

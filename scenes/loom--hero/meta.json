@@ -1,0 +1,21 @@
+{
+  "variantOf": "loom",
+  "role": "hero",
+  "differs": {
+    "mechanic": "A jacquard: hooks lift the warp threads by a bitmap of the product's name, so the cloth weaves a figure instead of a plain twill, and the loom slows as the name comes into view.",
+    "layout": "Hero scale: one short headline across the top and a full-width loom whose cloth fills the frame, instead of copy on the left and a loom in the right half.",
+    "moment": "The whole product name stands legible in the woven cloth, its letters made of the tools' coloured threads."
+  },
+  "renderer": "Canvas 2D",
+  "blurb": "A jacquard loom lifts each tool's warp threads by a bitmap, so your product's name is woven into the cloth from their colours.",
+  "featured": false,
+  "directable": [
+    "stroke",
+    "elevation",
+    "label",
+    "type",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Expenses on autopilot",
+  "label": "A list of four features beside a product card. As each feature's progress line fills, the card for a £17 taxi expense generates a memo, fills in its category, flags and then approves a policy exception, and syncs to the ledger.",
+  "card": {
+    "logo": { "text": "Hop", "bg": "#151515", "fg": "#ffffff" },
+    "name": "Hopper",
+    "sub": "Taxi",
+    "amount": "£17"
+  },
+  "steps": [
+    {
+      "title": "Stop chasing receipts.",
+      "body": "Receipts match themselves and the memo writes itself, with less admin and chasing.",
+      "card": { "kind": "loading", "text": "Generating memo…", "then": "Client visit · Northwind, Shoreditch" }
+    },
+    {
+      "title": "Categorise expenses automatically.",
+      "body": "Category, department and location are filled in from the transaction.",
+      "card": { "kind": "fields", "rows": ["Category – Ground Transportation", "Department – Sales", "Location – London"] }
+    },
+    {
+      "title": "Only review the exceptions.",
+      "body": "Anything outside policy is flagged once, with the reason, and approved in a tap.",
+      "card": { "kind": "flag", "rows": ["Category – Ground Transportation", "Time – 23:40, outside hours", "Location – London"], "flag": { "row": 1, "text": "Needs review", "resolved": "Approved" } }
+    },
+    {
+      "title": "Keep your books current.",
+      "body": "Every approved expense lands in the ledger the same day.",
+      "card": { "kind": "synced", "text": "Synced to ledger", "rows": ["6420 · Travel – local      £17.00", "2100 · Card clearing    −£17.00"] }
+    }
+  ]
+}

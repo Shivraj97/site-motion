@@ -1,0 +1,18 @@
+{
+  "title": "Teams by region, poured into jars",
+  "label": "Four glass jars stand side by side, one per region: North America, Europe, Asia-Pacific and Latin America. A stream of grains pours into each jar from above, every grain four teams, and the jars fill to different levels against a shared scale marked every 2,000 teams. Under each jar its count lands as the last grain does: 8,240, 6,560, 4,480 and 2,560. Beside the jars, the total read from all four, 21,840 teams, and a quote from Marisol Okafor, Head of Operations at Fernbank Freight: we switched in a week and haven't looked at another tool since. Then the jar floors open, the grains fall through, and the pour begins again.",
+  "eyebrow": "Who runs on it",
+  "heading": "Trusted in every\ntime zone.",
+  "perGrain": 4,
+  "legend": "1 grain = {per} teams",
+  "unit": "teams, across four regions",
+  "tick": 2000,
+  "sources": [
+    { "name": "North America", "count": 8240 },
+    { "name": "Europe", "count": 6560 },
+    { "name": "Asia-Pacific", "count": 4480 },
+    { "name": "Latin America", "count": 2560 }
+  ],
+  "quote": "“We switched in a week and haven't looked at another tool since.”",
+  "person": { "name": "Marisol Okafor", "initials": "MO", "role": "Head of Operations", "company": "Fernbank Freight" }
+}

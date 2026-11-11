@@ -1,0 +1,71 @@
+.ls { background: transparent; } /* the stage paints the paper; a style motif sits between */
+.ls-svg { position: absolute; inset: 0; }
+.ls-copy { position: absolute; left: 110px; top: 130px; width: 470px; }
+.ls-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.ls-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(54px * var(--sm-type-k, 1)); line-height: 1.03; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; color: var(--c-ink); font-weight: var(--sm-type-weight, 400); }
+.ls-sub { margin-top: 18px; font-size: 19px; line-height: 1.5; color: var(--c-muted); max-width: 440px; }
+
+.ls-station { position: absolute; transform: translateX(-50%); display: flex; gap: 8px; align-items: baseline; font-size: 16px; font-weight: 500; color: var(--c-ink); white-space: nowrap; }
+.ls-n { font-family: var(--font-mono); font-size: 12px; font-weight: 400; color: var(--c-muted); }
+.ls-feeder { position: absolute; transform: translateX(-50%); font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+
+.ls-d-type { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; fill: var(--c-muted); }
+.ls-d-payee { font-family: var(--font-sans); font-size: 14px; fill: var(--c-ink); }
+.ls-d-amount { font-family: var(--font-sans); font-weight: 600; font-size: 25px; letter-spacing: -0.02em; fill: var(--c-ink); font-variant-numeric: tabular-nums; }
+.ls-d-check { font-family: var(--font-sans); font-size: 12px; fill: var(--c-ink); }
+.ls-d-signer { font-family: var(--font-mono); font-size: 9.5px; fill: var(--c-muted); }
+.ls-stamp { font-family: var(--font-sans); font-weight: 700; font-size: 17px; letter-spacing: .14em; }
+.ls-stamp-date { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .08em; }
+.ls-seal { font-family: var(--font-mono); font-size: 7.5px; font-weight: 500; letter-spacing: .1em; fill: var(--c-on-accent, #fff); }
+.ls-seal-hash { font-family: var(--font-mono); font-size: 7px; fill: var(--c-on-accent, #fff); opacity: .85; }
+.ls-held { font-family: var(--font-sans); font-size: 11.5px; font-weight: 500; fill: var(--c-warning-text, var(--c-warning)); }
+
+.ls-log { position: absolute; left: 110px; top: 520px; width: 470px; padding: 16px 20px 10px; border-radius: var(--sm-radius-md, var(--r-md, 12px)); background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, var(--stroke-w, 1px)) var(--sm-stroke-color, var(--c-stroke, var(--c-line))), var(--sm-shadow-2, 0 18px 40px -26px rgba(0,0,0,.35)); }
+.ls-log-head { display: flex; align-items: center; gap: 10px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .04em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); padding-bottom: 12px; border-bottom: var(--sm-stroke-hair, 1px) solid var(--c-line); white-space: nowrap; }
+.ls-log-stat { margin-left: auto; text-transform: none; letter-spacing: 0; color: var(--c-ink); }
+.ls-live { width: 8px; height: 8px; border-radius: 50%; background: var(--c-accent); flex: none; }
+.ls-rows { position: relative; height: 152px; overflow: hidden; margin-top: 6px; }
+.ls-row { position: absolute; left: 0; right: 0; top: 0; height: 38px; display: grid; grid-template-columns: 84px 1fr auto; align-items: center; gap: 12px; font-size: 15px; white-space: nowrap; }
+.ls-ref { font-family: var(--font-mono); font-size: 12px; color: var(--c-muted); }
+.ls-amt { color: var(--c-ink); font-variant-numeric: tabular-nums; }
+.ls-st { font-family: var(--font-mono); font-size: 12px; padding: 3px 10px; border-radius: 999px; }
+.ls-st[data-kind="ok"] { background: color-mix(in srgb, var(--c-positive) 14%, transparent); color: var(--c-positive-text, var(--c-positive)); }
+.ls-st[data-kind="held"] { background: color-mix(in srgb, var(--c-warning) 16%, transparent); color: var(--c-warning-text, var(--c-warning)); }
+
+/* ---------- legible layout (content.legible): nothing under 15px, focal text 24px+, no shadows, corners <= 3 ---------- */
+.ls-L .ls-L-copy { left: 48px; top: 88px; width: 480px; }
+.ls-L .ls-L-copy .ls-eyebrow { font-size: 18px; margin-bottom: 16px; }
+.ls-L .ls-L-copy .ls-sub { font-size: 20px; line-height: 1.45; margin-top: 18px; max-width: 480px; }
+
+.ls-L .ls-L-station { font-size: 26px; gap: 10px; }
+.ls-L .ls-L-n { font-size: 18px; }
+.ls-L .ls-L-feeder { font-size: 18px; }
+.ls-L-stage .ls-L-station { font-size: 28px; }
+
+.ls-L-type { font-family: var(--font-mono); font-size: 18px; letter-spacing: .04em; fill: var(--c-muted); }
+.ls-L-payee { font-family: var(--font-sans); font-size: 24px; fill: var(--c-ink); }
+.ls-L-amount { font-family: var(--font-sans); font-weight: 600; font-size: 42px; letter-spacing: -0.02em; fill: var(--c-ink); }
+.ls-L-check { font-family: var(--font-sans); font-size: 20px; fill: var(--c-ink); }
+.ls-L-signer { font-family: var(--font-mono); font-size: 15px; fill: var(--c-muted); }
+.ls-L-stamp { font-family: var(--font-sans); font-weight: 700; font-size: 30px; letter-spacing: .12em; }
+.ls-L-stamp-date { font-family: var(--font-mono); font-size: 15px; letter-spacing: .06em; }
+.ls-L-seal { font-family: var(--font-mono); font-size: 15px; font-weight: 500; letter-spacing: .06em; fill: var(--c-on-accent, #fff); }
+.ls-L-seal-hash { font-family: var(--font-mono); font-size: 15px; fill: var(--c-on-accent, #fff); opacity: .85; }
+.ls-L-held { font-family: var(--font-sans); font-size: 18px; font-weight: 500; fill: var(--c-warning-text, var(--c-warning)); }
+
+.ls-L .ls-L-log { box-sizing: border-box; padding: 22px 26px 0; border-radius: var(--r-sm, 2px); box-shadow: 0 0 0 var(--sm-stroke-fine, var(--stroke-w, 1px)) var(--sm-stroke-color, var(--c-stroke, var(--c-line))); }
+.ls-L .ls-L-head { display: block; font-size: 18px; padding-bottom: 14px; }
+.ls-L-title { display: flex; align-items: center; gap: 10px; }
+.ls-L-title .ls-live { width: 10px; height: 10px; }
+.ls-L-stat { margin-top: 8px; font-family: var(--font-display, var(--font-sans)); font-size: 30px; line-height: 1.15; letter-spacing: -0.01em; text-transform: none; font-style: normal; color: var(--c-ink); white-space: nowrap; }
+.ls-L .ls-L-rows { margin-top: 0; }
+.ls-L-row { position: absolute; left: 0; right: 0; top: 0; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 8px; border-bottom: var(--sm-stroke-hair, 1px) solid var(--c-line); white-space: nowrap; }
+.ls-L-act { font-size: 26px; font-weight: 500; line-height: 1.15; color: var(--c-ink); }
+.ls-L-meta { display: flex; align-items: center; gap: 14px; }
+.ls-L .ls-L-ref { font-size: 18px; }
+.ls-L .ls-L-st { font-size: 18px; padding: 3px 10px; border-radius: var(--r-sm, 2px); }
+.ls-L-stage .ls-L-head { font-size: 19px; padding-bottom: 18px; }
+.ls-L-stage .ls-L-stat { font-size: 36px; margin-top: 12px; }
+.ls-L-stage .ls-L-act { font-size: 30px; }
+.ls-L-stage .ls-L-ref, .ls-L-stage .ls-L-st { font-size: 20px; }
+.ls-L-stage .ls-L-row { gap: 12px; }

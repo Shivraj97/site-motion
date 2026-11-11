@@ -1,0 +1,16 @@
+{
+  "title": "Five steps, then you're live",
+  "label": "A closing call to action. Under a centred heading, the five setup steps sit as a short run of numbered nodes on one rail: Create workspace, Connect your data, Invite your team and Set approval rules, each with its time. The rail ends in the button, Start your free trial, whose numbered badge is the fifth step, Go live. A small token runs the rail quickly, ticking each step behind it, and lands in the button's badge; the button presses in once and sends out one pulse, and the total time lands underneath: live in 12 min, from sign-up to first report.",
+  "eyebrow": "Get started",
+  "heading": "Five short steps,\nthen you're live.",
+  "sub": "Every step ends with something you can check. Start now, and the first one takes a minute.",
+  "button": "Start your free trial",
+  "steps": [
+    { "title": "Create workspace", "time": "1 min" },
+    { "title": "Connect your data", "time": "3 min" },
+    { "title": "Invite your team", "time": "2 min" },
+    { "title": "Set approval rules", "time": "4 min" },
+    { "title": "Go live", "time": "2 min" }
+  ],
+  "payoff": { "label": "Live in", "value": "12 min", "note": "from sign-up to first report" }
+}

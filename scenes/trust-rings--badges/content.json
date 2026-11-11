@@ -1,0 +1,16 @@
+{
+  "title": "Every control, audited and on record",
+  "label": "Five concentric rings roll apart into a row of five empty seals. A press stamps each seal in turn, left to right: SOC 2 Type II, ISO 27001, GDPR, HIPAA and PCI DSS. Each impression is lettered with its framework and scope, and a dated audit stamp lands beneath it with the number of controls it covers. A status line counts the controls as each seal is stamped, from 0 to 212 of 212 controls passing, and its bar fills one segment per seal. The scene holds on the full row stamped.",
+  "eyebrow": "Security & compliance",
+  "heading": "Audited by others,\nnot just promised by us.",
+  "sub": "Five frameworks, each checked by an outside auditor. Every control they cover is monitored continuously, so the stamps stay true between audits.",
+  "seals": [
+    { "name": "SOC 2 Type II", "mark": "SOC 2", "scope": "Security · Availability", "audited": "14 Mar 2026", "controls": 64 },
+    { "name": "ISO 27001", "mark": "ISO", "scope": "Information security", "audited": "02 Feb 2026", "controls": 58 },
+    { "name": "GDPR", "mark": "GDPR", "scope": "EU data processing", "audited": "21 Apr 2026", "controls": 31 },
+    { "name": "HIPAA", "mark": "HIPAA", "scope": "Health data", "audited": "09 Jun 2026", "controls": 27 },
+    { "name": "PCI DSS v4.0", "mark": "PCI", "scope": "Card data · Level 1", "audited": "30 Jul 2026", "controls": 32 }
+  ],
+  "stamp": { "audited": "Audited", "controls": "controls" },
+  "status": { "of": "of", "label": "controls passing", "note": "Monitored hourly · last check 09:41 UTC" }
+}

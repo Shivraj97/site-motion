@@ -1,0 +1,29 @@
+{
+  "title": "A customer's year of account health",
+  "label": "A customer story. A large chart shows one account, Tidewater Credit Union, and its health score week by week across a year. The line holds in the low 80s through spring, then slides in June through the watch band into at risk, bottoming out at 36. At the low point a marker drops onto the line: playbook, exec check-in, sent. Over the next six weeks the line climbs back into healthy, a bracket under it reading 6 weeks to healthy, and it keeps rising past a dashed line marking its old level of 84, ending the year at 93, nine points higher. Beside the chart, a quote from Dana Whitfield, VP of Member Operations at Tidewater Credit Union, and the two outcomes read off the line: plus 9 points above its health before the dip, and 6 weeks from playbook to healthy.",
+  "eyebrow": "Customer story",
+  "quote": "“We were one bad quarter from losing the renewal and didn't see it coming. The check-in landed the week our usage hit bottom, and we ended the year healthier than we started it.”",
+  "person": { "name": "Dana Whitfield", "initials": "DW", "role": "VP, Member Operations", "company": "Tidewater Credit Union" },
+  "period": "2025",
+  "cursor": "Week {week} of {weeks}",
+  "axis": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+  "unit": "weeks",
+  "thresholds": { "healthy": 70, "watch": 50 },
+  "states": { "healthy": "Healthy", "watch": "Watch", "risk": "At risk" },
+  "marks": {
+    "before": "Before {before}",
+    "gain": "+{gain} pts",
+    "recovery": "{recovery} {unit} to healthy"
+  },
+  "outcomes": [
+    { "kind": "gain", "value": "+{gain}", "suffix": "pts", "label": "above its health before the dip" },
+    { "kind": "recovery", "value": "{recovery}", "suffix": "{unit}", "label": "from playbook to healthy again" }
+  ],
+  "account": {
+    "name": "Tidewater Credit Union", "mark": "TC", "segment": "Enterprise",
+    "series": [78, 78, 79, 79, 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84, 84, 84,
+               82, 78, 72, 64, 55, 47, 40, 36,
+               38, 44, 51, 58, 64, 71, 75, 78, 80, 82, 83, 84, 85, 86, 87, 87, 88, 89, 89, 90, 90, 91, 91, 92, 92, 93],
+    "playbook": { "label": "Playbook", "name": "Exec check-in", "pending": "sending", "status": "sent" }
+  }
+}

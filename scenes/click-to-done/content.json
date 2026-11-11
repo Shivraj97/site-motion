@@ -1,0 +1,46 @@
+{
+  "title": "Invite your team in one step",
+  "label": "A members page in a browser window. The camera moves in on the invite form while a cursor types two email addresses, switches the role to Admin and clicks Send invites. The button confirms, the camera pulls back, two new members appear at the top of the list marked Invited, and a toast says 2 invites sent.",
+  "url": "app.northwind.co/members",
+  "workspace": { "text": "N", "name": "Northwind" },
+  "nav": ["Overview", "Projects", "Members", "Billing", "Settings"],
+  "active": 2,
+  "heading": "Members",
+  "sub": "Invite your team to Northwind.",
+  "invite": {
+    "label": "Invite by email",
+    "placeholder": "name@company.com",
+    "value": "maya@northwind.co, leo@northwind.co",
+    "roles": ["Member", "Admin"],
+    "pick": 1,
+    "send": "Send invites",
+    "sent": "Invites sent"
+  },
+  "columns": ["Name", "Role", "Status"],
+  "members": [
+    { "name": "Ana Ruiz", "email": "ana@northwind.co", "role": "Owner", "status": "Active" },
+    { "name": "Tom Okafor", "email": "tom@northwind.co", "role": "Admin", "status": "Active" },
+    { "name": "Priya Shah", "email": "priya@northwind.co", "role": "Member", "status": "Active" },
+    {"name": "Jonas Weber", "email": "jonas@northwind.co", "role": "Member", "status": "Active"},
+    {"name": "Mei Tanaka", "email": "mei@northwind.co", "role": "Member", "status": "Active"}
+  ],
+  "invited": [
+    { "name": "Maya", "email": "maya@northwind.co" },
+    { "name": "Leo", "email": "leo@northwind.co" }
+  ],
+  "invitedStatus": "Invited",
+  "toast": "2 invites sent",
+  "toastAction": "Undo",
+  "cursor": [
+    { "at": 1.15, "to": "email", "anchor": [0.18, 0.5], "click": true },
+    { "at": 3.55, "to": "role-1", "click": true },
+    { "at": 4.35, "to": "send", "click": true },
+    { "at": 6.3, "to": [1250, 560] },
+    { "at": 10.2, "to": [1000, 860] }
+  ],
+  "camera": [
+    { "at": 0.35, "dur": 1.2, "zoom": 1.5, "focus": "invite", "anchor": [0.55, 0.62] },
+    { "at": 5.15, "dur": 1.3, "zoom": 1 }
+  ],
+  "times": { "type": 1.4, "sending": 4.45, "sent": 5.05, "reset": 8.9 }
+}

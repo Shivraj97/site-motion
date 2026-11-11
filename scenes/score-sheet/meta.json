@@ -1,0 +1,23 @@
+{
+  "story": "orchestration",
+  "stories": [
+    "orchestration",
+    "ai",
+    "agents"
+  ],
+  "renderer": "SVG",
+  "blurb": "A multi-agent run written as a musical score; each stave vibrates while its agent works.",
+  "order": 7,
+  "featured": false,
+  "home": "ink",
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

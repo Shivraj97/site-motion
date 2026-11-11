@@ -1,0 +1,19 @@
+{
+  "story": "changelog",
+  "stories": [
+    "changelog",
+    "product"
+  ],
+  "renderer": "SVG",
+  "blurb": "A parchment scroll unrolls from its roller one release at a time; each row is inked wet, settles, and ages as newer releases arrive.",
+  "featured": false,
+  "home": "ink",
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif"
+  ]
+}

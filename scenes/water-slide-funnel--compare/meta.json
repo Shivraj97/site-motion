@@ -1,0 +1,14 @@
+{
+  "variantOf": "water-slide-funnel",
+  "role": "feature",
+  "differs": {
+    "layout": "Two compact cascades mirrored on one ground line, their paid pools meeting in the centre under the stated gap, with a short centred heading instead of a left headline and one big staircase.",
+    "data": "A comparison: the same 1,000 visitors run two funnels (old onboarding vs guided), instead of one funnel's stage counts.",
+    "mechanic": "Before riders must jump open gaps between ramps and spill into one lost trough; After ramps carry guard rails and joined chutes, so riders slide through and fewer drop.",
+    "moment": "The end state: two paid pools side by side at clearly different water levels, a bracket between them and \"2.4×\" derived from the riders that landed."
+  },
+  "renderer": "SVG",
+  "blurb": "The same riders go down two slides at once; the guided one loses fewer at each lip, so its paid pool fills 2.4 times higher.",
+  "featured": false,
+  "directable": ["stroke", "corner", "label", "type", "motion", "motif"]
+}

@@ -1,0 +1,23 @@
+{
+  "story": "architecture",
+  "stories": [
+    "architecture",
+    "infrastructure"
+  ],
+  "renderer": "CSS 3D",
+  "blurb": "Real HTML layers lift apart in 2.5D while a request drops through the stack.",
+  "order": 12,
+  "featured": false,
+  "home": "dimensional",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

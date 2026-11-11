@@ -1,0 +1,14 @@
+{
+  "title": "The stack, in 2.5D",
+  "label": "Four layers of an application stack drawn as solid isometric boxes in CSS 3D. They lift apart, a request token drops through them lighting each layer in turn, and they settle back together.",
+  "eyebrow": "Architecture",
+  "heading": "One request,\nfour layers,\nunder 40 ms.",
+  "sub": "Real HTML in true CSS 3D: crisp text, no WebGL.",
+  "request": "GET /orders",
+  "layers": [
+    { "title": "Edge", "tag": "3 ms", "sub": "TLS, cache, routing", "chips": ["cdn", "waf"] },
+    { "title": "API", "tag": "8 ms", "sub": "Auth and rate limits", "chips": ["rest", "graphql"] },
+    { "title": "Workers", "tag": "19 ms", "sub": "Business logic", "chips": ["queue", "cron"] },
+    { "title": "Database", "tag": "6 ms", "sub": "Postgres, replicated", "chips": ["primary", "2 replicas"] }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "title": "Your rollout plan",
+  "label": "An eight-week customer rollout on a time axis with two tracks: Your team and Our team. A Today marker walks the weeks; finished steps fill in, multi-day work fills as it passes, later steps stay outlined. When it reaches the first live workflow in week 5 its flag opens into a card.",
+  "eyebrow": "Implementation",
+  "heading": "Live in eight weeks,\nwith a plan you can see.",
+  "sub": "Every rollout follows the same plan: who does what, and when, from kickoff to sign-off.",
+  "axis": { "periods": ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8"], "sub": 1 },
+  "playhead": { "label": "Today" },
+  "status": { "done": "done", "active": "underway", "planned": "to come" },
+  "tracks": [
+    {
+      "name": "Your team",
+      "milestones": [
+        { "title": "Kickoff call", "date": "Day 2", "at": 0.3 },
+        { "title": "Share sample data", "date": "Days 3–10", "at": 0.5, "end": 2.0 },
+        { "title": "Admin training", "date": "Day 23", "at": 4.3 },
+        { "title": "Go-live sign-off", "date": "Day 39", "at": 7.5 }
+      ]
+    },
+    {
+      "name": "Our team",
+      "milestones": [
+        { "title": "Workspace set up", "date": "Day 6", "at": 1.0 },
+        { "title": "Data import", "date": "Days 12–20", "at": 2.2, "end": 3.9 },
+        { "title": "First workflow live", "date": "Day 25", "at": 4.8, "highlight": true, "status": "Milestone", "note": "Your first automated workflow runs on real data, and we watch every run for a week." },
+        { "title": "Health check", "date": "Day 33", "at": 6.4 },
+        { "title": "Handover to success", "date": "Day 38", "at": 7.3 }
+      ]
+    }
+  ]
+}

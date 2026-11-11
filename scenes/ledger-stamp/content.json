@@ -1,0 +1,28 @@
+{
+  "title": "Ledger stamp",
+  "label": "Payments ride an indexed belt through three stations. A scanner checks each against policy, a press stamps it approved, then it is signed and a seal is pressed onto it before it leaves for the audit trail. One transfer over the limit is stamped held and waits for a second approver instead of being sealed.",
+  "eyebrow": "Approvals",
+  "heading": "Every payment\nstamped, signed\nand sealed.",
+  "sub": "Policy checks, approvals and a tamper-proof seal on every number, before any money moves.",
+  "logTitle": "Audit trail",
+  "logStat": "0 unsigned payments",
+  "feeder": "Queue",
+  "stations": ["Policy check", "Approve", "Sign & seal"],
+  "stampDate": "05 NOV · 09:41",
+  "signer": "R. Okafor",
+  "checks": ["Within limit", "Payee verified", "2 of 2 approvers"],
+  "heldCheck": "Over $100k limit",
+  "heldNote": "Waiting for CFO",
+  "legible": false,
+  "showCopy": true,
+  "docs": [
+    { "type": "Payout", "ref": "PX-2041", "payee": "Northwind Freight", "amount": "$12,480.00" },
+    { "type": "Invoice", "ref": "INV-1187", "payee": "Acme Studio", "amount": "$3,920.50" },
+    { "type": "Refund", "ref": "RF-0932", "payee": "Order 55102", "amount": "$86.40" },
+    { "type": "Transfer", "ref": "TR-0410", "payee": "Treasury → Ops", "amount": "$248,000.00", "held": true },
+    { "type": "Payout", "ref": "PX-2042", "payee": "Blue Harbor Co", "amount": "$7,215.00" },
+    { "type": "Invoice", "ref": "INV-1188", "payee": "Lumen Labs", "amount": "$15,600.00" },
+    { "type": "Payroll", "ref": "PR-0011", "payee": "42 employees", "amount": "$96,350.00" },
+    { "type": "Refund", "ref": "RF-0933", "payee": "Order 55187", "amount": "$212.00" }
+  ]
+}

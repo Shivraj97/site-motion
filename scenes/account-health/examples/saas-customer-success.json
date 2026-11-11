@@ -1,0 +1,28 @@
+{
+  "title": "Account health",
+  "label": "A customer health table with six accounts: plan, health score, a 30-day sparkline, renewal date and owner. One account's usage slides into at risk, an exec check-in playbook is sent at the low point, and over the following days the account recovers to healthy.",
+  "eyebrow": "Customer success",
+  "heading": "Every account, scored daily.\nNo renewal surprises.",
+  "sub": "Usage, support and billing roll up into one health score. When it drops, a playbook runs and the owner hears first.",
+  "days": 30,
+  "columns": { "account": "Account", "segment": "Plan", "health": "Health", "trend": "Last 30 days", "meta": "Renews", "owner": "Owner" },
+  "thresholds": { "healthy": 70, "watch": 50 },
+  "states": { "healthy": "Healthy", "watch": "Watch", "risk": "At risk" },
+  "cursor": "Day {day} of {days}",
+  "footer": "{healthy} of {total} accounts healthy · {risk} at risk",
+  "accounts": [
+    { "name": "Fernway Studio", "segment": "Growth", "meta": "Mar 14", "owner": "Priya Shah",
+      "series": [80, 81, 81, 82, 81, 83, 82, 83, 84, 83, 84, 84, 85, 84, 85, 86, 85, 86, 86, 87, 86, 87, 87, 88, 87, 88, 88, 89, 88, 89] },
+    { "name": "Copperline Legal", "segment": "Enterprise", "meta": "Jan 30", "owner": "Marcus Lee",
+      "series": [76, 77, 77, 78, 77, 78, 79, 78, 79, 80, 79, 80, 80, 79, 80, 81, 80, 81, 82, 81, 82, 82, 83, 82, 83, 83, 84, 83, 84, 84] },
+    { "name": "Saltmarsh Hotels", "segment": "Enterprise", "meta": "Feb 02", "owner": "Ana Ruiz",
+      "series": [86, 85, 86, 85, 84, 85, 84, 83, 84, 82, 80, 77, 72, 65, 57, 49, 42, 37, 33, 36, 42, 50, 57, 63, 68, 72, 75, 78, 80, 83],
+      "playbook": { "label": "Playbook", "name": "Exec check-in", "pending": "sending", "status": "sent" } },
+    { "name": "Quillmate", "segment": "Starter", "meta": "Apr 21", "owner": "Tom Becker",
+      "series": [88, 88, 87, 88, 89, 88, 88, 89, 88, 87, 88, 88, 89, 89, 88, 89, 90, 89, 89, 90, 89, 90, 90, 89, 90, 91, 90, 90, 91, 90] },
+    { "name": "Brightwell Clinics", "segment": "Growth", "meta": "Aug 09", "owner": "Priya Shah",
+      "series": [72, 73, 72, 74, 73, 74, 75, 74, 75, 76, 75, 76, 77, 76, 77, 77, 78, 77, 78, 79, 78, 79, 79, 80, 79, 80, 81, 80, 81, 81] },
+    { "name": "Nordvale Energy", "segment": "Enterprise", "meta": "May 17", "owner": "Jonah Okafor",
+      "series": [91, 91, 92, 91, 92, 92, 93, 92, 93, 93, 92, 93, 94, 93, 94, 94, 93, 94, 95, 94, 95, 94, 95, 95, 96, 95, 96, 95, 96, 96] }
+  ]
+}

@@ -1,0 +1,24 @@
+.gtp { background: transparent; } /* the stage paints the paper */
+.gtp-canvas { position: absolute; inset: 0; width: 1600px; height: 900px; }
+
+/* the scale and the jar labels */
+.gtp-tick { position: absolute; width: 56px; transform: translateY(-50%); text-align: right; font-family: var(--font-mono); font-size: 12px; color: var(--c-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.gtp-jar { position: absolute; width: 190px; transform: translateX(-50%); text-align: center; white-space: nowrap; }
+.gtp-jar-name { display: inline-flex; align-items: center; gap: 8px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.gtp-jar-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }
+.gtp-jar-n { margin-top: 6px; font-family: var(--font-display, var(--font-sans)); font-size: calc(26px * var(--sm-type-k, 1)); font-weight: var(--sm-type-weight, 500); letter-spacing: var(--sm-type-tracking, -0.01em); font-variant-numeric: tabular-nums; color: var(--c-ink); min-height: 1.2em; }
+.gtp-legend { position: absolute; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+
+/* the proof: total read from the jars, then who said it */
+.gtp-col { position: absolute; left: 1080px; top: 162px; width: 420px; }
+.gtp-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.gtp-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(40px * var(--sm-type-k, 1)); line-height: 1.08; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; color: var(--c-ink); font-weight: var(--sm-type-weight, 400); }
+.gtp-total { margin-top: 40px; font-family: var(--font-display, var(--font-sans)); font-size: calc(104px * var(--sm-type-k, 1)); line-height: 1; letter-spacing: var(--sm-type-tracking, -0.035em); font-weight: var(--sm-type-weight, 500); font-variant-numeric: tabular-nums; color: var(--c-ink); white-space: nowrap; height: 104px; }
+.gtp-rule { margin-top: 14px; height: 3px; width: 120px; background: var(--c-accent); transform-origin: 0 50%; border-radius: 2px; } /* sm-native: a hairline cap, not a corner */
+.gtp-unit { margin-top: 14px; font-size: 18px; color: var(--c-muted); white-space: nowrap; }
+.gtp-quote { margin: 44px 0 0; font-family: var(--font-display, var(--font-sans)); font-size: calc(25px * var(--sm-type-k, 1)); line-height: 1.32; letter-spacing: var(--sm-type-tracking, -0.01em); font-weight: var(--sm-type-weight, 400); color: var(--c-ink); text-indent: -0.42em; }
+.gtp-att { display: flex; align-items: center; gap: 14px; margin-top: 22px; }
+.gtp-av { width: 42px; height: 42px; flex: none; display: grid; place-items: center; border-radius: 50%; font-size: 14px; font-weight: 600; }
+.gtp-who { font-size: 15px; line-height: 1.35; white-space: nowrap; }
+.gtp-who-n { color: var(--c-ink); font-weight: 500; }
+.gtp-who-r { color: var(--c-muted); }

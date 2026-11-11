@@ -1,0 +1,19 @@
+{
+  "title": "Hiring pipeline",
+  "label": "A hiring pipeline as a kanban board with four columns: Applied, Screen, Interview and Offer, each showing how many candidates it holds. Candidate cards, each with the hiring lead's initials and the role, advance one stage at a time, until Amara Osei reaches Offer and her card turns into a green 'Offer accepted' chip.",
+  "eyebrow": "Hiring",
+  "heading": "Every candidate,\nexactly where they stand.",
+  "sub": "One board for the whole loop. Hiring leads see who is waiting on them, and nobody falls between stages.",
+  "stages": ["Applied", "Screen", "Interview", "Offer"],
+  "cards": [
+    { "id": "jonas", "title": "Jonas Weber", "owner": "Rita Moss", "tag": "Backend", "stage": 0 },
+    { "id": "lena", "title": "Lena Fischer", "owner": "Dev Patel", "tag": "Design", "stage": 0 },
+    { "id": "tomas", "title": "Tomás Silva", "owner": "Rita Moss", "tag": "Data", "stage": 0 },
+    { "id": "mei", "title": "Mei Chen", "owner": "Dev Patel", "tag": "Design", "stage": 1 },
+    { "id": "amara", "title": "Amara Osei", "owner": "Rita Moss", "tag": "Backend", "stage": 2 },
+    { "id": "kofi", "title": "Kofi Mensah", "owner": "Iris Bloom", "tag": "Support", "stage": 2 },
+    { "id": "sara", "title": "Sara Lind", "owner": "Iris Bloom", "tag": "Support", "stage": 3 }
+  ],
+  "moves": ["lena", "mei", "jonas", "amara"],
+  "success": "Offer accepted"
+}

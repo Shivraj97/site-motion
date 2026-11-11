@@ -1,0 +1,33 @@
+{
+  "title": "Every run on the scope",
+  "label": "A radar scope where each blip is a running job drifting along its course, with a fading trail behind the turning sweep. One job, invoice-sync, starts blinking amber after three failures. An on-call cursor opens its menu and pauses it: the blip stops, its label card flips to Paused, retry at 09:42, and the sweep passes over it calmly. A countdown ring closes, the job resumes on attempt 2 and flies off the scope.",
+  "eyebrow": "Observability",
+  "heading": "See every run.\nPause the one\nthat's failing.",
+  "sub": "Each blip is a live execution. Pause a failing run mid-flight and it retries on schedule, with its state intact.",
+  "operator": "On call",
+  "stats": { "running": "Running", "paused": "Paused" },
+  "status": {
+    "healthy": "All {n} runs healthy",
+    "failing": "{id} failing · 3 retries",
+    "paused": "{id} paused by {who}",
+    "resumed": "{id} resumed · attempt 2"
+  },
+  "menu": ["Pause run", "Retry now", "Cancel run"],
+  "focus": {
+    "id": "invoice-sync",
+    "step": "step 2 of 4",
+    "warn": "3 failures · retrying",
+    "paused": "Paused · retry at 09:42",
+    "resumed": "Resumed · attempt 2"
+  },
+  "runs": [
+    { "id": "nightly-etl", "step": "step 3 of 5" },
+    { "id": "sync-orders", "step": "batch 41 of 60" },
+    { "id": "embed-docs", "step": "step 1 of 3" },
+    { "id": "send-digest", "step": "step 2 of 2" },
+    { "id": "resize-images", "step": "step 4 of 6" },
+    { "id": "billing-run", "step": "step 2 of 7" },
+    { "id": "webhook-fanout", "step": "step 1 of 2" },
+    { "id": "reindex-search", "step": "step 5 of 8" }
+  ]
+}

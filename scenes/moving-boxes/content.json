@@ -1,0 +1,47 @@
+{
+  "title": "Migration: moving boxes",
+  "label": "Two buildings side by side. On the left, a cramped old office with cluttered shelves holds four labelled moving boxes: Spreadsheets, 12,400 rows; Old CRM, 3,200 contacts; Shared drive, 940 files; and Custom fields, marked fragile. A hand truck takes them one at a time along the walkway, past a checkpoint post that counts each box and shows 0 lost, into a clean new building. Inside, each box opens and its contents file into the matching room, whose count rises as they land. The fragile box arrives intact with its sticker. A progress line, counted from the boxes delivered, ends at imported 4 of 4, 0 lost.",
+  "eyebrow": "Migration",
+  "heading": "Move in.\nNothing gets\nleft behind.",
+  "sub": "Bring the spreadsheets, the old CRM and the shared drive. Every box is unpacked into the right room.",
+  "oldSign": "Old tools",
+  "newSign": "New workspace",
+  "progress": {
+    "imported": "Imported",
+    "of": "of",
+    "lost": "lost"
+  },
+  "intact": "Intact",
+  "boxes": [
+    {
+      "name": "Spreadsheets",
+      "count": 12400,
+      "unit": "rows",
+      "room": "Records"
+    },
+    {
+      "name": "Old CRM",
+      "count": 3200,
+      "unit": "contacts",
+      "room": "Contacts"
+    },
+    {
+      "name": "Shared drive",
+      "count": 940,
+      "unit": "files",
+      "room": "Files"
+    },
+    {
+      "name": "Custom fields",
+      "count": 86,
+      "unit": "fields",
+      "room": "Fields",
+      "fragile": "Fragile"
+    }
+  ],
+  "seed": 31,
+  "checkpoint": {
+    "label": "Checkpoint",
+    "passed": "passed"
+  }
+}

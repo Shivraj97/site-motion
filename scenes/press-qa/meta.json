@@ -1,0 +1,22 @@
+{
+  "story": "testing",
+  "stories": [
+    "testing",
+    "reliability",
+    "deploys"
+  ],
+  "renderer": "SVG",
+  "blurb": "Builds roll off a press and under an inspector; an arm flicks the one with a failing test down a chute, back to the plate, and it passes on the second run.",
+  "featured": false,
+  "home": "outline",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture"
+  ]
+}

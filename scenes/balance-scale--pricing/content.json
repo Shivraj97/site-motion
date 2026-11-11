@@ -1,0 +1,19 @@
+{
+  "title": "What you pay against what you get",
+  "label": "One large hanging pan balance. A single weight for the price lands on the left pan: the Team plan, 12 months at $300, $3,600 a year, and the beam tips toward price. Three value weights then drop onto the right pan one by one, each sized by its yearly amount: tools replaced (3 tools at $720, $2,160), onboarding days saved (12 days at $300, $3,600) and hours saved (240 hours at $40, $9,600). The second weight carries the value past the price and the beam swings over to value; the third presses it down to its stop. The return multiple on the left steps up as each weight lands, 0.6x, 1.6x, then 4.3x: $15,360 of value for $3,600 paid.",
+  "eyebrow": "Price vs return",
+  "heading": "Put the price\non the scale.",
+  "sub": "Then add a year of what it saves, each weight priced at your own rates. The beam settles where the sums put it.",
+  "currency": "$",
+  "payWord": "What you pay",
+  "getWord": "What you get",
+  "ratioLabel": "the price, paid back in a year",
+  "verdict": { "value": "Tips to value", "price": "Tips to price" },
+  "maxTilt": 15,
+  "price": { "label": "Team plan, billed yearly", "qty": 12, "unit": "months", "rate": 300 },
+  "value": [
+    { "label": "Tools replaced", "qty": 3, "unit": "tools", "rate": 720 },
+    { "label": "Onboarding days saved", "qty": 12, "unit": "days", "rate": 300 },
+    { "label": "Hours saved", "qty": 240, "unit": "hours", "rate": 40 }
+  ]
+}

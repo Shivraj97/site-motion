@@ -1,0 +1,22 @@
+{
+  "story": "credit",
+  "stories": [
+    "credit",
+    "community"
+  ],
+  "renderer": "DOM",
+  "blurb": "Contributions land on rows, points count up and the rows re-sort.",
+  "order": 16,
+  "featured": false,
+  "home": "outline",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture"
+  ]
+}

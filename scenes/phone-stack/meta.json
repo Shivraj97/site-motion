@@ -1,0 +1,11 @@
+{
+  "story": "notifications",
+  "stories": ["notifications", "mobile", "alerts", "payments", "product"],
+  "renderer": "DOM",
+  "blurb": "A real phone: notifications land on the lock screen with a ring of signal behind each, a tap opens the newest into the app, a swipe home clears it.",
+  "order": 44,
+  "featured": false,
+  "home": "soft-ui",
+  "family": "ui-demo",
+  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "color"]
+}

@@ -1,0 +1,23 @@
+{
+  "story": "many-to-one",
+  "stories": [
+    "many-to-one",
+    "inbox"
+  ],
+  "renderer": "Matter.js",
+  "blurb": "Work items from everywhere fall into one tray with real physics while a counter tallies them.",
+  "order": 9,
+  "featured": false,
+  "home": "soft-ui",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

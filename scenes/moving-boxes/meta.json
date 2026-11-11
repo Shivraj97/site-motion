@@ -1,0 +1,20 @@
+{
+  "story": "migration",
+  "stories": [
+    "migration",
+    "integrations",
+    "data"
+  ],
+  "renderer": "SVG",
+  "blurb": "A hand truck moves labelled boxes from a cramped old office into a clean new building, where each one is unpacked into the right room.",
+  "featured": false,
+  "home": "ink",
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif"
+  ]
+}

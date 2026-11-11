@@ -1,0 +1,22 @@
+{
+  "title": "A run, as a score",
+  "label": "A multi-agent run written as a musical score. Four staves are the planner, researcher, coder and reviewer; notes are their steps, slurs show hand-offs, and a playhead plays the score so you can see which steps run in parallel.",
+  "eyebrow": "Orchestration",
+  "heading": "Four agents.\nOne score, played in time.",
+  "beats": 16,
+  "staves": ["Planner", "Researcher", "Coder", "Reviewer"],
+  "notes": [
+    { "id": "plan", "stave": 0, "at": 0, "dur": 2, "label": "split the task" },
+    { "id": "docs", "stave": 1, "at": 2, "dur": 3, "label": "read API docs", "after": ["plan"] },
+    { "id": "issues", "stave": 1, "at": 5.5, "dur": 2, "label": "search past issues" },
+    { "id": "scaffold", "stave": 2, "at": 2, "dur": 2.5, "label": "scaffold module", "after": ["plan"] },
+    { "id": "impl", "stave": 2, "at": 5.5, "dur": 4, "label": "implement retries", "after": ["docs"] },
+    { "id": "tests", "stave": 2, "at": 10, "dur": 2.5, "label": "write tests" },
+    { "id": "review1", "stave": 3, "at": 9.5, "dur": 2, "label": "review diff", "after": ["impl"] },
+    { "id": "replan", "stave": 0, "at": 11.5, "dur": 1.5, "label": "adjust plan", "after": ["review1"] },
+    { "id": "fix", "stave": 2, "at": 13, "dur": 1.5, "label": "fix edge case", "after": ["replan"] },
+    { "id": "approve", "stave": 3, "at": 14.5, "dur": 1.5, "label": "approve PR ✓", "after": ["fix", "tests"] }
+  ],
+  "run": { "name": "run #1842", "seconds": 38 },
+  "legible": false
+}

@@ -1,0 +1,14 @@
+{
+  "variantOf": "tree-rings",
+  "role": "story",
+  "differs": {
+    "layout": "A half-circle slice rising from the bottom edge, centred, with the copy top left, labelled moments in two columns either side and today's card top right, instead of a full log face-on beside a copy column with a plaque at its heart.",
+    "mechanic": "Each finished ring drives a pin and a leader out to its side column, alternating left and right so the story stacks upward in time, instead of one callout riding a diagonal measuring line ring by ring.",
+    "data": "One ordered list of dated company moments plus today's headcount read from content, with years written up the slice, instead of a yearly order volume that sets ring width and sums to a total.",
+    "moment": "The outermost ring, today, flushes with the accent colour and a leader climbs from it to a card with the team count, instead of the heart plaque landing on a running total."
+  },
+  "renderer": "SVG",
+  "blurb": "A company's years as a half-cut log rising from the bottom edge: one ring per year from the founding, each moment pinned out to the side, and today's outer ring opening onto the team count.",
+  "featured": false,
+  "directable": ["stroke", "corner", "label", "type", "motion", "motif"]
+}

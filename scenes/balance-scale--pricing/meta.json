@@ -1,0 +1,14 @@
+{
+  "variantOf": "balance-scale",
+  "role": "pricing",
+  "differs": {
+    "mechanic": "One price weight sits on the pay pan and value weights drop onto the other one at a time, each sized by its computed yearly amount, so the beam climbs out of the price side, swings through level and settles on value; no rival scales, no paired quality and cost blocks.",
+    "layout": "A single large hanging-pan balance fills the right of the stage with the return multiple set huge on the left and a ledger strip of each weight's sum under the floor, instead of three small post-and-plate balances in a row.",
+    "data": "Money, not scores: price = qty x rate, each value item = qty x rate, and the multiple is the value total over the price.",
+    "moment": "The second value weight lands, the beam swings past level to value, the verdict flips and the multiple turns from muted to accent, stepping 0.6x, 1.6x, 4.3x as the weights land."
+  },
+  "renderer": "SVG",
+  "blurb": "A price weight on one pan, value weights for hours saved and tools replaced dropped one by one on the other, until the beam tips to value and the return multiple lands on the sum.",
+  "featured": false,
+  "directable": ["stroke", "corner", "label", "type", "motion", "motif", "texture"]
+}

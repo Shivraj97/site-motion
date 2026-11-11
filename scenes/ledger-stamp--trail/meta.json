@@ -1,0 +1,23 @@
+{
+  "variantOf": "ledger-stamp",
+  "role": "trust",
+  "differs": {
+    "mechanic": "Nothing rides a belt: entries are written onto one page as sentences, each sealed with a hash of itself and the entry above, and a chain link closes between consecutive seals.",
+    "layout": "One full-width ledger page under a single headline, with stamps in the margin and a column of chained seals on the right, instead of copy and log on the left and a three-station belt on the right.",
+    "data": "An append-only log of six entries with real chained hashes, where a refused edit becomes a new entry rather than a change, instead of a stream of documents passing stations.",
+    "moment": "A past amount is edited and the chain breaks from that row down, links snapping open and seals turning to the warning colour, before the edit is struck out and the chain re-links."
+  },
+  "renderer": "SVG + DOM",
+  "blurb": "An audit trail written as sentences and chained seal to seal; editing one past amount breaks the chain from there down, so the edit is refused and logged.",
+  "featured": false,
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture"
+  ]
+}

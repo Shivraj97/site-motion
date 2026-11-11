@@ -1,0 +1,18 @@
+{
+  "title": "Woven into one",
+  "label": "A wide jacquard loom. Six labelled spools feed bands of coloured warp threads down to the weaving line, where hooks lift the threads row by row and a shuttle lays the weft. The cloth scrolls down toward the beam, and the letters O, N and E emerge in it, woven from the tools' coloured threads on a pale twill ground.",
+  "eyebrow": "Integrations",
+  "heading": "Woven into one.",
+  "sub": "Every tool your team uses, made into a single fabric with your name in it.",
+  "name": "ONE",
+  "threads": [
+    { "name": "Slack" },
+    { "name": "GitHub" },
+    { "name": "Stripe" },
+    { "name": "Postgres" },
+    { "name": "Linear" },
+    { "name": "Notion" }
+  ],
+  "rowHeight": 10,
+  "repeat": 48
+}

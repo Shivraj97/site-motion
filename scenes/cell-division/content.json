@@ -1,0 +1,29 @@
+{
+  "title": "Branch your database like a cell",
+  "label": "A round cell labelled main holds four organelles drawn as database tables: users, orders, invoices and products. It buds two identical daughter cells, tagged preview/new-checkout and fix/login, whose tables are dashed outlines because they still share the parent's data. On preview/new-checkout the orders table becomes solid, changes colour and gains a column. The fix/login cell is discarded and dissolves. The changed cell then moves back and its membrane fuses with main, and main's orders table now carries the new column. A log beside it reads branched in 0.8 s, 0 bytes copied.",
+  "eyebrow": "Database branching",
+  "heading": "Branch the whole\ndatabase. Keep\nwhat works.",
+  "sub": "Every branch is a full copy that costs nothing until you change it. Try the change, throw away the rest, merge it back.",
+  "main": "main",
+  "branches": [
+    "preview/new-checkout",
+    "fix/login"
+  ],
+  "tables": [
+    "users",
+    "orders",
+    "invoices",
+    "products"
+  ],
+  "changeTable": 1,
+  "changeTag": "+ column",
+  "log": {
+    "branch": "branched in {s} s · 0 bytes copied",
+    "change": "orders + column on {branch}",
+    "discard": "{branch} discarded · nothing to clean up",
+    "merge": "merged into {main} · 1 change, 3 tables untouched"
+  },
+  "branchSeconds": 0.8,
+  "mergedNote": "merged",
+  "discardedNote": "discarded"
+}

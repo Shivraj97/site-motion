@@ -1,0 +1,11 @@
+{
+  "story": "analytics",
+  "stories": ["analytics", "metrics", "reporting", "product"],
+  "renderer": "DOM + SVG",
+  "blurb": "A real dashboard: the revenue figure builds from the line as it draws, the cursor scrubs the chart, the camera pushes in on the best day, and 30D morphs the whole view.",
+  "order": 43,
+  "featured": false,
+  "home": "soft-ui",
+  "family": "ui-demo",
+  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "color"]
+}

@@ -1,0 +1,23 @@
+{
+  "story": "workflows",
+  "stories": [
+    "workflows",
+    "conversion",
+    "collaboration"
+  ],
+  "renderer": "DOM",
+  "blurb": "Cards advance column by column on a kanban board while counts and totals follow them, until one lands in the final stage.",
+  "featured": false,
+  "home": "outline",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

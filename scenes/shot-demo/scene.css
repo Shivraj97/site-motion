@@ -1,0 +1,36 @@
+.sd { background: var(--c-paper); overflow: hidden; }
+.sd-glow { position: absolute; left: 160px; top: 40px; width: 1280px; height: 820px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--c-accent) 18%, transparent), transparent); }
+
+/* a bare card when there is no frame: the screenshot carries its own chrome */
+.sd-card { position: absolute; overflow: hidden; border-radius: var(--sm-radius-lg, var(--r-lg)); background: var(--c-surface);
+  box-shadow: 0 0 0 var(--sm-stroke-hair, 1px) color-mix(in srgb, var(--c-ink) 14%, transparent),
+    var(--sm-shadow-3, 0 40px 80px -40px color-mix(in srgb, var(--c-ink) 45%, transparent)); }
+/* a phone screenshot already has its status bar and home indicator: keep only the hardware */
+.sd-phone .ui-status, .sd-phone .ui-home { display: none; }
+
+.sd-plate { position: absolute; inset: 0; overflow: hidden; }
+.sd-layer { position: absolute; left: 0; top: 0; }
+.sd-img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; user-select: none; }
+.sd-state { opacity: 0; }
+.sd-hot { position: absolute; pointer-events: none; }
+/* sm-native-start: debug outlines are a tool colour, never shipped (debug: false) */
+.sd-hot.is-debug { box-shadow: 0 0 0 2px #ff0066; background: color-mix(in srgb, #ff0066 10%, transparent); }
+.sd-hot.is-debug span { position: absolute; left: 0; top: -18px; padding: 2px 5px; background: #ff0066; color: #fff; font: 600 11px/1 ui-monospace, Menlo, monospace; white-space: nowrap; }
+/* sm-native-end */
+
+.sd-patch { position: absolute; opacity: 0; }
+.sd-edit { position: absolute; display: flex; align-items: center; white-space: nowrap; line-height: 1; opacity: 0; }
+.sd-field { display: flex; align-items: center; }
+.sd-ring { position: absolute; opacity: 0; pointer-events: none;
+  box-shadow: 0 0 0 calc(2px * var(--sm-stroke-k, 1)) var(--c-accent), 0 0 0 6px color-mix(in srgb, var(--c-accent) 22%, transparent); }
+.sd-chip { position: absolute; background-repeat: no-repeat; opacity: 0; transform-origin: 50% 50%; }
+
+/* the spotlight: a hole the size of the hotspot, everything around it dimmed (the plate clips the shadow) */
+.sd-spot { position: absolute; left: 0; top: 0; z-index: 20; opacity: 0; pointer-events: none;
+  box-shadow: 0 0 0 9999px color-mix(in srgb, var(--c-ink) 42%, transparent), 0 0 0 2px var(--c-accent); }
+
+.sd-callout { position: absolute; left: 0; top: 0; z-index: 30; display: flex; align-items: center; gap: 10px; padding: 12px 18px 12px 14px; opacity: 0;
+  border-radius: var(--sm-radius-md, var(--r-md)); background: var(--c-ink); color: var(--c-paper); white-space: nowrap;
+  font: 600 calc(20px * var(--sm-type-k, 1))/1 var(--font-sans); letter-spacing: -0.005em;
+  box-shadow: var(--sm-shadow-2, 0 18px 40px -16px color-mix(in srgb, var(--c-ink) 55%, transparent)); }
+.sd-callout i { width: 10px; height: 10px; border-radius: 50%; background: var(--ui-accent-on-ink, var(--c-accent)); flex: none; }

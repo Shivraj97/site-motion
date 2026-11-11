@@ -1,0 +1,23 @@
+{
+  "story": "onboarding",
+  "stories": [
+    "onboarding",
+    "workflows",
+    "product"
+  ],
+  "renderer": "SVG + DOM",
+  "blurb": "A token travels a rail of numbered steps; each card opens on what its step produced, and the last one lands the result.",
+  "featured": false,
+  "home": "outline",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

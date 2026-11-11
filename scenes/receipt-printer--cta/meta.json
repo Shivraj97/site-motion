@@ -1,0 +1,14 @@
+{
+  "variantOf": "receipt-printer",
+  "role": "cta",
+  "differs": {
+    "mechanic": "No documents feed in: the printer prints one short slip, its cutter runs along the perforation and the stub tears free, drops and settles; the parent's receipt only grows and slides away.",
+    "layout": "A centred CTA stack: heading and sub over a small printer, the slip hanging straight down under it; the parent's left copy, document fan and right-hand printer are gone.",
+    "data": "A four-line offer slip that totals 0.00 and ends in a coloured stub, instead of a seven-field record with confidence scores, a schema check and a barcode.",
+    "moment": "The tear: the stub carrying the call to action rips off along the perforation and becomes the button, where the parent is remembered for its fields printing line by line."
+  },
+  "renderer": "DOM",
+  "blurb": "A small printer prints one short slip and its coloured stub, the call to action, tears off along the perforation and becomes the button.",
+  "featured": false,
+  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "motif", "glow"]
+}

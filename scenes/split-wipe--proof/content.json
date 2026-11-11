@@ -1,0 +1,54 @@
+{
+  "title": "Before and after, as evidence",
+  "label": "A results card with three metric rows from one operations team, read the quarter before a new workflow. A horizontal divider moves down the card one row at a time; as it passes each row, the before value is replaced by the after value with the change beside it and a bar that shrinks or grows from the old length, which stays as a dashed outline. Tools in use go from six to one, down eighty-three percent; time a week on requests from four hours ten minutes to twelve minutes, down ninety-five percent; requests with an owner from three of nine to nine of nine, up six. A short quote from the customer's head of operations closes it. Then the divider returns to the top.",
+  "eyebrow": "Operations · Results",
+  "heading": "Same team.\nNext quarter.",
+  "sub": "Three numbers from one ops team: the quarter before the workflow, and the quarter after.",
+  "beforeLabel": "Before",
+  "afterLabel": "After",
+  "period": {
+    "before": "Jan – Mar",
+    "after": "Jul – Sep"
+  },
+  "product": {
+    "name": "Ops workflow",
+    "mark": "O"
+  },
+  "was": "was",
+  "ofLabel": "of",
+  "counter": {
+    "h": "h",
+    "min": "min"
+  },
+  "metrics": [
+    {
+      "label": "Tools in use",
+      "before": 6,
+      "after": 1,
+      "change": "pct",
+      "better": "down"
+    },
+    {
+      "label": "Time a week on requests",
+      "before": 250,
+      "after": 12,
+      "format": "duration",
+      "change": "pct",
+      "better": "down"
+    },
+    {
+      "label": "Requests with an owner",
+      "before": 3,
+      "after": 9,
+      "of": 9,
+      "change": "diff",
+      "better": "up"
+    }
+  ],
+  "quote": {
+    "text": "We stopped asking who has it. The queue tells us, and payroll hasn't slipped since.",
+    "name": "Dana Okafor",
+    "role": "Head of Operations, Halden & Co.",
+    "mark": "DO"
+  }
+}

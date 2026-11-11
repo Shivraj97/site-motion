@@ -1,0 +1,20 @@
+{
+  "title": "One run, one phrase",
+  "label": "A homepage hero for multi-agent orchestration. Under a large headline, three quiet musical staves run across the stage, named Planner, Coder and Reviewer. One agent run plays across them as a single phrase: a line travels note to note, and each note lands on the stave of the agent doing that step, with a short label such as split the task, implement retries or review diff. After seven steps the line comes to rest on a chord, three dark noteheads stacked on one stem across all three staves, and a tag beside it reads Approved, run #1842, 7 steps, 38s.",
+  "eyebrow": "Orchestration",
+  "heading": "Plan, build, review.\nOne run, in time.",
+  "sub": "Your agents hand work to each other like a phrase of music, and every run resolves into one approved result.",
+  "beats": 14,
+  "staves": ["Planner", "Coder", "Reviewer"],
+  "notes": [
+    { "id": "plan", "stave": 0, "at": 0, "pitch": 5, "label": "split the task" },
+    { "id": "impl", "stave": 1, "at": 2, "pitch": 3, "label": "implement retries", "after": ["plan"] },
+    { "id": "review1", "stave": 2, "at": 4, "pitch": 6, "label": "review diff", "after": ["impl"] },
+    { "id": "replan", "stave": 0, "at": 6, "pitch": 3, "label": "adjust plan", "after": ["review1"] },
+    { "id": "fix", "stave": 1, "at": 8, "pitch": 6, "label": "fix edge case", "after": ["replan"] },
+    { "id": "tests", "stave": 1, "at": 10, "pitch": 2, "label": "write tests", "after": ["fix"] },
+    { "id": "approve", "stave": 2, "at": 12, "pitch": 4, "label": "approve PR", "after": ["tests"] }
+  ],
+  "result": { "label": "Approved", "summary": "{run} · {steps} steps · {seconds}s", "chord": [4, 4, 4] },
+  "run": { "name": "run #1842", "seconds": 38 }
+}

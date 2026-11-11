@@ -1,0 +1,16 @@
+<!doctype html>
+<!-- Synthetic fixture: an iframe-hosted consent modal (Sourcepoint-style ids) with a dimming backdrop over the page. -->
+<html lang="en"><head><meta charset="utf-8"><title>Fjord — consent iframe fixture</title>
+<style>
+  body { margin: 0; background: #f4f1ea; color: #1c1917; font-family: Inter, sans-serif; }
+  main { padding: 60px; } p { font-size: 18px; max-width: 640px; }
+  .cta { display: inline-block; padding: 12px 20px; background: #0e7490; color: #fff; border-radius: 6px; text-decoration: none; }
+  .backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 9998; }
+  [id^="sp_message_container"] { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 9999; }
+  iframe { width: 640px; height: 420px; border: 0; background: #ffffff; }
+</style></head>
+<body>
+  <main><h1>Ferries on time, every time</h1><p>Live departures, tide-aware schedules and one ticket for every crossing on the coast.</p><a class="cta" href="/tickets">Buy a ticket</a></main>
+  <div class="backdrop"></div>
+  <div id="sp_message_container_1234"><iframe id="sp_message_iframe_1234" title="SP Consent Message" src="/rendered/cmp-frame.html"></iframe></div>
+</body></html>

@@ -1,0 +1,19 @@
+{
+  "title": "Order where you see noise",
+  "label": "A field of drifting blobs drawn as 1-bit ink stipple, meaning not yet understood. A magnifying lens wanders across it; inside the lens every blob is filled in its class colour, outlined and labelled with a confidence, and a trail of coloured stipple fades behind it.",
+  "eyebrow": "Classification",
+  "heading": "Order where\nyou see noise.",
+  "sub": "Point it at the pile. Every blur of maybe becomes a labelled class, with a confidence you can check.",
+  "keyNoise": "unread",
+  "keyOrder": "classified",
+  "lensTag": "classifying",
+  "readoutSeen": "in view",
+  "readoutConf": "mean confidence",
+  "readoutIdle": "scanning",
+  "classes": [
+    { "name": "Invoice" },
+    { "name": "Contract" },
+    { "name": "Receipt" },
+    { "name": "ID scan" }
+  ]
+}

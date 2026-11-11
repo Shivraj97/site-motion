@@ -1,0 +1,22 @@
+{
+  "story": "simplification",
+  "stories": [
+    "simplification",
+    "migration",
+    "product"
+  ],
+  "renderer": "DOM",
+  "blurb": "A before / after divider sweeps across scattered manual work, and every fragment snaps into its row in one product surface.",
+  "featured": false,
+  "home": "outline",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "color"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Edge inference",
+  "label": "An isometric floor of coloured tiles with four green blocks rising from it. The blocks show a deploy log, live request volume with a chart, healthy workers and cold-start latency.",
+  "seed": 7,
+  "lanes": [2, 9, 13],
+  "blocks": [
+    { "kind": "log", "at": [238, 512], "size": [90, 330, 170],
+      "lines": [ { "time": "09:41", "text": "WEIGHTS PULLED" }, { "time": "09:41", "text": "WARM POOL READY" }, { "time": "09:42", "text": "ROUTING TRAFFIC" }, { "time": "09:42", "text": "P99 WITHIN SLO ✓" } ] },
+    { "kind": "replicas", "at": [400, -70], "size": [100, 280, 150], "label": "WORKERS", "total": 4, "running": 3, "state": "HEALTHY" },
+    { "kind": "metric", "at": [654, 201], "size": [90, 280, 140], "label": "COLD START", "sub": "P95", "value": 240, "unit": "ms", "series": [9, 8, 8.5, 7, 6.8, 5.2, 5.6, 4.1, 3.8, 3.1, 2.4, 2.6, 1.9] },
+    { "kind": "hero", "at": [605, 510], "size": [110, 300, 330], "title": "Edge\nInference", "status": "LIVE", "label": "PRODUCTION", "sub": "cluster-eu-02", "value": 42600, "from": 18000, "format": "k", "unit": "requests / min", "series": [2, 3, 2.6, 4, 3.6, 5.2, 4.8, 6.4, 6.1, 7.8, 7.2, 9, 8.7, 10.4] }
+  ]
+}

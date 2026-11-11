@@ -1,0 +1,21 @@
+{
+  "title": "Weathering the storm",
+  "label": "A live status map of nine regions over a moving sky. A storm with rain and lightning builds over eu-west; that region degrades and its traffic reroutes to eu-central, then the storm clears and the region recovers, with zero failed requests throughout.",
+  "eyebrow": "Reliability",
+  "heading": "Storms happen.\nYour users never\nnotice.",
+  "sub": "Regions fail over on their own, before anyone is paged.",
+  "uptime": "99.99%",
+  "columns": 3,
+  "regions": [
+    { "id": "us-west", "city": "Oregon", "p95": 38, "load": 0.42 },
+    { "id": "us-east", "city": "Virginia", "p95": 34, "load": 0.55 },
+    { "id": "sa-east", "city": "São Paulo", "p95": 52, "load": 0.3 },
+    { "id": "eu-west", "city": "Dublin", "p95": 36, "load": 0.5 },
+    { "id": "eu-central", "city": "Frankfurt", "p95": 33, "load": 0.38 },
+    { "id": "me-central", "city": "Dubai", "p95": 47, "load": 0.33 },
+    { "id": "ap-south", "city": "Mumbai", "p95": 49, "load": 0.4 },
+    { "id": "ap-east", "city": "Singapore", "p95": 44, "load": 0.46 },
+    { "id": "ap-north", "city": "Tokyo", "p95": 41, "load": 0.44 }
+  ],
+  "storm": { "region": "eu-west", "reroute": "eu-central", "at": 1.6, "clear": 8.4, "flashes": [3.7, 4.5] }
+}

@@ -1,0 +1,15 @@
+{
+  "title": "A ticket, start to finish",
+  "label": "A support ticket's life drawn as three numbered steps on a rail. A token labelled Ticket 4821 travels from step to step: received shows the customer's subject line, triaged shows its tags, billing, priority two and the assigned agent, and the last step, resolved, lands the result: resolved in 42 minutes, rated five out of five by the customer.",
+  "eyebrow": "Support, end to end",
+  "heading": "From first message\nto five stars.",
+  "sub": "Every ticket is read, routed to the right person and closed with the customer's own rating.",
+  "token": "Ticket #4821",
+  "states": { "pending": "Waiting", "active": "Open", "done": "Done" },
+  "steps": [
+    { "title": "Received", "detail": "By email, chat or form, in one queue.", "time": "09:12", "result": { "kind": "line", "text": "“I was charged twice this month”" } },
+    { "title": "Triaged", "detail": "Tagged, prioritised and sent to the right person.", "time": "09:13", "result": { "kind": "chips", "items": ["Billing", "P2", "Ana R."] } },
+    { "title": "Resolved", "detail": "Refund issued and the customer told why.", "time": "09:54" }
+  ],
+  "payoff": { "label": "Resolved in", "value": "42 min", "note": "Rated 5 / 5 by the customer" }
+}

@@ -1,0 +1,20 @@
+{
+  "story": "conversion",
+  "stories": [
+    "conversion",
+    "metrics",
+    "scale"
+  ],
+  "renderer": "SVG",
+  "blurb": "Riders slide down one ramp per funnel stage; at each lip some splash into that stage's pool, and the last pool fills with paying customers.",
+  "featured": false,
+  "home": "soft-ui",
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif"
+  ]
+}

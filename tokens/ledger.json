@@ -1,0 +1,14 @@
+{
+  "name": "Ledger — fintech, warm neutral",
+  "color": {
+    "paper": "#ffffff", "surface": "#ffffff", "raised": "#f0efec", "ink": "#151515", "muted": "#6f6d69", "faint": "#bdbab4",
+    "line": "#d8d6d2", "accent": "#5d7fd6", "accentInk": "#2c4791", "onAccent": "#ffffff", "positive": "#2e8b57", "warning": "#d9822b"
+  },
+  "palette": ["#e4ff57", "#f0efec", "#5d7fd6", "#d9822b", "#2e8b57", "#151515"],
+  "font": {
+    "sans": "'Inter Tight', 'Inter', system-ui, sans-serif",
+    "mono": "'IBM Plex Mono', ui-monospace, monospace",
+    "import": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=block"
+  },
+  "radius": { "sm": 8, "md": 14, "lg": 18 }
+}

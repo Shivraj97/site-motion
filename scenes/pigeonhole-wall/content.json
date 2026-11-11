@@ -1,0 +1,100 @@
+{
+  "title": "Pigeonhole wall",
+  "label": "A wall of six labelled pigeonholes seen flat, in elevation, each showing its top document. Documents rise out of an intake tray, travel under the wall and up into the right pigeonhole, pushing the older item back. When a request arrives, the three items it needs travel out of their pigeonholes to the request, each tethered to its source by a hairline, and each source mark commits from pending to verified before the items return, leaving their titles in the request as its verified sources. A ledger lists the latest filings.",
+  "eyebrow": "Memory",
+  "heading": "Everything your team knows,\nin one place.",
+  "sub": "Every document, email and note you file becomes context that is reused on the next request.",
+  "showHeading": true,
+  "cols": 3,
+  "keep": 1,
+  "intake": "Intake",
+  "requestLabel": "Request",
+  "idle": "Waiting for the next request",
+  "legend": {
+    "pending": "pending",
+    "verified": "verified"
+  },
+  "feedTitle": "Filed just now",
+  "feedStat": "auto-filed",
+  "slots": [
+    "Contracts",
+    "Email",
+    {
+      "name": "Confidential",
+      "tone": "redline"
+    },
+    "Memos",
+    "References",
+    "Templates"
+  ],
+  "items": [
+    {
+      "title": "Vendor agreement, v4",
+      "type": "DOCX",
+      "slot": "Contracts",
+      "resident": true
+    },
+    {
+      "title": "Customer asks for SSO",
+      "type": "EML",
+      "slot": "Email",
+      "resident": true
+    },
+    {
+      "title": "Salary bands 2026",
+      "type": "XLSX",
+      "slot": "Confidential",
+      "resident": true
+    },
+    {
+      "title": "Approved pricing sheet",
+      "type": "PDF",
+      "slot": "References"
+    },
+    {
+      "title": "Renewal terms template",
+      "type": "DOCX",
+      "slot": "Templates"
+    },
+    {
+      "title": "Memo: discount policy",
+      "type": "PDF",
+      "slot": "Memos"
+    },
+    {
+      "title": "Security questionnaire",
+      "type": "PDF",
+      "slot": "References"
+    },
+    {
+      "title": "Order form template",
+      "type": "DOCX",
+      "slot": "Templates"
+    },
+    {
+      "title": "Can we offer SSO on Team?",
+      "type": "CHAT",
+      "slot": "Memos"
+    }
+  ],
+  "requests": [
+    {
+      "prompt": "Draft a renewal offer",
+      "items": [
+        "Renewal terms template",
+        "Memo: discount policy",
+        "Approved pricing sheet"
+      ],
+      "result": "Offer drafted · 3 sources"
+    },
+    {
+      "prompt": "Answer the security review",
+      "items": [
+        "Vendor agreement, v4",
+        "Customer asks for SSO",
+        "Can we offer SSO on Team?"
+      ],
+      "result": "Review answered · 3 sources"
+    }
+  ]
+}

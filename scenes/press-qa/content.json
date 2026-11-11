@@ -1,0 +1,23 @@
+{
+  "title": "Press QA",
+  "label": "A print line seen from above. A rotary press prints one sheet per build; each sheet carries a grid of marks, one per test. The sheets slide right under an inspector whose beam turns each mark green as it passes. One build has a failing test: its mark turns red, the line stops it, and an arm flicks the sheet down a chute that loops under the line back to the press. It is printed again, passes on the second run and lands on a neat stack of passed builds, whose tally reads 212 tests passed and 1 caught.",
+  "eyebrow": "Testing",
+  "heading": "Caught on the line,\nnot in production.",
+  "sub": "Every build runs the full suite before it ships. A failure is pulled off the line, fixed and run again.",
+  "stations": ["Build", "Test", "Ship"],
+  "chute": "Fixed, then re-run",
+  "testsUnit": "tests",
+  "tally": { "passed": 212, "passedLabel": "tests passed", "caughtLabel": "caught" },
+  "status": { "passed": "Passed", "failed": "Failed", "rerun": "Re-run passed" },
+  "builds": [
+    { "id": "#4817", "tests": 38 },
+    { "id": "#4818", "tests": 44 },
+    { "id": "#4819", "tests": 41 },
+    { "id": "#4820", "tests": 47 },
+    { "id": "#4821", "tests": 42 },
+    { "id": "#4822", "tests": 43, "failing": "cart › applies discount", "failAt": 17 },
+    { "id": "#4823", "tests": 40 },
+    { "id": "#4824", "tests": 45 },
+    { "id": "#4825", "tests": 39 }
+  ]
+}

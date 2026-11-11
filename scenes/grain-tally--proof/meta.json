@@ -1,0 +1,14 @@
+{
+  "variantOf": "grain-tally",
+  "role": "proof",
+  "differs": {
+    "mechanic": "Grains pour from above in one stream per region and pile up in glass jars under gravity, then fall through the opened jar floors, instead of a dust ring condensing into digits and melting into bars.",
+    "layout": "Four same-size glass jars on a shared graduated scale fill the left of the stage, with the total, a one-line customer quote and its attribution in a column on the right; the parent has copy on the left and a ring, digits and bars on the right.",
+    "data": "A count per customer region read as a fill level against tick marks, summed into a total of teams served, instead of one week's events split by source.",
+    "moment": "The last stream runs dry into the North America jar, its count and the total land together, and the quote stands beside four filled jars."
+  },
+  "renderer": "Canvas 2D + DOM",
+  "blurb": "Grains of real customers pour into one glass jar per region, and the total of teams served is read off the four fill levels beside a customer's quote.",
+  "featured": false,
+  "directable": ["stroke", "corner", "label", "type", "motion", "color"]
+}

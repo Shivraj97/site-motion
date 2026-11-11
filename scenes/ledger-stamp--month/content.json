@@ -1,0 +1,27 @@
+{
+  "title": "A month, stamped",
+  "label": "A desk calendar page for October 2026. A rubber stamp moves across the grid and stamps each working day approved, and each cell shows that day's payment count; busier days collect more overlapping impressions, so their ink is denser. Four held payments are marked HELD in the warning colour on three days, and a second approver's stamp clears each one a day or two later. Beside the page, the total adds up the stamped days, held payments counted once cleared, and reaches 1,284 payments signed with 0 unsigned, 4 held and 4 cleared. The month is sealed, then the page tears off the pad and leaves the next, empty page.",
+  "eyebrow": "Approvals · October close",
+  "heading": "Every working\nday, signed off.",
+  "sub": "Each stamp is one day's payments, checked and approved. Held ones wait for a second approver, then get theirs.",
+  "signedLabel": "payments signed in October",
+  "stats": ["Unsigned", "Held", "Cleared"],
+  "total": 1284,
+  "month": "October",
+  "year": "2026",
+  "firstWeekday": 3,
+  "days": 31,
+  "weekdays": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  "pageLabel": "Payments approved per day",
+  "stampOk": "APPROVED",
+  "stampHeld": "HELD",
+  "seal": "SEALED",
+  "sealTitle": "Month sealed",
+  "sealNote": "R. Okafor · 31 Oct",
+  "counts": [54, 61, 64, 48, 55, 58, 66, 62, 51, 56, 47, 63, 63, 57, 52, 49, 60, 68, 55, 59, 62, 74],
+  "held": [
+    { "day": 8, "n": 1, "clearedAfter": 9 },
+    { "day": 20, "n": 2, "clearedAfter": 21 },
+    { "day": 28, "n": 1, "clearedAfter": 30 }
+  ]
+}

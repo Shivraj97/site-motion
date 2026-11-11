@@ -1,0 +1,14 @@
+{
+  "variantOf": "step-rail",
+  "role": "cta",
+  "differs": {
+    "mechanic": "The token runs the whole rail in about two seconds, ticking each node as it leaves, and docks in the button's badge, which presses in once; no cards open and no result slots fill.",
+    "layout": "A centred CTA stack: heading and sub over one short run of small numbered nodes that ends in a pill button; the parent's left heading and five tall step cards are gone.",
+    "data": "Each step is reduced to its title and its time, and the payoff is the sum of those times, written under the button when the token lands, instead of per-step results.",
+    "moment": "The token landing in the button: the badge fills and ticks, the button presses and sends one pulse, rather than the payoff opening in the last card."
+  },
+  "renderer": "SVG + DOM",
+  "blurb": "A token runs a short rail of numbered steps and lands in the button at its end, which presses in once while the total time lands underneath.",
+  "featured": false,
+  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "motif"]
+}

@@ -1,0 +1,23 @@
+{
+  "story": "routing",
+  "stories": [
+    "routing",
+    "payments"
+  ],
+  "renderer": "SVG",
+  "blurb": "Payments drop through a pegboard; a rule flips the switch and the flow moves to the processors that say yes.",
+  "order": 5,
+  "featured": false,
+  "home": "ink",
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ]
+}

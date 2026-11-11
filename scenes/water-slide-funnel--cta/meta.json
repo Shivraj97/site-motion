@@ -1,0 +1,13 @@
+{
+  "variantOf": "water-slide-funnel",
+  "role": "cta",
+  "differs": {
+    "mechanic": "One rider takes one short flume per loop: it waits and bobs, the water switches on segment by segment, and it rides into a single pool; no stream of riders, no drop-off at lips.",
+    "layout": "A centred CTA stack: heading and sub over a small tower, with the landing pool drawn as the pill button itself; the parent's left copy and four-ramp staircase are gone.",
+    "moment": "The splash into the button: droplets fly, the button presses in and sends one pulse ring, instead of the parent's paid pool filling up."
+  },
+  "renderer": "SVG",
+  "blurb": "One rider waits on a small tower, the water lights the flume segment by segment, and it splashes into a landing pool shaped like the Start button, which presses in once.",
+  "featured": false,
+  "directable": ["stroke", "label", "type", "motion", "motif"]
+}

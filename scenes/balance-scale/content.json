@@ -1,0 +1,35 @@
+{
+  "title": "Quality against cost",
+  "label": "Three pan balances share one rubric. On each, quality blocks (accuracy, speed, uptime) go on the left pan and cost blocks (price, setup, overages) on the right, each block sized by its score out of 10. Tool A and Tool B sag toward cost under heavy cost blocks. This plan takes its small cost blocks, then its three quality blocks land and the beam tips decisively toward quality, overshoots and settles. Under each balance the totals and the quality per unit of cost are shown: 0.7x for Tool A, 5.5x for this plan, 0.8x for Tool B.",
+  "eyebrow": "Quality vs cost",
+  "heading": "Weigh what you get\nagainst what you pay.",
+  "sub": "Three tools, one rubric. The beam settles where the scores put it.",
+  "legend": {
+    "quality": "Quality: accuracy, speed, uptime",
+    "cost": "Cost: price, setup, overages",
+    "note": "Each block is a score out of 10. Its width and the beam's tilt are computed from the scores."
+  },
+  "qualityWord": "Quality",
+  "costWord": "Cost",
+  "ratioLabel": "quality per unit of cost",
+  "verdict": { "quality": "Tips to quality", "cost": "Tips to cost" },
+  "stiffness": 40,
+  "scales": [
+    {
+      "name": "Tool A",
+      "quality": [{ "label": "Accuracy", "value": 6.4 }, { "label": "Speed", "value": 5.5 }, { "label": "Uptime", "value": 6.1 }],
+      "cost": [{ "label": "Price", "value": 9.4 }, { "label": "Setup", "value": 8.6 }, { "label": "Overages", "value": 9.0 }]
+    },
+    {
+      "name": "This plan",
+      "ours": true,
+      "quality": [{ "label": "Accuracy", "value": 9.6 }, { "label": "Speed", "value": 9.3 }, { "label": "Uptime", "value": 9.9 }],
+      "cost": [{ "label": "Price", "value": 2.9 }, { "label": "Setup", "value": 1.4 }, { "label": "Overages", "value": 0.9 }]
+    },
+    {
+      "name": "Tool B",
+      "quality": [{ "label": "Accuracy", "value": 8.1 }, { "label": "Speed", "value": 7.0 }, { "label": "Uptime", "value": 7.7 }],
+      "cost": [{ "label": "Price", "value": 9.7 }, { "label": "Setup", "value": 9.1 }, { "label": "Overages", "value": 9.5 }]
+    }
+  ]
+}
