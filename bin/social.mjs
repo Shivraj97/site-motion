@@ -5,7 +5,7 @@
 // eyebrow, headline, line and footer (wordmark, call to action, URL) around it. Text is rendered by
 // Chrome from the brand tokens; ffmpeg composites base frame → video → corner mask.
 import { spawnSync } from "node:child_process";
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -56,6 +56,13 @@ html,body{margin:0;width:${W}px;height:${H}px;overflow:hidden;background:${layer
 ${layer === "top" ? "" : `<div class="copy"><div class="eyebrow">${esc(item.eyebrow || "")}</div><div class="h">${esc(item.headline)}</div>${item.sub ? `<div class="sub">${esc(item.sub)}</div>` : ""}</div>
 <div class="foot"><div><div class="mark">${esc(f.wordmark || "")}</div><div class="url">${esc(f.url || "")}</div></div>${f.cta ? `<div class="cta">${esc(f.cta)}</div>` : ""}</div>`}
 <div class="slot"></div></body></html>`;
+}
+
+// every cut is cropped from a rendered MP4: say which are missing and how to make them, before starting Chrome
+const missing = config.items.filter((i) => (!only || i.name === only) && !existsSync(i.source));
+if (missing.length) {
+  console.error(`Render these first (each cut is cropped from the scene's MP4):\n${missing.map((i) => `  node bin/site-motion.mjs make ${i.name} --tokens ${config.tokens || "default"} --formats mp4   # → ${i.source}`).join("\n")}`);
+  process.exit(1);
 }
 
 const chrome = await launch({ width: W, height: H });

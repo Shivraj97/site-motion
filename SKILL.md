@@ -5,7 +5,7 @@ description: Make animated website assets — hero and feature illustrations, pr
 
 # site-motion
 
-> Scenes named in these notes that aren't in `scenes/` are Pro scenes (site-motion Pro). Learn from what the notes say about them; build from the scenes that are here.
+> Scenes marked **Pro**, or named in these notes but missing from `scenes/`, are site-motion Pro scenes. Learn from what the notes say about them; build from the scenes that are here (`site-motion list`).
 
 A scene is **a pure function of time**. `render(t)` draws the same frame for the same `t`, whatever came before. That one rule is why the same file can play live on a website *and* render frame-exact to video: the exporter just seeks to every frame time and screenshots.
 
@@ -30,7 +30,7 @@ Inside the repo itself the short form works:
 node bin/site-motion.mjs list                                   # scenes and token presets
 node bin/site-motion.mjs make iso-blocks --tokens mint          # build + render mp4, webp, poster
 node bin/site-motion.mjs make card-story --tokens ./brand.json --content ./my-story.json --formats mp4,webm,webp,gif,png,sheet
-node bin/site-motion.mjs build window-stack --tokens night --out site/public/hero.html   # live embed only
+node bin/site-motion.mjs build window-stack --tokens night --out public/hero.html   # live embed only
 node bin/site-motion.mjs render out/hero.html --formats mp4 --scale 2 --range loop        # export an existing build
 ```
 
@@ -66,7 +66,7 @@ For one scene, follow the steps below.
    | `iso-blocks` | infrastructure, platforms, "many parts working": blocks with live data on their faces over a tiled floor | SVG |
    | `card-story` | a workflow that removes work: a feature list drives a product card through states | DOM |
    | `window-stack` | "works where you work": app windows over a painted Canvas backdrop, an agent doing steps | Canvas + DOM |
-   | `live-room` | multiplayer: named cursors over an app window, a proposal, a vote that passes, a change shipping, an activity ticker | Canvas + DOM |
+   | `live-room` **Pro** | multiplayer: named cursors over an app window, a proposal, a vote that passes, a change shipping, an activity ticker | Canvas + DOM |
    | `leaderboard` | credit and standing: contributions land on rows, points count up, rows re-sort | DOM |
    | `bloom-flow` | automation: an event runs through a workflow graph and each step blooms into generative flowers | Canvas + SVG |
    | `signal-field` | messy → structured: noisy strands pass a gate and leave as clean lanes | p5.js |
@@ -82,35 +82,46 @@ For one scene, follow the steps below.
    | `grain-tally` | metrics, scale: thousands of grains (each a fixed batch of real events) breathe as a dust ring, pour into the digits of the total, then sort into one bar per source with its exact count; the number is built from its data, not counted up | Canvas 2D (particles, pure t) |
    | `lens-of-order` | messy → structured, classification, AI that sees: a 1-bit dithered field of drifting blobs (not understood yet); a magnifying lens fills each blob in its class colour, outlines it and labels it with a confidence, leaving a fading coloured trail | Canvas 2D (per-cell field, Bayer dither) |
    | `water-slide-funnel` | conversion funnel: riders slide one ramp per stage; each lip's pool catches that stage's drop-offs | SVG |
-   | `gold-pan` | search-as-you-type: every keystroke swirls the pan until three priced nuggets are left | Canvas 2D |
-   | `museum-heatmap` | product analytics: visitor footprints warm the floor around the features people stop at; the ranking comes from the heat | Canvas 2D |
+   | `gold-pan` **Pro** | search-as-you-type: every keystroke swirls the pan until three priced nuggets are left | Canvas 2D |
+   | `museum-heatmap` **Pro** | product analytics: visitor footprints warm the floor around the features people stop at; the ranking comes from the heat | Canvas 2D |
    | `cell-division` | database branching: main divides into branches, one is discarded, one merges back with its change | Canvas 2D (metaballs) |
-   | `scratch-off` | prediction: foil scratches off the real departure time before the airline's board catches up | Canvas 2D |
-   | `sieve-tray` | early detection: markers fall through a fine mesh; the few that catch are lifted out and flagged | Matter.js (baked) |
-   | `rube-goldberg` | before / after: a receipt marble jams in five old contraptions, then drops down one chute in a second | SVG |
-   | `language-balloons` | localisation: word bubbles in eight scripts float up and assemble each locale's sentence, RTL included | Matter.js (baked) |
-   | `balloon-deploy` | deploys: each build step inflates the envelope; at 100% the release lifts off | SVG |
-   | `pufferfish` | autoscaling: a pufferfish swells to match each traffic wave while a fixed-capacity fish gets tossed | SVG |
-   | `gear-tiers` | pricing: plans drawn as camping kit, tent to basecamp, with a monthly / annual toggle | SVG |
-   | `permission-chessboard` | roles and permissions: each role piece lands on the board and lights only the squares it may use | SVG |
+   | `scratch-off` **Pro** | prediction: foil scratches off the real departure time before the airline's board catches up | Canvas 2D |
+   | `sieve-tray` **Pro** | early detection: markers fall through a fine mesh; the few that catch are lifted out and flagged | Matter.js (baked) |
+   | `rube-goldberg` **Pro** | before / after: a receipt marble jams in five old contraptions, then drops down one chute in a second | SVG |
+   | `language-balloons` **Pro** | localisation: word bubbles in eight scripts float up and assemble each locale's sentence, RTL included | Matter.js (baked) |
+   | `balloon-deploy` **Pro** | deploys: each build step inflates the envelope; at 100% the release lifts off | SVG |
+   | `pufferfish` **Pro** | autoscaling: a pufferfish swells to match each traffic wave while a fixed-capacity fish gets tossed | SVG |
+   | `gear-tiers` **Pro** | pricing: plans drawn as camping kit, tent to basecamp, with a monthly / annual toggle | SVG |
+   | `permission-chessboard` **Pro** | roles and permissions: each role piece lands on the board and lights only the squares it may use | SVG |
    | `tree-rings` | year in review: one ring per year, as wide as the year was busy, with notches for the firsts | SVG |
    | `parchment-changelog` | changelog: a scroll unrolls one release at a time, each inked as it ships | SVG + DOM |
    | `moving-boxes` | migration: a hand truck carries each old tool's box into the new building, nothing lost | SVG + DOM |
-   | `privacy-pebbles` | PII redaction: a squeegee turns every personal detail into an identical pebble; the sentence still reads | SVG + DOM |
-   | `ant-trail` | auto-categorisation: ants carry each swipe's receipt, memo and approval to the right ledger slot | Canvas 2D |
-   | `sunrise-payroll` | global payroll: a sunrise crosses eight time zones and pays each city at its own 9 am | SVG |
-   | `whiteout` | calm: a busy dashboard dissolves into fog, leaving the one number that matters | WebGL shader + DOM |
-   | `ink-flood` | theming, white-label: a paint chip floods the whole product in a new colourway | SVG |
-   | `integration-deck` | integrations: every tool is a key on one isometric macro pad; a workflow plays as a chord while a run log types each step | Three.js |
-   | `margin-rails` | provenance: a memo writes itself while passages carried forward from past files slide in on rails naming their source | SVG + DOM |
+   | `privacy-pebbles` **Pro** | PII redaction: a squeegee turns every personal detail into an identical pebble; the sentence still reads | SVG + DOM |
+   | `ant-trail` **Pro** | auto-categorisation: ants carry each swipe's receipt, memo and approval to the right ledger slot | Canvas 2D |
+   | `sunrise-payroll` **Pro** | global payroll: a sunrise crosses eight time zones and pays each city at its own 9 am | SVG |
+   | `whiteout` **Pro** | calm: a busy dashboard dissolves into fog, leaving the one number that matters | WebGL shader + DOM |
+   | `ink-flood` **Pro** | theming, white-label: a paint chip floods the whole product in a new colourway | SVG |
+   | `integration-deck` **Pro** | integrations: every tool is a key on one isometric macro pad; a workflow plays as a chord while a run log types each step | Three.js |
+   | `margin-rails` **Pro** | provenance: a memo writes itself while passages carried forward from past files slide in on rails naming their source | SVG + DOM |
    | `pigeonhole-wall` | memory: documents file into labelled pigeonholes, and a request pulls the three sources it needs | SVG + DOM |
-   | `redline-front` | contract review: a review front sweeps down the document and returns it as a finished redline with verified authorities | SVG + DOM |
+   | `redline-front` **Pro** | contract review: a review front sweeps down the document and returns it as a finished redline with verified authorities | SVG + DOM |
+   | `step-rail` | how it works, onboarding: a token travels numbered steps; each card opens on what its step produced and the last lands the result | SVG + DOM |
+   | `pipeline-board` | workflows, pipeline: cards advance column by column on a kanban board while counts and totals follow them | DOM |
+   | `account-health` | retention, customer success: a health table replays the month; one account slips to at risk, a playbook fires and it recovers | SVG |
+   | `split-wipe` | before / after, consolidation: a divider sweeps across scattered manual work and each fragment snaps into one product surface | DOM |
+   | `roadmap-rail` | roadmap, milestones: a Today marker walks the time axis; shipped milestones fill in and the key launch opens into a card | SVG |
+   | `trust-rings` | security, compliance: requests pass concentric control rings around the data; the unauthorised one is stopped and logged | SVG |
+   | `balance-scale` | pricing, quality vs cost: three pan balances, each tilt computed from the scores; ours tips to quality | SVG |
+   | `crate-discrepancy` | reconciliation: trays lift out of a crate and tick off the packing slip; the short one floats up with its note | SVG + DOM |
+   | `press-qa` | testing, CI: builds roll off a press; an arm flicks the one with a failing test down a chute and it passes on the re-run | SVG |
+   | `radar-sweep` | observability: every running job is a blip on a radar scope; a cursor reaches in and pauses the failing one | Canvas 2D + DOM |
+   | `agent-checkout` | **product UI demo**, agent payments: a purchase request, a masked virtual card autofills, the limit meter moves by the amount, the receipt joins the list | DOM + ui-kit |
    | `click-to-done` | **product UI demo**, any one-action feature (invite, send, approve, publish): a real screen in a browser frame, the cursor types, picks and clicks, the camera moves in and pulls back on the result | DOM + ui-kit |
    | `dashboard-push` | **product UI demo**, analytics and reporting: the headline figure builds from the chart as it draws, the cursor scrubs a tooltip, the camera pushes in on the moment that matters, a range switch morphs every series | DOM + SVG + ui-kit |
    | `phone-stack` | **product UI demo**, mobile and notifications: alerts land on a lock screen with a signal ring each, a tap opens the newest into the app screen, a swipe home clears it | DOM + ui-kit |
    | `shot-demo` | **product UI demo from a screenshot**: the customer's own screenshot in a frame; the cursor types into its real fields and clicks its real button, values change in the brand's face, a spotlight and a callout land on the result | DOM + screenshot + ui-kit |
    `integration-deck` is the 3D standard: one tactile object, one physical action, flat toon bands, an ink outline, a true isometric camera and labels in the brand's type. The other Three.js object scenes (an orbit hub, a sorting wall, an extruded logo, a glTF showcase) live outside the public set until they're reworked; the 3D tooling (`vendor/three-full.min.js`, `vendor/three-kit.js`) stays, and `weather-board` uses it for its shader.
-   **Before inventing a new scene, check the story in a pattern atlas** (a list of the stories sites tell and the metaphors already used for each): pick a metaphor that is *not* in its "Metaphors seen" column. "Many → one" drawn as lines converging on a logo is the most overused visual on the web.
+   **Before inventing a new scene, check the story against the scenes that exist** (`site-motion list`, and the table above): pick a metaphor that isn't already used for it. "Many → one" drawn as lines converging on a logo is the most overused visual on the web.
    **Libraries:** a scene names what it needs in its first line, `// @vendor three p5 matter`, and the build inlines the pinned copy from `vendor/`. `RENDERERS.md` explains how each library fits `render(t)`: pose from t (Three.js, p5, shaders), seek a paused timeline (GSAP, Lottie, Theatre.js), or bake a simulation in `setup` (Matter.js, Rive state machines).
    Measuring a live site for tokens: download its HTML and CSS into a scratch folder, read the CSS custom properties and `@font-face` names, and record the source in the token file's `source` field. Licensed fonts get a free stand-in from Google Fonts; say which. Keep a brand's content sets together in `brands/<brand>/*.json`. `node bin/site-motion.mjs theme <url>` drafts a token file from a live site. With Chrome installed it measures the rendered page: the colours that cover the screen, the main button, the logo, and the faces text actually renders in (headings become `font.display`). `--fast` reads HTML and CSS only, `--scheme dark` measures the dark mode, `--shot page.png` saves the screenshot it measured. Requests to private or internal addresses are refused. Always check its notes and correct by eye.
 3. **Write the content JSON**, never edit the scene for copy. Every scene has a `content.json` of defaults; pass `--content` with only the keys you change (it deep-merges). Use the product's real nouns and numbers; use fictional names for third-party brands (no real logos).
@@ -199,7 +210,7 @@ Rules for demos (each one broke a frame once):
 When someone hands over a **raw screenshot of their own product** ("make a demo from this"), don't rebuild the screen: put the screenshot itself in the scene and act on it. `shot-demo` takes the image plus a script of hotspots and beats; the scene code never changes. It is the fast path: faithful to the pixels, and no screen to rebuild. Rebuilding the screen in the DOM (the scenes above) is the upgrade when the demo must re-theme or zoom past ~2x.
 
 1. **Save the screenshot to a file** (a pasted image in chat has no path: ask for the file, or a URL to capture). A 2x capture (Retina, `width ≥ 2400` for a desktop page) keeps the camera sharp up to ~2.4x zoom.
-2. **Scaffold:** `node bin/site-motion.mjs shot <image> --name <brand> --url <shown in the address bar> [--frame browser|window|phone|none] [--out private/shots/<brand>]`. It reads the size and guesses the frame (tall = phone), reads the screen's colours (paper = most coverage, ink = hardest contrast with real coverage, accent = most saturated colour used enough to be a choice), derives a token file through the same rules as `theme <url>`, and writes `shot.png`, `shot.jpg` (the embed copy), `grid.png`, `tokens.json` and a starter `content.json`. Customer screenshots go under `private/` (git-ignored), never in `assets/`.
+2. **Scaffold:** `node bin/site-motion.mjs shot <image> --name <brand> --url <shown in the address bar> [--frame browser|window|phone|none] [--out shots/<brand>]`. It reads the size and guesses the frame (tall = phone), reads the screen's colours (paper = most coverage, ink = hardest contrast with real coverage, accent = most saturated colour used enough to be a choice), derives a token file through the same rules as `theme <url>`, and writes `shot.png`, `shot.jpg` (the embed copy), `grid.png`, `tokens.json` and a starter `content.json`. Keep customer screenshots out of version control (a git-ignored folder), never in `assets/`.
 3. **Fix the font.** Pixels don't name a face; the token file says Inter as a guess. Identify the face by eye (or `theme <url>` if there is a URL) and set `font.sans` and `font.import`: replaced text in the wrong face is the first thing that reads as fake.
 4. **Read the grid, name the hotspots.** `grid.png` rules the screenshot every 100 image px, labelled in **image pixels**, so coordinates read off a downscaled view go straight into JSON. For anything the cursor lands on or text gets replaced in, take a close-up: `shot grid shot.png --crop x,y,w,h --step 20`. Hotspots are `[x, y, w, h]` (or `{ "box": [...], "r": 12 }` with the element's corner radius) in image px:
    - the **field** the cursor clicks (the whole input), and separately the **text area** inside it that gets retyped
@@ -214,7 +225,7 @@ When someone hands over a **raw screenshot of their own product** ("make a demo 
    - `cursorHidden: true` with a `show` beat, and a `hide` beat after the last click: a hidden pointer hovers nothing, so the loop's last frame matches its first.
    - `times.reset`: everything lets go here, well before `duration`.
 6. **Look with `debug: true`** (every hotspot outlined and named) on a `png,sheet` render, fix boxes and sizes, then set `debug: false` and render the motion formats. (`check shot-demo` checks the scene against its own example content; for a new demo, confirm the sheet's first and last frames match: nothing typed, swapped, lit or hovered at the end.)
-   `node bin/site-motion.mjs make shot-demo --content private/shots/<brand>/content.json --tokens private/shots/<brand>/tokens.json --formats mp4,webp,png`
+   `node bin/site-motion.mjs make shot-demo --content shots/<brand>/content.json --tokens shots/<brand>/tokens.json --formats mp4,webp,png`
 
 The scene's own `content.json` is the worked example: Tallyhand, a fictional AI accountant. The agent is told to match the open items; the difference goes $2,318.40 → $0.00, the book balance $180,087.75 → $182,406.15, and all the changed figures add up from the items on screen.
 
@@ -288,7 +299,7 @@ A WebGL scene starts with `// @vendor three-full three-kit`. That gives three.js
 - **Choose 2.5D instead** when the asset is mostly text or UI, must be tiny and accessible, or only needs a fixed isometric angle.
 - **Choose WebGL** for turning lighting, curved real objects, more than about 20 overlapping 3D pieces, or a full rotation.
 
-Deep references, each fully cited: `references/research/01-browser-pipeline.md`, `02-svg-canvas-webgl.md`, `03-animation-engineering.md`, `04-3d-assets.md`, `05-skills-audit.md`. The distilled versions live in the design knowledge base: `foundations/rendering-engineering.md`, `techniques/deterministic-frame-capture/`, `techniques/gltf-asset-pipeline/` and `techniques/iso-2-5d-css-svg/`.
+Deep references, each fully cited: `references/research/01-browser-pipeline.md`, `02-svg-canvas-webgl.md`, `03-animation-engineering.md` and `04-3d-assets.md`.
 
 ## Style packs (one look per site)
 

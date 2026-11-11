@@ -12,6 +12,24 @@
       "attributionRequired": false,
       "obtained": "2026-11-05, downloaded by hand from kenney.nl by the user (not scraped)",
       "files": "140 GLB files from the kit's 'Models/GLTF format' folder"
+    },
+    {
+      "path": "shots/tallyhand.jpg",
+      "name": "Tallyhand dashboard (fictional)",
+      "author": "site-motion",
+      "licence": "MIT",
+      "source": "Rendered from a fictional product screen built for the shot-demo example; no real product or brand.",
+      "attributionRequired": false,
+      "obtained": "2026-11-11, made in this repo"
+    },
+    {
+      "path": "readme/scenes.webp",
+      "name": "README preview of four scenes",
+      "author": "site-motion",
+      "licence": "MIT",
+      "source": "Cut from the preview loops of ledger-stamp, loom, step-rail and agent-checkout (scenes/ in this repo).",
+      "attributionRequired": false,
+      "obtained": "2026-11-12, made in this repo"
     }
   ]
 }

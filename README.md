@@ -2,6 +2,10 @@
 
 Animated website scenes in your own design system, without a motion designer.
 
+[![Four site-motion scenes playing: a payment stamped and sealed, tools woven into one fabric, onboarding steps, and an agent paying by card](assets/readme/scenes.webp)](https://site-motion-two.vercel.app)
+
+**[Watch every scene](https://site-motion-two.vercel.app)** · **[Product demos](https://site-motion-two.vercel.app/demos)** · **[Style Studio](https://site-motion-two.vercel.app/studio)** · **[Docs](https://site-motion-two.vercel.app/docs)**
+
 Give it your brand's tokens (colours, type, radius) and a few lines of copy, and it gives you a scene that tells your product's story: a payment stamped, signed and sealed; tools woven into one fabric; a storm your users never notice. Every scene is one HTML file:
 
 - **Live:** it plays on your site, scales to its container, pauses offscreen, and shows a still frame under reduced motion.
@@ -19,7 +23,7 @@ cd site-motion
 node bin/site-motion.mjs make ledger-stamp --tokens ledger --formats mp4,webp,png
 ```
 
-Your files land in `out/ledger-stamp/`. To use your own brand, copy `tokens/default.json`, change the colours and fonts, and pass `--tokens your-brand.json`. To change the words, pass `--content your-copy.json` with only the keys you change.
+Your files land in `out/ledger-stamp-ledger/` (scene, then brand). To use your own brand, copy `tokens/default.json`, change the colours and fonts, and pass `--tokens your-brand.json`. To change the words, pass `--content your-copy.json` with only the keys you change.
 
 ### Add a scene to your project
 
@@ -46,11 +50,11 @@ Tokens give every scene your colours and fonts. A **style pack** goes further: l
 The first `add` locks the look. It writes `site-motion.json` with the pack that scene belongs to, and every scene you add after it follows that pack:
 
 ```bash
-npx site-motion add card-story      # locked style "soft-ui" (from card-story)
-npx site-motion add drop-pile       # matches it
-npx site-motion style set ink       # change the look for the whole site…
-npx site-motion sync                # …and restyle every scene already added
-npx site-motion style set outline --only motion,label   # or take just some knobs from another pack
+npx github:Shivraj97/site-motion add card-story      # locked style "soft-ui" (from card-story)
+npx github:Shivraj97/site-motion add drop-pile       # matches it
+npx github:Shivraj97/site-motion style set ink       # change the look for the whole site…
+npx github:Shivraj97/site-motion sync                # …and restyle every scene already added
+npx github:Shivraj97/site-motion style set outline --only motion,label   # or take just some knobs from another pack
 ```
 
 | Pack | The look |
@@ -65,17 +69,26 @@ Every pack has a short code (`site-motion style list`), such as `sm1.00200000000
 
 Every public scene follows style packs. A scene only takes the parts of a look it was built for (its `meta.json` `directable` list), so anything it draws on purpose, like a painted landscape, stays as drawn.
 
-Or try looks in the browser: the site's Studio page (`/studio`, run the site with `npm --prefix site run dev`) lets you turn the knobs, watch six scenes change together, and copy the code.
+Or try looks in the browser: the [Style Studio](https://site-motion-two.vercel.app/studio) puts one scene side by side, before and after, as you turn each knob, then gives you the code, a CLI line or a prompt for your coding agent.
 
 ### Plan the whole site at once
 
 Instead of picking scenes one by one, give site-motion the site and approve one sheet:
 
 ```bash
-npx site-motion plan --brief brief.md          # "## home / - hero: … / - feature: …", written from your real copy
-npx site-motion plan --url https://yoursite.com  # or read your live pages' own headings
-npx site-motion plan swap home.feature-2 galton-router   # change a pick, then: plan sheet
-npx site-motion plan apply                      # adds every scene, in one look, and prints each section's embed
+npx github:Shivraj97/site-motion plan --brief brief.md          # one "## page" heading, one "- slot: copy" line per section (below)
+npx github:Shivraj97/site-motion plan --url https://yoursite.com  # or read your live pages' own headings
+npx github:Shivraj97/site-motion plan swap home.feature-2 galton-router   # change a pick, then: plan sheet
+npx github:Shivraj97/site-motion plan apply                      # adds every scene, in one look, and prints each section's embed
+```
+
+A brief is your real copy, one heading per page and one line per section:
+
+```markdown
+## home
+- hero: Close your books in a day, not a week.
+- feature: Every payment checked, approved and sealed before money moves.
+- feature: Connect your bank, payroll and CRM once.
 ```
 
 Every section gets one scene (each used once, matched on the stories its words name), all in the hero's look. `site-motion-plan.png` shows the whole set as it will ship, with the score's verdict on top. A pick that had no strong match is marked `?` and says what would have fit better.
@@ -85,17 +98,17 @@ Every section gets one scene (each used once, matched on the stories its words n
 The scenes are only half the site. Export the project's look so your buttons, cards and transitions get the same shadows, corners, curves and label voice:
 
 ```bash
-npx site-motion style export --format tailwind --out app/look.css   # Tailwind v4 @theme: shadow-*, rounded-*, ease-*, colours, + sm-label/sm-motif/sm-texture
-npx site-motion style export --format css                            # plain :root custom properties and classes
-npx site-motion style export --format dtcg --out tokens/look.json    # W3C Design Tokens (DTCG 2025.10) for Figma plugins, Style Dictionary, Terrazzo
-npx site-motion style export --format design-md --out DESIGN.md      # rules for coding agents; replaces only its own marked section
+npx github:Shivraj97/site-motion style export --format tailwind --out app/look.css   # Tailwind v4 @theme: shadow-*, rounded-*, ease-*, colours, + sm-label/sm-motif/sm-texture
+npx github:Shivraj97/site-motion style export --format css                            # plain :root custom properties and classes
+npx github:Shivraj97/site-motion style export --format dtcg --out tokens/look.json    # W3C Design Tokens (DTCG 2025.10) for Figma plugins, Style Dictionary, Terrazzo
+npx github:Shivraj97/site-motion style export --format design-md --out DESIGN.md      # rules for coding agents; replaces only its own marked section
 ```
 
 ### Keeping it one look
 
 ```bash
-npx site-motion lint --project      # raw values a look can't reach: stroke widths, shadows, radii, curves, stray hex colours, clock/random
-npx site-motion score --project     # measures each scene and names the odd one out, in a sentence
+npx github:Shivraj97/site-motion lint --project      # raw values a look can't reach: stroke widths, shadows, radii, curves, stray hex colours, clock/random
+npx github:Shivraj97/site-motion score --project     # measures each scene and names the odd one out, in a sentence
 ```
 
 `score` reads line weight, elevation (flat or casting shadows), corner radius, label voice and how much of the frame is off the brand palette (ΔE2000), and tells you which scene doesn't match and why:
@@ -118,7 +131,7 @@ Then, in any project: *"Use site-motion to make a reliability animation in our b
 
 ## Scenes
 
-Each scene is organised by the story it tells, not by how it looks. Every scene in this folder is MIT. Rows marked **Pro** are previewed on [the site](https://site-motion-two.vercel.app) and ship with site-motion Pro.
+Each scene is organised by the story it tells, not by how it looks. Every scene in this repo is MIT, 38 of them; `node bin/site-motion.mjs list` prints them with their variants.
 
 | Scene | Story | Renderer |
 |---|---|---|
@@ -138,73 +151,84 @@ Each scene is organised by the story it tells, not by how it looks. Every scene 
 | `css3d-stack` | architecture: real HTML layers lift apart in CSS 3D while a request drops through | CSS 3D |
 | `card-story` | a workflow that removes work: a feature list drives a product card through states | DOM |
 | `window-stack` | "works where you work": app windows over a painted backdrop, an agent doing steps | Canvas + DOM |
-| `live-room` · Pro | multiplayer: cursors, a proposal, a vote, a change shipping | Canvas + DOM |
 | `leaderboard` | credit: contributions land, points count up, rows re-sort | DOM |
 | `water-slide-funnel` | conversion funnel: riders slide one ramp per stage; each lip's pool catches that stage's drop-offs | SVG |
-| `gold-pan` · Pro | search-as-you-type: every keystroke swirls the pan until three priced nuggets are left | Canvas 2D |
-| `museum-heatmap` · Pro | product analytics: visitor footprints warm the floor around the features people stop at; the ranking comes from the heat | Canvas 2D |
 | `cell-division` | database branching: main divides into branches, one is discarded, one merges back with its change | Canvas 2D (metaballs) |
-| `scratch-off` · Pro | prediction: foil scratches off the real departure time before the airline's board catches up | Canvas 2D |
-| `sieve-tray` · Pro | early detection: markers fall through a fine mesh; the few that catch are lifted out and flagged | Matter.js (baked) |
-| `rube-goldberg` · Pro | before / after: a receipt marble jams in five old contraptions, then drops down one chute in a second | SVG |
-| `language-balloons` · Pro | localisation: word bubbles in eight scripts float up and assemble each locale's sentence, RTL included | Matter.js (baked) |
-| `balloon-deploy` · Pro | deploys: each build step inflates the envelope; at 100% the release lifts off | SVG |
-| `pufferfish` · Pro | autoscaling: a pufferfish swells to match each traffic wave while a fixed-capacity fish gets tossed | SVG |
-| `gear-tiers` · Pro | pricing: plans drawn as camping kit, tent to basecamp, with a monthly / annual toggle | SVG |
-| `permission-chessboard` · Pro | roles and permissions: each role piece lands on the board and lights only the squares it may use | SVG |
 | `tree-rings` | year in review: one ring per year, as wide as the year was busy, with notches for the firsts | SVG |
 | `parchment-changelog` | changelog: a scroll unrolls one release at a time, each inked as it ships | SVG + DOM |
 | `moving-boxes` | migration: a hand truck carries each old tool's box into the new building, nothing lost | SVG + DOM |
-| `privacy-pebbles` · Pro | PII redaction: a squeegee turns every personal detail into an identical pebble; the sentence still reads | SVG + DOM |
-| `ant-trail` · Pro | auto-categorisation: ants carry each swipe's receipt, memo and approval to the right ledger slot | Canvas 2D |
-| `sunrise-payroll` · Pro | global payroll: a sunrise crosses eight time zones and pays each city at its own 9 am | SVG |
-| `whiteout` · Pro | calm: a busy dashboard dissolves into fog, leaving the one number that matters | WebGL shader + DOM |
-| `ink-flood` · Pro | theming, white-label: a paint chip floods the whole product in a new colourway | SVG |
-| `integration-deck` · Pro | integrations: every tool is a key on one isometric macro pad; a workflow plays as a chord while a run log types each step | Three.js |
-| `margin-rails` · Pro | provenance: a memo writes itself while passages carried forward from past files slide in on rails naming their source | SVG + DOM |
 | `pigeonhole-wall` | memory: documents file into labelled pigeonholes, and a request pulls the three sources it needs | SVG + DOM |
-| `redline-front` · Pro | contract review: a review front sweeps down the document and returns it as a finished redline with verified authorities | SVG + DOM |
-| `projector-sheets` · Pro | environments: production, staging and a pull request stack as acetate sheets; lift the PR sheet off and the wall snaps back | CSS 3D |
-| `zip-merge` · Pro | realtime merge: two cursors pull a zip closed, each tooth one person's keystroke, into one line with no conflicts | SVG |
 | `radar-sweep` | observability: every running job is a blip on a radar scope; a cursor reaches in and pauses the one that's failing | Canvas 2D + DOM |
 | `press-qa` | testing: builds roll off a press; an arm flicks the one with a failing test down a chute and it passes on the re-run | SVG |
-| `dandelion` · Pro | email analytics: each seed of a blown dandelion is a batch of emails, tallied where it lands: meadow, bounce fence or spam | Canvas 2D |
-| `rivers-topo` · Pro | attribution: traffic is a river on a contour map, one branch per channel as wide as its share; a campaign widens one | Canvas 2D |
-| `keystroke-machine` · Pro | prompt → product: each phrase drops a machine part; on Run a ball rolls through it and lights the output | Matter.js |
-| `bead-views` · Pro | one record, many views: a bead stays still while its string re-threads a calendar, a board, a map and a timeline | SVG |
-| `tennis-correction` · Pro | learning from corrections: a wrong answer is lobbed back over the net with the fix on it, and the next serve lands in | Canvas 2D |
-| `dehydrator` · Pro | summarisation: a web page on a dehydrator tray dries to its key sentences, a tenth of the tokens | DOM + SVG |
 | `crate-discrepancy` | reconciliation: trays lift out of a crate and tick off the packing slip; the short one floats up with its note | SVG + DOM |
 | `balance-scale` | quality vs cost: three pan balances, each tilt computed from the scores; ours tips to quality while the rivals sag to cost | SVG |
 | `step-rail` | how it works: a token travels numbered steps, each opens on what it produced, and the last lands the result | SVG + DOM |
 | `pipeline-board` | pipeline: cards advance column by column on a kanban board while counts and totals follow them | DOM |
-| `agent-trace` · Pro | AI agents: one run as a trace of thinking, tool calls and results on a shared time axis, resolving into the answer | DOM |
-| `inbox-triage` · Pro | triage: incoming requests are tagged and routed into team queues with SLA timers; the urgent one jumps the line | DOM + SVG |
 | `account-health` | retention: a health table replays the month; one account slips, a playbook fires, and it recovers | SVG |
-| `plan-ladder` · Pro | pricing: a real pricing table fills itself in plan by plan; the recommended plan lifts and billing flips to yearly | DOM |
-| `kpi-bento` · Pro | analytics: four KPI tiles read one set of numbers; a highlighted period sweeps them and the headline lands | SVG |
 | `split-wipe` | before / after: a divider sweeps across scattered manual work and each fragment snaps into an ordered, resolved row | DOM |
 | `roadmap-rail` | roadmap: a Today marker walks the time axis; shipped milestones fill in and the key launch opens into a card | SVG |
 | `trust-rings` | security: requests pass concentric control rings around the data; the unauthorised one is stopped and logged | SVG |
-| `chat-to-action` · Pro | AI assistants: a message's key phrases snap into a structured card, then the actions run and a reply comes back | DOM |
-| `coverage-map` · Pro | scale: a dot-matrix world map with live regions; a new one comes online and joins the list | Canvas 2D |
-| `agent-chat` · Pro | AI agents: asked to close the month, the agent streams its reply, runs tool calls one at a time and the books roll to the reconciled total | DOM + ui-kit |
-| `thread-approve` · Pro | approvals: an agent posts a plan in team chat; one click on Approve cascades each step to done | DOM + ui-kit |
 | `agent-checkout` | payments: an agent pays by virtual card; the form fills, the limit meter moves and the receipt joins the list | DOM + ui-kit |
-| `doc-extract` · Pro | documents: a dropped claim is read field by field, each value wired to the form it lands in, ending in a decision | DOM + ui-kit |
-| `computer-use` · Pro | automation: an agent cursor operates an old desktop app while a run log ticks off each step | DOM + ui-kit |
-| `voice-call` · Pro | voice agents: a live call on a phone, transcript streaming, the booking flying onto the schedule | DOM + ui-kit |
-| `table-edit` · Pro | operations: an agent fixes flagged table rows inline, and the recovered total adds up from them | DOM + ui-kit |
-| `code-finding` · Pro | security: a finding is marked in code, its path traced, and the fix replaces the line | DOM + ui-kit |
-| `agent-fleet` · Pro | observability: a live fleet of agents; one fails, a retry recovers it, and health returns to its true value | DOM + ui-kit |
-| `command-palette` · Pro | keyboard flow: a command palette filters as you type, and one Enter runs the action | DOM + ui-kit |
-| `drag-reorder` · Pro | prioritisation: an agent suggests a move; the card is dragged into place and the projection follows | DOM + ui-kit |
-| `cowrite-doc` · Pro | collaboration: a person and an agent edit one document; a sourced suggestion is accepted | DOM + ui-kit |
-| `swipe-apply` · Pro | B2C agents: swipe through matches on a phone while the agent applies and books | DOM + ui-kit |
-| `calendar-shuffle` · Pro | scheduling: a late change causes a conflict, and the agent reshuffles the board around it | DOM + ui-kit |
-| `connect-apps` · Pro | permissions: connect an app with scoped toggles, leaving the risky one off | DOM + ui-kit |
-| `terminal-agent` · Pro | coding agents: a task runs in a terminal, tests fail, get fixed, and go green | DOM + ui-kit |
-| `demo-bento` · Pro | platform overview: a bento of live mini demos, relaying one action across the features | DOM + ui-kit |
+| `click-to-done` | onboarding: the cursor invites two teammates, picks a role and sends; the camera pulls back as the team grows | DOM + ui-kit |
+| `dashboard-push` | analytics: revenue builds from the line as it draws, and the camera pushes in on the best day | DOM + ui-kit |
+| `phone-stack` | notifications: alerts land on a lock screen, and a tap opens the newest in the app | DOM + ui-kit |
+| `shot-demo` | your product: your own screenshot, typed into and clicked through, with a camera | DOM + ui-kit |
+
+<details><summary><b>49 more, site-motion Pro</b>: watch them at <a href="https://site-motion-two.vercel.app">site-motion-two.vercel.app</a>; they aren't in this repo</summary>
+
+| Scene | Story | Renderer |
+|---|---|---|
+| `live-room` | multiplayer: cursors, a proposal, a vote, a change shipping | Canvas + DOM |
+| `gold-pan` | search-as-you-type: every keystroke swirls the pan until three priced nuggets are left | Canvas 2D |
+| `museum-heatmap` | product analytics: visitor footprints warm the floor around the features people stop at; the ranking comes from the heat | Canvas 2D |
+| `scratch-off` | prediction: foil scratches off the real departure time before the airline's board catches up | Canvas 2D |
+| `sieve-tray` | early detection: markers fall through a fine mesh; the few that catch are lifted out and flagged | Matter.js (baked) |
+| `rube-goldberg` | before / after: a receipt marble jams in five old contraptions, then drops down one chute in a second | SVG |
+| `language-balloons` | localisation: word bubbles in eight scripts float up and assemble each locale's sentence, RTL included | Matter.js (baked) |
+| `balloon-deploy` | deploys: each build step inflates the envelope; at 100% the release lifts off | SVG |
+| `pufferfish` | autoscaling: a pufferfish swells to match each traffic wave while a fixed-capacity fish gets tossed | SVG |
+| `gear-tiers` | pricing: plans drawn as camping kit, tent to basecamp, with a monthly / annual toggle | SVG |
+| `permission-chessboard` | roles and permissions: each role piece lands on the board and lights only the squares it may use | SVG |
+| `privacy-pebbles` | PII redaction: a squeegee turns every personal detail into an identical pebble; the sentence still reads | SVG + DOM |
+| `ant-trail` | auto-categorisation: ants carry each swipe's receipt, memo and approval to the right ledger slot | Canvas 2D |
+| `sunrise-payroll` | global payroll: a sunrise crosses eight time zones and pays each city at its own 9 am | SVG |
+| `whiteout` | calm: a busy dashboard dissolves into fog, leaving the one number that matters | WebGL shader + DOM |
+| `ink-flood` | theming, white-label: a paint chip floods the whole product in a new colourway | SVG |
+| `integration-deck` | integrations: every tool is a key on one isometric macro pad; a workflow plays as a chord while a run log types each step | Three.js |
+| `margin-rails` | provenance: a memo writes itself while passages carried forward from past files slide in on rails naming their source | SVG + DOM |
+| `redline-front` | contract review: a review front sweeps down the document and returns it as a finished redline with verified authorities | SVG + DOM |
+| `projector-sheets` | environments: production, staging and a pull request stack as acetate sheets; lift the PR sheet off and the wall snaps back | CSS 3D |
+| `zip-merge` | realtime merge: two cursors pull a zip closed, each tooth one person's keystroke, into one line with no conflicts | SVG |
+| `dandelion` | email analytics: each seed of a blown dandelion is a batch of emails, tallied where it lands: meadow, bounce fence or spam | Canvas 2D |
+| `rivers-topo` | attribution: traffic is a river on a contour map, one branch per channel as wide as its share; a campaign widens one | Canvas 2D |
+| `keystroke-machine` | prompt → product: each phrase drops a machine part; on Run a ball rolls through it and lights the output | Matter.js |
+| `bead-views` | one record, many views: a bead stays still while its string re-threads a calendar, a board, a map and a timeline | SVG |
+| `tennis-correction` | learning from corrections: a wrong answer is lobbed back over the net with the fix on it, and the next serve lands in | Canvas 2D |
+| `dehydrator` | summarisation: a web page on a dehydrator tray dries to its key sentences, a tenth of the tokens | DOM + SVG |
+| `agent-trace` | AI agents: one run as a trace of thinking, tool calls and results on a shared time axis, resolving into the answer | DOM |
+| `inbox-triage` | triage: incoming requests are tagged and routed into team queues with SLA timers; the urgent one jumps the line | DOM + SVG |
+| `plan-ladder` | pricing: a real pricing table fills itself in plan by plan; the recommended plan lifts and billing flips to yearly | DOM |
+| `kpi-bento` | analytics: four KPI tiles read one set of numbers; a highlighted period sweeps them and the headline lands | SVG |
+| `chat-to-action` | AI assistants: a message's key phrases snap into a structured card, then the actions run and a reply comes back | DOM |
+| `coverage-map` | scale: a dot-matrix world map with live regions; a new one comes online and joins the list | Canvas 2D |
+| `agent-chat` | AI agents: asked to close the month, the agent streams its reply, runs tool calls one at a time and the books roll to the reconciled total | DOM + ui-kit |
+| `thread-approve` | approvals: an agent posts a plan in team chat; one click on Approve cascades each step to done | DOM + ui-kit |
+| `doc-extract` | documents: a dropped claim is read field by field, each value wired to the form it lands in, ending in a decision | DOM + ui-kit |
+| `computer-use` | automation: an agent cursor operates an old desktop app while a run log ticks off each step | DOM + ui-kit |
+| `voice-call` | voice agents: a live call on a phone, transcript streaming, the booking flying onto the schedule | DOM + ui-kit |
+| `table-edit` | operations: an agent fixes flagged table rows inline, and the recovered total adds up from them | DOM + ui-kit |
+| `code-finding` | security: a finding is marked in code, its path traced, and the fix replaces the line | DOM + ui-kit |
+| `agent-fleet` | observability: a live fleet of agents; one fails, a retry recovers it, and health returns to its true value | DOM + ui-kit |
+| `command-palette` | keyboard flow: a command palette filters as you type, and one Enter runs the action | DOM + ui-kit |
+| `drag-reorder` | prioritisation: an agent suggests a move; the card is dragged into place and the projection follows | DOM + ui-kit |
+| `cowrite-doc` | collaboration: a person and an agent edit one document; a sourced suggestion is accepted | DOM + ui-kit |
+| `swipe-apply` | B2C agents: swipe through matches on a phone while the agent applies and books | DOM + ui-kit |
+| `calendar-shuffle` | scheduling: a late change causes a conflict, and the agent reshuffles the board around it | DOM + ui-kit |
+| `connect-apps` | permissions: connect an app with scoped toggles, leaving the risky one off | DOM + ui-kit |
+| `terminal-agent` | coding agents: a task runs in a terminal, tests fail, get fixed, and go green | DOM + ui-kit |
+| `demo-bento` | platform overview: a bento of live mini demos, relaying one action across the features | DOM + ui-kit |
+
+</details>
 
 ## Commands
 
@@ -224,10 +248,19 @@ node bin/site-motion.mjs init <scene> --tokens mint             # writes ./brand
 node bin/site-motion.mjs build <scene> --tokens … --content …   # one HTML file
 node bin/site-motion.mjs render <file.html> --formats mp4,webm,webp,gif,png,sheet
 node bin/site-motion.mjs make <scene> --tokens … --content …    # build + render
-node bin/social.mjs brands/<brand>/social.json                  # 9:16 social cuts
+node bin/site-motion.mjs theme https://yoursite.com --out brand.json   # draft your tokens from a live site
+node bin/site-motion.mjs shot screen.png --name acme              # a screenshot of your product → a product demo (shot-demo)
+node bin/site-motion.mjs rehearse <demo> --tokens …              # a product demo's last pass: every check, phone-width sheet, review note
+node bin/social.mjs brands/<brand>/social.json                  # 9:16 social cuts (render the scenes it names first)
 ```
 
 Token presets: `default`, `mint`, `ledger`, `night`.
+
+## Product demos and agents
+
+A product demo is your product's screen rebuilt in the browser, with a cursor doing one job and a camera following it. Start from one of the free demos (`click-to-done`, `dashboard-push`, `phone-stack`, `agent-checkout`), from a screenshot with `shot`, or ask Claude to build a new screen with `runtime/ui-kit.js`. The walkthrough is in [the docs](https://site-motion-two.vercel.app/docs).
+
+**MCP server:** `node mcp/server.mjs` serves six tools over stdio (list scenes, theme from a URL, build, render, export the look, plan a site) for Cursor, Codex or any MCP client.
 
 ## How it works
 
