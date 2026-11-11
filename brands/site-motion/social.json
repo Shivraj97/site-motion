@@ -8,6 +8,21 @@
   },
   "items": [
     {
+      "name": "score-sheet",
+      "source": "out/score-sheet-night/score-sheet-night.mp4",
+      "crop": [
+        80,
+        230,
+        900,
+        520
+      ],
+      "still": 7.6,
+      "eyebrow": "render(t) · orchestration",
+      "headline": "A website animation\nthat is a pure\nfunction of time.",
+      "sub": "Same t, same frame. So one HTML file plays live and exports frame-exact video.",
+      "frame": false
+    },
+    {
       "name": "ledger-stamp",
       "source": "out/ledger-stamp-night/ledger-stamp-night.mp4",
       "crop": [
@@ -17,9 +32,9 @@
         600
       ],
       "still": 7.45,
-      "eyebrow": "render(t) · approvals",
-      "headline": "A website animation\nthat is a pure\nfunction of time.",
-      "sub": "Same t, same frame. So one HTML file plays live and exports frame-exact video.",
+      "eyebrow": "Approvals, redrawn",
+      "headline": "Nothing pays\nuntil it is\napproved.",
+      "sub": "Every payment checked, stamped, signed and sealed.",
       "frame": false
     },
     {
@@ -65,21 +80,6 @@
       "eyebrow": "Metrics, redrawn",
       "headline": "The number,\nmade of the work.",
       "sub": "Every grain is a batch of real events. No count-up.",
-      "frame": false
-    },
-    {
-      "name": "score-sheet",
-      "source": "out/score-sheet-night/score-sheet-night.mp4",
-      "crop": [
-        80,
-        230,
-        900,
-        520
-      ],
-      "still": 7.6,
-      "eyebrow": "Multi-agent, redrawn",
-      "headline": "Four agents,\none score.",
-      "sub": "A run written as music. Timing and parallel work you can see.",
       "frame": false
     }
   ]
