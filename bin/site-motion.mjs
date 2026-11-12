@@ -7,7 +7,7 @@
 //   site-motion theme <url> [--out brand.json] [--fast] [--scheme dark] [--shot file.png]   (drafts tokens from a live site)
 //   site-motion add <scene> [--dir public/motion] [--tokens preset|file] [--content file.json] [--force]   (copies the scene's source into your project)
 //   site-motion rehearse <scene> [--tokens …] [--out dir]   (a product demo's last pass: every check, compact view, phone-width sheet, review note)
-//   site-motion check <scene…|all> [--tokens …] [--baseline write|compare] [--baseline-dir .sm-baseline]   (determinism, seam, contrast, text-fit, baseline; --jumps for one-frame jumps, always on for ui-demo scenes)
+//   site-motion check <scene…|all> [--tokens …] [--content file.json] [--baseline write|compare] [--baseline-dir .sm-baseline]   (determinism, seam, contrast, text-fit, live in a browser, baseline; --jumps for one-frame jumps, always on for ui-demo scenes)
 //   site-motion init [--tokens preset|file] [--style pack|code] [--dir public/motion]   (no scene: writes site-motion.json)
 //   site-motion style list | show | set <pack|code|file> [--only motion,tempo]   (the project's look; partial apply with --only)
 //   site-motion style export [--format css|tailwind|dtcg|design-md] [--out file]   (the look for your own components; DESIGN.md: replaces only its section)
@@ -314,7 +314,7 @@ async function check() {
   let failed = 0;
   for (const name of names) {
     const html = join(tmp, `${basename(name)}.html`);
-    writeFileSync(html, buildHtml({ scene: name, tokens, style }));
+    writeFileSync(html, buildHtml({ scene: name, tokens, style, content: opts.content ? resolve(String(opts.content)) : null }));
     // product-UI demos always get the jump check (a snapped state is the classic faux-UI tell); others with --jumps
     const metaFile = join(existsSync(join(String(name), "meta.json")) ? String(name) : join(ROOT, "scenes", String(name)), "meta.json");
     const family = existsSync(metaFile) ? JSON.parse(readFileSync(metaFile, "utf8")).family : null;

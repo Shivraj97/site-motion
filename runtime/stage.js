@@ -262,13 +262,20 @@
         };
 
         // fit the fixed-size stage to its container
+        // fit sets the host's height, and the observer watches the host: writing inside the observer's callback makes
+        // the browser log "ResizeObserver loop completed with undelivered notifications". So only a new width refits,
+        // and the write waits for the next frame, outside the callback.
+        let fitW = -1;
         const fit = () => {
           if (exporting) return;
-          const k = host.clientWidth / viewW;
+          const w = host.clientWidth;
+          if (w === fitW) return;
+          fitW = w;
+          const k = w / viewW;
           (bareWin || root).style.transform = `scale(${k})`;
           host.style.height = viewH * k + "px";
         };
-        new ResizeObserver(fit).observe(host);
+        new ResizeObserver(() => requestAnimationFrame(fit)).observe(host);
         fit();
 
         // playback: "loop" (default), "once" (plays when first in view and stops on the poster frame), "hover" (rests on the poster, plays while hovered)

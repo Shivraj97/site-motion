@@ -5,12 +5,32 @@
   "heading": "Five short steps,\nthen you're live.",
   "sub": "Every step ends with something you can check. Start now, and the first one takes a minute.",
   "button": "Start your free trial",
+  "href": "",
   "steps": [
-    { "title": "Create workspace", "time": "1 min" },
-    { "title": "Connect your data", "time": "3 min" },
-    { "title": "Invite your team", "time": "2 min" },
-    { "title": "Set approval rules", "time": "4 min" },
-    { "title": "Go live", "time": "2 min" }
+    {
+      "title": "Create workspace",
+      "time": "1 min"
+    },
+    {
+      "title": "Connect your data",
+      "time": "3 min"
+    },
+    {
+      "title": "Invite your team",
+      "time": "2 min"
+    },
+    {
+      "title": "Set approval rules",
+      "time": "4 min"
+    },
+    {
+      "title": "Go live",
+      "time": "2 min"
+    }
   ],
-  "payoff": { "label": "Live in", "value": "12 min", "note": "from sign-up to first report" }
+  "payoff": {
+    "label": "Live in",
+    "value": "12 min",
+    "note": "from sign-up to first report"
+  }
 }

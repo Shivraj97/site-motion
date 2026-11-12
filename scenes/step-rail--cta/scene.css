@@ -30,3 +30,6 @@
 .sc-out { position: absolute; left: 0; width: 1600px; display: flex; justify-content: center; align-items: baseline; gap: 12px; opacity: 0; }
 .sc-out-label, .sc-out-note { font-size: 18px; color: var(--c-muted); white-space: nowrap; }
 .sc-out-value { font-family: var(--font-display, var(--font-sans)); font-size: 32px; line-height: 1; letter-spacing: var(--sm-type-tracking, -0.02em); font-weight: var(--sm-type-weight, 500); color: var(--c-ink); white-space: nowrap; }
+/* a button with an href is a link: it reads as the button, takes clicks and focus, and shows a focus ring */
+a.sc-btn { text-decoration: none; cursor: pointer; pointer-events: auto; }
+a.sc-btn:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 4px; } /* sm-native: a focus ring is an accessibility cue */

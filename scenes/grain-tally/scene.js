@@ -46,6 +46,7 @@
       const per = content.perGrain || 4;
       const sources = content.sources.map((s, i) => ({ ...s, grains: Math.round(s.count / per) }));
       const N = sources.reduce((a, s) => a + s.grains, 0);
+      const dense = Math.min(2.4, Math.max(1, Math.sqrt(2400 / Math.max(1, N))));
       const total = N * per; // what the digits say, derived from the grains
       // source colours: the biggest source wears the accent; the rest come from the palette, pushed away from
       // the paper until they read as grains (pale palettes vanish on light paper otherwise)
@@ -129,7 +130,7 @@
         return { b, name, n, s };
       });
 
-      return { ctx, G, sources, N, total, per, label, cx, cy, R0, neutral, legend, unit, barLabels, content, C, mix, dark };
+      return { ctx, G, sources, N, total, per, label, cx, cy, R0, neutral, legend, unit, barLabels, content, C, mix, dark, dense };
     },
 
     render(t, S, h) {
@@ -175,7 +176,10 @@
       // draw in batches (source × size), each grain a short streak from where it was 40 ms ago
       ctx.lineCap = "round";
       // the grains are the subject, not outlines: a heavier pack thickens them, a hairline pack never thins them
-      const sizes = [Math.max(1.7, h.ui.stroke("fine", 1.7)), Math.max(2.7, h.ui.stroke("bold", 2.7))];
+      // fewer grains draw bigger, so the digits still read when each grain stands for more (456 grains at $40
+      // each make a sparse 18,240 where 3,000 make a dense one); a set as dense as the example draws as before
+      const dense = S.dense;
+      const sizes = [Math.max(1.7, h.ui.stroke("fine", 1.7)) * dense, Math.max(2.7, h.ui.stroke("bold", 2.7)) * dense];
       for (let si = 0; si < sources.length; si++) {
         const col = mix(S.neutral, sources[si].colour, colourOn(si));
         for (let sz = 0; sz < 2; sz++) {

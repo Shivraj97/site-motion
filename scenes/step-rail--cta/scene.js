@@ -6,6 +6,7 @@
  * total time (the sum of the step times, e.g. "Live in 12 min") lands under the run.
  *
  * Everything comes from content.json: the steps (title + time), the button label, the payoff label and note.
+ * With `href`, the button is a real link: it opens in the page around the embed (target _top), and takes focus.
  * Node spacing and the button width are computed from the longest strings. Intro-free loop (loop: 0): everything
  * the run built fades together at RESET and the scene rests on the untouched rail well before the seam.
  */
@@ -74,7 +75,9 @@
       const lastStep = steps[n - 1] || {};
 
       // the button: badge (the last step's number), label, arrow
-      const btn = el("div", "sc-btn", root);
+      // with an href the button is the page's real CTA: a link that opens in the page the embed sits in
+      const btn = el(content.href ? "a" : "div", "sc-btn", root);
+      if (content.href) { btn.href = content.href; btn.target = content.target || "_top"; btn.setAttribute("aria-label", content.button || "Get started"); }
       Object.assign(btn.style, { left: btnLeft + "px", top: RAIL_Y - BTN_H / 2 + "px", width: btnW + "px", height: BTN_H + "px", borderRadius: `var(--sm-radius-lg, ${BTN_H / 2}px)` });
       const badge = el("div", "sc-badge", btn);
       const badgeNum = el("span", "", badge, String(n));
