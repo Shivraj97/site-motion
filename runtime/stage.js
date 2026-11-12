@@ -198,12 +198,12 @@
     const { tokens, look } = applyStyle(data, themed);
     const host = document.querySelector(".sm-host");
     // the window a bare scene is seen through: it is what scales to the container; the stage sits offset inside it
-    const frame = bare ? el("div", "sm-bare", host) : null;
-    const root = el("div", "sm-stage", frame || host);
+    const bareWin = bare ? el("div", "sm-bare", host) : null;
+    const root = el("div", "sm-stage", bareWin || host);
     root.style.width = designW + "px";
     root.style.height = designH + "px";
-    if (frame) {
-      Object.assign(frame.style, { position: "absolute", left: "0", top: "0", width: viewW + "px", height: viewH + "px", overflow: "hidden", transformOrigin: "0 0" });
+    if (bareWin) {
+      Object.assign(bareWin.style, { position: "absolute", left: "0", top: "0", width: viewW + "px", height: viewH + "px", overflow: "hidden", transformOrigin: "0 0" });
       root.style.transform = `translate(${-bare.box[0]}px, ${-bare.box[1]}px)`;
       if (bare.copy.length) { const s = document.createElement("style"); s.textContent = `.sm-stage :is(${bare.copy.join(",")}){visibility:hidden!important}`; document.head.appendChild(s); }
     }
@@ -265,7 +265,7 @@
         const fit = () => {
           if (exporting) return;
           const k = host.clientWidth / viewW;
-          (frame || root).style.transform = `scale(${k})`;
+          (bareWin || root).style.transform = `scale(${k})`;
           host.style.height = viewH * k + "px";
         };
         new ResizeObserver(fit).observe(host);
