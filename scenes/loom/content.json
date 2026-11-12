@@ -7,28 +7,28 @@
   "product": "One workspace",
   "threads": [
     {
-      "name": "Slack"
+      "name": "Chatwell"
     },
     {
-      "name": "GitHub"
+      "name": "Forkyard"
     },
     {
-      "name": "Stripe"
+      "name": "Paylane"
     },
     {
-      "name": "Postgres"
+      "name": "Rowstore"
     },
     {
-      "name": "Linear"
+      "name": "Trackline"
     },
     {
-      "name": "Notion"
+      "name": "Notewell"
     },
     {
-      "name": "HubSpot"
+      "name": "Leadloom"
     },
     {
-      "name": "S3"
+      "name": "Binvault"
     }
   ],
   "rowHeight": 10,

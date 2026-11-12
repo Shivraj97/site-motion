@@ -17,5 +17,19 @@
     "motion",
     "texture",
     "color"
-  ]
+  ],
+  "bare": {
+    "box": [
+      660,
+      130,
+      840,
+      740
+    ],
+    "copy": [
+      ".gt-copy",
+      ".gt-eyebrow",
+      ".gt-h",
+      ".gt-sub"
+    ]
+  }
 }

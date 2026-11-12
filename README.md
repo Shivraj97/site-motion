@@ -78,9 +78,10 @@ Instead of picking scenes one by one, give site-motion the site and approve one 
 ```bash
 npx github:Shivraj97/site-motion theme https://yoursite.com --out brand.json   # your brand first (check its notes, fix by eye)
 npx github:Shivraj97/site-motion plan --brief brief.md          # one "## page" heading, one "- slot: copy" line per section (below)
-npx github:Shivraj97/site-motion plan --url https://yoursite.com  # or read your live pages' own headings
+npx github:Shivraj97/site-motion plan --url https://yoursite.com  # or read your live pages' own headings (--depth 3 adds h3 cards)
 npx github:Shivraj97/site-motion plan swap home.feature-2 galton-router   # change a pick, then: plan sheet
 npx github:Shivraj97/site-motion plan apply                      # adds every scene, in one look, and prints each section's embed
+npx github:Shivraj97/site-motion plan apply --bare               # the same, for a page that already sets each section's heading: scenes leave theirs out
 ```
 
 A brief is your real copy, one heading per page and one line per section:

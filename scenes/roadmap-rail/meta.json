@@ -1,9 +1,37 @@
 {
   "story": "milestones",
-  "stories": ["milestones", "changelog", "onboarding"],
+  "stories": [
+    "milestones",
+    "changelog",
+    "onboarding"
+  ],
   "renderer": "SVG",
   "blurb": "A Today marker walks a roadmap's time axis; shipped milestones fill in and the key launch opens into a card.",
   "featured": false,
   "home": "outline",
-  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "motif", "texture", "color"]
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ],
+  "bare": {
+    "box": [
+      40,
+      130,
+      1520,
+      760
+    ],
+    "copy": [
+      ".rr-copy",
+      ".rr-eyebrow",
+      ".rr-h",
+      ".rr-sub"
+    ]
+  }
 }

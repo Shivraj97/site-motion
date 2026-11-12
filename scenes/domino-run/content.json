@@ -11,6 +11,6 @@
     { "label": "Form submitted", "done": "lead created" },
     { "label": "Enrich", "done": "company found" },
     { "label": "Score & route", "done": "sent to sales" },
-    { "label": "Notify", "done": "Slack + email" }
+    { "label": "Notify", "done": "Chat + email" }
   ]
 }

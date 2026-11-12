@@ -125,13 +125,14 @@ const TOOLS = [
     inputSchema: {
       type: "object",
       properties: {
-        action: { type: "string", enum: ["new", "show", "sheet", "swap", "apply"], description: "Defaults to new." },
+        action: { type: "string", enum: ["new", "show", "sheet", "swap", "add", "remove", "apply"], description: "Defaults to new. add puts a section the reading missed into the plan (slot + scene, optional brief); remove drops a slot." },
         pages: { type: "array", items: { type: "string" }, description: "Page names for new, e.g. [\"home\", \"features\", \"pricing\"]." },
         about: { type: "string", description: "One line on what the product does; steers every pick." },
-        brief: { type: "string", description: "A brief as markdown text, or a path to one." },
+        brief: { type: "string", description: "For new: a brief as markdown text, or a path to one. For add: the section's words." },
         url: { type: "string", description: "A live page (or comma-separated pages) to read sections from." },
-        slot: { type: "string", description: "For swap: the slot, e.g. home.feature-2." },
-        scene: { type: "string", description: "For swap: the scene to put there." },
+        depth: { type: "number", enum: [2, 3], description: "For url: 2 reads h1/h2 headings (default); 3 also reads h3 cards (a bento of features, a security/pricing pair)." },
+        slot: { type: "string", description: "For swap, add, remove: the slot, e.g. home.feature-2." },
+        scene: { type: "string", description: "For swap and add: the scene to put there." },
         sheet: { type: "boolean", description: "Draw the contact sheet after new (default true)." },
         tokens: { type: "string", description: "For new: the site's brand, a token file path (e.g. brand.json from theme_from_url's out) or a preset name. Without it a brand.json in the project folder is used, else the default preset. A project still on the default preset takes it." },
         motif: { type: ["string", "boolean"], description: "For new: one motif. Build the home page from one concept and its variants (hero, feature, cta…). A concept name, or true for the hero's best concept." },
@@ -278,7 +279,7 @@ function exportStyleTool({ format = "css", style, tokens, out } = {}) {
   return { format, look, file, bytes: Buffer.byteLength(text) };
 }
 
-async function planSiteTool({ action = "new", pages, about, brief, url, slot, scene, sheet = true, motif, tokens } = {}, ctx) {
+async function planSiteTool({ action = "new", pages, about, brief, url, depth, slot, scene, sheet = true, motif, tokens } = {}, ctx) {
   const args = ["plan"];
   if (action !== "new") args.push(action);
   let tmp = null;
@@ -289,7 +290,7 @@ async function planSiteTool({ action = "new", pages, about, brief, url, slot, sc
       const file = existsSync(at(brief)) ? at(brief) : (tmp = mkdtempSync(join(tmpdir(), "sm-brief-")), join(tmp, "brief.md"));
       if (tmp) writeFileSync(file, String(brief));
       args.push("--brief", file);
-    } else if (url !== undefined) args.push("--url", String(url));
+    } else if (url !== undefined) { args.push("--url", String(url)); if (depth) args.push("--depth", String(depth)); }
     else args.push("--pages", (Array.isArray(pages) && pages.length ? pages : ["home"]).map(String).join(","));
     if (about) args.push("--about", String(about));
     if (tokens) args.push("--tokens", String(tokens));
@@ -299,7 +300,14 @@ async function planSiteTool({ action = "new", pages, about, brief, url, slot, sc
   } else if (action === "swap") {
     if (!slot || !scene) throw new ToolError("swap needs slot and scene.");
     args.push(String(slot), String(scene));
-  } else if (!["show", "sheet", "apply"].includes(action)) throw new ToolError("action is new, show, sheet, swap or apply.");
+  } else if (action === "add") {
+    if (!slot || !scene) throw new ToolError("add needs slot and scene (and optionally brief: the section's words).");
+    args.push(String(slot), String(scene));
+    if (brief) args.push("--brief", String(brief));
+  } else if (action === "remove") {
+    if (!slot) throw new ToolError("remove needs slot.");
+    args.push(String(slot));
+  } else if (!["show", "sheet", "apply"].includes(action)) throw new ToolError("action is new, show, sheet, swap, add, remove or apply.");
   try {
     const r = await runCli(args, { cwd: WORKDIR, ctx, label: "planning", timeoutMs: 15 * 60_000 });
     if (r.code !== 0) throw new ToolError(cliError(r));

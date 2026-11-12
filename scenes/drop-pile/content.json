@@ -5,7 +5,7 @@
   "heading": "Work arrives from everywhere.\nIt lands in one place.",
   "trayLabel": "Inbox",
   "counterLabel": "handled today",
-  "items": ["Invoice 2291.pdf", "Ticket #482", "Call recording", "Signed NDA", "Refund request", "Bank statement", "Slack thread", "Claim form", "Receipt.jpg", "Contract v3", "Support email", "Spreadsheet.xlsx", "Shipping label", "Voice note", "W-9 form", "PO 1187"],
+  "items": ["Invoice 2291.pdf", "Ticket #482", "Call recording", "Signed NDA", "Refund request", "Bank statement", "Chat thread", "Claim form", "Receipt.jpg", "Contract v3", "Support email", "Spreadsheet.xlsx", "Shipping label", "Voice note", "W-9 form", "PO 1187"],
   "every": 0.42,
   "tipAt": 9.6
 }

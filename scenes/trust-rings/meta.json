@@ -19,5 +19,19 @@
     "motif",
     "texture",
     "color"
-  ]
+  ],
+  "bare": {
+    "box": [
+      40,
+      50,
+      920,
+      820
+    ],
+    "copy": [
+      ".tr-copy",
+      ".tr-eyebrow",
+      ".tr-h",
+      ".tr-sub"
+    ]
+  }
 }

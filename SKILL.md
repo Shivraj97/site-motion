@@ -48,14 +48,14 @@ Outputs land in `out/<content>-<tokens>/`. `--range loop` exports only the seaml
   ## pricing
   - hero: …
   ```
-- or with `--url https://their-site.com[,https://their-site.com/pricing]` to read the live pages' own headings;
+- or with `--url https://their-site.com[,https://their-site.com/pricing]` to read the live pages' own headings (`--depth 3` also reads h3 cards: a bento of features, a security/pricing pair). A section the reading missed: `plan add <slot> <scene> --brief "its words"`; one you don't want: `plan remove <slot>`;
 - or with `--pages home,features,pricing --about "…"` when there's nothing else (generic picks; say so).
 
 It maps every section to one scene, each used once, all in one look. The look is the home hero's, locked in `site-motion.json`. It draws `site-motion-plan.png`: every section as its scene's frame in the brand and look, with the score's verdict on top. **Show the user the sheet and get approval before `plan apply`.**
 - A pick marked `?` had no strong match. Read its note ("ledger-stamp fits better but is on home.hero") and either swap (`plan swap <slot> <scene>`), reuse the better scene, or tell the user the library has no scene for that story yet.
 - Never apply over a weak pick without saying so.
 
-`plan apply` adds every scene and prints each section's embed. Then write each scene's copy in its `content.json`, run `sync`, and finish with `score --project`.
+`plan apply` adds every scene and prints each section's embed. **If the page already sets each section's eyebrow, heading and copy in its own HTML, use `plan apply --bare`** (or `"showCopy": false` in a scene's content.json): the scene leaves its own copy out and its embed is cut to the visual alone (its `meta.json` `bare` box), so no heading shows twice. Embed paths start at the site root; for a site under a path, `--base /that/path/`. Then write each scene's copy in its `content.json`, run `sync`, and finish with `score --project`.
 
 For one scene, follow the steps below.
 

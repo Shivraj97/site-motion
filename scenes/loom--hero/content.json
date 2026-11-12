@@ -6,12 +6,12 @@
   "sub": "Every tool your team uses, made into a single fabric with your name in it.",
   "name": "ONE",
   "threads": [
-    { "name": "Slack" },
-    { "name": "GitHub" },
-    { "name": "Stripe" },
-    { "name": "Postgres" },
-    { "name": "Linear" },
-    { "name": "Notion" }
+    { "name": "Chatwell" },
+    { "name": "Forkyard" },
+    { "name": "Paylane" },
+    { "name": "Rowstore" },
+    { "name": "Trackline" },
+    { "name": "Notewell" }
   ],
   "rowHeight": 10,
   "repeat": 48

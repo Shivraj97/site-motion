@@ -10,5 +10,27 @@
   "renderer": "SVG + DOM",
   "blurb": "A token runs a short rail of numbered steps and lands in the button at its end, which presses in once while the total time lands underneath.",
   "featured": false,
-  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "motif"]
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif"
+  ],
+  "bare": {
+    "box": [
+      100,
+      440,
+      1400,
+      340
+    ],
+    "copy": [
+      ".sc-copy",
+      ".sc-eyebrow",
+      ".sc-h",
+      ".sc-sub"
+    ]
+  }
 }

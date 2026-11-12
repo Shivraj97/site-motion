@@ -18,5 +18,19 @@
     "motif",
     "texture",
     "color"
-  ]
+  ],
+  "bare": {
+    "box": [
+      0,
+      340,
+      1600,
+      560
+    ],
+    "copy": [
+      ".ssh-copy",
+      ".ssh-eyebrow",
+      ".ssh-h",
+      ".ssh-sub"
+    ]
+  }
 }

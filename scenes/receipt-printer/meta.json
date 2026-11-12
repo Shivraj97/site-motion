@@ -19,5 +19,19 @@
     "motif",
     "texture",
     "glow"
-  ]
+  ],
+  "bare": {
+    "box": [
+      560,
+      20,
+      1040,
+      880
+    ],
+    "copy": [
+      ".rp-copy",
+      ".rp-eyebrow",
+      ".rp-h",
+      ".rp-sub"
+    ]
+  }
 }

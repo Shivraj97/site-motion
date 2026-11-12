@@ -76,10 +76,10 @@
   }
 
   // ---------- legible: fewer, larger windows for embeds shown small (content "legible": true) ----------
-  // One app window in front at a time (Slack, then one per agent step), the ones before it stacked behind
+  // One app window in front at a time (the chat app, then one per agent step), the ones before it stacked behind
   // with only their title bars showing; the agent's current step rides in a bar inside the front window.
   // A plan panel on the left lists every step. Type: primary >= 24px, rows >= 18px, ornament >= 15px.
-  // The loop rests on the Slack window with the request, so no moment is blank.
+  // The loop rests on the chat window with the request, so no moment is blank.
   const luma = (hex) => { const v = String(hex).replace("#", ""); const [r, g, b] = [0, 2, 4].map((i) => parseInt(v.slice(i, i + 2), 16) / 255); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
 
   function legibleSetup({ root, content, tokens, h }) {

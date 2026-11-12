@@ -190,16 +190,27 @@
     introEnd = scene.loop || 0;
     // a build can show a product demo through a smaller view (card, compact, strip); the kit keeps the design size
     if (data.view) { scene.width = data.view[0]; scene.height = data.view[1]; }
+    // bare: the scene draws at its design size, its copy hidden, seen through a window cut to its visual's box
+    const bare = data.bare || null;
+    const designW = scene.width, designH = scene.height;
+    const viewW = bare ? bare.box[2] : designW, viewH = bare ? bare.box[3] : designH;
     const themed = themeFromQuery() || (window.SMTokens ? SMTokens.normalize(data.tokens) : data.tokens);
     const { tokens, look } = applyStyle(data, themed);
     const host = document.querySelector(".sm-host");
-    const root = el("div", "sm-stage", host);
-    root.style.width = scene.width + "px";
-    root.style.height = scene.height + "px";
+    // the window a bare scene is seen through: it is what scales to the container; the stage sits offset inside it
+    const frame = bare ? el("div", "sm-bare", host) : null;
+    const root = el("div", "sm-stage", frame || host);
+    root.style.width = designW + "px";
+    root.style.height = designH + "px";
+    if (frame) {
+      Object.assign(frame.style, { position: "absolute", left: "0", top: "0", width: viewW + "px", height: viewH + "px", overflow: "hidden", transformOrigin: "0 0" });
+      root.style.transform = `translate(${-bare.box[0]}px, ${-bare.box[1]}px)`;
+      if (bare.copy.length) { const s = document.createElement("style"); s.textContent = `.sm-stage :is(${bare.copy.join(",")}){visibility:hidden!important}`; document.head.appendChild(s); }
+    }
     if (exporting) {
       document.documentElement.classList.add("sm-exporting");
-      host.style.width = scene.width + "px";
-      host.style.height = scene.height + "px";
+      host.style.width = viewW + "px";
+      host.style.height = viewH + "px";
     }
     // embedded assets (GLB models, images) live in window.SM_ASSETS as data: URLs, keyed by path
     const asset = (ref) => {
@@ -217,8 +228,8 @@
     let resolveReady;
     // __sm exists at once so the exporter can wait on it; seeking does nothing until setup has finished
     window.__sm = {
-      width: scene.width,
-      height: scene.height,
+      width: viewW,
+      height: viewH,
       duration: scene.duration,
       loop: loopAt,
       fps: scene.fps || 30,
@@ -230,7 +241,7 @@
 
     // setup may be async (loading models, decoding images); nothing draws until it resolves
     // new Promise(...) also catches a setup that throws synchronously; Promise.resolve(setup()) would not
-    new Promise((resolve) => resolve(scene.setup({ root, content, tokens, h: helpers, width: scene.width, height: scene.height, duration: scene.duration })))
+    new Promise((resolve) => resolve(scene.setup({ root, content, tokens, h: helpers, width: designW, height: designH, duration: scene.duration })))
       .then((result) => {
         const state = result || {};
         // A scene may play an intro once, then loop [loop, duration] forever: t wraps back to `loop`, never to 0.
@@ -253,9 +264,9 @@
         // fit the fixed-size stage to its container
         const fit = () => {
           if (exporting) return;
-          const k = host.clientWidth / scene.width;
-          root.style.transform = `scale(${k})`;
-          host.style.height = scene.height * k + "px";
+          const k = host.clientWidth / viewW;
+          (frame || root).style.transform = `scale(${k})`;
+          host.style.height = viewH * k + "px";
         };
         new ResizeObserver(fit).observe(host);
         fit();

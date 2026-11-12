@@ -16,5 +16,19 @@
     "label",
     "type",
     "texture"
-  ]
+  ],
+  "bare": {
+    "box": [
+      620,
+      130,
+      940,
+      660
+    ],
+    "copy": [
+      ".wb-copy",
+      ".wb-eyebrow",
+      ".wb-h",
+      ".wb-sub"
+    ]
+  }
 }

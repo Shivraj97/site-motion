@@ -18,5 +18,19 @@
     "motion",
     "texture",
     "motif"
-  ]
+  ],
+  "bare": {
+    "box": [
+      60,
+      0,
+      900,
+      900
+    ],
+    "copy": [
+      ".rs-copy",
+      ".rs-eyebrow",
+      ".rs-h",
+      ".rs-sub"
+    ]
+  }
 }

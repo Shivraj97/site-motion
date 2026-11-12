@@ -10,5 +10,27 @@
   "renderer": "SVG",
   "blurb": "A price weight on one pan, value weights for hours saved and tools replaced dropped one by one on the other, until the beam tips to value and the return multiple lands on the sum.",
   "featured": false,
-  "directable": ["stroke", "corner", "label", "type", "motion", "motif", "texture"]
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture"
+  ],
+  "bare": {
+    "box": [
+      560,
+      90,
+      1000,
+      780
+    ],
+    "copy": [
+      ".bp-copy",
+      ".bp-eyebrow",
+      ".bp-h",
+      ".bp-sub"
+    ]
+  }
 }

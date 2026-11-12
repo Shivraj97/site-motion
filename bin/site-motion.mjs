@@ -16,7 +16,10 @@
 //   site-motion score <scene[@look]…|all> | --project [--style …] [--strict] [--json file]   (does the set look like one site? names the odd one out)
 //   site-motion plan [--pages home,features,pricing] [--about "…"] | --brief brief.md | --url https://…   (one scene per
 //                    section of the whole site, in one look; writes the plan and a contact sheet to approve)
-//   site-motion plan show | sheet | swap <slot> <scene> | apply   (review, re-draw, change a pick, add them all)
+//   site-motion plan … --url https://… --depth 3   (also read h3 cards as sections: a bento of features, a pricing pair)
+//   site-motion plan show | sheet | swap <slot> <scene> | add <slot> <scene> | remove <slot> | apply
+//                    (review, re-draw, change a pick, add or drop a section, add them all; apply --bare leaves each
+//                    scene's own heading out, for a page that already sets the words; --base /path/ for its embed paths)
 //   site-motion sync   (after a brand or look change: rewrite every added scene's tokens.json, style.json and embed)
 //   site-motion list
 // With a site-motion.json in this folder or above, add, build, make and sync use its tokens and style; flags win.
@@ -39,6 +42,8 @@ for (let i = 0; i < rest.length; i++) {
   else { opts[key] = next; i++; }
 }
 
+// --base: what embed paths start with (default "/", the site root); "" makes them relative to the page
+const baseOf = () => (opts.base === undefined || opts.base === true ? "/" : String(opts.base) === "" ? "" : String(opts.base).replace(/\/?$/, "/"));
 let projectCache;
 async function project() {
   if (projectCache === undefined) projectCache = (await import("../lib/project.mjs")).findProject() || null;
@@ -138,7 +143,8 @@ async function shotCmd() {
     const image = rest.find((a) => !a.startsWith("--"));
     if (!image) fail("usage: site-motion shot grid <image> [--crop x,y,w,h] [--step 50] [--out grid.png]");
     const crop = opts.crop ? String(opts.crop).split(",").map(Number) : null;
-    const out = resolve(String(opts.out || (crop ? `grid-${crop.join("-")}.png` : "grid.png")));
+    // the grid lands next to the screenshot it rules (its shot folder), not in whatever folder you run from
+    const out = opts.out ? resolve(String(opts.out)) : join(dirname(resolve(image)), crop ? `grid-${crop.join("-")}.png` : "grid.png");
     writeFileSync(out, await gridPng(toPng(image), { step: Number(opts.step || (crop ? 50 : 100)), crop }));
     console.log(`grid    ${rel(out)}  (labels are image pixels)`);
     return;
@@ -187,9 +193,9 @@ async function add() {
   console.log(`embed   ${rel(r.bundle)}  (one self-contained file)`);
   console.log(`\nYou own these files. Edit the copy in content.json, the brand in tokens.json, the motion in scene.js.`);
   console.log(`Preview: serve the folder and open ${rel(r.sceneOut)}/index.html (it re-reads the JSON on refresh).`);
-  const { VIEWS } = await import("../lib/build.mjs");
-  const size = embed.view && VIEWS[embed.view];
-  console.log(`Embed:   <iframe src="/${rel(r.bundle).replace(/^public\//, "")}" style="width:100%;aspect-ratio:${size ? size.join("/") : "16/9"};border:0" loading="lazy" title="${r.name}"></iframe>`);
+  const { embedTag } = await import("../lib/build.mjs");
+  const added = JSON.parse(readFileSync(join(r.sceneOut, "content.json"), "utf8"));
+  console.log(`Embed:   ${embedTag({ name: r.name, path: rel(r.bundle).replace(/^public\//, ""), content: added, view: embed.view, base: baseOf() })}`);
   console.log(`Rebuild every embed after edits or a look change:\n  node ${process.argv[1]} sync`);
 }
 
@@ -453,6 +459,12 @@ async function planCmd() {
   const { readFileSync } = await import("node:fs");
   const S = (await import("node:module")).createRequire(import.meta.url)("../runtime/style.cjs");
   const sub = target || "new";
+  // --help (or a flag plan doesn't take) prints usage and touches nothing: a typo must never re-plan the site
+  const USAGE = "usage: site-motion plan [--pages home,features | --brief brief.md | --url https://… [--depth 3]] [--about \"…\"] [--tokens brand.json] [--style <pack>] [--motif [concept]] [--no-sheet]\n       site-motion plan show | sheet | swap <slot> <scene> | add <slot> <scene> [--brief \"the section's words\"] | remove <slot> | apply [--force] [--bare] [--base /path/]";
+  const FLAGS = { new: ["pages", "about", "brief", "url", "depth", "tokens", "style", "motif", "dir", "sheet", "no-sheet"], show: [], sheet: ["sheet"], swap: [], add: ["brief"], remove: [], apply: ["force", "dir", "base", "bare"] };
+  if (!FLAGS[sub]) fail(`no plan command "${sub}"\n${USAGE}`);
+  const unknown = Object.keys(opts).filter((k) => !FLAGS[sub].includes(k));
+  if (opts.help || opts.h || unknown.length) { console.log((unknown.length && !opts.help && !opts.h ? `plan ${sub} doesn't take --${unknown.join(", --")}. Nothing was changed.\n` : "") + USAGE); if (unknown.length && !opts.help && !opts.h) process.exitCode = 1; return; }
   let p = await project();
   const needPlan = () => { if (!p?.data.plan) fail("no plan yet. Make one with: site-motion plan --pages home,features (or --brief file, or --url https://…)"); };
   const withCode = (plan) => ({ ...plan, code: S.encode(projectStyle(p)) });
@@ -481,8 +493,9 @@ async function planCmd() {
         const r = await fetchSite(url.trim(), { maxSheets: 0 }).catch((e) => fail(`${url}: ${e.message}`));
         const path = new URL(r.url).pathname.replace(/\/+$/, "");
         const page = path ? path.split("/").pop().toLowerCase() : "home";
-        const found = P.sectionsFromHtml(r.html, page);
-        console.log(`read    ${r.url}  ${found.length} section${found.length === 1 ? "" : "s"}`);
+        const depth = opts.depth ? Number(opts.depth) : 2;
+        const found = P.sectionsFromHtml(r.html, page, { depth });
+        console.log(`read    ${r.url}  ${found.length} section${found.length === 1 ? "" : "s"}${depth < 3 ? " (h1/h2 headings; --depth 3 also reads h3 cards)" : " (h1–h3 headings)"}`);
         sections.push(...found);
         title ||= new URL(r.url).hostname.replace(/^www\./, "");
       }
@@ -528,6 +541,28 @@ async function planCmd() {
     console.log(`${slot} → ${scene}${other ? `  (also on ${other[0]}: one scene folder serves both, with one set of copy)` : ""}${found.directable.length ? "" : "  (keeps its own look)"}\nRe-draw the sheet: site-motion plan sheet`);
     return;
   }
+  if (sub === "add") {
+    // a section the reading missed: a new slot with its scene (and its words, so the sheet and later picks read it)
+    const [slot, scene] = rest.filter((a) => !a.startsWith("--") && a !== opts.brief);
+    if (!slot || !scene) fail("usage: site-motion plan add <page.slot> <scene> [--brief \"the section's words\"]");
+    if (p.data.plan.slots[slot]) fail(`slot "${slot}" is already in the plan (change its scene with: site-motion plan swap ${slot} <scene>)`);
+    const found = P.sceneCatalog().find((x) => x.name === scene);
+    if (!found) fail(proNote(scene) || `no scene "${scene}". Scenes: ${P.sceneCatalog().map((x) => x.name).join(", ")}`);
+    const other = Object.entries(p.data.plan.slots).find(([, v]) => v.scene === scene);
+    p.data.plan.slots[slot] = { scene, why: "added by hand", weak: false, follows: found.directable.length > 0, brief: opts.brief ? String(opts.brief) : "" };
+    p.data = writeProject(p.file, p.data);
+    console.log(`added   ${slot} → ${scene}${other ? `  (also on ${other[0]}: one scene folder serves both, with one set of copy)` : ""}\nRe-draw the sheet: site-motion plan sheet`);
+    return;
+  }
+  if (sub === "remove") {
+    const [slot] = rest.filter((a) => !a.startsWith("--"));
+    if (!slot || !p.data.plan.slots[slot]) fail(`no slot "${slot || ""}". Slots: ${Object.keys(p.data.plan.slots).join(", ")}`);
+    const { scene } = p.data.plan.slots[slot];
+    delete p.data.plan.slots[slot];
+    p.data = writeProject(p.file, p.data);
+    console.log(`removed ${slot} (was ${scene}). A scene already added stays in the project; drop its folder by hand if you don't want it.\nRe-draw the sheet: site-motion plan sheet`);
+    return;
+  }
   if (sub === "apply") {
     const { addScene, defaultAddDir } = await import("../lib/add.mjs");
     const { tokens, style } = resolveInputs({ project: p });
@@ -535,15 +570,27 @@ async function planCmd() {
     const done = new Set(p.data.scenes || []);
     for (const [slot, pick] of Object.entries(p.data.plan.slots)) {
       if (done.has(pick.scene)) { console.log(`ok      ${slot.padEnd(18)} ${pick.scene} (already added)`); continue; }
-      const r = addScene({ scene: pick.scene, dir, tokens, content: pick.content ? resolve(p.dir, pick.content) : null, style, force: !!opts.force });
+      // --bare: the page sets each section's words in its own HTML, so every scene leaves its copy out (showCopy: false)
+      let content = pick.content ? resolve(p.dir, pick.content) : null;
+      if (opts.bare) {
+        const { mkdtempSync } = await import("node:fs"); const { tmpdir } = await import("node:os");
+        const tmp = join(mkdtempSync(join(tmpdir(), "sm-bare-")), "content.json");
+        writeFileSync(tmp, JSON.stringify({ ...(content ? JSON.parse(readFileSync(content, "utf8")) : {}), showCopy: false }));
+        content = tmp;
+      }
+      const r = addScene({ scene: pick.scene, dir, tokens, content, style, force: !!opts.force });
       recordScene(p, r.name);
       done.add(pick.scene);
       console.log(`added   ${slot.padEnd(18)} ${relative(process.cwd(), r.bundle)}`);
     }
     console.log(`\nEvery scene is in ${relative(process.cwd(), dir) || "."}/ in the "${p.data.style}" look. Put each embed in its section:`);
-    const { VIEWS } = await import("../lib/build.mjs");
-    const ratio = (scene) => { const v = p.data.embeds?.[scene]?.view; return v && VIEWS[v] ? VIEWS[v].join("/") : "16/9"; };
-    for (const [slot, pick] of Object.entries(p.data.plan.slots)) console.log(`  ${slot.padEnd(18)} <iframe src="/${relative(p.dir, join(dir, pick.scene + ".html")).replace(/^public\//, "")}" style="width:100%;aspect-ratio:${ratio(pick.scene)};border:0" loading="lazy" title="${pick.scene}"></iframe>`);
+    const { embedTag } = await import("../lib/build.mjs");
+    for (const [slot, pick] of Object.entries(p.data.plan.slots)) {
+      const cf = join(dir, pick.scene, "content.json");
+      const content = existsSync(cf) ? JSON.parse(readFileSync(cf, "utf8")) : {};
+      console.log(`  ${slot.padEnd(18)} ${embedTag({ name: pick.scene, path: relative(p.dir, join(dir, pick.scene + ".html")).replace(/^public\//, ""), content, view: p.data.embeds?.[pick.scene]?.view, base: baseOf() })}`);
+    }
+    if (!opts.base) console.log(`  (paths start at your site's root; for a site under a path, print them with --base /that/path/, or --base "" for paths relative to the page)`);
     console.log(`\nNext: write each scene's copy in its content.json, then site-motion sync. Check the set with site-motion score --project.`);
     return;
   }
