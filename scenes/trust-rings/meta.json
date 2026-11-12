@@ -11,6 +11,7 @@
   "home": "outline",
   "directable": [
     "stroke",
+    "elevation",
     "corner",
     "label",
     "type",

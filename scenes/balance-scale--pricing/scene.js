@@ -44,7 +44,8 @@
       const cur = content.currency || "$";
       const money = (n) => cur + group(n);
       const MAXT = content.maxTilt || 15;
-      const vFill = C.accent, pFill = mix(C.warning, C.surface, 0.18);
+      // the price is a neutral weight: a cost is not something going wrong, so it never takes the warning colour
+      const vFill = C.accent, pFill = mix(C.ink, C.surface, 0.62);
       const vText = textOn(vFill, C.onAccent || C.ink), pText = textOn(pFill, C.ink);
 
       const priceItem = content.price;
@@ -103,7 +104,8 @@
         const inside = 0.88 * w >= label.length * MONO + 6;
         const t = svg("text", { x, y: inside ? -bh / 2 + 4.2 : -bh - kh - 6, "text-anchor": "middle", class: "bp-amt", fill: inside ? txt : C.ink }, g);
         t.textContent = label;
-        return { node: g, w };
+        const half = (label.length * MONO) / 2;
+        return { node: g, w, text: t, inside, x0: x - half, x1: x + half };
       };
 
       const mkPan = (side) => {
@@ -124,9 +126,15 @@
       const pw = weight(payPan.load, 0, P, pFill, pText);
       const priceW = { ...pw, start: PRICE_AT, land: PRICE_AT + 0.22, out: Infinity, dy: 70 };
       let x = -(items.reduce((a, it) => a + k * Math.sqrt(it.amount), 0) + 10 * (items.length - 1)) / 2;
+      let prevLabel = null; // small weights stand close: a label over one that would touch its neighbour's steps up
       const valueW = items.map((it, i) => {
         const wd = k * Math.sqrt(it.amount);
         const wg = weight(getPan.load, x + wd / 2, it.amount, vFill, vText);
+        if (!wg.inside) {
+          const up = prevLabel && wg.x0 < prevLabel.x1 + 8 && !prevLabel.up;
+          if (up) wg.text.setAttribute("y", (parseFloat(wg.text.getAttribute("y")) - 18).toFixed(1));
+          prevLabel = { x1: wg.x1, up };
+        } else prevLabel = null;
         x += wd + 10;
         const start = DROP0 + i * DROP_GAP;
         const out = UNLOAD + motion.stagger(items.length - 1 - i, 0.1);
@@ -153,7 +161,7 @@
       const cell = (parent, it, amount) => {
         const c = el("div", "bp-cell", parent);
         el("div", "bp-cell-label", c, it.label || "");
-        el("div", "bp-cell-f", c, `${it.qty} ${it.unit || ""} × ${money(it.rate)}`);
+        el("div", "bp-cell-f", c, `${typeof it.qty === "number" ? it.qty.toLocaleString("en-US") : it.qty} ${it.unit || ""} × ${money(it.rate)}`);
         el("div", "bp-cell-amt", c, money(amount));
         return c;
       };

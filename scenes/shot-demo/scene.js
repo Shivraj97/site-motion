@@ -191,6 +191,7 @@
       // stage edges (dimming only the screen leaves a bright margin beside it once the camera is in)
       const spots = (c.spotlight || []).map((sp) => {
         const node = el("div", "sd-spot", kit.world);
+        node.dataset.smDim = "0.42"; // the dim's strength (scene.css), so check reads text under it as dimmed on purpose
         const hs = need(sp.on), pad = sp.pad ?? 10;
         Object.assign(node.style, { width: (hs.box[2] + 2 * pad) * s + "px", height: (hs.box[3] + 2 * pad) * s + "px", borderRadius: ((sp.r ?? hs.r ?? 10) + pad) * s + "px" });
         return { ...sp, node, pad };

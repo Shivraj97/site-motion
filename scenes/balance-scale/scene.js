@@ -43,7 +43,8 @@
       // our ratio and verdict in the accent ink, lifted until it reads at AA on this paper (dark themes)
       root.style.setProperty("--bs-ours", textOn(C.paper, C.accentInk || C.ink));
       const K = content.stiffness || 40;
-      const qFill = C.accent, cFill = mix(C.warning, C.surface, 0.18);
+      // the cost is a neutral weight: a cost is not something going wrong, so it never takes the warning colour
+      const qFill = C.accent, cFill = mix(C.ink, C.surface, 0.62);
       const qText = textOn(qFill, C.onAccent || C.ink), cText = textOn(cFill, C.ink);
 
       // ---------- copy ----------
