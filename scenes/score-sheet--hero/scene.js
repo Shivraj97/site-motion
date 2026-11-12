@@ -1,7 +1,7 @@
 /* score-sheet--hero: one agent run played as a single phrase, resolving into a chord (SVG).
  * The parent writes a whole multi-agent run as a score and sweeps a playhead across parallel bars. The hero keeps
  * the material (staves are agents, notes are steps, the stave string sounds when its agent works) and reduces it
- * to three wide, quiet five-line staves under a large headline. One run plays across them as a melodic line:
+ * to three wide, quiet five-line staves under a large headline (up to six: more staves draw smaller to fit). One run plays across them as a melodic line:
  * a cursor travels note to note, each note lands on the stave of the agent doing that step, and after the last
  * step the line comes to rest on a chord, one notehead per stave on a single stem, with the result beside it.
  * The summary's step count is the number of notes the phrase played. Everything clears before the seam.
@@ -26,11 +26,15 @@
       el("div", "ssh-h", head, content.heading || "");
       if (content.sub) el("div", "ssh-sub", root, content.sub);
 
-      // the system: three staves, names in the margin, a bracket on the left and a final double bar on the right
-      const SP = 20, LEFT = 216, END = 1252, X0 = 300, XC = 1172;
-      const staveNames = content.staves.slice(0, 3);
+      // the system: three staves (up to six), names in the margin, a bracket on the left and a final double bar on the right
+      const LEFT = 216, END = 1252, X0 = 300, XC = 1172;
+      const staveNames = content.staves.slice(0, 6);
       const n = staveNames.length;
-      const GAP = 150, CY0 = n === 3 ? 452 : n === 2 ? 527 : 602;
+      // up to three staves keep the hero's wide spacing; four to six shrink the staff to fit the same band (y 404–836)
+      const SP = n <= 3 ? 20 : Math.min(16, Math.floor(((432 - 30 * (n - 1)) / (4 * n)) * 10) / 10);
+      const GAP = n <= 3 ? 150 : 4 * SP + 30;
+      const CY0 = n <= 3 ? (n === 3 ? 452 : n === 2 ? 527 : 602) : 620 - ((n - 1) * GAP) / 2;
+      const LABEL_DY = n <= 3 ? 12 : 6;
       const notesIn = content.notes.filter((q) => q.stave < n);
       const beats = content.beats || Math.max(...notesIn.map((q) => q.at)) + 2;
       const bw = (XC - X0) / beats;
@@ -56,7 +60,7 @@
       // the phrase line runs under the noteheads; segments are drawn one by one as the cursor travels them
       const phraseLayer = svg("g", {}, s);
       const noteLayer = svg("g", {}, s);
-      const RX = 20, RY = 14, TILT = -20;
+      const K = SP / 20, RX = 20 * K, RY = 14 * K, TILT = -20;
       const NOTE = ui.stroke("regular", 1.6), INK = ui.strokeColor(C.ink);
       const notes = notesIn.map((q) => {
         const st = staves[q.stave];
@@ -66,7 +70,7 @@
         svg("ellipse", { cx: 0, cy: 0, rx: RX, ry: RY, transform: `rotate(${TILT})`, fill: st.colour, stroke: INK, "stroke-width": NOTE }, g);
         const label = el("div", "ssh-label", root, q.label || "");
         label.style.left = x + "px";
-        label.style.top = st.cy + 2 * SP + 12 + "px";
+        label.style.top = st.cy + 2 * SP + LABEL_DY + "px";
         return { ...q, x, y, g, ring, label, cy: st.cy };
       });
       notes.sort((a, b) => a.at - b.at);
@@ -78,8 +82,8 @@
       const chordHeads = staves.map((st, i) => {
         const y = yOf(st.cy, pitches[i] ?? 4);
         const g = svg("g", { opacity: 0 }, noteLayer);
-        svg("ellipse", { cx: 0, cy: 0, rx: RX + 3, ry: RY + 2, transform: `rotate(${TILT})`, fill: C.ink }, g);
-        const ring = svg("ellipse", { cx: XC, cy: y, rx: RX + 3, ry: RY + 2, fill: "none", stroke: C.accent, "stroke-width": 2.5, opacity: 0 }, noteLayer); // sm-native: the ping as the chord sounds is a state cue
+        svg("ellipse", { cx: 0, cy: 0, rx: RX + 3 * K, ry: RY + 2 * K, transform: `rotate(${TILT})`, fill: C.ink }, g);
+        const ring = svg("ellipse", { cx: XC, cy: y, rx: RX + 3 * K, ry: RY + 2 * K, fill: "none", stroke: C.accent, "stroke-width": 2.5, opacity: 0 }, noteLayer); // sm-native: the ping as the chord sounds is a state cue
         return { i, y, g, ring, order: Math.abs(i - land) };
       });
       const yTop = Math.min(...chordHeads.map((c) => c.y)), yBot = Math.max(...chordHeads.map((c) => c.y));

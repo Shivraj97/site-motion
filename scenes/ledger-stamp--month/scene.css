@@ -13,7 +13,7 @@
 .lsm-stat-k { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
 .lsm-stat-v { margin-top: 6px; font-size: 30px; line-height: 1.1; color: var(--c-ink); font-variant-numeric: tabular-nums; }
 .lsm-stat-v[data-kind="ok"] { color: var(--c-positive-text, var(--c-positive)); }
-.lsm-stat-v[data-kind="held"] { color: var(--c-warning-text, var(--c-warning)); }
+.lsm-stat-v[data-kind="held"] { color: var(--c-attention-text, var(--c-attention)); }
 
 .lsm-month { font-family: var(--font-display, var(--font-sans)); font-size: calc(40px * var(--sm-type-k, 1)); letter-spacing: var(--sm-type-tracking, -0.02em); font-weight: var(--sm-type-weight, 500); fill: var(--c-ink); }
 .lsm-year { fill: var(--c-muted); font-weight: 400; }

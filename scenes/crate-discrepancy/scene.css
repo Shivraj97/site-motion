@@ -25,14 +25,14 @@
 .cd-row { position: absolute; left: 12px; right: 12px; height: 64px; padding: 0 12px; box-sizing: border-box; border-bottom: var(--sm-stroke-hair, 1px) solid var(--c-line); }
 .cd-band { position: absolute; inset: 0; opacity: 0; }
 .cd-band-check { background: color-mix(in srgb, var(--c-accent) 10%, var(--c-surface)); box-shadow: inset 3px 0 0 var(--c-accent); }
-.cd-band-flag { background: color-mix(in srgb, var(--c-warning) 16%, var(--c-surface)); box-shadow: inset 3px 0 0 var(--c-warning); }
+.cd-band-flag { background: color-mix(in srgb, var(--c-attention) 16%, var(--c-surface)); box-shadow: inset 3px 0 0 var(--c-attention); }
 .cd-item { position: relative; display: flex; flex-direction: column; gap: 3px; white-space: nowrap; }
 .cd-name { font-size: 15px; color: var(--c-ink); line-height: 1.2; }
 .cd-code { font-family: var(--font-mono); font-size: 12px; color: var(--c-muted); }
 .cd-num { position: relative; font-size: 16px; color: var(--c-ink); font-variant-numeric: tabular-nums; height: 22px; line-height: 22px; }
 .cd-num > span { position: absolute; right: 0; top: 0; }
 .cd-dash { color: var(--c-muted); }
-.cd-val[data-flag] { color: var(--c-warning-text, var(--c-warning)); font-weight: 600; }
+.cd-val[data-flag] { color: var(--c-attention-text, var(--c-attention)); font-weight: 600; }
 .cd-mark { position: relative; width: 26px; height: 26px; }
 .cd-mark svg { position: absolute; inset: 0; overflow: visible; }
 
@@ -40,13 +40,13 @@
 .cd-sum-row { display: flex; align-items: baseline; gap: 12px; white-space: nowrap; }
 .cd-big { display: inline-block; font-family: var(--font-display, var(--font-sans)); font-size: calc(64px * var(--sm-type-k, 1)); line-height: 1; letter-spacing: var(--sm-type-tracking, -0.03em); font-weight: var(--sm-type-weight, 400); color: var(--c-ink); font-variant-numeric: tabular-nums; min-width: 1.25em; }
 .cd-flagrow { margin-top: 14px; align-items: center; }
-.cd-flagrow b { display: inline-block; font-family: var(--font-display, var(--font-sans)); font-size: calc(30px * var(--sm-type-k, 1)); line-height: 1; font-weight: 500; color: var(--c-warning-text, var(--c-warning)); font-variant-numeric: tabular-nums; min-width: .7em; }
-.cd-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--c-warning); flex: none; margin: 0 2px 0 3px; }
+.cd-flagrow b { display: inline-block; font-family: var(--font-display, var(--font-sans)); font-size: calc(30px * var(--sm-type-k, 1)); line-height: 1; font-weight: 500; color: var(--c-attention-text, var(--c-attention)); font-variant-numeric: tabular-nums; min-width: .7em; }
+.cd-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--c-attention); flex: none; margin: 0 2px 0 3px; }
 .cd-sum .cd-label { font-size: 14px; }
 
 /* the note that floats with the short tray */
-.cd-note { position: absolute; box-sizing: border-box; width: 268px; height: 70px; padding: 0 16px; display: flex; flex-direction: column; justify-content: center; gap: 4px; background: var(--c-surface); border-radius: var(--sm-radius-sm, 6px); box-shadow: 0 0 0 var(--sm-stroke-regular, 1.5px) var(--c-warning), var(--sm-shadow-2, 0 16px 30px -22px rgba(0,0,0,.4)); opacity: 0; white-space: nowrap; }
-.cd-note-k { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-warning-text, var(--c-warning)); font-weight: 500; }
+.cd-note { position: absolute; box-sizing: border-box; width: 268px; height: 70px; padding: 0 16px; display: flex; flex-direction: column; justify-content: center; gap: 4px; background: var(--c-surface); border-radius: var(--sm-radius-sm, 6px); box-shadow: 0 0 0 var(--sm-stroke-regular, 1.5px) var(--c-attention), var(--sm-shadow-2, 0 16px 30px -22px rgba(0,0,0,.4)); opacity: 0; white-space: nowrap; }
+.cd-note-k { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-attention-text, var(--c-attention)); font-weight: 500; }
 .cd-note-v { font-size: 18px; font-weight: 500; color: var(--c-ink); font-variant-numeric: tabular-nums; }
 
 .cd-pallet { position: absolute; transform: translateX(-50%); font-size: 12px; white-space: nowrap; }

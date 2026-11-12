@@ -38,7 +38,7 @@ Outputs land in `out/<content>-<tokens>/`. `--range loop` exports only the seaml
 
 ## Workflow
 
-**A whole site (several sections or pages) starts with a plan, not with one scene.** Run `node $SM plan` in the project:
+**A whole site (several sections or pages) starts with a plan, not with one scene.** Brand first: `node $SM theme <their-url> --out brand.json`, check its notes and fix by eye, so the plan (and every scene `plan apply` adds) is in their colours; `plan` uses `brand.json` from the folder or `--tokens <file>`, and says when it falls back to the default colours. Then run `node $SM plan` in the project:
 - with `--brief brief.md` when you know the sections. This is the best input. Write the brief from the site's real copy:
   ```markdown
   # Acme: what the product does, in one line
@@ -329,13 +329,13 @@ Tokens are the brand. A style pack (`styles/*.json`) is the art direction every 
 {
   "name": "Brand",
   "color": { "paper": "#…", "surface": "#…", "raised": "#…", "ink": "#…", "muted": "#…", "faint": "#…", "line": "#…",
-             "accent": "#…", "accentInk": "#…", "onAccent": "#…", "positive": "#…", "warning": "#…" },
+             "accent": "#…", "accentInk": "#…", "onAccent": "#…", "positive": "#…", "warning": "#…", "attention": "#…" },
   "palette": ["#…", "#…", "#…", "#…", "#…", "#…"],
   "font": { "sans": "…", "mono": "…", "display": "…", "import": "https://fonts.googleapis.com/css2?…&display=block" },
   "radius": { "sm": 6, "md": 12, "lg": 20 }
 }
 ```
-`font.display` is optional: headline type (`--font-display`), falling back to `sans` in every scene.
+`attention` is optional: the colour for things that wait on a person (held, needs approval), apart from `warning` (something went wrong); it defaults to `warning`. `font.display` is optional: headline type (`--font-display`), falling back to `sans` in every scene.
 `paper, surface, ink, muted, line, accent` and 3+ palette colours are required. They become CSS variables (`--c-paper`, `--c-accent-ink`, `--p-0`, `--font-mono`, `--r-md`) and are passed to the scene as `tokens`. Use `display=block` for web fonts so frames never render in a fallback face.
 
 ## Writing a new scene

@@ -18,7 +18,7 @@
 .ls-stamp-date { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .08em; }
 .ls-seal { font-family: var(--font-mono); font-size: 7.5px; font-weight: 500; letter-spacing: .1em; fill: var(--c-on-accent, #fff); }
 .ls-seal-hash { font-family: var(--font-mono); font-size: 7px; fill: var(--c-on-accent, #fff); opacity: .85; }
-.ls-held { font-family: var(--font-sans); font-size: 11.5px; font-weight: 500; fill: var(--c-warning-text, var(--c-warning)); }
+.ls-held { font-family: var(--font-sans); font-size: 11.5px; font-weight: 500; fill: var(--c-attention-text, var(--c-attention)); }
 
 .ls-log { position: absolute; left: 110px; top: 520px; width: 470px; padding: 16px 20px 10px; border-radius: var(--sm-radius-md, var(--r-md, 12px)); background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, var(--stroke-w, 1px)) var(--sm-stroke-color, var(--c-stroke, var(--c-line))), var(--sm-shadow-2, 0 18px 40px -26px rgba(0,0,0,.35)); }
 .ls-log-head { display: flex; align-items: center; gap: 10px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .04em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); padding-bottom: 12px; border-bottom: var(--sm-stroke-hair, 1px) solid var(--c-line); white-space: nowrap; }
@@ -30,7 +30,7 @@
 .ls-amt { color: var(--c-ink); font-variant-numeric: tabular-nums; }
 .ls-st { font-family: var(--font-mono); font-size: 12px; padding: 3px 10px; border-radius: 999px; }
 .ls-st[data-kind="ok"] { background: color-mix(in srgb, var(--c-positive) 14%, transparent); color: var(--c-positive-text, var(--c-positive)); }
-.ls-st[data-kind="held"] { background: color-mix(in srgb, var(--c-warning) 16%, transparent); color: var(--c-warning-text, var(--c-warning)); }
+.ls-st[data-kind="held"] { background: color-mix(in srgb, var(--c-attention) 16%, transparent); color: var(--c-attention-text, var(--c-attention)); }
 
 /* ---------- legible layout (content.legible): nothing under 15px, focal text 24px+, no shadows, corners <= 3 ---------- */
 .ls-L .ls-L-copy { left: 48px; top: 88px; width: 480px; }
@@ -51,7 +51,7 @@
 .ls-L-stamp-date { font-family: var(--font-mono); font-size: 15px; letter-spacing: .06em; }
 .ls-L-seal { font-family: var(--font-mono); font-size: 15px; font-weight: 500; letter-spacing: .06em; fill: var(--c-on-accent, #fff); }
 .ls-L-seal-hash { font-family: var(--font-mono); font-size: 15px; fill: var(--c-on-accent, #fff); opacity: .85; }
-.ls-L-held { font-family: var(--font-sans); font-size: 18px; font-weight: 500; fill: var(--c-warning-text, var(--c-warning)); }
+.ls-L-held { font-family: var(--font-sans); font-size: 18px; font-weight: 500; fill: var(--c-attention-text, var(--c-attention)); }
 
 .ls-L .ls-L-log { box-sizing: border-box; padding: 22px 26px 0; border-radius: var(--r-sm, 2px); box-shadow: 0 0 0 var(--sm-stroke-fine, var(--stroke-w, 1px)) var(--sm-stroke-color, var(--c-stroke, var(--c-line))); }
 .ls-L .ls-L-head { display: block; font-size: 18px; padding-bottom: 14px; }

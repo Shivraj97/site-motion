@@ -7,6 +7,8 @@
  * Everything shown comes from content.json: periods, tracks, milestone titles, dates, positions (`at`, `end` in
  * period units from the axis start), the card's status and note, and the words in the summary line. Positions,
  * label slots (above or below the rail) and widths are computed from the arrays and measured text.
+ * A milestone's optional `state` ("done", "active" or "planned") is what it shows once the playhead reaches it:
+ * without one, passing it means done; "active" fills it halfway and counts it in progress; "planned" stays outlined.
  * Keep the highlight right of the heading column (about the right 55% of the axis) so the card has room.
  */
 (function () {
@@ -56,7 +58,7 @@
         const label = el("div", "rr-ms", root);
         const title = el("div", "rr-ms-t", label, m.title);
         el("div", "rr-ms-d", label, m.date || "");
-        ms.push({ ti, m, at: m.at, end: m.end, range: m.end != null && m.end > m.at, hl: !!m.highlight, label, title });
+        ms.push({ ti, m, at: m.at, end: m.end, range: m.end != null && m.end > m.at, hl: !!m.highlight, state: ["done", "active", "planned"].includes(m.state) ? m.state : null, label, title });
       }));
       if (!ms.some((x) => x.hl) && ms.length) [...ms].sort((a, b) => a.at - b.at)[Math.floor(ms.length * 0.6)].hl = true;
       const hl = ms.find((x) => x.hl);
@@ -272,20 +274,25 @@
         h.set(x.g, { transform: `translate(${x.x.toFixed(1)} ${x.y.toFixed(1)}) scale(${sc.toFixed(3)})`, opacity: a.toFixed(3) });
         x.label.style.opacity = a.toFixed(3);
         x.label.style.transform = `translateY(${((1 - a) * 6).toFixed(1)}px)`;
-        const reached = live && t >= x.tDone ? 1 : 0;
+        // a milestone's own state wins over the playhead: planned never fills, active fills halfway
+        const reached = live && t >= x.tDone && x.state !== "planned" ? 1 : 0;
+        const isActive = x.state === "active";
         const d = reached * pv;
         if (x.range) {
-          const prog = live && t >= T0 ? clamp((pos - x.at) / (x.end - x.at)) : 0;
+          const run = live && t >= T0 && x.state !== "planned" ? clamp((pos - x.at) / (x.end - x.at)) : 0;
+          const prog = isActive ? Math.min(run, 0.5) : run;
           h.set(x.fill, { width: ((x.xe - x.x) * prog).toFixed(1), opacity: pv.toFixed(3) });
           h.set(x.edge, { opacity: (prog > 0 ? pv : 0).toFixed(3) });
-          if (prog > 0 && prog < 1 && pv > 0.5) active++;
+          if (prog > 0 && (isActive || prog < 1) && pv > 0.5) active++;
         } else {
           const pop = tw(t, x.tDone, 0.4, "snappy");
-          h.set(x.dot, { opacity: d.toFixed(3), transform: x.hl ? `rotate(45) scale(${(0.7 + 0.3 * pop).toFixed(3)})` : `scale(${(0.7 + 0.3 * pop).toFixed(3)})` });
-          h.set(x.tick, { opacity: (d * pop).toFixed(3) });
+          h.set(x.dot, { opacity: (isActive ? d * 0.5 : d).toFixed(3), transform: x.hl ? `rotate(45) scale(${(0.7 + 0.3 * pop).toFixed(3)})` : `scale(${(0.7 + 0.3 * pop).toFixed(3)})` });
+          h.set(x.tick, { opacity: (isActive ? 0 : d * pop).toFixed(3) });
+          if (isActive && d > 0.5) active++;
         }
-        if (d > 0.5) { done++; perTrack[x.ti]++; }
-        x.title.classList.toggle("is-done", d > 0.5);
+        const isDone = d > 0.5 && !isActive;
+        if (isDone) { done++; perTrack[x.ti]++; }
+        x.title.classList.toggle("is-done", isDone);
         // a ring rings out as the playhead reaches it
         const ping = live && t >= x.tDone ? tw(t, x.tDone, x.hl ? 0.9 : 0.7, "soft") : 0;
         h.set(x.ring, { r: (10 + ping * (x.hl ? 30 : 16)).toFixed(1), opacity: (ping > 0 && ping < 1 ? (1 - ping) * 0.8 * pv : 0).toFixed(3) });

@@ -99,7 +99,7 @@ void main() {
         return { t, pill, lat, bar, r };
       });
       const neighbour = content.regions.findIndex((r) => r.id === content.storm.reroute);
-      const arrow = el("div", "wb-arrow", root, `→ rerouting to ${content.storm.reroute}`);
+      const arrow = el("div", "wb-arrow", root, (content.rerouteLabel || "→ rerouting to {region}").replace("{region}", content.storm.reroute));
       const n = tiles[neighbour];
       Object.assign(arrow.style, { left: parseFloat(tiles[target].t.style.left) + "px", top: parseFloat(tiles[target].t.style.top) + tileH - 4 + "px" });
       const copy = el("div", "wb-copy", root);
@@ -107,10 +107,10 @@ void main() {
       el("div", "wb-h", copy, content.heading || "");
       el("div", "wb-sub", copy, content.sub || "");
       const stats = el("div", "wb-stats", root);
-      const s1 = el("div", "", stats); const up = el("b", "", s1, content.uptime || "99.99%"); el("span", "", s1, "uptime, 90 days");
-      const s2 = el("div", "", stats); const failed = el("b", "", s2, "0"); el("span", "", s2, "failed requests");
+      const s1 = el("div", "", stats); const up = el("b", "", s1, content.uptime || "99.99%"); el("span", "", s1, content.uptimeLabel || "uptime, 90 days");
+      const s2 = el("div", "", stats); const failed = el("b", "", s2, String(content.failed ?? "0")); el("span", "", s2, content.failedLabel || "failed requests");
       void up; void n;
-      return { renderer, scene, camera, uniforms, tiles, target, neighbour, arrow, failed, storm: content.storm };
+      return { renderer, scene, camera, uniforms, tiles, target, neighbour, arrow, failed, failedText: String(content.failed ?? "0"), storm: content.storm };
     },
 
     render(t, S, h) {
@@ -134,14 +134,16 @@ void main() {
         tile.pill.dataset.kind = kind;
         // latency from the region's base, rising with the storm on the target only
         const base = tile.r.p95 ?? 40;
-        const lat = Math.round(base + (i === S.target ? storm * 180 : 0));
+        // the storm region's p95 climbs to storm.peakP95 when given (else 180 ms above its base)
+        const rise = st.peakP95 != null ? Math.max(0, st.peakP95 - base) : 180;
+        const lat = Math.round(base + (i === S.target ? storm * rise : 0));
         tile.lat.textContent = `p95 ${lat} ms`;
         const load = (tile.r.load ?? 0.4) + (i === S.neighbour ? storm * 0.45 : 0) - (i === S.target ? storm * 0.35 : 0);
         tile.bar.style.transform = `scaleX(${clamp(load).toFixed(3)})`;
         tile.t.style.setProperty("--alert", i === S.target ? storm.toFixed(3) : "0");
       });
       S.arrow.style.opacity = (rerouted ? Math.min(1, storm * 2) : 0).toFixed(3);
-      S.failed.textContent = "0";
+      S.failed.textContent = S.failedText;
     },
   });
 })();

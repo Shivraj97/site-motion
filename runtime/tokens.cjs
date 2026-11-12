@@ -69,6 +69,9 @@
     c.onAccent = c.onAccent || (contrast(c.accent, "#ffffff") >= contrast(c.accent, c.ink) ? "#ffffff" : c.ink);
     c.positive = c.positive || (dark ? "#4cc46a" : "#2f9e44");
     c.warning = c.warning || (dark ? "#f0b24f" : "#d9822b");
+    // attention: something that waits on a person (held, needs approval); warning: something went wrong.
+    // A brand that doesn't tell them apart gets one colour for both.
+    c.attention = c.attention || c.warning;
     // text shades: readable on paper, on surface and on the colour's own pale tint (status pills and badges use up
     // to a 20% tint of the colour as their background)
     const ink = dark ? "#ffffff" : c.ink;
@@ -77,7 +80,7 @@
     // towards ink; one that already reads is left exactly as the brand set it. Scenes shade their own grounds a little
     // past raised (a sky, a table band), so the check runs against one step darker than raised too.
     c.muted = readable(c.muted, [c.paper, c.surface, c.raised, mix(c.raised, c.ink, dark ? 0.04 : 0.06)], ink);
-    for (const k of ["accent", "positive", "warning"]) {
+    for (const k of ["accent", "positive", "warning", "attention"]) {
       const key = k + "Text";
       c[key] = c[key] || readable(c[k], [c.paper, c.surface, mix(c.surface, c[k], 0.2)], ink);
     }
@@ -87,7 +90,7 @@
     // text on a solid status fill (a check disc, a "passed" banner, a "fragile" sticker): ink when it reads there,
     // otherwise the nearest shade that does. On a dark theme the light ink fails on a bright green, so it starts from
     // the paper instead.
-    for (const k of ["positive", "warning"]) {
+    for (const k of ["positive", "warning", "attention"]) {
       const key = "on" + k[0].toUpperCase() + k.slice(1);
       c[key] = c[key] || textOn(c[k], dark ? c.paper : c.ink);
     }

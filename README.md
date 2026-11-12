@@ -76,6 +76,7 @@ Or try looks in the browser: the [Style Studio](https://sitemotion.dev/studio) p
 Instead of picking scenes one by one, give site-motion the site and approve one sheet:
 
 ```bash
+npx github:Shivraj97/site-motion theme https://yoursite.com --out brand.json   # your brand first (check its notes, fix by eye)
 npx github:Shivraj97/site-motion plan --brief brief.md          # one "## page" heading, one "- slot: copy" line per section (below)
 npx github:Shivraj97/site-motion plan --url https://yoursite.com  # or read your live pages' own headings
 npx github:Shivraj97/site-motion plan swap home.feature-2 galton-router   # change a pick, then: plan sheet
@@ -91,7 +92,7 @@ A brief is your real copy, one heading per page and one line per section:
 - feature: Connect your bank, payroll and CRM once.
 ```
 
-Every section gets one scene (each used once, matched on the stories its words name), all in the hero's look. `site-motion-plan.png` shows the whole set as it will ship, with the score's verdict on top. A pick that had no strong match is marked `?` and says what would have fit better.
+The plan uses `brand.json` from the folder (or `--tokens <file>`); without one it says so and starts in the default colours. Every section gets one scene (each used once, matched on the stories its words name), all in the hero's look. `site-motion-plan.png` shows the whole set as it will ship, with the score's verdict on top. A pick that had no strong match is marked `?` and says what would have fit better.
 
 ### The same look for your own components
 
@@ -260,7 +261,7 @@ Token presets: `default`, `mint`, `ledger`, `night`.
 
 A product demo is your product's screen rebuilt in the browser, with a cursor doing one job and a camera following it. Start from one of the free demos (`click-to-done`, `dashboard-push`, `phone-stack`, `agent-checkout`), from a screenshot with `shot`, or ask Claude to build a new screen with `runtime/ui-kit.js`. The walkthrough is in [the docs](https://sitemotion.dev/docs).
 
-**MCP server:** `node mcp/server.mjs` serves six tools over stdio (list scenes, theme from a URL, build, render, export the look, plan a site) for Cursor, Codex or any MCP client.
+**MCP server:** `node mcp/server.mjs` serves ten tools over stdio (list scenes, theme from a URL, build, render, export the look, plan a site, add a scene, sync the project, check a scene, a demo from a screenshot) for Cursor, Codex or any MCP client.
 
 ## How it works
 

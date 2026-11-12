@@ -41,7 +41,7 @@ const INSTRUCTIONS = `site-motion makes animated website scenes (hero and featur
 Workflow: list_scenes → pick the scene whose story fits the product → (theme_from_url to draft tokens from the brand's site, then check its notes) → build_scene with the tokens and a partial content object using the product's real nouns and numbers → render_scene with formats ["png","sheet"] first and look at the contact sheet → fix content → render_scene with ["mp4","webp"].
 Colours come only from tokens; copy only from content (never edit a scene for copy). Use fictional names for third-party brands.
 One look per site: if list_scenes reports a project (a site-motion.json), leave tokens and style out of build_scene and the project's brand and style pack apply to every scene. Without a project, pick one style pack from list_scenes (the home pack of the first scene chosen) and pass that same style to every build_scene for the site.
-A whole site: plan_site maps every section (from page names, a brief, or the live site's headings) to one scene in one look and draws a contact sheet. Show the sheet to the user and get their approval (swap picks they don't like) before plan_site action "apply" adds the scenes.
+A whole site: save the brand first (theme_from_url with out "brand.json", corrected by eye), then plan_site maps every section (from page names, a brief, or the live site's headings) to one scene in one look and draws a contact sheet. Show the sheet to the user and get their approval (swap picks they don't like) before plan_site action "apply" adds the scenes.
 In a project: add_scene copies a scene in (the site owns it), edit its content.json for the words and numbers, then sync_project rebuilds every embed; check_scene before shipping. A product screenshot becomes a demo with shot_from_image, then add_scene shot-demo with its content.json.
 Beyond the scenes: export_style gives the same look as CSS variables, a Tailwind v4 @theme, DTCG tokens or a DESIGN.md section. When you build the site's own buttons, cards and transitions, use those values (shadows, radii, easing, label style) instead of inventing new ones.`;
 
@@ -121,7 +121,7 @@ const TOOLS = [
   {
     name: "plan_site",
     title: "Plan every animation on a site, in one look",
-    description: "Maps each section of a whole site to one scene, all in one look, and draws a contact sheet (attached) with a consistency verdict. Sections come from `pages` (templates: home, features, pricing, security, integrations, about…), a `brief` (markdown: '## page' then '- hero: words' lines; or a file path), or `url` (the live site's own headings). Writes the plan into site-motion.json (creating it, locked to the hero's look). Then: action \"swap\" with slot+scene to change a pick, \"sheet\" to re-draw, \"apply\" to add every planned scene. Get the user's approval of the sheet before apply. A pick marked weak (?) had no strong match: check it.",
+    description: "Maps each section of a whole site to one scene, all in one look, and draws a contact sheet (attached) with a consistency verdict. Sections come from `pages` (templates: home, features, pricing, security, integrations, about…), a `brief` (markdown: '## page' then '- hero: words' lines; or a file path), or `url` (the live site's own headings). Writes the plan into site-motion.json (creating it, locked to the hero's look, in the brand from `tokens`, else a brand.json in the project folder, else the default preset: save theme_from_url's tokens with out \"brand.json\" first). Then: action \"swap\" with slot+scene to change a pick, \"sheet\" to re-draw, \"apply\" to add every planned scene. Get the user's approval of the sheet before apply. A pick marked weak (?) had no strong match: check it.",
     inputSchema: {
       type: "object",
       properties: {
@@ -133,6 +133,7 @@ const TOOLS = [
         slot: { type: "string", description: "For swap: the slot, e.g. home.feature-2." },
         scene: { type: "string", description: "For swap: the scene to put there." },
         sheet: { type: "boolean", description: "Draw the contact sheet after new (default true)." },
+        tokens: { type: "string", description: "For new: the site's brand, a token file path (e.g. brand.json from theme_from_url's out) or a preset name. Without it a brand.json in the project folder is used, else the default preset. A project still on the default preset takes it." },
         motif: { type: ["string", "boolean"], description: "For new: one motif. Build the home page from one concept and its variants (hero, feature, cta…). A concept name, or true for the hero's best concept." },
       },
       additionalProperties: false,
@@ -167,7 +168,7 @@ const TOOLS = [
       type: "object",
       properties: {
         scene: { type: "string", description: "Scene name from list_scenes (e.g. step-rail, score-sheet--hero, shot-demo)." },
-        tokens: { type: "string", description: "Only before the first add: a preset name or a token file path. After that the project's brand applies." },
+        tokens: { type: "string", description: "A preset name or a token file path. Sets the project's brand on the first add, or when the project is still on the default preset; after that the project's brand applies." },
         content: { type: "string", description: "A content JSON file to start from (deep-merged over the scene's defaults). asset: files it names are copied into the scene folder." },
         dir: { type: "string", description: "Folder for the scenes. Defaults to public/motion if the project has public/, else motion." },
         view: { type: "string", enum: ["hero", "strip", "card", "compact"], description: "Product demos only: the cut of the 1600×900 design." },
@@ -277,7 +278,7 @@ function exportStyleTool({ format = "css", style, tokens, out } = {}) {
   return { format, look, file, bytes: Buffer.byteLength(text) };
 }
 
-async function planSiteTool({ action = "new", pages, about, brief, url, slot, scene, sheet = true, motif } = {}, ctx) {
+async function planSiteTool({ action = "new", pages, about, brief, url, slot, scene, sheet = true, motif, tokens } = {}, ctx) {
   const args = ["plan"];
   if (action !== "new") args.push(action);
   let tmp = null;
@@ -291,6 +292,7 @@ async function planSiteTool({ action = "new", pages, about, brief, url, slot, sc
     } else if (url !== undefined) args.push("--url", String(url));
     else args.push("--pages", (Array.isArray(pages) && pages.length ? pages : ["home"]).map(String).join(","));
     if (about) args.push("--about", String(about));
+    if (tokens) args.push("--tokens", String(tokens));
     if (!sheet) args.push("--no-sheet");
     if (motif === true) args.push("--motif");
     else if (motif) args.push("--motif", String(motif));
@@ -304,7 +306,7 @@ async function planSiteTool({ action = "new", pages, about, brief, url, slot, sc
     const found = findProject(WORKDIR);
     const sheetFile = r.stdout.match(/^sheet\s+(.+)$/m)?.[1];
     const sheetPath = sheetFile ? resolve(WORKDIR, sheetFile) : null;
-    const result = { action, file: found?.file, look: found?.data.style, plan: found?.data.plan?.slots, score: r.stdout.match(/^score\s+(.+)$/m)?.[1], ...(sheetPath ? { sheet: sheetPath } : {}), ...(action === "apply" ? { log: r.stdout.trim() } : {}) };
+    const result = { action, file: found?.file, look: found?.data.style, tokens: found?.data.tokens, plan: found?.data.plan?.slots, score: r.stdout.match(/^score\s+(.+)$/m)?.[1], ...(sheetPath ? { sheet: sheetPath } : {}), ...(action === "apply" ? { log: r.stdout.trim() } : {}) };
     const content = [{ type: "text", text: JSON.stringify(result, null, 2) }];
     if (sheetPath && existsSync(sheetPath) && statSync(sheetPath).size < 4 * 1024 * 1024) content.push({ type: "image", data: readFileSync(sheetPath).toString("base64"), mimeType: "image/png" });
     return { result, content };
@@ -428,7 +430,9 @@ async function themeFromUrl({ url, scheme, fast, out } = {}, ctx) {
       writeFileSync(file, JSON.stringify(tokens, null, 2) + "\n");
       result.saved = file;
     }
-    result.next = `build_scene { "scene": "<name>", "tokens": ${out ? JSON.stringify(result.saved) : "<this tokens object>"} }`;
+    result.next = out
+      ? `plan_site { "url": "${parsed.href}", "tokens": ${JSON.stringify(out)} } for a whole site, or build_scene { "scene": "<name>", "tokens": ${JSON.stringify(result.saved)} }`
+      : `save these with out "brand.json" before plan_site or add_scene, or pass them to build_scene { "scene": "<name>", "tokens": <this tokens object> }`;
     return result;
   } finally {
     rmSync(tmp, { recursive: true, force: true });

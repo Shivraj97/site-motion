@@ -1,7 +1,7 @@
 /* crate-discrepancy: reconciliation as unpacking (SVG + DOM).
  * A delivery crate is unpacked against its packing slip. Trays lift out of the shredded paper one at a time;
  * while a tray is in the air its line on the slip lights up, and when it lands on the pallet the line gets the
- * received count and a tick. The one tray that doesn't match its line (two places empty) glows in the warning
+ * received count and a tick. The one tray that doesn't match its line (two places empty) glows in the attention
  * colour and floats up instead, with a note tied to its flagged line. The slip's total is the sum of what landed.
  *
  * Every tray's path is planned in setup from content (crate position seeded, pallet slot from its order), and
@@ -139,8 +139,8 @@
       // ---------- trays ----------
       const items = plan.map((p) => {
         const g = svg("g", { transform: `translate(${p.cx} ${IN_Y})` }, trayLayer);
-        const halo = svg("rect", { x: -p.w / 2 - 18, y: -TH / 2 - 18, width: p.w + 36, height: TH + 36, rx: ui.radius("lg", 22), fill: alpha(C.warning, 0.24), opacity: 0 }, g);
-        const ring = svg("rect", { x: -p.w / 2 - 6, y: -TH / 2 - 6, width: p.w + 12, height: TH + 12, rx: ui.radius("md", 14), fill: "none", stroke: C.warning, "stroke-width": ui.stroke("regular", 2), opacity: 0 }, g);
+        const halo = svg("rect", { x: -p.w / 2 - 18, y: -TH / 2 - 18, width: p.w + 36, height: TH + 36, rx: ui.radius("lg", 22), fill: alpha(C.attention, 0.24), opacity: 0 }, g);
+        const ring = svg("rect", { x: -p.w / 2 - 6, y: -TH / 2 - 6, width: p.w + 12, height: TH + 12, rx: ui.radius("md", 14), fill: "none", stroke: C.attention, "stroke-width": ui.stroke("regular", 2), opacity: 0 }, g);
         const body = svg("rect", { x: -p.w / 2, y: -TH / 2, width: p.w, height: TH, rx: ui.radius("md", 10), fill: C.surface, ...OUT }, g);
         svg("line", { x1: -p.w / 2, x2: p.w / 2, y1: TH / 2 - BAND, y2: TH / 2 - BAND, ...ui.strokeAttrs("hair", 1, C.line) }, g);
         const sku = svg("text", { x: 0, y: TH / 2 - 7, "text-anchor": "middle", class: "cd-sku" }, g);
@@ -193,7 +193,7 @@
           tick = svg("path", { d: "M5 13.5L10.5 19L21 7.5", fill: "none", stroke: C.positiveText || C.positive, "stroke-width": 2.6, "stroke-linecap": "round", "stroke-linejoin": "round", pathLength: 1, "stroke-dasharray": 1, "stroke-dashoffset": 1 }, ms);
         } else {
           flagMark = svg("g", { opacity: 0 }, ms);
-          svg("circle", { cx: 13, cy: 13, r: 11, fill: C.warning }, flagMark);
+          svg("circle", { cx: 13, cy: 13, r: 11, fill: C.attention }, flagMark);
           // sm-native: the exclamation mark is a glyph
           svg("path", { d: "M13 7.5V14", stroke: C.onWarning || C.ink, "stroke-width": 2.6, "stroke-linecap": "round" }, flagMark);
           svg("circle", { cx: 13, cy: 18.3, r: 1.6, fill: C.onWarning || C.ink }, flagMark);
@@ -230,9 +230,9 @@
       const nx = HOVER.x + NOTE.w / 2, ny = HOVER.y + TH / 2 + 40 + NOTE.h / 2;
       const ex = SHEET.x + 14, ey = ROW0 + badRow * RH + RH / 2;
       const lead = svg("g", { "clip-path": "url(#cd-lead)", opacity: 0 }, top);
-      svg("path", { d: `M${nx} ${ny}C${nx + 70} ${ny} ${ex - 80} ${ey} ${ex} ${ey}`, fill: "none", stroke: C.warning, "stroke-width": ui.stroke("regular", 2), "stroke-dasharray": "5 5", "stroke-linecap": "round" }, lead);
-      svg("circle", { cx: ex, cy: ey, r: 4.5, fill: C.warning, ...ui.strokeAttrs("fine", 1.2, INK) }, lead);
-      svg("circle", { cx: nx, cy: ny, r: 3.5, fill: C.warning }, lead);
+      svg("path", { d: `M${nx} ${ny}C${nx + 70} ${ny} ${ex - 80} ${ey} ${ex} ${ey}`, fill: "none", stroke: C.attention, "stroke-width": ui.stroke("regular", 2), "stroke-dasharray": "5 5", "stroke-linecap": "round" }, lead);
+      svg("circle", { cx: ex, cy: ey, r: 4.5, fill: C.attention, ...ui.strokeAttrs("fine", 1.2, INK) }, lead);
+      svg("circle", { cx: nx, cy: ny, r: 3.5, fill: C.attention }, lead);
       // the clipboard's clip holds the sheet down
       const cx0 = SHEET.x + SHEET.w / 2;
       svg("rect", { x: cx0 - 84, y: SHEET.y - 46, width: 168, height: 70, rx: ui.radius("md", 14), fill: mix(C.ink, C.paper, 0.3), ...OUT }, top);
@@ -273,8 +273,8 @@
           const ph = t >= p.flagAt ? ((t - p.flagAt) / PING) % 1 : 0;
           set(it.ring, { opacity: (t >= p.flagAt ? 0.7 * (1 - ph) : 0).toFixed(3), transform: `scale(${(1 + 0.22 * ph).toFixed(4)})` });
           const warm = on > 0.5;
-          set(it.body, { stroke: warm ? C.warning : h.ui.strokeColor(C.stroke || C.ink), "stroke-width": warm ? h.ui.stroke("bold", 3) : h.ui.stroke("regular", 1.5) });
-          it.sockets.forEach((c) => set(c, { stroke: warm ? C.warning : C.faint || C.line, fill: warm ? h.alpha(C.warning, 0.2) : "none" }));
+          set(it.body, { stroke: warm ? C.attention : h.ui.strokeColor(C.stroke || C.ink), "stroke-width": warm ? h.ui.stroke("bold", 3) : h.ui.stroke("regular", 1.5) });
+          it.sockets.forEach((c) => set(c, { stroke: warm ? C.attention : C.faint || C.line, fill: warm ? h.alpha(C.attention, 0.2) : "none" }));
         }
         set(it.g, { transform: `translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${rot.toFixed(2)}) scale(${(p.ok ? 1 : grow).toFixed(4)})`, opacity: op.toFixed(3) });
       });

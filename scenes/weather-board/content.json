@@ -5,6 +5,10 @@
   "heading": "Storms happen.\nYour users never\nnotice.",
   "sub": "Regions fail over on their own, before anyone is paged.",
   "uptime": "99.99%",
+  "uptimeLabel": "uptime, 90 days",
+  "failed": "0",
+  "failedLabel": "failed requests",
+  "rerouteLabel": "→ rerouting to {region}",
   "columns": 3,
   "regions": [
     { "id": "us-west", "city": "Oregon", "p95": 38, "load": 0.42 },
@@ -17,5 +21,15 @@
     { "id": "ap-east", "city": "Singapore", "p95": 44, "load": 0.46 },
     { "id": "ap-north", "city": "Tokyo", "p95": 41, "load": 0.44 }
   ],
-  "storm": { "region": "eu-west", "reroute": "eu-central", "at": 1.6, "clear": 8.4, "flashes": [3.7, 4.5] }
+  "storm": {
+    "region": "eu-west",
+    "reroute": "eu-central",
+    "at": 1.6,
+    "clear": 8.4,
+    "flashes": [
+      3.7,
+      4.5
+    ],
+    "peakP95": 216
+  }
 }

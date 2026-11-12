@@ -1,7 +1,7 @@
 /* ledger-stamp--month: a month of approvals as a stamped calendar page (SVG + DOM). Metrics variant of ledger-stamp.
  * The parent's rubber stamp leaves the belt and works a desk calendar: day by day it stamps each working day's cell
  * APPROVED. A busier day collects more overlapping impressions (denser ink) and prints its payment count; a day
- * with held payments also gets a warning HELD mark, which a second approver's stamp clears a day or two later.
+ * with held payments also gets an attention-coloured HELD mark, which a second approver's stamp clears a day or two later.
  * The total beside the page is the sum of the cells stamped so far (held ones count once they are cleared), so it
  * lands on content.total exactly when the last held payment is cleared. The month is sealed, then the page tears
  * off the pad, leaving the next, unprinted page; the loop opens by printing the month onto it.
@@ -30,7 +30,7 @@
     setup({ root, content, tokens, h }) {
       const { el, svg, mix, rng, ui } = h;
       const C = tokens.color, ink = ui.strokeColor(C.stroke || C.ink);
-      const accentText = C.accentText || C.accent, warnText = C.warningText || C.warning;
+      const accentText = C.accentText || C.accent, warnText = C.attentionText || C.attention;
       root.classList.add("lsm");
 
       // ---------- the month, from content ----------
@@ -141,7 +141,7 @@
         if (c.held) {
           const [hx, hy] = heldAt(c);
           c.heldG = svg("g", { opacity: 0, transform: `translate(${hx} ${hy}) rotate(-2)` }, page);
-          svg("rect", { x: 0, y: 0, width: 62, height: 22, rx: 3, fill: mix(C.surface, C.warning, 0.14), stroke: C.warning, "stroke-width": 1.6 }, c.heldG);
+          svg("rect", { x: 0, y: 0, width: 62, height: 22, rx: 3, fill: mix(C.surface, C.attention, 0.14), stroke: C.attention, "stroke-width": 1.6 }, c.heldG);
           txt(c.heldG, { x: 31, y: 15.5, "text-anchor": "middle", fill: warnText }, "lsm-held", `${content.stampHeld || "HELD"} ${c.held}`);
           const [qx, qy] = clearAt(c);
           c.clearG = svg("g", { opacity: 0 }, page);

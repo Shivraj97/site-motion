@@ -2,7 +2,7 @@
 // site-motion: animated website assets from your design tokens.
 //   site-motion build <scene> [--tokens name|file] [--content file.json] [--out file.html] [--transparent]
 //   site-motion render <file.html> [--formats mp4,webm,gif,webp,png,sheet] [--fps 30] [--scale 2] [--range full|loop] [--out dir]
-//   site-motion make <scene> --tokens … --content … [--formats …]     (build + render)
+//   site-motion make <scene> --tokens … --content … [--formats …] [--out dir]     (build + render; --out is the folder, or an .html path)
 //   site-motion init <scene> [--tokens preset] [--name brand]   (writes ./brand.json and ./<scene>.json to edit)
 //   site-motion theme <url> [--out brand.json] [--fast] [--scheme dark] [--shot file.png]   (drafts tokens from a live site)
 //   site-motion add <scene> [--dir public/motion] [--tokens preset|file] [--content file.json] [--force]   (copies the scene's source into your project)
@@ -50,13 +50,15 @@ async function inputs() {
 }
 const styleName = (style) => (style && typeof style === "object" ? style.name : String(style || "native"));
 
-async function build() {
+async function build({ intoDir } = {}) {
   const { tokens, style } = await inputs();
   const html = buildHtml({ scene: target, tokens, content: opts.content, transparent: !!opts.transparent, style, view: opts.view, play: opts.play });
   const tokenName = basename(String(tokens)).replace(/\.json$/, "");
   const contentName = opts.content ? basename(opts.content).replace(/\.json$/, "") : basename(target);
   const look = styleName(style) === "native" ? "" : `-${styleName(style).replace(/[^\w.+-]/g, "")}`;
-  const out = resolve(opts.out || join("out", `${contentName}-${tokenName}${look}.html`));
+  const name = `${contentName}-${tokenName}${look}.html`;
+  // make --out <dir>: the HTML goes inside the folder its renders go to (build --out stays a file path)
+  const out = resolve(intoDir ? join(intoDir, name) : opts.out || join("out", name));
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, html);
   console.log(`built ${out}  ${(html.length / 1024).toFixed(0)} KB`);
@@ -157,7 +159,7 @@ async function shotCmd() {
 
 async function add() {
   const { addScene, defaultAddDir } = await import("../lib/add.mjs");
-  const { projectForAdd, recordScene, resolveInputs } = await import("../lib/project.mjs");
+  const { projectForAdd, recordScene, resolveInputs, adoptTokens } = await import("../lib/project.mjs");
   const { sceneDir, sceneMeta } = await import("../lib/build.mjs");
   const { withParent } = await import("../lib/variant.mjs");
   // a variant has no look of its own: it is drawn in its concept's home pack, so it locks the project to that
@@ -167,6 +169,8 @@ async function add() {
   const meta = withParent(own, parentMeta);
   // the first add in a project locks the look to this scene's home pack; later adds follow the lockfile
   const { project: p, created } = projectForAdd({ meta, cli: { tokens: opts.tokens, style: opts.style }, dir: String(opts.dir || defaultAddDir()) });
+  // a project still on the default brand (say, made by plan) takes these tokens, so sync keeps them
+  const adopted = created ? false : adoptTokens(p, opts.tokens);
   const { tokens, style } = resolveInputs({ project: p, cli: { tokens: opts.tokens } });
   const dir = resolve(p.dir, String(opts.dir || p.data.dir || defaultAddDir(p.dir)));
   const embed = { view: opts.view ? String(opts.view) : null, play: opts.play ? String(opts.play) : null };
@@ -175,6 +179,8 @@ async function add() {
   const rel = (q) => relative(process.cwd(), q) || ".";
   if (created) console.log(`locked  style "${p.data.style}" (from ${r.name}) in ${rel(p.file)}: every scene you add next matches it`);
   else console.log(`style   "${styleName(style)}" (from ${rel(p.file)})`);
+  if (created || adopted) console.log(`tokens  ${p.data.tokens}${adopted ? " is now the project's brand (it was \"default\")" : ""}${p.data.tokens === "default" ? "  (the default brand; for yours: site-motion theme <your-url> --out brand.json, then add with --tokens brand.json)" : ""}`);
+  else if (opts.tokens && String(opts.tokens) !== p.data.tokens && resolve(String(opts.tokens)) !== resolve(p.dir, String(p.data.tokens))) console.log(`note    this project's brand is ${p.data.tokens} (${rel(p.file)}); sync builds every scene with it. To rebrand the site, change "tokens" there, then sync`);
   console.log(`added   ${rel(r.sceneOut)}/  (scene.js, scene.css, content.json, tokens.json, style.json, index.html)`);
   if (!(meta.directable || []).length && styleName(style) !== "native") console.log(`note    ${r.name} isn't ported to style packs yet, so it keeps its own look`);
   console.log(`runtime ${rel(r.runtimeOut)}/  (stage.js, tokens.cjs, style.cjs${r.vendors.length ? ", " + r.vendors.join(", ") : ""})`);
@@ -442,7 +448,7 @@ async function score() {
 //   plan show | sheet | swap <slot> <scene> | apply
 async function planCmd() {
   const P = await import("../lib/plan.mjs");
-  const { writeProject, recordScene, resolveInputs, projectStyle, PROJECT_FILE } = await import("../lib/project.mjs");
+  const { writeProject, recordScene, resolveInputs, projectStyle, startTokens, adoptTokens, PROJECT_FILE } = await import("../lib/project.mjs");
   const { loadTokens } = await import("../lib/build.mjs");
   const { readFileSync } = await import("node:fs");
   const S = (await import("node:module")).createRequire(import.meta.url)("../runtime/style.cjs");
@@ -488,12 +494,20 @@ async function planCmd() {
     if (!p) {
       const { defaultAddDir } = await import("../lib/add.mjs");
       const file = resolve(PROJECT_FILE);
-      const data = writeProject(file, { tokens: opts.tokens ? String(opts.tokens) : "default", style: plan.look, dir: String(opts.dir || defaultAddDir()), scenes: [], plan });
+      // the brand: --tokens, else a brand.json here (theme --out brand.json), else the default preset, said out loud
+      const start = startTokens(".", opts.tokens);
+      const data = writeProject(file, { tokens: start.tokens, style: plan.look, dir: String(opts.dir || defaultAddDir()), scenes: [], plan });
       p = { file, dir: resolve("."), data: { overrides: {}, ...data } };
       console.log(`created ${PROJECT_FILE}, locked to the look "${plan.look}" (the hero's)`);
+      console.log(start.from === "default"
+        ? `tokens  default (no --tokens and no brand.json here). For your brand: site-motion theme <your-url> --out brand.json, then plan again with --tokens brand.json`
+        : `tokens  ${start.tokens}${start.from === "found" ? " (found here; pass --tokens to use another)" : ""}`);
     } else {
       const style = p.data.style && p.data.style !== "native" ? p.data.style : plan.look;
       p.data = writeProject(p.file, { ...p.data, style, plan });
+      const adopted = adoptTokens(p, opts.tokens);
+      if (adopted) console.log(`tokens  ${adopted} is now the project's brand (it was "default")`);
+      else if (opts.tokens && resolve(String(opts.tokens)) !== resolve(p.dir, String(p.data.tokens))) console.log(`note    this project's brand stays ${p.data.tokens} (${relative(process.cwd(), p.file)}). To rebrand the site, change "tokens" there, then sync`);
     }
     console.log("\n" + P.planTable(withCode(p.data.plan)));
     if (!opts["no-sheet"]) await sheet();
@@ -578,8 +592,10 @@ if (command === "init" && target) {
 } else if (command === "render" && target) {
   await render(target, { ...renderOpts, out: opts.out });
 } else if (command === "make" && target) {
-  const html = await build();
-  await render(html, { ...renderOpts, out: opts["render-out"] || join(dirname(html), basename(html, ".html")) });
+  // --out is the output folder (like render), unless it names an .html file
+  const intoDir = opts.out && !String(opts.out).endsWith(".html") ? resolve(String(opts.out)) : null;
+  const html = await build({ intoDir });
+  await render(html, { ...renderOpts, out: opts["render-out"] || intoDir || join(dirname(html), basename(html, ".html")) });
 } else {
   console.log("usage: site-motion list | init | add <scene> | style list|show|set|export | sync | check <scene|all> | rehearse <scene> | lint <scene|all> | similar <variant|variants> | score <scene…> | plan | init <scene> | build <scene> | render <file.html> | make <scene> | theme <url> | shot <image> | shot grid <image>   (see header of bin/site-motion.mjs)");
   process.exit(command ? 1 : 0);

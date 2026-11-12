@@ -1,7 +1,7 @@
 /* ledger-stamp: trust given an action, not a shield icon (SVG + DOM).
  * Payments ride an indexed belt through three stations: a scanner checks each against policy, a press
  * stamps it approved, then it is signed and a seal is pressed onto it before it leaves for the audit
- * trail. A payment that breaks policy is stamped HELD in the warning colour and waits for a second
+ * trail. A payment that breaks policy is stamped HELD in the attention colour and waits for a second
  * approver instead of being sealed.
  *
  * The belt moves one pitch per step (move, then dwell) and the step length is D / docs, so after one loop
@@ -130,7 +130,7 @@
       txt(seal, { x: 0, y: 0, "text-anchor": "middle" }, "ls-L-seal", content.seal || "SEALED");
       const sealHash = txt(seal, { x: 0, y: 18, "text-anchor": "middle" }, "ls-L-seal-hash");
       const held = svg("g", { transform: "translate(20 368)" }, g);
-      svg("rect", { x: 0, y: -24, width: BW - 40, height: 38, rx: ui.radius("sm", rad("sm", 2)), fill: mix(C.surface, C.warning, 0.18) }, held);
+      svg("rect", { x: 0, y: -24, width: BW - 40, height: 38, rx: ui.radius("sm", rad("sm", 2)), fill: mix(C.surface, C.attention, 0.18) }, held);
       txt(held, { x: 14, y: 1 }, "ls-L-held", content.heldNote || "Waiting for approver");
       return { g, type, ref, payee, amount, rows, sig, signer, stamp, stampRect, stampText, stampDate, seal, sealHash, held, bound: null };
     });
@@ -262,7 +262,7 @@
         txt(seal, { x: 0, y: -1, "text-anchor": "middle" }, "ls-seal", content.seal || "SEALED");
         const sealHash = txt(seal, { x: 0, y: 9, "text-anchor": "middle" }, "ls-seal-hash");
         const held = svg("g", { transform: "translate(14 236)" }, g);
-        svg("rect", { x: 0, y: -13, width: 124, height: 22, rx: 11, fill: mix(C.surface, C.warning, 0.18) }, held);
+        svg("rect", { x: 0, y: -13, width: 124, height: 22, rx: 11, fill: mix(C.surface, C.attention, 0.18) }, held);
         txt(held, { x: 11, y: 2 }, "ls-held", content.heldNote || "Waiting for approver");
         return { g, type, ref, payee, amount, rows, sig, signer, stamp, stampRect, stampText, stampDate, seal, sealHash, held, bound: null };
       });
@@ -355,7 +355,7 @@
           P.signer.textContent = S.content.signer || "";
           P.stampText.textContent = held ? S.content.stampHeld || "HELD" : S.content.stampOk || "APPROVED";
           // the stamp is one ink, in the colour's text shade so its words read at AA
-          const col = held ? C.warningText || C.warning : C.accentText || C.accent;
+          const col = held ? C.attentionText || C.attention : C.accentText || C.accent;
           P.stampRect.setAttribute("stroke", col);
           P.stampText.setAttribute("fill", col);
           P.stampDate.setAttribute("fill", col);
@@ -369,9 +369,9 @@
           const on = clamp((t - (t1 + 0.18 + n * 0.17)) / 0.12);
           const bad = held && n === 0;
           r.mark.setAttribute("d", on <= 0 ? "" : bad ? "M3 3L9 9M9 3L3 9" : "M2.5 6.5L5 9L9.8 3.2");
-          r.mark.setAttribute("stroke", bad ? C.warning : C.positive);
+          r.mark.setAttribute("stroke", bad ? C.attention : C.positive);
           r.mark.setAttribute("opacity", on.toFixed(3));
-          r.box.setAttribute("stroke", on > 0.5 ? (bad ? C.warning : C.positive) : C.faint || C.line);
+          r.box.setAttribute("stroke", on > 0.5 ? (bad ? C.attention : C.positive) : C.faint || C.line);
           r.label.setAttribute("opacity", (0.55 + 0.45 * on).toFixed(3));
         });
         // station 2: the stamp lands at contact, slightly oversized, and settles
@@ -417,7 +417,7 @@
       const y2 = lerp(REST, TOP + G.stamp[1] * G.k, d2);
       S.head2.setAttribute("transform", `translate(${S.x2} ${y2.toFixed(1)}) scale(${(G.k * (1.06 - 0.06 * d2)).toFixed(3)})`);
       S.rod2.setAttribute("height", Math.max(10, y2 - G.head2 * G.k - RAIL).toFixed(1));
-      S.pad2.setAttribute("fill", docAt(2).held && tau >= 0 ? C.warning : C.accent);
+      S.pad2.setAttribute("fill", docAt(2).held && tau >= 0 ? C.attention : C.accent);
       if (S.shadow2) S.shadow2.setAttribute("opacity", (0.16 * clamp((d2 - 0.55) / 0.45)).toFixed(3));
 
       const d3 = docAt(3).held ? 0 : press([0.42, 0.55], 0.64, 0.95);
