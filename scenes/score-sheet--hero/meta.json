@@ -32,5 +32,10 @@
       ".ssh-h",
       ".ssh-sub"
     ]
+  },
+  "text": {
+    "words": 12,
+    "p10": 13,
+    "median": 15
   }
 }

@@ -10,5 +10,20 @@
   "renderer": "DOM",
   "blurb": "Deal cards slide across stage by stage and stack into a stepped chart, so every conversion rate and the lead-to-won figure come from the cards that moved.",
   "featured": false,
-  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "motif", "texture", "color"]
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ],
+  "text": {
+    "words": 41,
+    "p10": 13,
+    "median": 14
+  }
 }

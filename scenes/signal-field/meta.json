@@ -14,5 +14,10 @@
     "label",
     "type",
     "texture"
-  ]
+  ],
+  "text": {
+    "words": 4,
+    "p10": 13,
+    "median": 14
+  }
 }

@@ -10,5 +10,17 @@
   "renderer": "Canvas 2D + DOM",
   "blurb": "Grains of real customers pour into one glass jar per region, and the total of teams served is read off the four fill levels beside a customer's quote.",
   "featured": false,
-  "directable": ["stroke", "corner", "label", "type", "motion", "color"]
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "color"
+  ],
+  "text": {
+    "words": 35,
+    "p10": 12,
+    "median": 26.2
+  }
 }

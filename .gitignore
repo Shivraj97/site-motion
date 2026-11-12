@@ -14,6 +14,7 @@ brand.json
 site/public/embed/
 site/public/v/
 site/public/media/
+site/public/og/
 site/src/data/scenes.json
 site/.media-cache.json
 .sm-baseline/

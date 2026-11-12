@@ -18,5 +18,10 @@
     "motion",
     "texture",
     "color"
-  ]
+  ],
+  "text": {
+    "words": 22,
+    "p10": 11,
+    "median": 12
+  }
 }

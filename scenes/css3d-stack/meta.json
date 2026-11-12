@@ -19,5 +19,10 @@
     "motif",
     "texture",
     "color"
-  ]
+  ],
+  "text": {
+    "words": 24,
+    "p10": 14.3,
+    "median": 20.7
+  }
 }

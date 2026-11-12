@@ -10,5 +10,18 @@
   "renderer": "SVG",
   "blurb": "A month of approvals stamped onto a calendar page, busier days in denser ink, until every payment is signed and the month is sealed.",
   "featured": false,
-  "directable": ["stroke", "corner", "label", "type", "motion", "motif", "texture"]
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture"
+  ],
+  "text": {
+    "words": 71,
+    "p10": 12,
+    "median": 14
+  }
 }

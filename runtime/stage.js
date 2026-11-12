@@ -268,12 +268,14 @@
         let fitW = -1;
         const fit = () => {
           if (exporting) return;
-          const w = host.clientWidth;
+          // the exact width (clientWidth rounds), and a height that never overshoots the frame: a host 0.4 px taller
+          // than its iframe made the browser draw a scrollbar that scrolls nothing
+          const w = host.getBoundingClientRect().width;
           if (w === fitW) return;
           fitW = w;
           const k = w / viewW;
           (bareWin || root).style.transform = `scale(${k})`;
-          host.style.height = viewH * k + "px";
+          host.style.height = Math.floor(viewH * k) + "px";
         };
         new ResizeObserver(() => requestAnimationFrame(fit)).observe(host);
         fit();

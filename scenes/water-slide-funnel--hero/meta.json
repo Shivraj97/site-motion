@@ -10,5 +10,17 @@
   "renderer": "SVG",
   "blurb": "One rider rides a single long slide with a loop-the-loop into the Paid pool, and its splash lifts the share of visitors who pay out of the water.",
   "featured": false,
-  "directable": ["stroke", "corner", "label", "type", "motion", "motif"]
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif"
+  ],
+  "text": {
+    "words": 9,
+    "p10": 12,
+    "median": 14
+  }
 }

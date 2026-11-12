@@ -17,5 +17,10 @@
     "motion",
     "motif",
     "texture"
-  ]
+  ],
+  "text": {
+    "words": 26,
+    "p10": 13,
+    "median": 20
+  }
 }

@@ -10,5 +10,17 @@
   "renderer": "SVG",
   "blurb": "The same riders go down two slides at once; the guided one loses fewer at each lip, so its paid pool fills 2.4 times higher.",
   "featured": false,
-  "directable": ["stroke", "corner", "label", "type", "motion", "motif"]
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif"
+  ],
+  "text": {
+    "words": 47,
+    "p10": 12,
+    "median": 16
+  }
 }

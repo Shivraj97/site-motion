@@ -10,5 +10,20 @@
   "renderer": "SVG",
   "blurb": "A company's history on a vertical rail: a marker climbs from the founding year, each milestone lights as it passes, and today's card opens at the top.",
   "featured": false,
-  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "motif", "texture", "color"]
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "texture",
+    "color"
+  ],
+  "text": {
+    "words": 28,
+    "p10": 13,
+    "median": 15
+  }
 }

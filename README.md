@@ -271,3 +271,5 @@ A scene is `setup()` once and `render(t)` every frame, and `render` may only dep
 ## Licence
 
 MIT. Vendored libraries keep their own licences, listed in [THIRD_PARTY.md](THIRD_PARTY.md).
+
+Made by [Mad Method](https://madmethod.io), a product studio.

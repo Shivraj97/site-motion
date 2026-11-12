@@ -17,5 +17,10 @@
     "label",
     "type",
     "motion"
-  ]
+  ],
+  "text": {
+    "words": 19,
+    "p10": 12,
+    "median": 13
+  }
 }

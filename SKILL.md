@@ -55,7 +55,11 @@ It maps every section to one scene, each used once, all in one look. The look is
 - A pick marked `?` had no strong match. Read its note ("ledger-stamp fits better but is on home.hero") and either swap (`plan swap <slot> <scene>`), reuse the better scene, or tell the user the library has no scene for that story yet.
 - Never apply over a weak pick without saying so.
 
-`plan apply` adds every scene and prints each section's embed. **If the page already sets each section's eyebrow, heading and copy in its own HTML, use `plan apply --bare`** (or `"showCopy": false` in a scene's content.json): the scene leaves its own copy out and its embed is cut to the visual alone (its `meta.json` `bare` box), so no heading shows twice. Embed paths start at the site root; for a site under a path, `--base /that/path/`. Then write each scene's copy in its `content.json`, run `sync`, and finish with `score --project`.
+`plan apply` adds every scene and prints each section's embed. **If the page already sets each section's eyebrow, heading and copy in its own HTML, use `plan apply --bare`** (or `"showCopy": false` in a scene's content.json): the scene leaves its own copy out and its embed is cut to the visual alone (its `meta.json` `bare` box), so no heading shows twice. Embed paths start at the site root; for a site under a path, `--base /that/path/`.
+
+**Words must read where the scene is shown.** A scene is drawn at 1600 px and the page scales it to its slot, so 13 px labels are 6 px in a 750 px card. Every printed embed ends with `<!-- reads from N px wide -->`: the slot width at which 9 in 10 of its words reach 10 px. A slot narrower than that shows labels as texture, so give the scene a wider slot, its bare cut (`--bare`, which also scales it up), its legible layout (`"legible": true`, on scenes that have one: ledger-stamp, window-stack, parchment-changelog, live-room, score-sheet) or fewer words, or pick a scene with less text. Hold a slot to it with `check <scene> --width <slot px>`.
+
+Then write each scene's copy in its `content.json`, run `sync`, and finish with `score --project`.
 
 For one scene, follow the steps below.
 
@@ -340,6 +344,8 @@ Tokens are the brand. A style pack (`styles/*.json`) is the art direction every 
 
 ## Writing a new scene
 
+**Words are content, not texture.** Design so 9 in 10 words are at least 16 px at 1600 (that reads at 10 px in a 1000 px slot), and key numbers bigger. Fewer, larger words beat many small ones: if a scene needs dense labels to tell its story, give it a `legible` layout (content.legible: re-typeset for a ~1200 px slot, every word at 15 px or more) and check it with `check <scene> --width 1000`.
+
 `scenes/<name>/scene.js` (+ optional `scene.css`, `content.json`):
 ```js
 SiteMotion.scene({
@@ -363,7 +369,7 @@ Helpers `h`: `tw(t, start, dur, ease)` eased 0→1 progress; `span(t, in, out)` 
 - **No real third-party marks.** Logos are lettermarks from content (`{ text, bg, fg }`).
 - **Physics when the physics is the point.** Real simulation (Matter.js) adds scatter. When the story needs a reliable outcome ("the rule moves traffic to the best processor"), compute each path yourself as a seeded random walk, as `galton-router` does; keep real physics for piles, drops and collisions (`drop-pile`).
 - **Anything that starts in an intro must finish by `loop`.** The stage treats a tween begun before `loop` as complete once the loop starts, so the loop's first frame matches its last; never rely on an easing curve's flat tail to hide an unfinished intro.
-- **`site-motion check <scene>` measures determinism, the seam, contrast, text fit (and one-frame jumps on UI demos)** (against the frame steps right beside it, so busy or stepped scenes are judged fairly). `--baseline write|compare` guards native pixels while porting. Text a scene dims on purpose is listed, not failed: by its own opacity, or under an overlay marked `data-sm-dim="<strength>"` (a spotlight that dims everything outside its box).
+- **`site-motion check <scene>` measures determinism, the seam, contrast, text fit, readable size (and one-frame jumps on UI demos)** (against the frame steps right beside it, so busy or stepped scenes are judged fairly). `--baseline write|compare` guards native pixels while porting. `readable` says how wide the embed must be for 9 in 10 words to reach 10 px; with `--width <slot px>` it fails a slot where they don't, naming the smallest labels. Text a scene dims on purpose is listed, not failed: by its own opacity, or under an overlay marked `data-sm-dim="<strength>"` (a spotlight that dims everything outside its box).
 - **Check the seam by measurement, not by eye.** Render the last frame (`duration − 1/fps`) and the first frame of the loop, then compare with ffmpeg `psnr`. Above ~50 dB is seamless for a scene that rests at its seam. For a scene that is always moving (a turning model), compare the seam with an ordinary step, `loop` vs `loop + 1/fps`: the seam PSNR should be within about 1 dB of it. Typical faults: copy or labels that fade in at t = 0 (give the scene an intro and set `loop` after it), or an element counted as "active" before the playhead starts.
 - **Read the page's console on every check.** A WebGL shader that fails to compile only logs an error and draws nothing (the first outline helper did exactly that), so a render can look fine and still be missing a layer.
 - **Colour only from tokens.** Face shading in iso scenes is `mix(accent, accentInk, p)` and `mix(accent, white, p)`, never a new hex.

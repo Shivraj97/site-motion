@@ -10,5 +10,17 @@
   "renderer": "SVG",
   "blurb": "A company's years as a half-cut log rising from the bottom edge: one ring per year from the founding, each moment pinned out to the side, and today's outer ring opening onto the team count.",
   "featured": false,
-  "directable": ["stroke", "corner", "label", "type", "motion", "motif"]
+  "directable": [
+    "stroke",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif"
+  ],
+  "text": {
+    "words": 29,
+    "p10": 13,
+    "median": 14
+  }
 }

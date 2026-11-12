@@ -10,5 +10,19 @@
   "order": 14,
   "featured": false,
   "home": "soft-ui",
-  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "texture", "color"]
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "texture",
+    "color"
+  ],
+  "text": {
+    "words": 36,
+    "p10": 13,
+    "median": 15
+  }
 }

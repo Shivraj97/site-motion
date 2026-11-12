@@ -10,5 +10,19 @@
   "renderer": "DOM",
   "blurb": "A small printer prints one short slip and its coloured stub, the call to action, tears off along the perforation and becomes the button.",
   "featured": false,
-  "directable": ["stroke", "elevation", "corner", "label", "type", "motion", "motif", "glow"]
+  "directable": [
+    "stroke",
+    "elevation",
+    "corner",
+    "label",
+    "type",
+    "motion",
+    "motif",
+    "glow"
+  ],
+  "text": {
+    "words": 17,
+    "p10": 13,
+    "median": 16.1
+  }
 }
