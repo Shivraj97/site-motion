@@ -1,18 +1,18 @@
 .cd { background: transparent; } /* the stage paints the paper; a style motif sits between */
 .cd-canvas { position: absolute; inset: 0; width: 1600px; height: 900px; }
 .cd-copy { position: absolute; left: 96px; top: 150px; width: 460px; }
-.cd-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
+.cd-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
 .cd-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(50px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
 .cd-sub { margin-top: 18px; font-size: 18px; line-height: 1.5; color: var(--c-muted); max-width: 420px; }
-.cd-log { position: absolute; left: 96px; top: 560px; width: 470px; display: flex; flex-direction: column; gap: 10px; }
-.cd-line { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 13px; color: var(--c-ink); white-space: nowrap; opacity: 0; }
+.cd-log { position: absolute; left: 96px; top: 560px; width: 520px; display: flex; flex-direction: column; gap: 10px; }
+.cd-line { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 16px; color: var(--c-ink); white-space: nowrap; opacity: 0; }
 .cd-line i { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-ink)); }
 .cd-line b { font-weight: 500; font-variant-numeric: tabular-nums; }
-.cd-tag { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 7px; padding: 5px 11px 5px 9px; background: var(--c-surface); border-radius: 999px; box-shadow: inset 0 0 0 var(--sm-stroke-regular, 1.5px) var(--sm-stroke-color, var(--c-ink)); font-family: var(--font-mono); font-size: 13px; color: var(--c-ink); white-space: nowrap; }
+.cd-tag { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 7px; padding: 5px 11px 5px 9px; background: var(--c-surface); border-radius: 999px; box-shadow: inset 0 0 0 var(--sm-stroke-regular, 1.5px) var(--sm-stroke-color, var(--c-ink)); font-family: var(--font-mono); font-size: 16px; color: var(--c-ink); white-space: nowrap; }
 .cd-tag svg { flex: none; }
 .cd-tag.main { background: var(--c-ink); color: var(--c-paper); box-shadow: 0 0 0 2.5px var(--c-paper); }
-.cd-chip { position: absolute; left: 0; top: 0; padding: 3px 8px; border-radius: 999px; background: var(--c-accent-fill, var(--c-accent)); color: var(--c-on-accent, var(--c-ink)); box-shadow: inset 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-ink)); font-family: var(--font-mono); font-size: 11px; font-weight: 500; white-space: nowrap; }
-.cd-tag-note { font-size: 11px; color: var(--c-muted); margin-left: 2px; }
+.cd-chip { position: absolute; left: 0; top: 0; padding: 3px 8px; border-radius: 999px; background: var(--c-accent-fill, var(--c-accent)); color: var(--c-on-accent, var(--c-ink)); box-shadow: inset 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-ink)); font-family: var(--font-mono); font-size: 16px; font-weight: 500; white-space: nowrap; }
+.cd-tag-note { font-size: 16px; color: var(--c-muted); margin-left: 2px; }
 .cd-tag-note::before { content: "· "; }
 .cd-tag.past .cd-tag-name { color: var(--c-muted); }
 .cd-tag.struck .cd-tag-name { text-decoration: line-through; }

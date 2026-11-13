@@ -5,7 +5,7 @@
   "heading": "Every year\nleaves a ring.",
   "sub": "Each ring is one year of orders, as wide as the year was busy. The notches mark the firsts.",
   "unit": "orders",
-  "totalLabel": "orders since 2019",
+  "totalLabel": "total orders",
   "firstsLabel": "Firsts",
   "years": [
     { "year": 2019, "value": 1240 },

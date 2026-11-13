@@ -17,7 +17,7 @@
   const PRICE_AT = 1.0; // price weight starts its drop (intro)
   const DROP0 = 4.4, DROP_GAP = 1.2; // value weights, one beat each
   const UNLOAD = 12.4;
-  const MONO = 7.25; // px per character, 12px monospace
+  const MONO = 9.6; // px per character, 16px monospace
 
   const spring = (tau, w, z) => {
     if (tau <= 0) return 0;
@@ -102,7 +102,7 @@
         svg("path", { d: `M${x - w / 2} 0L${x - tw2} ${-bh}H${x + tw2}L${x + w / 2} 0Z`, fill, ...OUT(1.3), "stroke-linejoin": r > 2 ? "round" : "miter" }, g);
         const label = money(amount);
         const inside = 0.88 * w >= label.length * MONO + 6;
-        const t = svg("text", { x, y: inside ? -bh / 2 + 4.2 : -bh - kh - 6, "text-anchor": "middle", class: "bp-amt", fill: inside ? txt : C.ink }, g);
+        const t = svg("text", { x, y: inside ? -bh / 2 + 5.6 : -bh - kh - 6, "text-anchor": "middle", class: "bp-amt", fill: inside ? txt : C.ink }, g);
         t.textContent = label;
         const half = (label.length * MONO) / 2;
         return { node: g, w, text: t, inside, x0: x - half, x1: x + half };
@@ -132,7 +132,7 @@
         const wg = weight(getPan.load, x + wd / 2, it.amount, vFill, vText);
         if (!wg.inside) {
           const up = prevLabel && wg.x0 < prevLabel.x1 + 8 && !prevLabel.up;
-          if (up) wg.text.setAttribute("y", (parseFloat(wg.text.getAttribute("y")) - 18).toFixed(1));
+          if (up) wg.text.setAttribute("y", (parseFloat(wg.text.getAttribute("y")) - 22).toFixed(1));
           prevLabel = { x1: wg.x1, up };
         } else prevLabel = null;
         x += wd + 10;

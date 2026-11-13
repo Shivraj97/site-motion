@@ -3,24 +3,24 @@
 
 /* copy, top left */
 .grm-copy { position: absolute; left: 96px; top: 84px; width: 500px; }
-.grm-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
+.grm-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
 .grm-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(44px * var(--sm-type-k, 1)); line-height: 1.06; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
-.grm-sub { margin-top: 14px; font-size: 17px; line-height: 1.45; color: var(--c-muted); }
+.grm-sub { margin-top: 14px; font-size: 18px; line-height: 1.45; color: var(--c-muted); }
 
 /* the headline figure, top middle */
 .grm-focal { position: absolute; left: 640px; top: 72px; width: 460px; }
 .grm-fnum { font-family: var(--font-display, var(--font-sans)); font-weight: var(--sm-type-weight, 400); font-size: calc(96px * var(--sm-type-k, 1)); line-height: 100px; height: 100px; letter-spacing: var(--sm-type-tracking, -0.04em); font-variant-numeric: tabular-nums; color: var(--c-ink); white-space: nowrap; }
-.grm-flabel { margin-top: 4px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; line-height: 18px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
-.grm-rule { margin-top: 14px; display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 7px; border-radius: var(--sm-radius-md, 12px); background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, var(--stroke-w, 1px)) var(--sm-stroke-color, var(--c-stroke, var(--c-line))), var(--sm-shadow-1, 0 0 0 0 transparent); font-size: 15px; color: var(--c-ink); white-space: nowrap; }
-.grm-rule-k { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; padding: 3px 7px; border-radius: var(--sm-radius-sm, 6px); background: var(--c-accent-fill, var(--c-accent)); color: var(--c-on-accent, #fff); }
+.grm-flabel { margin-top: 4px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; line-height: 21px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.grm-rule { margin-top: 14px; display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 7px; border-radius: var(--sm-radius-md, 12px); background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, var(--stroke-w, 1px)) var(--sm-stroke-color, var(--c-stroke, var(--c-line))), var(--sm-shadow-1, 0 0 0 0 transparent); font-size: 17px; color: var(--c-ink); white-space: nowrap; }
+.grm-rule-k { font-family: var(--font-mono); font-size: 16px; letter-spacing: .08em; padding: 3px 7px; border-radius: var(--sm-radius-sm, 6px); background: var(--c-accent-fill, var(--c-accent)); color: var(--c-on-accent, #fff); }
 
 /* the target line's label, at its left end */
 .grm-target { position: absolute; display: flex; align-items: baseline; gap: 8px; height: 24px; white-space: nowrap; }
-.grm-target b { font-family: var(--font-mono); font-size: 16px; font-weight: 500; color: var(--c-ink); }
-.grm-target span { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.grm-target b { font-family: var(--font-mono); font-size: 18px; font-weight: 500; color: var(--c-ink); }
+.grm-target span { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
 
 /* the bins' labels, under the baseline */
 .grm-bin { position: absolute; text-align: center; }
-.grm-bin-name { font-size: 15px; font-weight: 500; line-height: 20px; color: var(--c-ink); }
+.grm-bin-name { font-size: 18px; font-weight: 500; line-height: 22px; color: var(--c-ink); }
 .grm-bin-pct { font-family: var(--font-display, var(--font-sans)); font-weight: var(--sm-type-weight, 400); font-size: calc(44px * var(--sm-type-k, 1)); line-height: 50px; letter-spacing: var(--sm-type-tracking, -0.03em); font-variant-numeric: tabular-nums; color: var(--c-ink); }
-.grm-bin-note { font-family: var(--font-mono); font-size: 12px; line-height: 16px; color: var(--c-muted); }
+.grm-bin-note { font-family: var(--font-mono); font-size: 16px; line-height: 20px; color: var(--c-muted); }

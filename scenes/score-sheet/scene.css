@@ -1,13 +1,13 @@
 .ss { background: transparent; } /* the stage paints the paper; a style motif sits between */
 .ss-svg { position: absolute; inset: 0; }
 .ss-copy { position: absolute; left: 96px; top: 80px; }
-.ss-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
+.ss-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
 .ss-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(50px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); }
 .ss-stave { position: absolute; left: 96px; height: 40px; display: flex; align-items: center; gap: 12px; font-size: 17px; color: var(--c-ink); transition: none; }
-.ss-sq { width: 30px; height: 30px; border-radius: calc(8px * var(--sm-corner-k, 1)); display: grid; place-items: center; font-weight: 600; font-size: 14px; color: var(--c-ink); box-shadow: inset 0 0 0 1px rgba(0,0,0,.15); }
+.ss-sq { width: 30px; height: 30px; border-radius: calc(8px * var(--sm-corner-k, 1)); display: grid; place-items: center; font-weight: 600; font-size: 16px; color: var(--c-ink); box-shadow: inset 0 0 0 1px rgba(0,0,0,.15); }
 .ss-stave.is-busy .ss-sq { box-shadow: 0 0 0 3px var(--c-paper), 0 0 0 5px var(--c-accent); }
-.ss-label { position: absolute; font-family: var(--font-mono); font-size: 12.5px; white-space: nowrap; color: var(--c-ink); opacity: 0; }
-.ss-log { position: absolute; left: 300px; bottom: 70px; font-family: var(--font-mono); font-size: 15px; color: var(--c-muted); font-variant-numeric: tabular-nums; }
+.ss-label { position: absolute; font-family: var(--font-mono); font-size: 16px; white-space: nowrap; color: var(--c-ink); opacity: 0; }
+.ss-log { position: absolute; left: 300px; bottom: 70px; font-family: var(--font-mono); font-size: 16px; color: var(--c-muted); font-variant-numeric: tabular-nums; }
 /* legible: true (content option) - larger type for embeds shown below stage size; default rules above are untouched */
 .ss--legible .ss-copy { left: 96px; top: 56px; }
 .ss--legible .ss-eyebrow { font-size: 20px; margin-bottom: 14px; }

@@ -46,11 +46,11 @@
 .ls-L-payee { font-family: var(--font-sans); font-size: 24px; fill: var(--c-ink); }
 .ls-L-amount { font-family: var(--font-sans); font-weight: 600; font-size: 42px; letter-spacing: -0.02em; fill: var(--c-ink); }
 .ls-L-check { font-family: var(--font-sans); font-size: 20px; fill: var(--c-ink); }
-.ls-L-signer { font-family: var(--font-mono); font-size: 15px; fill: var(--c-muted); }
+.ls-L-signer { font-family: var(--font-mono); font-size: 16px; fill: var(--c-muted); }
 .ls-L-stamp { font-family: var(--font-sans); font-weight: 700; font-size: 30px; letter-spacing: .12em; }
-.ls-L-stamp-date { font-family: var(--font-mono); font-size: 15px; letter-spacing: .06em; }
-.ls-L-seal { font-family: var(--font-mono); font-size: 15px; font-weight: 500; letter-spacing: .06em; fill: var(--c-on-accent, #fff); }
-.ls-L-seal-hash { font-family: var(--font-mono); font-size: 15px; fill: var(--c-on-accent, #fff); opacity: .85; }
+.ls-L-stamp-date { font-family: var(--font-mono); font-size: 16px; letter-spacing: .06em; }
+.ls-L-seal { font-family: var(--font-mono); font-size: 16px; font-weight: 500; letter-spacing: .06em; fill: var(--c-on-accent, #fff); }
+.ls-L-seal-hash { font-family: var(--font-mono); font-size: 16px; fill: var(--c-on-accent, #fff); opacity: .85; }
 .ls-L-held { font-family: var(--font-sans); font-size: 18px; font-weight: 500; fill: var(--c-attention-text, var(--c-attention)); }
 
 .ls-L .ls-L-log { box-sizing: border-box; padding: 22px 26px 0; border-radius: var(--r-sm, 2px); box-shadow: 0 0 0 var(--sm-stroke-fine, var(--stroke-w, 1px)) var(--sm-stroke-color, var(--c-stroke, var(--c-line))); }

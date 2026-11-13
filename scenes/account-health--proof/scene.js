@@ -98,18 +98,18 @@
       const hair = ui.stroke("hair", 1);
       [[thr.healthy, yH], [thr.watch, yW]].forEach(([v, y]) => {
         svg("line", { x1: X0, x2: X1, y1: y.toFixed(1), y2: y.toFixed(1), stroke: C.line, "stroke-width": hair, "stroke-dasharray": "3 5" }, plot);
-        svg("text", { x: X0 - 14, y: (y + 4.5).toFixed(1), class: "ahp-ylab", "text-anchor": "end" }, plot).textContent = String(v);
+        svg("text", { x: X0 - 14, y: (y + 5.5).toFixed(1), class: "ahp-ylab", "text-anchor": "end" }, plot).textContent = String(v);
       });
       svg("line", { x1: X0, x2: X1, y1: Y1, y2: Y1, stroke: C.line, "stroke-width": ui.stroke("fine", 1) }, plot);
       // band names sit at the left, where the line is still high
-      [["healthy", yH - 12], ["watch", yH + 22], ["risk", yW + 22]].forEach(([k, y]) => {
+      [["healthy", yH - 12], ["watch", yH + 25], ["risk", yW + 25]].forEach(([k, y]) => {
         const label = svg("text", { x: X0 + 14, y: y.toFixed(1), class: "ahp-band" }, plot);
         label.textContent = states[k] || k;
         // a name inside a tinted band reads at AA on that tint, not just on the card
         if (onBand[k]) label.style.fill = onBand[k];
       });
       axis.forEach((m, k) => {
-        svg("text", { x: (X0 + ((k + 0.5) / axis.length) * (X1 - X0)).toFixed(1), y: Y1 + 32, class: "ahp-xlab", "text-anchor": "middle" }, plot).textContent = m;
+        svg("text", { x: (X0 + ((k + 0.5) / axis.length) * (X1 - X0)).toFixed(1), y: Y1 + 34, class: "ahp-xlab", "text-anchor": "middle" }, plot).textContent = m;
       });
 
       // the line: neutral while healthy, warm through watch, the risk colour below; drawn through a clip
@@ -140,7 +140,7 @@
 
       // the playbook moment: a ring on the trough, a stem up to the chip
       const xT = xAt(trough), yT = yOf(s[trough]);
-      const chipTop = HEAD + 14, chipH = 32;
+      const chipTop = HEAD + 14, chipH = 36;
       const stem = svg("line", { x1: xT.toFixed(1), x2: xT.toFixed(1), y1: chipTop + chipH, y2: (yT - 8).toFixed(1), stroke: C.faint, "stroke-width": ui.stroke("fine", 1), "stroke-dasharray": "2 4", opacity: 0 }, plot);
       // sm-native: the trough marker is a state cue
       const ring = svg("circle", { cx: xT.toFixed(1), cy: yT.toFixed(1), r: 7, fill: C.surface, stroke: RISK, "stroke-width": 2, opacity: 0 }, plot);
@@ -152,7 +152,7 @@
       })()));
       const yR = Math.min(Y1 - 36, yT + 44);
       const rBr = svg("path", { d: "", fill: "none", stroke: C.ink, "stroke-width": ui.stroke("fine", 1.4), opacity: 0 }, plot);
-      const rLab = svg("text", { x: ((xT + xC) / 2).toFixed(1), y: (yR + 24).toFixed(1), class: "ahp-mk ahp-mk-strong", "text-anchor": "middle", opacity: 0 }, plot);
+      const rLab = svg("text", { x: ((xT + xC) / 2).toFixed(1), y: (yR + 27).toFixed(1), class: "ahp-mk ahp-mk-strong", "text-anchor": "middle", opacity: 0 }, plot);
       rLab.textContent = fill(marks.recovery || "{recovery} {unit} to healthy");
       // sm-native: a state cue (where the line re-enters healthy)
       const ping = svg("circle", { cx: xC.toFixed(1), cy: yH.toFixed(1), r: 4, fill: "none", stroke: GOOD, "stroke-width": 1.6, opacity: 0 }, plot);

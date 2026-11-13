@@ -43,10 +43,10 @@
 
       // ---- layout ----
       const OLD = { x0: 584, x1: 806, top: 300, door: GROUND - 200 };
-      const NEW = { x0: 1146, x1: 1540, top: 236, door: GROUND - 210, lobby: 1286 };
-      const BW = 120, BH = 66;
+      const NEW = { x0: 1146, x1: 1560, top: 236, door: GROUND - 210, lobby: 1300 };
+      const BW = 144, BH = 78;
       const REST = 826, ARRIVE = 1019; // axle x at the old door and at the new door
-      const POST = 975; // the checkpoint on the walkway
+      const POST = 990; // the checkpoint on the walkway
       const levels = [448, 564, 680, GROUND]; // shelf boards (the last is the floor)
       const boxes = content.boxes.slice(0, 4);
       const MID = NEW.lobby + 128, FLOOR2 = NEW.top + 278; // the wall between the rooms, the upper floor
@@ -97,8 +97,8 @@
       const thick = ui.stroke("regular", 2), fine = ui.stroke("fine", 1.5);
       // sm-native-start: buildings, shelves and the walkway are drawn scenery (fills, planks, grain)
       // ground and walkway
-      svg("rect", { x: 560, y: GROUND, width: 1000, height: 14, fill: mix(C.line, C.paper, 0.2) }, s);
-      svg("line", { x1: 560, y1: GROUND, x2: 1560, y2: GROUND, stroke: INK, "stroke-width": thick, "stroke-linecap": "round" }, s);
+      svg("rect", { x: 560, y: GROUND, width: 1020, height: 14, fill: mix(C.line, C.paper, 0.2) }, s);
+      svg("line", { x1: 560, y1: GROUND, x2: 1580, y2: GROUND, stroke: INK, "stroke-width": thick, "stroke-linecap": "round" }, s);
       for (let x = OLD.x1 + 16; x < NEW.x0 - 14; x += 30) svg("path", { d: `M${x} ${GROUND + 3} l7 4 l-7 4`, fill: "none", stroke: C.muted, "stroke-width": 2, "stroke-linecap": "round", "stroke-linejoin": "round", opacity: 0.7 }, s);
       // old building: a cramped, cluttered office
       const oldWall = mix(C.raised || C.surface, C.muted, light ? 0.22 : 0.16), oldBack = mix(oldWall, deep, light ? 0.1 : 0.2);
@@ -111,8 +111,8 @@
       svg("path", { d: web, fill: "none", stroke: mix(oldBack, bright, 0.5), "stroke-width": 1, opacity: 0.8 }, s);
       // shelf unit
       const shelfC = mix(warm, deep, light ? 0.45 : 0.35);
-      [OLD.x0 + 10, OLD.x0 + 146].forEach((x) => svg("rect", { x, y: OLD.top + 34, width: 6, height: GROUND - OLD.top - 34, fill: shelfC, stroke: INK, "stroke-width": fine }, s));
-      levels.slice(0, 3).forEach((y) => svg("rect", { x: OLD.x0 + 6, y, width: 152, height: 6, fill: shelfC, stroke: INK, "stroke-width": fine }, s));
+      [OLD.x0 + 10, OLD.x0 + 160].forEach((x) => svg("rect", { x, y: OLD.top + 34, width: 6, height: GROUND - OLD.top - 34, fill: shelfC, stroke: INK, "stroke-width": fine }, s));
+      levels.slice(0, 3).forEach((y) => svg("rect", { x: OLD.x0 + 6, y, width: 166, height: 6, fill: shelfC, stroke: INK, "stroke-width": fine }, s));
       // paper pile on top and a hanging bulb
       for (let k = 0; k < 4; k++) svg("rect", { x: OLD.x0 + 22 + k * 2, y: OLD.top + 26 - k * 5, width: 46, height: 5, fill: mix(C.surface, oldBack, 0.2 + k * 0.1), stroke: INK, "stroke-width": 1, transform: `rotate(${(k % 2 ? 3 : -2)} ${OLD.x0 + 45} ${OLD.top + 28})` }, s);
       svg("line", { x1: OLD.x1 - 34, y1: OLD.top, x2: OLD.x1 - 34, y2: OLD.top + 40, stroke: INK, "stroke-width": 1.4 }, s);
@@ -225,7 +225,7 @@
       });
       // the checkpoint's sign: boxes that have passed it, and the ones lost on the way (none)
       const post = el("div", "mb-post", root);
-      Object.assign(post.style, { left: POST - 64 + "px", top: GROUND - 234 + "px" });
+      Object.assign(post.style, { left: POST - 75 + "px", top: GROUND - 234 + "px" });
       el("div", "mb-post-k", post, (content.checkpoint || {}).label || "Checkpoint");
       const postN = el("div", "mb-post-n", post, "");
       const postL = el("div", "mb-post-l", post, `0 ${(content.progress || {}).lost || "lost"}`);
@@ -260,7 +260,7 @@
         // poses: shelf, toe plate, lobby floor
         const shelf = [S.OLD.x0 + 22, S.levels[i] - S.BH];
         const plate = [S.REST + 5, GROUND - 13 + 4 - S.BH];
-        const lobby = [S.NEW.x0 + 10, GROUND - S.BH - 4];
+        const lobby = [S.NEW.x0 + 4, GROUND - S.BH - 4];
         let bx, by, rot = 0, op = 1;
         if (after) { bx = shelf[0]; by = shelf[1]; }
         else if (t >= S.RESET) { bx = shelf[0]; by = shelf[1]; op = reset; } // restocked on the shelf for the next loop

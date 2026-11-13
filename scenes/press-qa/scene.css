@@ -1,35 +1,35 @@
 .pq { background: transparent; } /* the stage paints the paper; a style motif sits between */
 .pq-svg { position: absolute; inset: 0; }
 .pq-copy { position: absolute; left: 96px; top: 78px; width: 600px; }
-.pq-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.pq-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
 .pq-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(52px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; color: var(--c-ink); font-weight: var(--sm-type-weight, 400); }
 .pq-sub { margin-top: 16px; font-size: 18px; line-height: 1.5; color: var(--c-muted); max-width: 520px; }
 
-.pq-station { position: absolute; transform: translateX(-50%); font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
-.pq-chute { position: absolute; transform: translateX(-50%); font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.pq-station { position: absolute; transform: translateX(-50%); font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.pq-chute { position: absolute; transform: translateX(-50%); font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
 
-.pq-chip { position: absolute; width: 300px; box-sizing: border-box; padding: 10px 14px 11px; border-radius: var(--sm-radius-md, var(--r-md)); background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-line)), var(--sm-shadow-2, 0 0 0 0 transparent); }
+.pq-chip { position: absolute; width: 320px; box-sizing: border-box; padding: 10px 14px 11px; border-radius: var(--sm-radius-md, var(--r-md)); background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-line)), var(--sm-shadow-2, 0 0 0 0 transparent); }
 .pq-chip-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-.pq-chip-id { font-family: var(--font-mono); font-size: 14px; font-weight: 500; color: var(--c-ink); }
-.pq-pill { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); padding: 3px 8px; border-radius: var(--sm-radius-sm, var(--r-sm)); white-space: nowrap; }
-.pq-chip-d { margin-top: 6px; font-size: 14px; color: var(--c-muted); white-space: nowrap; }
+.pq-chip-id { font-family: var(--font-mono); font-size: 17px; font-weight: 500; color: var(--c-ink); }
+.pq-pill { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); padding: 3px 8px; border-radius: var(--sm-radius-sm, var(--r-sm)); white-space: nowrap; }
+.pq-chip-d { margin-top: 6px; font-size: 17px; color: var(--c-muted); white-space: nowrap; }
 .pq-chip[data-kind="ok"] .pq-pill, .pq-chip[data-kind="rerun"] .pq-pill { background: color-mix(in srgb, var(--c-positive) 20%, var(--c-surface)); color: var(--c-positive-text); }
 .pq-chip[data-kind="bad"] .pq-pill { background: color-mix(in srgb, var(--c-warning) 20%, var(--c-surface)); color: var(--c-warning-text); }
 .pq-chip[data-kind="bad"] .pq-chip-d { color: var(--c-warning-text); }
 
 .pq-tally { position: absolute; right: 80px; top: 84px; text-align: right; }
 .pq-n { font-family: var(--font-display, var(--font-sans)); font-weight: var(--sm-type-weight, 400); font-size: calc(104px * var(--sm-type-k, 1)); letter-spacing: var(--sm-type-tracking, -0.04em); line-height: 1; font-variant-numeric: tabular-nums; color: var(--c-ink); }
-.pq-row { margin-top: 12px; display: flex; justify-content: flex-end; align-items: center; gap: 10px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.pq-row { margin-top: 12px; display: flex; justify-content: flex-end; align-items: center; gap: 10px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
 .pq-caught { display: inline-flex; align-items: center; gap: 0; }
-.pq-caught i { display: inline-block; width: 10px; height: 10px; margin-right: 7px; border-radius: 2px; background: var(--c-faint); } /* sm-native: the swatch matches the test marks on the sheets */
+.pq-caught i { display: inline-block; width: 12px; height: 12px; margin-right: 7px; border-radius: 2px; background: var(--c-faint); } /* sm-native: the swatch matches the test marks on the sheets */
 .pq-caught b { font-weight: 500; margin-right: .45em; }
 .pq-caught.on { color: var(--c-warning-text); }
 .pq-caught.on i { background: var(--c-warning); }
 
-.pq-s-id { font-family: var(--font-mono); font-size: 12px; font-weight: 500; fill: var(--c-ink); }
+.pq-s-id { font-family: var(--font-mono); font-size: 16px; font-weight: 500; fill: var(--c-ink); }
 .pq-s-ghost { fill: var(--c-warning); }
-.pq-s-n { font-family: var(--font-mono); font-size: 12px; fill: var(--c-ink); }
-.pq-s-foot { font-family: var(--font-sans); font-size: 12px; font-weight: 500; }
+.pq-s-n { font-family: var(--font-mono); font-size: 16px; fill: var(--c-ink); }
+.pq-s-foot { font-family: var(--font-sans); font-size: 16px; font-weight: 500; }
 .pq-s-ok { fill: var(--c-positive-text); }
 .pq-s-bad { fill: var(--c-warning-text); }
-.pq-float { font-family: var(--font-mono); font-size: 18px; font-weight: 500; fill: var(--c-positive-text); }
+.pq-float { font-family: var(--font-mono); font-size: 20px; font-weight: 500; fill: var(--c-positive-text); }

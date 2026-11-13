@@ -188,7 +188,7 @@
           const slot = lx >= end.up + 18 ? "up" : lx >= end.down + 18 ? "down" : end.up <= end.down ? "up" : "down";
           end[slot] = lx + w;
           x.label.style.left = lx + "px";
-          x.label.style.top = (slot === "up" ? x.y - 54 : x.y + 16) + "px";
+          x.label.style.top = (slot === "up" ? x.y - 56 : x.y + 16) + "px";
         });
       });
 

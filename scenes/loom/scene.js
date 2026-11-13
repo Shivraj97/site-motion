@@ -42,16 +42,19 @@
       const weftColours = [mix(C.paper, C.ink, 0.18), mix(C.paper, C.ink, 0.34), C.accent];
       const toolColour = (g) => threads[g].colour ? C[threads[g].colour] || threads[g].colour : pal[g % pal.length];
       const warpColour = (i) => toolColour(Math.floor(i / per));
+      // labels sit in two staggered rows so each can be read at full size; a thread leads down from each to its spool
+      const CHIP_H = 34;
+      const chipTop = (g) => top - 78 - (g % 2) * 48;
       const labels = threads.map((th, g) => {
         const chip = el("div", "lm-spool", root, th.name);
         chip.style.left = left + (g * per + per / 2) * gap + "px";
-        chip.style.top = top - 74 + "px";
+        chip.style.top = chipTop(g) + "px";
         chip.style.setProperty("--c", toolColour(g));
         return chip;
       });
       const beamLabel = el("div", "lm-beam", root, content.product || "");
       Object.assign(beamLabel.style, { left: left - 30 + "px", width: right - left + 60 + "px", top: beam + 6 + "px" });
-      return { ctx, threads, per, left, right, n, gap, top, fell, beam, ROW, PERIOD, rowsPerLoop, weftColours, warpColour, labels, C, mix };
+      return { ctx, threads, per, left, right, n, gap, top, fell, beam, ROW, PERIOD, rowsPerLoop, weftColours, warpColour, labels, C, mix, chipTop, CHIP_H };
     },
 
     render(t, S, h) {
@@ -73,9 +76,12 @@
         ctx.lineWidth = gap * 0.42;
         ctx.beginPath(); ctx.moveTo(x, top + 12); ctx.lineTo(x, fell); ctx.stroke();
       }
-      // one spool per tool, the band's threads fanning out from it
+      // one spool per tool, the band's threads fanning out from it, and a lead thread up to its label
       for (let g = 0; g < S.threads.length; g++) {
         const cx = left + (g * S.per + S.per / 2) * gap;
+        ctx.strokeStyle = S.warpColour(g * S.per);
+        ctx.lineWidth = h.ui.stroke("regular", 2);
+        ctx.beginPath(); ctx.moveTo(cx, S.chipTop(g) + S.CHIP_H); ctx.lineTo(cx, top - 4); ctx.stroke();
         ctx.fillStyle = S.warpColour(g * S.per);
         ctx.beginPath(); ctx.roundRect(cx - S.per * gap * 0.45, top - 4, S.per * gap * 0.9, 18, 9); ctx.fill();
       }

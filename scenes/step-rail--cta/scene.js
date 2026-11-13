@@ -31,12 +31,12 @@
 
       const steps = (content.steps || []).slice(0, 6);
       const n = Math.max(2, steps.length);
-      // widths from the longest strings (Inter is about 0.56 em per character at 500)
-      const titleW = (s) => (s || "").length * 15 * 0.56;
+      // widths from the longest strings (Inter is about 0.56 em per character at 500, titles at 17 px)
+      const titleW = (s) => (s || "").length * 17 * 0.56;
       const SP = Math.max(168, Math.min(232, Math.max(...steps.map((s) => titleW(s.title))) + 34));
       const label = content.button || "";
       const stepLine = [steps[n - 1] && steps[n - 1].title, steps[n - 1] && steps[n - 1].time].filter(Boolean).join(" · ");
-      const btnW = Math.round(BTN_PAD_L + BADGE + 18 + Math.max(label.length * 22 * 0.56, stepLine.length * 13 * 0.62) + 20 + 14 + 34);
+      const btnW = Math.round(BTN_PAD_L + BADGE + 18 + Math.max(label.length * 22 * 0.56, stepLine.length * 16 * 0.62) + 20 + 14 + 34);
       // the badge sits on the rail's rhythm, so the button reads as the last node
       const left = titleW(steps[0] && steps[0].title) / 2;
       const span = (n - 1) * SP - BTN_PAD_L - BADGE / 2 + btnW; // node 1's centre to the button's right edge

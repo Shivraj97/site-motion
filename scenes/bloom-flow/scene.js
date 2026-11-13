@@ -29,7 +29,7 @@
 
       // ---------- graph (SVG) ----------
       const s = svg("svg", { viewBox: "0 0 1600 900", width: 1600, height: 900, class: "bf-graph" }, root);
-      const W = 380, H = 66;
+      const W = 380, H = 76;
       const nodes = content.nodes.map((n) => ({ ...n }));
       const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
       const edgesG = svg("g", {}, s);
@@ -47,16 +47,16 @@
         const g = svg("g", { transform: `translate(${n.x - W / 2} ${n.y - H / 2})` }, s);
         n.card = svg("rect", { width: W, height: H, rx: ui.radius("md", 10), fill: C.surface, stroke: C.lavender || C.line, "stroke-width": CARD }, g);
         const k = kinds[n.kind] || { colour: pal[0], glyph: "•" };
-        svg("rect", { x: 12, y: 12, width: 42, height: 42, rx: ui.radius("sm", 8), fill: k.colour, ...ICON }, g);
-        const glyph = svg("text", { x: 33, y: 39, "text-anchor": "middle", "font-family": "var(--font-mono)", "font-size": 18, fill: h.inkOn(k.colour) }, g);
+        svg("rect", { x: 14, y: 16, width: 44, height: 44, rx: ui.radius("sm", 8), fill: k.colour, ...ICON }, g);
+        const glyph = svg("text", { x: 36, y: 45, "text-anchor": "middle", "font-family": "var(--font-mono)", "font-size": 20, fill: h.inkOn(k.colour) }, g);
         glyph.textContent = k.glyph;
-        const type = svg("text", { x: 68, y: 27, "font-family": "var(--font-mono)", "font-size": 11, "letter-spacing": "0.08em", fill: C.muted }, g);
+        const type = svg("text", { x: 72, y: 32, "font-family": "var(--font-mono)", "font-size": 16, "letter-spacing": "0.06em", fill: C.muted }, g);
         type.textContent = (k.label || n.kind).toUpperCase();
-        const label = svg("text", { x: 68, y: 48, "font-family": "var(--font-sans)", "font-size": 17, fill: C.ink }, g);
+        const label = svg("text", { x: 72, y: 57, "font-family": "var(--font-sans)", "font-size": 17, fill: C.ink }, g);
         label.textContent = n.label;
         n.badge = svg("g", { opacity: 0, transform: `translate(${W - 14} ${H / 2})` }, g);
-        svg("rect", { x: -64, y: -12, width: 64, height: 24, rx: 12, fill: mix(C.positive, C.surface, 0.86) }, n.badge); // sm-native: a pill (radius = half its height) stays a pill in every look
-        const bt = svg("text", { x: -32, y: 4.5, "text-anchor": "middle", "font-family": "var(--font-mono)", "font-size": 12, fill: C.positiveText || C.positive }, n.badge);
+        svg("rect", { x: -84, y: -14, width: 84, height: 28, rx: 14, fill: mix(C.positive, C.surface, 0.86) }, n.badge); // sm-native: a pill (radius = half its height) stays a pill in every look
+        const bt = svg("text", { x: -42, y: 5.5, "text-anchor": "middle", "font-family": "var(--font-mono)", "font-size": 16, fill: C.positiveText || C.positive }, n.badge);
         bt.textContent = "✓ " + n.ms + "ms";
         // flowers that belong to this node: a cluster on its open side
         const side = n.side || (i % 2 ? 1 : -1);

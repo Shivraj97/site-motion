@@ -3,18 +3,18 @@
 
 /* copy across the top: the heading on the left, the sub on the right, sharing a baseline */
 .trb-top { position: absolute; top: 78px; display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; }
-.trb-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.trb-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
 .trb-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(50px * var(--sm-type-k, 1)); line-height: 1.06; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
 .trb-sub { width: 470px; flex: none; font-size: 18px; line-height: 1.5; color: var(--c-muted); padding-bottom: 4px; }
 
 /* the seals */
-.trb-arc { font-family: var(--font-mono); font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+.trb-arc { font-family: var(--font-mono); font-weight: 500; letter-spacing: .04em; text-transform: uppercase; }
 .trb-mark { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.01em; }
 
 .trb-under { position: absolute; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; text-align: center; }
-.trb-name { font-size: 18px; font-weight: 600; color: var(--c-ink); white-space: nowrap; opacity: 0; }
-.trb-date { margin-top: 10px; padding: 5px 10px; border-radius: 4px; font-family: var(--font-mono); font-size: 12.5px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; opacity: 0; } /* sm-native: a dater stamp's corners are rubber, not UI */
-.trb-ctl { margin-top: 10px; display: flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 13px; color: var(--c-muted); white-space: nowrap; opacity: 0; }
+.trb-name { font-size: 19px; font-weight: 600; color: var(--c-ink); white-space: nowrap; opacity: 0; }
+.trb-date { margin-top: 10px; padding: 5px 10px; border-radius: 4px; font-family: var(--font-mono); font-size: 16px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; opacity: 0; } /* sm-native: a dater stamp's corners are rubber, not UI */
+.trb-ctl { margin-top: 10px; display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 16px; color: var(--c-muted); white-space: nowrap; opacity: 0; }
 .trb-dot { width: 8px; height: 8px; border-radius: 999px; flex: none; }
 
 /* the status line */
@@ -24,10 +24,10 @@
 .trb-num { font-family: var(--font-display, var(--font-sans)); font-size: calc(60px * var(--sm-type-k, 1)); line-height: 1; font-weight: var(--sm-type-weight, 400); letter-spacing: var(--sm-type-tracking, -0.02em); font-variant-numeric: tabular-nums; color: var(--c-ink); text-align: right; }
 .trb-num.is-full { color: color-mix(in srgb, var(--c-positive) 45%, var(--c-ink)); }
 .trb-of { font-size: 19px; color: var(--c-muted); white-space: nowrap; }
-.trb-note { margin-top: 12px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 12.5px; letter-spacing: var(--sm-label-tracking, .04em); text-transform: var(--sm-label-transform, none); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.trb-note { margin-top: 12px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .04em); text-transform: var(--sm-label-transform, none); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
 
 .trb-bar { position: absolute; top: 790px; height: 12px; }
 .trb-seg { position: absolute; top: 0; height: 12px; border-radius: 999px; background: color-mix(in srgb, var(--c-line) 70%, var(--c-paper)); }
 .trb-fill { position: absolute; inset: 0; border-radius: 999px; transform-origin: 0 50%; transform: scaleX(0); }
-.trb-tags { position: absolute; top: 764px; height: 18px; }
-.trb-segtag { position: absolute; top: 0; overflow: hidden; text-overflow: clip; font-family: var(--font-mono); font-size: 12px; color: var(--c-muted); white-space: nowrap; }
+.trb-tags { position: absolute; top: 762px; height: 20px; }
+.trb-segtag { position: absolute; top: 0; overflow: hidden; text-overflow: clip; font-family: var(--font-mono); font-size: 16px; color: var(--c-muted); white-space: nowrap; }

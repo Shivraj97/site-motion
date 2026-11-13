@@ -132,7 +132,7 @@
       el("div", "tr-h", copy, content.heading || "");
       el("div", "tr-sub", copy, content.sub || "");
       const plaque = el("div", "tr-plaque", root);
-      Object.assign(plaque.style, { left: CX - 78 + "px", top: CY - 36 + "px" });
+      Object.assign(plaque.style, { left: CX - 92 + "px", top: CY - 42 + "px" });
       const totalEl = el("div", "tr-plaque-n", plaque, "0");
       el("div", "tr-plaque-l", plaque, content.totalLabel || "total");
       const call = el("div", "tr-call", root);

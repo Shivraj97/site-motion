@@ -1,35 +1,35 @@
 .rp { background: transparent; } /* the stage paints the paper; a style motif sits between */
 .rp-copy { position: absolute; left: 96px; top: 300px; width: 470px; }
-.rp-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
+.rp-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
 .rp-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(50px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); }
 .rp-sub { margin-top: 18px; font-size: 18px; line-height: 1.5; color: var(--c-muted); }
 
-.rp-doc { position: absolute; left: 0; top: 0; width: 230px; padding: 14px 14px 12px; border-radius: var(--sm-radius-md, 12px); background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, var(--stroke-w, 1px)) var(--sm-stroke-color, var(--c-stroke, var(--c-line))), var(--sm-shadow-2, 0 10px 24px -14px rgba(0,0,0,.3)); display: grid; grid-template-columns: 34px 1fr; gap: 6px 12px; will-change: transform; }
-.rp-doc-icon { width: 34px; height: 40px; border-radius: var(--sm-radius-sm, 6px); display: grid; place-items: center; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: .04em; color: var(--c-ink); box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
-.rp-doc-name { font-size: 15px; font-weight: 500; white-space: nowrap; }
-.rp-doc-meta { font-family: var(--font-mono); font-size: 11px; color: var(--c-muted); margin-top: 2px; }
+.rp-doc { position: absolute; left: 0; top: 0; width: 270px; padding: 14px 14px 12px; border-radius: var(--sm-radius-md, 12px); background: var(--c-surface); box-shadow: 0 0 0 var(--sm-stroke-fine, var(--stroke-w, 1px)) var(--sm-stroke-color, var(--c-stroke, var(--c-line))), var(--sm-shadow-2, 0 10px 24px -14px rgba(0,0,0,.3)); display: grid; grid-template-columns: 44px 1fr; gap: 6px 12px; will-change: transform; }
+.rp-doc-icon { width: 44px; height: 48px; border-radius: var(--sm-radius-sm, 6px); display: grid; place-items: center; font-family: var(--font-mono); font-size: 16px; font-weight: 600; letter-spacing: 0; color: var(--c-ink); box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+.rp-doc-name { font-size: 18px; font-weight: 500; white-space: nowrap; }
+.rp-doc-meta { font-family: var(--font-mono); font-size: 16px; color: var(--c-muted); margin-top: 2px; }
 .rp-doc-lines { grid-column: 1 / -1; display: grid; gap: 5px; margin-top: 4px; }
 .rp-doc-lines i { display: block; height: 5px; border-radius: 3px; background: var(--c-raised); } /* sm-native: a skeleton text line, rounded to its height */
 
 .rp-printer { position: absolute; left: 900px; top: 240px; width: 500px; height: 150px; border-radius: calc(26px * var(--sm-corner-k, 1)); background: var(--c-ink); box-shadow: var(--sm-shadow-3, 0 24px 40px -24px rgba(0,0,0,.5)); }
 /* sm-native-start: the receipt is thermal paper and its ink; it stays paper-coloured in every brand and look */
 .rp-slot { position: absolute; left: 110px; right: 110px; top: 18px; height: 10px; border-radius: 6px; background: color-mix(in srgb, var(--c-ink) 70%, #000); box-shadow: inset 0 2px 3px rgba(0,0,0,.6); }
-.rp-printer-label { position: absolute; left: 30px; bottom: 26px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .1em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: color-mix(in srgb, var(--c-paper) 60%, var(--c-ink)); }
+.rp-printer-label { position: absolute; left: 30px; bottom: 24px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .1em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: color-mix(in srgb, var(--c-paper) 60%, var(--c-ink)); }
 .rp-led { position: absolute; right: 34px; bottom: 30px; width: 12px; height: 12px; border-radius: 50%; background: color-mix(in srgb, var(--c-accent) 35%, var(--c-ink)); }
 .rp-led.is-on { background: var(--c-accent); box-shadow: var(--sm-glow, 0 0 14px var(--c-accent)); }
 .rp-mouth { position: absolute; left: 50px; right: 50px; bottom: -4px; height: 10px; border-radius: 5px; background: color-mix(in srgb, var(--c-ink) 70%, #000); }
 
 .rp-clip { position: absolute; left: 960px; top: 386px; width: 380px; height: 0; overflow: hidden; transform-origin: 50% 0; filter: drop-shadow(0 12px 16px rgba(0,0,0,.12)); }
-.rp-paper { width: 380px; padding: 22px 22px 18px; background: #fffdf6; color: #24231f; font-family: var(--font-mono); font-size: 15px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), 95% 100%, 90% calc(100% - 8px), 85% 100%, 80% calc(100% - 8px), 75% 100%, 70% calc(100% - 8px), 65% 100%, 60% calc(100% - 8px), 55% 100%, 50% calc(100% - 8px), 45% 100%, 40% calc(100% - 8px), 35% 100%, 30% calc(100% - 8px), 25% 100%, 20% calc(100% - 8px), 15% 100%, 10% calc(100% - 8px), 5% 100%, 0 calc(100% - 8px)); }
-.rp-row { display: grid; grid-template-columns: 1fr auto 44px; gap: 10px; align-items: center; height: 34px; white-space: nowrap; }
+.rp-paper { width: 380px; padding: 22px 22px 18px; background: #fffdf6; color: #24231f; font-family: var(--font-mono); font-size: 16px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), 95% 100%, 90% calc(100% - 8px), 85% 100%, 80% calc(100% - 8px), 75% 100%, 70% calc(100% - 8px), 65% 100%, 60% calc(100% - 8px), 55% 100%, 50% calc(100% - 8px), 45% 100%, 40% calc(100% - 8px), 35% 100%, 30% calc(100% - 8px), 25% 100%, 20% calc(100% - 8px), 15% 100%, 10% calc(100% - 8px), 5% 100%, 0 calc(100% - 8px)); }
+.rp-row { display: grid; grid-template-columns: 1fr auto 58px; gap: 10px; align-items: center; height: 34px; white-space: nowrap; }
 .rp-head { grid-template-columns: 1fr auto; height: 28px; font-weight: 600; letter-spacing: .04em; }
 .rp-k { color: #77746b; }
 .rp-v { text-align: right; }
-.rp-c { justify-self: end; font-size: 11px; padding: 2px 6px; border-radius: 4px; background: color-mix(in srgb, var(--c-accent) 22%, #fffdf6); color: #24231f; }
+.rp-c { justify-self: end; font-size: 16px; padding: 1px 6px; border-radius: 4px; background: color-mix(in srgb, var(--c-accent) 22%, #fffdf6); color: #24231f; }
 .rp-c-low { background: color-mix(in srgb, var(--c-warning, #e8a33d) 28%, #fffdf6); }
 .rp-rule { height: 0; border-top: 1.5px dashed #b9b5aa; margin: 8px 0; }
-.rp-foot { grid-template-columns: 1fr; height: 30px; font-size: 14px; }
+.rp-foot { grid-template-columns: 1fr; height: 30px; font-size: 16px; }
 .rp-bars { display: block; margin: 14px auto 4px; color: #24231f; }
-.rp-serial { text-align: center; font-size: 11px; letter-spacing: .3em; color: #77746b; }
+.rp-serial { text-align: center; font-size: 16px; line-height: 20px; letter-spacing: .24em; color: #77746b; }
 /* sm-native-end */
 .rp-printhead { position: absolute; left: 950px; top: 386px; width: 400px; height: 2px; border-radius: 2px; background: var(--c-accent); box-shadow: var(--sm-glow, 0 0 10px var(--c-accent)); opacity: 0; } /* sm-native: the printhead is a hardware part */

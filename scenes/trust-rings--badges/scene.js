@@ -97,7 +97,7 @@
         svg("path", { id: `trb-top-${i}`, d: `M${-ar} 0 A${ar} ${ar} 0 0 1 ${ar} 0`, fill: "none" }, defs);
         svg("path", { id: `trb-bot-${i}`, d: `M${-ar} 0 A${ar} ${ar} 0 0 0 ${ar} 0`, fill: "none" }, defs);
         const arcText = (id, value) => {
-          const tx = svg("text", { class: "trb-arc", fill: ink, "dominant-baseline": "central", "font-size": 13 }, inked);
+          const tx = svg("text", { class: "trb-arc", fill: ink, "dominant-baseline": "central", "font-size": 16 }, inked);
           const tp = svg("textPath", { href: `#${id}`, startOffset: "50%", "text-anchor": "middle" }, tx);
           tp.textContent = value;
           return tx;
@@ -209,7 +209,7 @@
         for (const tx of [st.topText, st.botText]) {
           const fs = +tx.getAttribute("font-size");
           const L = tx.getComputedTextLength();
-          if (L > 0) h.set(tx, { "font-size": Math.min(13, (half / (L / fs)) * 1).toFixed(2) });
+          if (L > 0) h.set(tx, { "font-size": Math.min(16, (half / (L / fs)) * 1).toFixed(2) });
         }
         const mfs = +st.mark.getAttribute("font-size");
         const ML = st.mark.getComputedTextLength();

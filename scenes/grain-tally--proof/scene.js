@@ -98,7 +98,7 @@
       for (let v = tickStep; yOf(v) > mouth + 18; v += tickStep) ticks.push(v);
       ticks.forEach((v) => {
         const lab = el("div", "gtp-tick", root, v.toLocaleString("en-US"));
-        lab.style.left = x0 - 66 + "px"; lab.style.top = yOf(v) + "px";
+        lab.style.left = x0 - 74 + "px"; lab.style.top = yOf(v) + "px";
       });
       const labels = jars.map((j) => {
         const b = el("div", "gtp-jar", root);

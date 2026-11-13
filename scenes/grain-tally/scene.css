@@ -1,12 +1,12 @@
 .gt { background: var(--c-paper); }
 .gt-canvas { position: absolute; inset: 0; width: 1600px; height: 900px; }
 .gt-copy { position: absolute; left: 110px; top: 300px; width: 400px; }
-.gt-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.gt-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
 .gt-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(50px * var(--sm-type-k, 1)); line-height: 1.04; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; color: var(--c-ink); font-weight: var(--sm-type-weight, 400); }
 .gt-sub { margin-top: 18px; font-size: 18px; line-height: 1.5; color: var(--c-muted); max-width: 360px; }
-.gt-legend, .gt-unit { position: absolute; transform: translate(-50%, -50%); font-family: var(--sm-label-font, var(--font-mono)); font-size: 14px; letter-spacing: var(--sm-label-tracking, .1em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
-.gt-unit { color: var(--c-ink); font-size: 15px; }
+.gt-legend, .gt-unit { position: absolute; transform: translate(-50%, -50%); font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .1em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.gt-unit { color: var(--c-ink); font-size: 18px; }
 .gt-bar { position: absolute; transform: translateX(-50%); text-align: center; font-family: var(--font-mono); white-space: nowrap; }
 .gt-bar::before { content: ""; display: block; width: 26px; height: 3px; margin: 0 auto 8px; background: var(--c); border-radius: 2px; }
-.gt-bar-name { font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); min-height: 1.2em; }
-.gt-bar-n { margin-top: 3px; font-size: 16px; color: var(--c-ink); min-height: 1.2em; }
+.gt-bar-name { font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); min-height: 1.2em; }
+.gt-bar-n { margin-top: 4px; font-size: 19px; color: var(--c-ink); min-height: 1.2em; }

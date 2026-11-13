@@ -2,33 +2,33 @@
 .rr-svg { position: absolute; inset: 0; }
 .rr-copy { position: absolute; left: 96px; top: 72px; }
 .rr-copy > div { width: max-content; max-width: 620px; }
-.rr-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.rr-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
 .rr-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(46px * var(--sm-type-k, 1)); line-height: 1.06; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
 .rr-sub { margin-top: 16px; font-size: 18px; line-height: 1.5; color: var(--c-muted); max-width: 540px !important; }
 
 .rr-track { position: absolute; left: 96px; display: flex; flex-direction: column; gap: 4px; white-space: nowrap; }
 .rr-track-n { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 500; color: var(--c-ink); }
 .rr-sw { width: 12px; height: 12px; border-radius: calc(3px * var(--sm-corner-k, 1)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c-ink) 22%, transparent); flex: none; }
-.rr-track-c { padding-left: 22px; font-family: var(--font-mono); font-size: 13px; color: var(--c-muted); font-variant-numeric: tabular-nums; }
+.rr-track-c { padding-left: 22px; font-family: var(--font-mono); font-size: 16px; color: var(--c-muted); font-variant-numeric: tabular-nums; }
 
-.rr-period { position: absolute; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.rr-period { position: absolute; font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
 
 .rr-ms { position: absolute; white-space: nowrap; text-shadow: 0 0 3px var(--c-paper), 0 0 3px var(--c-paper), 0 0 6px var(--c-paper); } /* a paper halo where the playhead crosses a label */
 .rr-ms-t { font-size: 16px; font-weight: 500; line-height: 20px; color: var(--c-muted); }
 .rr-ms-t.is-done { color: var(--c-ink); }
-.rr-ms-d { font-family: var(--font-mono); font-size: 13px; line-height: 18px; color: var(--c-muted); font-variant-numeric: tabular-nums; }
+.rr-ms-d { font-family: var(--font-mono); font-size: 16px; line-height: 20px; color: var(--c-muted); font-variant-numeric: tabular-nums; }
 
 /* the playhead's flag; it opens into the card at the highlight */
-.rr-pill { position: absolute; left: 0; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 14px; font-weight: 500; white-space: nowrap; font-variant-numeric: tabular-nums; } /* sm-native: a flag stays a pill */
+.rr-pill { position: absolute; left: 0; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 16px; font-weight: 500; white-space: nowrap; font-variant-numeric: tabular-nums; } /* sm-native: a flag stays a pill */
 .rr-card { position: absolute; width: 400px; box-sizing: border-box; padding: 18px 20px 56px; background: var(--c-surface); color: var(--c-ink); border-radius: var(--sm-radius-md, var(--r-md)); box-shadow: inset 0 0 0 var(--sm-stroke-regular, 1px) var(--sm-stroke-color, var(--c-line)), var(--sm-shadow-2, 0 24px 48px -24px rgba(0,0,0,.28)); visibility: hidden; }
 .rr-card-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
-.rr-chip { display: inline-flex; align-items: center; gap: 8px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
-.rr-status { font-family: var(--font-mono); font-size: 13px; padding: 4px 10px; border-radius: 999px; background: color-mix(in srgb, var(--c-accent) 24%, var(--c-surface)); color: var(--c-ink); white-space: nowrap; } /* sm-native: a status chip stays a pill */
+.rr-chip { display: inline-flex; align-items: center; gap: 8px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.rr-status { font-family: var(--font-mono); font-size: 16px; padding: 4px 10px; border-radius: 999px; background: color-mix(in srgb, var(--c-accent) 24%, var(--c-surface)); color: var(--c-ink); white-space: nowrap; } /* sm-native: a status chip stays a pill */
 .rr-card-t { font-size: 23px; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
-.rr-card-d { margin-top: 6px; font-family: var(--font-mono); font-size: 13px; color: var(--c-muted); }
+.rr-card-d { margin-top: 6px; font-family: var(--font-mono); font-size: 16px; color: var(--c-muted); }
 .rr-card-n { margin-top: 10px; font-size: 16px; line-height: 1.45; color: var(--c-muted); }
 
-.rr-sum { position: absolute; top: 840px; display: flex; gap: 28px; font-size: 15px; color: var(--c-muted); white-space: nowrap; }
+.rr-sum { position: absolute; top: 838px; display: flex; gap: 28px; font-size: 17px; color: var(--c-muted); white-space: nowrap; }
 .rr-sum-i { display: inline-flex; align-items: center; gap: 8px; }
 .rr-sum b { color: var(--c-ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 .rr-g { width: 10px; height: 10px; border-radius: 50%; box-sizing: border-box; }

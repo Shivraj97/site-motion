@@ -60,7 +60,7 @@
       // bar lines every 4 beats, and the beat numbers along the top
       for (let b = 0; b <= beats; b += 4) {
         svg("line", { x1: left + b * bw, y1: top - (L ? 80 : 40), x2: left + b * bw, y2: top + (staves.length - 1) * gap + 40, stroke: mix(C.ink, C.paper, b % beats === 0 ? 0.3 : 0.7), "stroke-width": b % beats === 0 ? 2 : 1 }, s);
-        if (b < beats) { const n = svg("text", { x: left + b * bw + (L ? 8 : 6), y: top - (L ? 92 : 52), "font-family": "var(--font-mono)", "font-size": L ? 16 : 12, fill: C.muted }, s); n.textContent = `${b / 4 + 1}`; }
+        if (b < beats) { const n = svg("text", { x: left + b * bw + (L ? 8 : 6), y: top - (L ? 92 : 52), "font-family": "var(--font-mono)", "font-size": 16, fill: C.muted }, s); n.textContent = `${b / 4 + 1}`; }
       }
       const slurLayer = svg("g", {}, s);
       const notes = content.notes.map((n) => {
@@ -85,7 +85,7 @@
         }
         const body = svg("rect", { x, y: y - 11, width: w, height: 22, rx: 11, fill: C.surface, stroke: INK, "stroke-width": NOTE }, g);
         const label = el("div", "ss-label", root, n.label);
-        Object.assign(label.style, { left: x + 10 + "px", top: y - 46 + "px" });
+        Object.assign(label.style, { left: x + 10 + "px", top: y - 48 + "px" });
         // a ring that sounds when the playhead reaches the note
         // sm-native: the ring flashes as the note sounds; a state cue, not outline style
         const ring = svg("circle", { cx: x + 11, cy: y, r: 11, fill: "none", stroke: C.accent, "stroke-width": 2, opacity: 0 }, g);

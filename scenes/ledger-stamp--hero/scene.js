@@ -101,7 +101,7 @@
         svg("circle", { r: 58, fill: C.accentFill || C.accent, stroke: ink, "stroke-width": OUTW }, seal);
         svg("circle", { r: 49, fill: "none", stroke: C.onAccent || C.paper, "stroke-width": ui.stroke("hair", 1.2), "stroke-dasharray": "3 3.6", opacity: 0.8 }, seal);
         txt(seal, { x: 0, y: -2, "text-anchor": "middle" }, "lsh-seal", content.seal || "SEALED");
-        const sealHash = txt(seal, { x: 0, y: 18, "text-anchor": "middle" }, "lsh-seal-hash");
+        const sealHash = txt(seal, { x: 0, y: 20, "text-anchor": "middle" }, "lsh-seal-hash");
         return { g, nudge, type, ref, payee, whole, cents, rows, sig, stamp, seal, ripple, sealHash, bound: null };
       });
       const R2 = rng(53);

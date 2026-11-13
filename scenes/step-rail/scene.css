@@ -1,49 +1,49 @@
 .sr { background: transparent; } /* the stage paints the paper; a style motif sits between */
 .sr-svg { position: absolute; inset: 0; }
 .sr-copy { position: absolute; left: 96px; top: 84px; }
-.sr-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.sr-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
 .sr-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(50px * var(--sm-type-k, 1)); line-height: 1.06; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); }
 .sr-sub { position: absolute; left: 1024px; top: 120px; width: 480px; font-size: 19px; line-height: 1.5; color: var(--c-muted); }
 
 /* a step card: an edge that turns accent while its step runs, and a tint when the last one lands */
-.sr-card { --on: 0; --land: 0; position: absolute; top: 440px; height: 332px; padding: 22px 26px 24px; display: flex; flex-direction: column;
+.sr-card { --on: 0; --land: 0; position: absolute; top: 440px; height: 368px; padding: 22px 26px 24px; display: flex; flex-direction: column;
   border-radius: var(--sm-radius-md, var(--r-md));
   background: color-mix(in srgb, var(--c-accent) calc(var(--land) * 14%), var(--c-surface));
   box-shadow: inset 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-line)), inset 0 0 0 calc(var(--on) * 2px) var(--c-accent), var(--sm-shadow-1, 0 0 0 0 transparent); }
-.sr-head { display: flex; justify-content: space-between; align-items: center; height: 20px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); }
+.sr-head { display: flex; justify-content: space-between; align-items: center; height: 22px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); }
 .sr-state { display: grid; color: var(--c-muted); }
 .sr-state > span { grid-area: 1 / 1; white-space: nowrap; }
 .sr-state > .is-on { color: var(--c-accent-text, var(--c-ink)); }
 .sr-state > .is-done { color: var(--c-positive-text, var(--c-ink)); }
 .sr-time { color: var(--c-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.sr-title { margin-top: 18px; font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; white-space: nowrap; }
-.sr-detail { margin-top: 8px; font-size: 16px; line-height: 1.45; color: var(--c-muted); }
+.sr-title { margin-top: 16px; font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; white-space: nowrap; }
+.sr-detail { margin-top: 8px; font-size: 17px; line-height: 1.4; color: var(--c-muted); }
 
 /* the result slot: a skeleton until the token arrives, then what the step produced */
-.sr-res { position: relative; margin-top: auto; height: 132px; padding-top: 18px; box-shadow: inset 0 var(--sm-stroke-hair, 1px) 0 var(--c-line); }
+.sr-res { position: relative; margin-top: auto; height: 156px; padding-top: 18px; box-shadow: inset 0 var(--sm-stroke-hair, 1px) 0 var(--c-line); }
 .sr-skel { position: absolute; left: 0; top: 30px; right: 0; display: flex; flex-direction: column; gap: 12px; }
 .sr-skel i { display: block; height: 10px; border-radius: 5px; background: color-mix(in srgb, var(--c-line) 70%, var(--c-surface)); } /* sm-native: a skeleton bar stays a pill */
 .sr-item { opacity: 0; }
-.sr-line { font-family: var(--font-mono); font-size: 14px; line-height: 1.45; padding: 10px 12px; border-radius: var(--sm-radius-sm, var(--r-sm)); background: var(--c-raised); color: var(--c-ink); }
+.sr-line { font-family: var(--font-mono); font-size: 16px; line-height: 1.45; padding: 10px 12px; border-radius: var(--sm-radius-sm, var(--r-sm)); background: var(--c-raised); color: var(--c-ink); }
 .sr-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.sr-chip { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 14px; padding: 6px 11px 6px 9px; border-radius: var(--sm-radius-sm, var(--r-sm)); background: var(--c-surface); box-shadow: inset 0 0 0 var(--sm-stroke-hair, 1px) var(--sm-stroke-color, var(--c-line)); white-space: nowrap; }
+.sr-chip { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 16px; padding: 6px 11px 6px 9px; border-radius: var(--sm-radius-sm, var(--r-sm)); background: var(--c-surface); box-shadow: inset 0 0 0 var(--sm-stroke-hair, 1px) var(--sm-stroke-color, var(--c-line)); white-space: nowrap; }
 .sr-chip b { width: 8px; height: 8px; border-radius: 50%; flex: none; }
 .sr-people { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 .sr-faces { display: flex; padding-left: 4px; }
-.sr-face { width: 36px; height: 36px; margin-left: -4px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 600; box-shadow: 0 0 0 2px var(--c-surface); } /* sm-native: an avatar stays a circle */
-.sr-people-text { font-size: 15px; color: var(--c-ink); white-space: nowrap; }
-.sr-list { display: flex; flex-direction: column; gap: 9px; }
-.sr-row { display: flex; align-items: center; gap: 10px; font-size: 15px; line-height: 1.3; }
+.sr-face { width: 40px; height: 40px; margin-left: -4px; border-radius: 50%; display: grid; place-items: center; font-size: 16px; font-weight: 600; box-shadow: 0 0 0 2px var(--c-surface); } /* sm-native: an avatar stays a circle */
+.sr-people-text { font-size: 17px; color: var(--c-ink); white-space: nowrap; }
+.sr-list { display: flex; flex-direction: column; gap: 8px; }
+.sr-row { display: flex; align-items: center; gap: 10px; font-size: 17px; line-height: 1.3; }
 .sr-tick { width: 18px; height: 18px; flex: none; }
 .sr-value { display: flex; flex-direction: column; gap: 4px; }
 .sr-value-n { font-family: var(--font-display, var(--font-sans)); font-size: 38px; line-height: 1.05; letter-spacing: -0.02em; font-weight: var(--sm-type-weight, 500); white-space: nowrap; }
-.sr-value-u { font-size: 15px; color: var(--c-muted); }
+.sr-value-u { font-size: 17px; color: var(--c-muted); }
 
 /* the payoff: what the whole run produced, landing in the last card */
 .sr-pay { display: flex; flex-direction: column; gap: 6px; }
-.sr-pay-label { font-size: 15px; color: color-mix(in srgb, var(--c-muted) 50%, var(--c-ink)); }
+.sr-pay-label { font-size: 17px; color: color-mix(in srgb, var(--c-muted) 50%, var(--c-ink)); }
 .sr-pay-value { font-family: var(--font-display, var(--font-sans)); line-height: 1; letter-spacing: var(--sm-type-tracking, -0.03em); font-weight: var(--sm-type-weight, 500); white-space: nowrap; }
-.sr-pay-note { font-size: 14px; color: color-mix(in srgb, var(--c-muted) 50%, var(--c-ink)); }
+.sr-pay-note { font-size: 16px; color: color-mix(in srgb, var(--c-muted) 50%, var(--c-ink)); }
 
 /* the token: a flag that rides above the rail */
-.sr-token { position: absolute; left: 0; height: 32px; padding: 0 13px; display: flex; align-items: center; border-radius: var(--sm-radius-sm, var(--r-sm)); background: var(--c-accent-fill, var(--c-accent)); color: var(--c-on-accent, var(--c-ink)); font-family: var(--font-mono); font-size: 14px; white-space: nowrap; box-shadow: var(--sm-shadow-1, 0 0 0 0 transparent); opacity: 0; }
+.sr-token { position: absolute; left: 0; height: 32px; padding: 0 13px; display: flex; align-items: center; border-radius: var(--sm-radius-sm, var(--r-sm)); background: var(--c-accent-fill, var(--c-accent)); color: var(--c-on-accent, var(--c-ink)); font-family: var(--font-mono); font-size: 16px; white-space: nowrap; box-shadow: var(--sm-shadow-1, 0 0 0 0 transparent); opacity: 0; }

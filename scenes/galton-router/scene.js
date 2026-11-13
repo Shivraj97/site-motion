@@ -22,9 +22,9 @@
       root.classList.add("gr");
       const rand = rng(content.seed || 21);
       const bins = content.bins;
-      const cx = 1010, top = 210, rows = 8, gapX = 44, gapY = 38, pegR = 4.5, ballR = 7.5, binW = 118;
+      const cx = 1010, top = 210, rows = 8, gapX = 44, gapY = 38, pegR = 4.5, ballR = 7.5, binW = 130;
       const boardL = cx - (bins.length * binW) / 2;
-      const binTop = top + rows * gapY + 30, binBottom = 800;
+      const binTop = top + rows * gapY + 30, binBottom = 784;
       const rule = content.rule, flapL = 150, flapA = 0.6, pivotY = top - 26;
       const exitDx = flapL * 0.86 * Math.cos(flapA) - 6, exitY = pivotY + flapL * 0.86 * Math.sin(flapA);
 
@@ -58,7 +58,7 @@
 
       // drawing
       const s = svg("svg", { viewBox: `0 0 ${W} ${H}`, width: W, height: H, class: "gr-svg" }, root);
-      svg("rect", { x: boardL - 16, y: top - 60, width: bins.length * binW + 32, height: binBottom - top + 76, rx: ui.radius("lg", 22), fill: C.surface, ...ui.strokeAttrs("regular", 1.5, C.stroke || C.line) }, s);
+      svg("rect", { x: boardL - 16, y: top - 60, width: bins.length * binW + 32, height: binBottom - top + 70, rx: ui.radius("lg", 22), fill: C.surface, ...ui.strokeAttrs("regular", 1.5, C.stroke || C.line) }, s);
       bins.forEach((bn, b) => svg("rect", { x: boardL + b * binW + 4, y: binTop, width: binW - 8, height: binBottom - binTop, rx: ui.radius("sm", 6), fill: bn.good ? mix(C.positive || C.accent, C.surface, 0.84) : "transparent" }, s));
       for (let r = 0; r < rows; r++) for (let k = -8; k <= 8; k++) {
         const x = cx + (k + (r % 2 ? 0.5 : 0)) * gapX;
@@ -73,7 +73,7 @@
 
       const binLabels = bins.map((bn, b) => {
         const box = el("div", "gr-bin", root);
-        Object.assign(box.style, { left: boardL + b * binW + "px", width: binW + "px", top: binBottom + 18 + "px" });
+        Object.assign(box.style, { left: boardL + b * binW + "px", width: binW + "px", top: binBottom + 22 + "px" });
         el("div", "gr-bin-name", box, bn.name);
         const pct = el("div", "gr-bin-pct", box, "0%");
         if (bn.note) el("div", "gr-bin-note", box, bn.note);

@@ -42,7 +42,7 @@
 
       // ---- geometry ----
       const threads = content.threads;
-      const per = content.perTool ?? 5, gap = 30;
+      const per = content.perTool ?? 5, gap = 32;
       const nb = threads.length, n = nb * per;
       const left = 190, right = left + n * gap;
       const fresh = Math.max(0, threads.findIndex((t) => t.new)); // the tool being threaded in
@@ -288,16 +288,16 @@
         chip.style.transform = `translate(-50%, ${((1 - inP) * -16).toFixed(2)}px)`;
         const sw = h.tw(t, FIRST, 0.4, "snappy");
         pend.style.opacity = (1 - sw).toFixed(3);
-        pend.style.transform = `translateY(${(-sw * 14).toFixed(2)}px)`;
+        pend.style.transform = `translateY(${(-sw * 18).toFixed(2)}px)`;
         done.style.opacity = sw.toFixed(3);
-        done.style.transform = `translateY(${((1 - sw) * 14).toFixed(2)}px)`;
+        done.style.transform = `translateY(${((1 - sw) * 18).toFixed(2)}px)`;
         ring.style.opacity = sw.toFixed(3);
       });
       // the tag rides the step between the first new row and the old cloth
       const stepY = fell + whole * ROW + scroll;
       const tagA = h.tw(t, FIRST, 0.4, "snappy") * (1 - h.clamp((stepY - (beam - 70)) / 50));
       S.tag.style.opacity = (rows >= 1 ? tagA : 0).toFixed(3);
-      S.tag.style.transform = `translate(${right + 16}px, ${(stepY - 9).toFixed(2)}px)`;
+      S.tag.style.transform = `translate(${right + 16}px, ${(stepY - 22).toFixed(2)}px)`;
       // the count is the number of bands in the newest woven row
       const flip = h.tw(t, FIRST, 0.4, "snappy");
       S.before.style.transform = `translateY(${(-flip * 100).toFixed(2)}%)`;

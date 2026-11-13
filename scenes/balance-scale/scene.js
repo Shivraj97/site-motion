@@ -26,7 +26,7 @@
   };
   // critically damped return (no bounce) for the unload
   const settle = (tau, w) => (tau <= 0 ? 0 : 1 - (1 + w * tau) * Math.exp(-w * tau));
-  const MONO = 7.25; // px per character, 12px monospace
+  const MONO = 9.6; // px per character, 16px monospace
 
   SiteMotion.scene({
     width: W,
@@ -77,7 +77,7 @@
         const ours = !!sc.ours;
         const f = ours ? 1 : 0.62;
         const cx = SLOTS[si];
-        const L = 200 * f, P = 30 * f, PT = 8 * f, PW = 176 * f, SH = 30 * f, U = 16 * f, BH = 12 * f;
+        const L = 200 * f, P = 30 * f, PT = 8 * f, PW = 176 * f, SH = ours ? 30 : 22, U = 16 * f, BH = 12 * f;
         const py = FLOOR - 290 * f;
         const Lp = 130 * f; // pointer length
         const w = ours ? 2 * Math.PI * 0.6 : 2 * Math.PI * 0.85, z = ours ? 0.42 : 0.38;
@@ -120,7 +120,7 @@
             const name = ours ? it.label + " " : "";
             const full = name + val;
             const inside = bw >= full.length * MONO + 16;
-            const ty = y + SH / 2 + 4.2;
+            const ty = y + SH / 2 + 5.6;
             if (inside && ours) {
               const a = svg("text", { x: -bw / 2 + 9, y: ty, class: "bs-block", fill: txtCol }, bg); a.textContent = it.label;
               const b = svg("text", { x: bw / 2 - 9, y: ty, "text-anchor": "end", class: "bs-block", fill: txtCol }, bg); b.textContent = val;
@@ -152,7 +152,7 @@
 
         // readout under the base
         const rd = el("div", "bs-read" + (ours ? " bs-read-ours" : ""), root);
-        Object.assign(rd.style, { left: cx - (ours ? 230 : 150) + "px", width: (ours ? 460 : 300) + "px" });
+        Object.assign(rd.style, { left: cx - (ours ? 230 : 170) + "px", width: (ours ? 460 : 340) + "px" });
         const ratio = el("div", "bs-ratio", rd, (Q / Cs).toFixed(1) + "×");
         const col = el("div", "bs-read-col", rd);
         const head = el("div", "bs-name", col);

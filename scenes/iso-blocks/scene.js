@@ -94,7 +94,7 @@ SiteMotion.scene({
         const lines = P.b.lines || [];
         P.data.rows = lines.map((line, i) => {
           const y = 40 + i * 30;
-          return { time: mono(P.faceFront, 22, y, 15, line.time, { opacity: 0.55 }), text: mono(P.faceFront, 82, y, 15, ""), full: line.text };
+          return { time: mono(P.faceFront, 22, y, 16, line.time, { opacity: 0.55 }), text: mono(P.faceFront, 88, y, 16, ""), full: line.text };
         });
       },
       hero(P) {
@@ -102,14 +102,14 @@ SiteMotion.scene({
         const title = (b.title || "").split("\n");
         title.forEach((line, i) => mono(P.faceTop, 18, 34 + i * 30, 26, line, { "font-family": "var(--font-sans)", "letter-spacing": "0", "font-weight": 500, fill: titleInk }));
         const status = b.status || "ACTIVE";
-        P.data.dot = svg("circle", { cx: d - 22 - status.length * 8.6 - 10, cy: 29.5, r: 3.5, fill: tone.ink }, P.faceFront);
-        mono(P.faceFront, d - 22, 34, 13, status, { "text-anchor": "end" });
-        mono(P.faceFront, 24, 70, 15, b.label || "");
-        mono(P.faceFront, 24, 90, 11, b.sub || "", { opacity: 0.6 });
-        P.data.metric = mono(P.faceFront, 22, 160, 44, "0", { "font-family": "var(--font-sans)", "letter-spacing": "-0.01em", "font-weight": 500 });
-        mono(P.faceFront, 24, 182, 11, b.unit || "", { opacity: 0.7 });
-        const chart = svg("g", { transform: `translate(24 ${H - 150})` }, P.faceFront);
-        const w = d - 48, ch = 120;
+        P.data.dot = svg("circle", { cx: d - 22 - status.length * 10.6 - 10, cy: 28.5, r: 3.5, fill: tone.ink }, P.faceFront);
+        mono(P.faceFront, d - 22, 34, 16, status, { "text-anchor": "end" });
+        mono(P.faceFront, 24, 68, 17, b.label || "");
+        mono(P.faceFront, 24, 92, 16, b.sub || "", { opacity: 0.6 });
+        P.data.metric = mono(P.faceFront, 22, 150, 44, "0", { "font-family": "var(--font-sans)", "letter-spacing": "-0.01em", "font-weight": 500 });
+        mono(P.faceFront, 24, 178, 16, b.unit || "", { opacity: 0.7 });
+        const chart = svg("g", { transform: `translate(24 ${H - 128})` }, P.faceFront);
+        const w = d - 48, ch = 104;
         [0, 0.5, 1].forEach((k) => svg("path", { d: `M0 ${k * ch}H${w}`, stroke: tone.dim, "stroke-dasharray": "2 5", "stroke-width": 1, fill: "none" }, chart)); // sm-native: data marks are content: they keep their weight, so data never vanishes under stroke none
         P.data.spark = svg("path", { d: sparkPath(b.series, w, ch), stroke: tone.ink, "stroke-width": 1.6, fill: "none", "stroke-linejoin": "round" }, chart); // sm-native: data marks are content: they keep their weight, so data never vanishes under stroke none
         P.data.sparkLength = null;
@@ -121,19 +121,19 @@ SiteMotion.scene({
       },
       replicas(P) {
         const b = P.b, n = b.total || 4;
-        mono(P.faceFront, 24, 40, 14, b.label || "REPLICAS");
-        P.data.count = mono(P.faceFront, b.size[1] - 22, 40, 14, "", { "text-anchor": "end" });
+        mono(P.faceFront, 24, 40, 16, b.label || "REPLICAS");
+        P.data.count = mono(P.faceFront, b.size[1] - 22, 40, 16, "", { "text-anchor": "end" });
         P.data.cells = Array.from({ length: n }, (_, i) => svg("rect", { x: 24 + i * 52, y: 62, width: 40, height: 40, fill: "none", stroke: tone.ink, "stroke-width": 1.4 }, P.faceFront)); // sm-native: data marks are content: they keep their weight, so data never vanishes under stroke none
       },
       metric(P) {
         const b = P.b, d = b.size[1], H = b.size[2];
         P.data.value = mono(P.faceFront, d - 52, 64, 52, "0", { "text-anchor": "end", "font-family": "var(--font-sans)", "letter-spacing": "-0.02em" });
         mono(P.faceFront, d - 22, 46, 18, b.unit || "", { "text-anchor": "end", "font-family": "var(--font-sans)" });
-        mono(P.faceFront, 24, H - 26, 14, b.label || "");
-        mono(P.faceFront, 24, H - 10, 10, b.sub || "", { opacity: 0.55 });
-        const chart = svg("g", { transform: `translate(${d * 0.45} ${H - 48})` }, P.faceFront);
-        svg("path", { d: `M0 34H${d * 0.55 - 24}`, stroke: tone.dim, "stroke-dasharray": "2 5", "stroke-width": 1, fill: "none" }, chart); // sm-native: data marks are content: they keep their weight, so data never vanishes under stroke none
-        P.data.spark = svg("path", { d: sparkPath(b.series, d * 0.55 - 24, 30), stroke: tone.ink, "stroke-width": 1.4, fill: "none" }, chart); // sm-native: data marks are content: they keep their weight, so data never vanishes under stroke none
+        mono(P.faceFront, 24, H - 34, 16, b.label || "");
+        mono(P.faceFront, 24, H - 12, 16, b.sub || "", { opacity: 0.55 });
+        const chart = svg("g", { transform: `translate(${d * 0.5} ${H - 48})` }, P.faceFront);
+        svg("path", { d: `M0 34H${d * 0.5 - 24}`, stroke: tone.dim, "stroke-dasharray": "2 5", "stroke-width": 1, fill: "none" }, chart); // sm-native: data marks are content: they keep their weight, so data never vanishes under stroke none
+        P.data.spark = svg("path", { d: sparkPath(b.series, d * 0.5 - 24, 30), stroke: tone.ink, "stroke-width": 1.4, fill: "none" }, chart); // sm-native: data marks are content: they keep their weight, so data never vanishes under stroke none
       },
     };
 

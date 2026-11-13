@@ -2,7 +2,7 @@
 
 /* copy: heading left, the sub line on the right, both sitting on one baseline above the board */
 .pb-copy { position: absolute; left: 96px; right: 96px; top: 64px; display: flex; justify-content: space-between; align-items: flex-end; gap: 64px; }
-.pb-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.pb-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
 .pb-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(48px * var(--sm-type-k, 1)); line-height: 1.05; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
 .pb-sub { width: 420px; flex: none; font-size: 18px; line-height: 1.5; color: var(--c-muted); padding-bottom: 4px; }
 
@@ -11,12 +11,12 @@
 .pb-lane { position: absolute; box-sizing: border-box; border-radius: var(--sm-radius-md, var(--r-md)); background: color-mix(in srgb, var(--c-raised, var(--c-surface)) 55%, var(--c-paper)); box-shadow: inset 0 0 0 var(--sm-stroke-hair, 1px) var(--sm-stroke-color, var(--c-line)); overflow: hidden; }
 .pb-lane-tint { position: absolute; inset: 0; background: color-mix(in srgb, var(--c-positive, var(--c-accent)) 10%, transparent); opacity: 0; }
 .pb-head { position: relative; height: 54px; box-sizing: border-box; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.pb-name { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 600; color: var(--c-ink); white-space: nowrap; }
+.pb-name { display: flex; align-items: center; gap: 9px; font-size: 17px; font-weight: 600; color: var(--c-ink); white-space: nowrap; }
 .pb-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c-positive, var(--c-accent)); } /* sm-native: a status dot stays round */
-.pb-count { --blink: 0; min-width: 22px; height: 22px; padding: 0 7px; box-sizing: border-box; border-radius: 999px; display: inline-grid; place-items: center; font-family: var(--font-mono); font-size: 12px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--c-ink); background: color-mix(in srgb, var(--c-accent) calc(var(--blink) * 45%), var(--c-surface)); box-shadow: inset 0 0 0 var(--sm-stroke-hair, 1px) var(--sm-stroke-color, var(--c-line)); } /* sm-native: a count pill stays a pill */
+.pb-count { --blink: 0; min-width: 26px; height: 26px; padding: 0 8px; box-sizing: border-box; border-radius: 999px; display: inline-grid; place-items: center; font-family: var(--font-mono); font-size: 16px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--c-ink); background: color-mix(in srgb, var(--c-accent) calc(var(--blink) * 45%), var(--c-surface)); box-shadow: inset 0 0 0 var(--sm-stroke-hair, 1px) var(--sm-stroke-color, var(--c-line)); } /* sm-native: a count pill stays a pill */
 .pb-right { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
-.pb-total { font-family: var(--font-mono); font-size: 14px; font-variant-numeric: tabular-nums; color: var(--c-ink); }
-.pb-delta { font-family: var(--font-mono); font-size: 13px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--c-positive-text, var(--c-positive, var(--c-accent-ink))); opacity: 0; }
+.pb-total { font-family: var(--font-mono); font-size: 16px; font-variant-numeric: tabular-nums; color: var(--c-ink); }
+.pb-delta { font-family: var(--font-mono); font-size: 16px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--c-positive-text, var(--c-positive, var(--c-accent-ink))); opacity: 0; }
 
 /* cards */
 .pb-cards { position: absolute; inset: 0; }
@@ -25,9 +25,9 @@
 .pb-okline { position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 var(--sm-stroke-bold, 2px) var(--c-positive, var(--c-accent)); opacity: 0; pointer-events: none; }
 .pb-ring { position: absolute; inset: -1px; border-radius: inherit; box-shadow: 0 0 0 var(--sm-stroke-bold, 2px) var(--c-positive, var(--c-accent)); opacity: 0; pointer-events: none; }
 .pb-title { position: relative; font-size: 16px; font-weight: 500; line-height: 21px; color: var(--c-ink); }
-.pb-row { position: relative; height: 26px; display: flex; align-items: center; gap: 9px; }
-.pb-av { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 600; letter-spacing: .02em; box-shadow: inset 0 0 0 var(--sm-stroke-hair, 1px) var(--sm-stroke-color, rgba(0,0,0,.08)); } /* sm-native: an avatar stays round */
-.pb-tag { font-size: 13px; color: var(--c-muted); white-space: nowrap; }
-.pb-value { margin-left: auto; font-family: var(--font-mono); font-size: 14px; font-variant-numeric: tabular-nums; color: var(--c-ink); white-space: nowrap; }
-.pb-chip { position: absolute; left: 35px; top: 0; height: 26px; padding: 0 11px 0 7px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; white-space: nowrap; transform-origin: 0 50%; opacity: 0; } /* sm-native: the success chip stays a pill */
-.pb-check { width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; background: color-mix(in srgb, currentColor 18%, transparent); } /* sm-native: a check badge stays round */
+.pb-row { position: relative; height: 32px; display: flex; align-items: center; gap: 9px; }
+.pb-av { flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: 16px; font-weight: 600; letter-spacing: .02em; box-shadow: inset 0 0 0 var(--sm-stroke-hair, 1px) var(--sm-stroke-color, rgba(0,0,0,.08)); } /* sm-native: an avatar stays round */
+.pb-tag { font-size: 16px; color: var(--c-muted); white-space: nowrap; }
+.pb-value { margin-left: auto; font-family: var(--font-mono); font-size: 16px; font-variant-numeric: tabular-nums; color: var(--c-ink); white-space: nowrap; }
+.pb-chip { position: absolute; left: 41px; top: 0; height: 32px; padding: 0 12px 0 7px; border-radius: 999px; display: inline-flex; align-items: center; gap: 7px; font-size: 16px; font-weight: 600; white-space: nowrap; transform-origin: 0 50%; opacity: 0; } /* sm-native: the success chip stays a pill */
+.pb-check { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 16px; background: color-mix(in srgb, currentColor 18%, transparent); } /* sm-native: a check badge stays round */

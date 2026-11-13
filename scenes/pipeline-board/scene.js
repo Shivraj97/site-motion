@@ -74,7 +74,7 @@
       // the copy and the board share the height: the board is as deep as its deepest column, and the pair is centred
       const copyH = (content.eyebrow ? 31 : 0) + String(content.heading || "").split("\n").length * 50.4;
       const room = 900 - BOARD.margin * 2 - copyH - BOARD.below - BOARD.head - 6 - BOARD.pad;
-      const inner = (c) => c.lines * 21 + 10 + 26; // title, gap, owner row
+      const inner = (c) => c.lines * 21 + 10 + 32; // title, gap, owner row
       // a crowded column first gives up card padding, then the gaps between cards, so titles and rows keep their size
       let shrink = 0;
       states.forEach((cols) => cols.forEach((col) => {

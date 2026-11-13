@@ -13,7 +13,7 @@
   const T1 = 1.4, SW = 5.0, T3 = 10.4, RW = 2.8; // sweep left from T1 for SW s; hold; sweep back from T3 for RW s
   const FLY = 0.7, TX = 792, TW = 584; // a fragment's flight; the table's x and width in the frame
   // estimated fragment sizes by kind (width fixed in CSS, height for layout only)
-  const KIND = { note: [196, 104], cell: [214, 92], email: [244, 92], message: [244, 86], doc: [228, 70], event: [218, 84] };
+  const KIND = { note: [212, 118], cell: [232, 104], email: [258, 118], message: [258, 98], doc: [244, 84], event: [236, 100] };
 
   SiteMotion.scene({
     width: W,
@@ -111,9 +111,9 @@
       // ---- the fragments: scattered over the desk, the first item rightmost so items arrive in row order ----
       const chipsL = el("div", "sw-chips", root);
       Object.assign(chipsL.style, { left: FX + "px", top: FY + "px" });
-      // a loose 3-column grid over the desk (x 28–726, y 26–440, clear of the counter), filled right column first so
+      // a loose 3-column grid over the desk (x 24–730, y 22–424, clear of the counter), filled right column first so
       // the divider reaches the items in content order; rows shift per column and every edge is staggered
-      const COLS = 3, ROWS = Math.max(1, Math.ceil(n / COLS)), DX0 = 28, DX1 = R - 34, DY0 = 26, DY1 = 440;
+      const COLS = 3, ROWS = Math.max(1, Math.ceil(n / COLS)), DX0 = 24, DX1 = R - 30, DY0 = 22, DY1 = 424;
       const colW = (DX1 - DX0) / COLS, rowHt = (DY1 - DY0) / ROWS;
       const chips = items.map((it, i) => {
         const kind = KIND[it.kind] ? it.kind : "note";

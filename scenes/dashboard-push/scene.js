@@ -99,7 +99,7 @@
       const note = el("div", "dp-note", plot);
       el("span", "dp-note-k", note, content.best);
       el("b", "", note, content.bestDelta);
-      note.style.left = PW - 262 + "px";
+      note.style.left = PW - 278 + "px";
       note.style.top = yOf(W.values[6]) - 96 + "px";
 
       // ---------- channels ----------
@@ -181,7 +181,7 @@
       S.tip.style.opacity = (on * (1 - note)).toFixed(3);
       h.text(S.tipDay, W.labels[day]);
       h.text(S.tipVal, money(c.currency, W.values[day]));
-      S.tip.style.transform = `translate(${clamp(gx - 66, -10, PW - 142).toFixed(1)}px, ${(cy - 84).toFixed(1)}px)`;
+      S.tip.style.transform = `translate(${clamp(gx - 70, -10, PW - 150).toFixed(1)}px, ${(cy - 84).toFixed(1)}px)`;
       S.note.style.opacity = note.toFixed(3);
       S.note.style.transform = `translateY(${((1 - note) * 10).toFixed(2)}px)`;
 

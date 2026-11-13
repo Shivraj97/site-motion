@@ -15,7 +15,7 @@
 (function () {
   const D = 12, W = 1600, H = 900;
   const COPY = { left: 96, width: 404 };
-  const CHART = { left: 600, right: 1504, gap: 60, base: 776, top: 150 };
+  const CHART = { left: 600, right: 1504, gap: 60, base: 776, top: 130 };
   const STEP_FIRST = 2.1, STEP_SPAN = 3.45, TRAVEL = 0.55;
   const EXIT = 10.7;
 
@@ -146,8 +146,8 @@
         const ok = el("div", "pbm-ok", tile);
         ok.style.background = okBg;
         const av = el("span", "pbm-av", tile, (c.owner || "?").split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase());
-        const size = Math.min(24, tileH - 8);
-        Object.assign(av.style, { width: size + "px", height: size + "px", fontSize: Math.max(10, Math.round(size * 0.46)) + "px" });
+        const size = Math.min(30, tileH - 4);
+        Object.assign(av.style, { width: size + "px", height: size + "px", fontSize: Math.max(16, Math.round(size * 0.46)) + "px" });
         const bg = pal[(owners.indexOf(c.owner || "") * 2 + 1) % pal.length];
         av.style.background = bg;
         av.style.color = h.inkOn(bg);

@@ -25,16 +25,17 @@
   const MOVING = D - (T.resume - T.pause); // seconds per loop the focus run is in flight
 
   // courses: heading (deg, canvas: clockwise from east), offset of the course from the centre, phase at t = 0,
-  // and which corner the data block hangs off (picked so the blocks stay clear of each other and of the pause)
+  // and which corner the data block hangs off (phases and corners picked so the first seven blocks, at 16 px, never
+  // touch each other, the focus block or the paused card)
   const LANES = [
-    { a: 76, d: 250, u0: 0.774, q: "se" },
-    { a: -48, d: -250, u0: 0.387, q: "se" },
-    { a: 24, d: -89, u0: 0.787, q: "sw" },
-    { a: 166, d: 52, u0: 0.625, q: "ne" },
-    { a: 117, d: -63, u0: 0.962, q: "nw" },
-    { a: -16, d: 197, u0: 0.913, q: "nw" },
-    { a: -114, d: 59, u0: 0.381, q: "sw" },
-    { a: -149, d: 250, u0: 0.768, q: "sw" },
+    { a: 76, d: 250, u0: 0.9, q: "se" },
+    { a: -48, d: -250, u0: 0.58, q: "ne" },
+    { a: 24, d: -89, u0: 0.58, q: "ne" },
+    { a: 166, d: 52, u0: 0.76, q: "ne" },
+    { a: 117, d: -63, u0: 0.86, q: "nw" },
+    { a: -16, d: 197, u0: 0.02, q: "nw" },
+    { a: -114, d: 59, u0: 0.34, q: "nw" },
+    { a: -149, d: 250, u0: 0.768, q: "sw" }, // an eighth run, if the content brings one
   ];
   const FOCUS = { a: -18, d: 60, uP: 0.6, q: "ne" }; // paused at uP
 
@@ -147,8 +148,8 @@
       });
 
       // ---- runs ----
-      // a block's size from its longest line (12 px mono ≈ 7.25 px a glyph), so it can fade before the rim cuts it
-      const blockW = (...lines) => Math.max(...lines.map((x) => x.length)) * 7.25 + 18;
+      // a block's size from its longest line (16 px mono ≈ 9.7 px a glyph), so it can fade before the rim cuts it
+      const blockW = (...lines) => Math.max(...lines.map((x) => x.length)) * 9.7 + 22;
       // data blocks live inside the scope: a block reaching past the rim is cut by it, as on a real display
       const tags = el("div", "rs-tags", root);
       tags.style.clipPath = `circle(${R - 1}px at ${CX}px ${CY}px)`;
@@ -213,7 +214,7 @@
       svg("path", { d: "M1.5 1.5 L1.5 22 L7 17 L10.8 25.6 L14.4 24 L10.6 15.6 L17.6 15.6 Z", fill: WHITE, stroke: "#000000", "stroke-width": 1.5, "stroke-linejoin": "round" }, arrow); // sm-native: an OS pointer keeps its outline on any backdrop
       el("span", "rs-pill", cursor, content.operator || "On call");
       const ripple = el("span", "rs-ripple", cursor);
-      const itemAt = [clickAt[0] + 20 + 150, clickAt[1] + 22 + 22];
+      const itemAt = [clickAt[0] + 20 + 170, clickAt[1] + 22 + 24];
       const curKeys = [
         [0, 990, 980], [T.curIn, 990, 980], [T.curAt, ...at(fc, focusU(T.curAt))], [T.toItem, ...at(fc, focusU(T.curAt))],
         [T.atItem, ...itemAt], [T.rest0, ...itemAt], [T.rest1, P[0] + 54, P[1] + 92], [T.curOut0, P[0] + 54, P[1] + 92],
@@ -282,7 +283,7 @@
 
       // a data block fades out as its far corner nears the rim
       const rim = (x, y, q, w) => {
-        const fx = x + (q[1] === "e" ? 12 + w : -12 - w), fy = y + (q[0] === "n" ? -48 : 48);
+        const fx = x + (q[1] === "e" ? 12 + w : -12 - w), fy = y + (q[0] === "n" ? -64 : 64);
         const far = Math.max(Math.hypot(fx - CX, fy - CY), Math.hypot(fx - CX, y - CY), Math.hypot(x - CX, fy - CY));
         return clamp((R - 4 - far) / 30);
       };

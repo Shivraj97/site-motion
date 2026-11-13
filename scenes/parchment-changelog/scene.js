@@ -48,10 +48,11 @@
 
       // ---- layout ----
       const PX = 770, PW = 660, TOP = 142; // paper left, width, top edge (under the roller)
+      const IH = 32; // one change line (matches .pc-item)
       const releases = content.releases;
       let y = TOP + 30;
       const rows = releases.map((rel) => {
-        const hgt = Math.max(54, rel.items.length * 27) + 30;
+        const hgt = Math.max(64, rel.items.length * IH) + 28;
         const r = { rel, top: y, hgt };
         y += hgt;
         return r;
@@ -178,7 +179,7 @@
         pill.style.boxShadow = `inset 0 0 0 1.5px ${mix(col, C.ink, light ? 0.35 : 0.1)}`;
         return { k, n: el("b", "", cell, "0") };
       });
-      return { rows, rules, sheet, paper, shadow, edgeTint, clipRect, paperD, curl, spirals, CR, BASE, TOP, PX, PW, H, UDUR, ROLL, RDUR, DONE, inkWet, inkSet, inkOld, tallyN, tagCounts, mix };
+      return { IH, rows, rules, sheet, paper, shadow, edgeTint, clipRect, paperD, curl, spirals, CR, BASE, TOP, PX, PW, H, UDUR, ROLL, RDUR, DONE, inkWet, inkSet, inkOld, tallyN, tagCounts, mix };
     },
 
     render(t, S, h) {
@@ -215,7 +216,7 @@
         write(r.verEl, r.ink, 0.3);
         write(r.dateEl, r.ink + 0.18, 0.32);
         r.items.forEach((it, k) => {
-          const visible = yb > r.top + 15 + k * 27 + 16;
+          const visible = yb > r.top + 15 + k * S.IH + 16;
           const st = live ? tw(t, it.stamp, 0.36, "snappy") : 0;
           const sc = 1 + (1 - st) * 0.45;
           it.pill.style.opacity = (Math.min(1, st * 2.2) * (1 - age * 0.35)).toFixed(3);

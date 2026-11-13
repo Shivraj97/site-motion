@@ -12,7 +12,8 @@
  */
 (function () {
   const W = 1600, H = 900, D = 16.4;
-  const LY = 520, SW = 140, SH = 184;                   // line centre, sheet size
+  const LY = 520, SW = 160, SH = 184;                   // line centre, sheet size
+  const HX = SW / 2 - 12;                               // print margin: header and footer run from -HX to HX
   const TX = 20, IX = 330, NX = 440, GX = 880, FX = 1010, SX = 1340, R = 120; // feed, infeed, nip, beam, reject, stack, chute radius
   const V = 380, TA = 0.35, TD = 0.7, STEP = 1.0;       // line speed, accel, decel, feed interval
   const HOLD = 0.42;                                    // the stopped sheet waits under the arm
@@ -176,20 +177,20 @@
         if (mode === "mis") {
           // the misregistered second pass: a ghost of the print, offset and in the warning colour
           const ghost = svg("g", { transform: "translate(4 3)", opacity: 0.5, "data-sm-decor": "" }, g);
-          txt(ghost, { x: -58, y: -66 }, "pq-s-id pq-s-ghost", b.id);
+          txt(ghost, { x: -HX, y: -66 }, "pq-s-id pq-s-ghost", b.id);
           for (let j = 0; j < b.tests; j++) { const m = markAt(b.tests, j); svg("rect", { x: m.x - 5, y: m.y - 5, width: 10, height: 10, rx: Math.min(2, RAD), fill: C.warning }, ghost); }
         }
-        txt(g, { x: -58, y: -66 }, "pq-s-id", b.id);
-        txt(g, { x: 58, y: -66, "text-anchor": "end" }, "pq-s-n", `${b.tests} ${unit}`);
-        svg("line", { x1: -58, x2: 58, y1: -57, y2: -57, stroke: C.line, "stroke-width": ui.stroke("hair", 1) }, g);
+        txt(g, { x: -HX, y: -66 }, "pq-s-id", b.id);
+        txt(g, { x: HX, y: -66, "text-anchor": "end" }, "pq-s-n", `${b.tests} ${unit}`);
+        svg("line", { x1: -HX, x2: HX, y1: -58, y2: -58, stroke: C.line, "stroke-width": ui.stroke("hair", 1) }, g);
         const marks = Array.from({ length: b.tests }, (_, j) => {
           const m = markAt(b.tests, j);
           return { mx: m.x, node: svg("rect", { x: m.x - 5, y: m.y - 5, width: 10, height: 10, rx: Math.min(2, RAD), fill: mix(C.ink, C.surface, 0.55) }, g), bad: mode === "mis" && j === b.failAt };
         });
         const foot = svg("g", { opacity: 0 }, g);
         const bad = mode === "mis";
-        svg("rect", { x: -58, y: 63, width: 10, height: 10, rx: Math.min(2, RAD), fill: bad ? C.warning : C.positive }, foot);
-        txt(foot, { x: -42, y: 72 }, bad ? "pq-s-foot pq-s-bad" : "pq-s-foot pq-s-ok", bad ? `1 ${status.failed ? status.failed.toLowerCase() : "failed"}` : mode === "rerun" ? status.rerun || "Re-run passed" : status.passed || "Passed");
+        svg("rect", { x: -HX, y: 62, width: 11, height: 11, rx: Math.min(2, RAD), fill: bad ? C.warning : C.positive }, foot);
+        txt(foot, { x: -HX + 18, y: 73 }, bad ? "pq-s-foot pq-s-bad" : "pq-s-foot pq-s-ok", bad ? `1 ${status.failed ? status.failed.toLowerCase() : "failed"}` : mode === "rerun" ? status.rerun || "Re-run passed" : status.passed || "Passed");
         return { g, marks, foot };
       }
       const sheetOf = (r, id) => {
@@ -244,7 +245,7 @@
       Object.assign(chuteLab.style, { left: (IX + FX) / 2 + "px", top: LY + 2 * R + 14 + "px" });
 
       const chip = el("div", "pq-chip", root);
-      Object.assign(chip.style, { left: GX - 150 + "px", top: LY - 266 + "px" });
+      Object.assign(chip.style, { left: GX - 160 + "px", top: LY - 276 + "px" });
       const chipTop = el("div", "pq-chip-top", chip);
       const chipId = el("span", "pq-chip-id", chipTop);
       const chipPill = el("span", "pq-pill", chipTop);

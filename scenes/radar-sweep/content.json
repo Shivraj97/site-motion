@@ -27,7 +27,6 @@
     { "id": "send-digest", "step": "step 2 of 2" },
     { "id": "resize-images", "step": "step 4 of 6" },
     { "id": "billing-run", "step": "step 2 of 7" },
-    { "id": "webhook-fanout", "step": "step 1 of 2" },
-    { "id": "reindex-search", "step": "step 5 of 8" }
+    { "id": "webhook-fanout", "step": "step 1 of 2" }
   ]
 }

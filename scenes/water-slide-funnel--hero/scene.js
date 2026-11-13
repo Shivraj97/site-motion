@@ -179,7 +179,10 @@
       const glyphs = [...share].map((ch) => el("span", "wh-g", num, ch));
       const cap = el("div", "wh-cap", row);
       el("div", "wh-cap-t", cap, content.caption || "");
-      const detail = el("div", "wh-cap-d", cap, `${fmt(last.value)} ${content.of || "of"} ${fmt(first.value)} ${content.note || ""}`.trim());
+      // the detail on two short lines (the count, then the period), so it stays clear of the splash at 16 px
+      const detail = el("div", "wh-cap-d", cap);
+      el("div", "", detail, `${fmt(last.value)} ${content.of || "of"} ${fmt(first.value)}`);
+      if (content.note) el("div", "", detail, content.note);
       // glyph centres, estimated from the type size (the number floats on the wave under each one)
       const gx = glyphs.map((_, i) => POOL.l + 8 + (i + 0.5) * 128);
 

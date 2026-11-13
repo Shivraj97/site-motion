@@ -38,7 +38,7 @@
       // ---- layout numbers from the item count ----
       const rowH = Math.max(60, Math.min(80, Math.floor(440 / Math.max(1, n))));
       const SW = content.trendWidth || 420, SH = Math.min(52, rowH - 14), PADX = 5, PADY = 5;
-      const STRIP = 46;
+      const STRIP = 54;
       const all = rows.flatMap((r) => r.series);
       const lo = Math.max(0, Math.min(thr.watch, ...all) - 3), hi = Math.min(100, Math.max(...all) + 2);
       const xOf = (p) => PADX + p * (SW - PADX * 2);

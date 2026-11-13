@@ -15,7 +15,7 @@
   const W = 1600, H = 900, D = 14;
   const PAGE = { x: 90, y: 236, w: 1420, h: 634 };
   const HEAD = 56, ROW0 = 64, RH = 84; // page-relative: header band, first row top, row pitch
-  const STAMP_X = 176, RULE_X = 262, SENT_X = 296, TIME_R = 1222, DIV_X = 1250, SEAL_X = 1298, SEAL_R = 27, LABEL_X = 1342;
+  const STAMP_X = 176, RULE_X = 262, SENT_X = 296, TIME_R = 1222, DIV_X = 1250, SEAL_X = 1298, SEAL_R = 32, LABEL_X = 1344;
   const yc = (k) => PAGE.y + ROW0 + k * RH + RH / 2; // a row's centre line, stage coordinates
 
   // timeline (seconds)
@@ -134,15 +134,15 @@
         const stamp = svg("g", {}, stamps);
         const col = e.rejected ? C.warningText || C.warning : C.accentText || C.accent;
         // sm-native: the rubber stamp is the scene's motif and keeps its own weight and corners
-        svg("rect", { x: -66, y: -26, width: 132, height: 52, rx: 5, fill: "none", stroke: col, "stroke-width": 2.6 }, stamp);
-        txt(stamp, { x: 0, y: 2, "text-anchor": "middle", fill: col }, "lt-stamp", e.stamp || "");
-        txt(stamp, { x: 0, y: 18, "text-anchor": "middle", fill: col }, "lt-stamp-no", `${content.entryNo || "ENTRY"} ${String((content.firstEntry || 1) + k).padStart(4, "0")}`);
+        svg("rect", { x: -70, y: -28, width: 140, height: 56, rx: 5, fill: "none", stroke: col, "stroke-width": 2.6 }, stamp);
+        txt(stamp, { x: 0, y: 0, "text-anchor": "middle", fill: col }, "lt-stamp", e.stamp || "");
+        txt(stamp, { x: 0, y: 19, "text-anchor": "middle", fill: col }, "lt-stamp-no", `${content.entryNo || "ENTRY"} ${String((content.firstEntry || 1) + k).padStart(4, "0")}`);
         const rot = (e.rejected ? 4 : -7) + (R() - 0.5) * 5;
         // seal: the parent's seal, carrying this row's hash
         const seal = svg("g", {}, seals);
         const disc = svg("circle", { r: SEAL_R, "stroke-width": OUT_W }, seal);
         const ring = svg("circle", { r: SEAL_R - 5, fill: "none", "stroke-width": ui.stroke("hair", 1), "stroke-dasharray": "2.4 3" }, seal);
-        const hash = txt(seal, { x: 0, y: 5, "text-anchor": "middle" }, "lt-seal-hash");
+        const hash = txt(seal, { x: 0, y: 5.5, "text-anchor": "middle" }, "lt-seal-hash");
         // link to the seal above: two halves of one oval, so it can snap open
         let link = null;
         if (k > 0) {
@@ -161,7 +161,7 @@
         }
         // the check beside the seal: status, and the hash it was chained to
         const lab = el("div", "lt-chk", page);
-        Object.assign(lab.style, { left: LABEL_X - PAGE.x + "px", top: ROW0 + k * RH + RH / 2 - 21 + "px" });
+        Object.assign(lab.style, { left: LABEL_X - PAGE.x + "px", top: ROW0 + k * RH + RH / 2 - 23 + "px" });
         const st = el("div", "lt-chk-st", lab);
         const sub = el("div", "lt-chk-sub", lab);
         return { stamp, rot, seal, disc, ring, hash, link, lab, st, sub };

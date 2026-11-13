@@ -210,7 +210,7 @@
         el("span", "", tag, sd.side.note || "");
         const stages = ramps.map((r, i) => {
           const box = el("div", right ? "wc-stage wc-r" : "wc-stage", root);
-          place(box, r.ax + (i === 0 ? 52 : 6), r.ay - 86, 168);
+          place(box, r.ax + (i === 0 ? 52 : 10), r.ay - (i === 0 ? 86 : 96), 168); // clear of the guard rails on the After side
           el("div", "wc-stage-name", box, st[i].name);
           const num = el("div", "wc-stage-n", box, "0");
           const pct = el("div", "wc-stage-pct", box, i === 0 ? "" : `${Math.round((st[i].value / st[i - 1].value) * 100)}% ${content.ofPrev || "of"} ${st[i - 1].name.toLowerCase()}`);

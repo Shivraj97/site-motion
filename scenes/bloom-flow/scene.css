@@ -2,8 +2,8 @@
 .bf-flowers { position: absolute; inset: 0; width: 1600px; height: 900px; }
 .bf-graph { position: absolute; inset: 0; }
 .bf-head { position: absolute; left: 56px; top: 48px; display: flex; gap: 12px; align-items: center; }
-.bf-chip { padding: 8px 14px; border-radius: 999px; background: var(--c-surface); box-shadow: inset 0 0 0 var(--sm-stroke-regular, 1.5px) var(--sm-stroke-color, var(--c-stroke, var(--c-line))); font-family: var(--font-mono); font-size: 14px; color: var(--c-ink); }
-.bf-live { font-family: var(--font-mono); font-size: 13px; color: var(--c-positive-text, var(--c-positive)); }
+.bf-chip { padding: 8px 14px; border-radius: 999px; background: var(--c-surface); box-shadow: inset 0 0 0 var(--sm-stroke-regular, 1.5px) var(--sm-stroke-color, var(--c-stroke, var(--c-line))); font-family: var(--font-mono); font-size: 16px; color: var(--c-ink); }
+.bf-live { font-family: var(--font-mono); font-size: 16px; color: var(--c-positive-text, var(--c-positive)); }
 .bf-counter { --tick: 0; position: absolute; right: 56px; bottom: 48px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; padding: 14px 18px; border-radius: var(--sm-radius-md, var(--r-md)); background: color-mix(in srgb, var(--c-lavender, var(--c-raised)) calc(var(--tick) * 100%), var(--c-surface)); box-shadow: inset 0 0 0 var(--sm-stroke-regular, 1.5px) var(--sm-stroke-color, var(--c-stroke, var(--c-line))), var(--sm-shadow-1, 0 0 0 0 transparent); }
-.bf-counter-k { font-family: var(--sm-label-font, var(--font-mono)); font-size: 12px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.bf-counter-k { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
 .bf-counter-v { font-family: var(--font-display, var(--font-sans)); font-size: calc(40px * var(--sm-type-k, 1)); letter-spacing: var(--sm-type-tracking, -0.02em); color: var(--c-ink); font-variant-numeric: tabular-nums; font-weight: var(--sm-type-weight, 400); }

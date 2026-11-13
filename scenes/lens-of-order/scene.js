@@ -198,7 +198,7 @@
       }
       ctx.stroke();
       ctx.restore();
-      S.lens.style.transform = `translate(${lx}px, ${ly - LR - 46}px) translateX(-50%)`;
+      S.lens.style.transform = `translate(${lx}px, ${ly - LR - 52}px) translateX(-50%)`;
 
       // chips: a blob is labelled when its (magnified) centre sits well inside the lens
       let seen = 0, confSum = 0;
@@ -210,7 +210,7 @@
         const o = clamp((LR - 34 - d) / 36);
         if (o > 0.5) { seen++; confSum += b.conf; }
         if (o > 0.02) {
-          for (let k = 0; k < placed.length; k++) { const [px2, py2] = placed[k]; if (Math.abs(mx - px2) < 170 && Math.abs(my - py2) < 32) { my = py2 + 34; k = -1; } }
+          for (let k = 0; k < placed.length; k++) { const [px2, py2] = placed[k]; if (Math.abs(mx - px2) < 200 && Math.abs(my - py2) < 38) { my = py2 + 40; k = -1; } }
           placed.push([mx, my]);
         }
         b.chip.style.opacity = o.toFixed(3);

@@ -16,7 +16,7 @@
   const GX = 120, GY = 246, GW = 860, GB = 800; // the day grid: left, top, width, bottom
   const T0 = 1.3, TLAST = 12.2, SEAL_T = 12.95, TEAR = 14.45, TEAR_DUR = 1.05;
   const DOWN = 0.06, HOLD = 0.05, UP = 0.11, GAP = 0.02; // a press: accelerate into the paper, hold, lift
-  const IW = 96, IH = 32; // one impression of the stamp
+  const IW = 112, IH = 36; // one impression of the stamp
 
   const hashOf = (str) => { let x = 2166136261; for (const ch of str) x = Math.imul(x ^ ch.charCodeAt(0), 16777619) >>> 0; return x.toString(16).padStart(8, "0").slice(0, 4); };
   const fmt = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -53,8 +53,8 @@
 
       // ---------- the schedule: one event per working day, plus a clearing stamp after the day it names ----------
       const imp = (c) => [c.x + CW / 2, c.y + CH * 0.5];
-      const heldAt = (c) => [c.x + 10, c.y + CH - 32];
-      const clearAt = (c) => [c.x + 82, c.y + CH - 22];
+      const heldAt = (c) => [c.x + 10, c.y + CH - 34];
+      const clearAt = (c) => [c.x + 100, c.y + CH - 21];
       const trail = cells[cells.length - 1].row * 7 + cells[cells.length - 1].col < ROWS * 7 - 1; // an empty cell after the last day
       const park = trail ? [GX + 6.5 * CW, GY + (ROWS - 0.5) * CH] : [PAGE.x + PAGE.w - 70, PAGE.y + PAGE.h + 6];
       const plan = [];
@@ -141,8 +141,8 @@
         if (c.held) {
           const [hx, hy] = heldAt(c);
           c.heldG = svg("g", { opacity: 0, transform: `translate(${hx} ${hy}) rotate(-2)` }, page);
-          svg("rect", { x: 0, y: 0, width: 62, height: 22, rx: 3, fill: mix(C.surface, C.attention, 0.14), stroke: C.attention, "stroke-width": 1.6 }, c.heldG);
-          txt(c.heldG, { x: 31, y: 15.5, "text-anchor": "middle", fill: warnText }, "lsm-held", `${content.stampHeld || "HELD"} ${c.held}`);
+          svg("rect", { x: 0, y: 0, width: 76, height: 26, rx: 3, fill: mix(C.surface, C.attention, 0.14), stroke: C.attention, "stroke-width": 1.6 }, c.heldG);
+          txt(c.heldG, { x: 38, y: 18.5, "text-anchor": "middle", fill: warnText }, "lsm-held", `${content.stampHeld || "HELD"} ${c.held}`);
           const [qx, qy] = clearAt(c);
           c.clearG = svg("g", { opacity: 0 }, page);
           svg("circle", { cx: 0, cy: 0, r: 12, fill: C.positive, stroke: C.surface, "stroke-width": 2 }, c.clearG);
@@ -156,12 +156,12 @@
       const lead = first >= 3;
       const sx = lead ? GX + 52 : GX + ((first + days) % 7) * CW + 52, sy = lead ? GY + CH / 2 : GY + (ROWS - 0.5) * CH;
       const seal = svg("g", { opacity: 0 }, page);
-      svg("circle", { r: 38, fill: C.accentFill || C.accent, stroke: ink, "stroke-width": ui.stroke("regular", 1.5) }, seal);
-      svg("circle", { r: 32, fill: "none", stroke: C.onAccent || C.paper, "stroke-width": ui.stroke("hair", 1), "stroke-dasharray": "2.4 3", opacity: 0.8 }, seal);
+      svg("circle", { r: 46, fill: C.accentFill || C.accent, stroke: ink, "stroke-width": ui.stroke("regular", 1.5) }, seal);
+      svg("circle", { r: 40, fill: "none", stroke: C.onAccent || C.paper, "stroke-width": ui.stroke("hair", 1), "stroke-dasharray": "2.4 3", opacity: 0.8 }, seal);
       txt(seal, { x: 0, y: -1, "text-anchor": "middle" }, "lsm-seal", content.seal || "SEALED");
-      txt(seal, { x: 0, y: 15, "text-anchor": "middle" }, "lsm-seal-hash", hashOf(`${content.month}${content.year}${total}`));
-      const sealT = txt(page, { x: sx + 54, y: sy - 4, opacity: 0 }, "lsm-seal-title", content.sealTitle || "");
-      const sealN = txt(page, { x: sx + 54, y: sy + 18, opacity: 0 }, "lsm-seal-note", content.sealNote || "");
+      txt(seal, { x: 0, y: 18, "text-anchor": "middle" }, "lsm-seal-hash", hashOf(`${content.month}${content.year}${total}`));
+      const sealT = txt(page, { x: sx + 62, y: sy - 4, opacity: 0 }, "lsm-seal-title", content.sealTitle || "");
+      const sealN = txt(page, { x: sx + 62, y: sy + 20, opacity: 0 }, "lsm-seal-note", content.sealNote || "");
 
       // ---------- the binding the pages hang from ----------
       // sm-native-start: the binding and the stamp are the scene's motif: their own weights and corners in every look

@@ -1,20 +1,20 @@
 .lt { background: transparent; } /* the stage paints the paper; a style motif sits between */
 .lt-svg { position: absolute; inset: 0; pointer-events: none; }
 
-.lt-eyebrow { position: absolute; left: 90px; top: 52px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.lt-eyebrow { position: absolute; left: 90px; top: 52px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
 .lt-h { position: absolute; left: 90px; top: 80px; width: 760px; font-family: var(--font-display, var(--font-sans)); font-size: calc(46px * var(--sm-type-k, 1)); line-height: 1.05; letter-spacing: var(--sm-type-tracking, -0.02em); font-weight: var(--sm-type-weight, 400); white-space: pre-line; color: var(--c-ink); }
 .lt-sub { position: absolute; left: 960px; top: 86px; width: 550px; font-size: 18px; line-height: 1.5; color: var(--c-muted); }
 
 /* the ledger page */
 .lt-page { position: absolute; left: 90px; top: 236px; width: 1420px; height: 634px; background: var(--c-surface); border-radius: var(--sm-radius-md, var(--r-md, 12px)); box-shadow: 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-line)), var(--sm-shadow-2, 0 30px 60px -40px rgba(0,0,0,.35)); }
 .lt-head { position: absolute; left: 0; right: 0; top: 0; height: 56px; box-sizing: border-box; padding: 0 24px; display: flex; align-items: center; border-bottom: var(--sm-stroke-hair, 1px) solid var(--c-line); white-space: nowrap; }
-.lt-pagelabel { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
-.lt-pill { margin-left: auto; display: inline-flex; align-items: center; gap: 9px; padding: 6px 14px; border-radius: 999px; /* sm-native: a status pill stays a pill */ font-size: 15px; font-weight: 500; background: color-mix(in srgb, var(--c-positive) 14%, var(--c-surface)); color: var(--c-positive-text, var(--c-positive)); }
+.lt-pagelabel { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.lt-pill { margin-left: auto; display: inline-flex; align-items: center; gap: 9px; padding: 6px 14px; border-radius: 999px; /* sm-native: a status pill stays a pill */ font-size: 16px; font-weight: 500; background: color-mix(in srgb, var(--c-positive) 14%, var(--c-surface)); color: var(--c-positive-text, var(--c-positive)); }
 .lt-pill[data-state="bad"] { background: color-mix(in srgb, var(--c-warning) 18%, var(--c-surface)); color: var(--c-warning-text, var(--c-warning)); }
 .lt-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
 .lt-foot { position: absolute; left: 0; right: 0; bottom: 0; height: 58px; box-sizing: border-box; padding: 0 24px; display: flex; align-items: center; border-top: var(--sm-stroke-hair, 1px) solid var(--c-line); white-space: nowrap; }
-.lt-footnote { font-size: 15px; color: var(--c-muted); }
-.lt-foothead { margin-left: auto; font-family: var(--font-mono); font-size: 14px; color: var(--c-ink); }
+.lt-footnote { font-size: 16px; color: var(--c-muted); }
+.lt-foothead { margin-left: auto; font-family: var(--font-mono); font-size: 16px; color: var(--c-ink); }
 
 /* an entry: a sentence of typed chips, and its time */
 .lt-row { position: absolute; display: flex; align-items: center; gap: 16px; white-space: nowrap; }
@@ -36,21 +36,21 @@
 .lt-struck { position: absolute; left: calc(100% + 16px); top: 50%; margin-top: -13px; display: flex; align-items: baseline; gap: 12px; opacity: 0; white-space: nowrap; }
 .lt-struck-v { position: relative; font-size: 19px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--c-warning-text, var(--c-warning)); }
 .lt-strike { position: absolute; left: -3px; right: -3px; top: 52%; height: 2px; background: var(--c-warning-text, var(--c-warning)); transform-origin: left center; transform: scaleX(0); }
-.lt-struck-note { font-family: var(--font-mono); font-size: 13px; color: var(--c-warning-text, var(--c-warning)); }
+.lt-struck-note { font-family: var(--font-mono); font-size: 16px; color: var(--c-warning-text, var(--c-warning)); }
 
 /* the editor's cursor */
 .lt-cursor { position: absolute; left: calc(100% - 26px); top: calc(100% - 8px); display: block; opacity: 0; }
 .lt-cursor-arrow { display: block; }
-.lt-cursor-tag { position: absolute; left: 16px; top: 22px; padding: 3px 9px; border-radius: var(--sm-radius-sm, var(--r-sm, 6px)); font-size: 13px; font-weight: 500; background: var(--c-ink); color: var(--c-surface); white-space: nowrap; }
+.lt-cursor-tag { position: absolute; left: 16px; top: 22px; padding: 3px 9px; border-radius: var(--sm-radius-sm, var(--r-sm, 6px)); font-size: 16px; font-weight: 500; background: var(--c-ink); color: var(--c-surface); white-space: nowrap; }
 
 /* the check beside each seal */
-.lt-chk { position: absolute; width: 152px; display: flex; flex-direction: column; gap: 4px; white-space: nowrap; }
-.lt-chk-st { font-size: 15px; font-weight: 500; color: var(--c-positive-text, var(--c-positive)); }
-.lt-chk-sub { font-family: var(--font-mono); font-size: 13px; color: var(--c-muted); }
+.lt-chk { position: absolute; width: 156px; display: flex; flex-direction: column; gap: 4px; white-space: nowrap; }
+.lt-chk-st { font-size: 17px; font-weight: 500; color: var(--c-positive-text, var(--c-positive)); }
+.lt-chk-sub { font-family: var(--font-mono); font-size: 16px; color: var(--c-muted); }
 .lt-chk[data-state="pending"] .lt-chk-st { color: var(--c-muted); }
 .lt-chk[data-state="bad"] .lt-chk-st, .lt-chk[data-state="bad"] .lt-chk-sub { color: var(--c-warning-text, var(--c-warning)); }
 
 /* stamps and seals (SVG text) */
 .lt-stamp { font-family: var(--font-sans); font-weight: 700; font-size: 16px; letter-spacing: .12em; }
-.lt-stamp-no { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; }
-.lt-seal-hash { font-family: var(--font-mono); font-size: 13px; font-weight: 500; }
+.lt-stamp-no { font-family: var(--font-mono); font-size: 16px; letter-spacing: .06em; }
+.lt-seal-hash { font-family: var(--font-mono); font-size: 16px; font-weight: 500; }

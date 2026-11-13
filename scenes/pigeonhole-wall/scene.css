@@ -1,4 +1,4 @@
-/* Type scale for a 1600 × 900 stage shown at ~1200 px: primary ≥ 24 px, secondary ≥ 18 px, ornament ≥ 15 px.
+/* Type scale for a 1600 × 900 stage shown at ~1200 px: primary ≥ 24 px, secondary ≥ 18 px, ornament ≥ 16 px.
  * Looks: object outlines (plates, tray, request card, tags) take --sm-stroke-fine/-hair in --sm-stroke-color; soft inner
  * rules keep their tint and take only the weight; corners take --sm-radius-*; labels take the --sm-label-* voice;
  * the headline and the request prompt take --sm-type-*; the request card, tray and plates take --sm-shadow-* (the
@@ -7,7 +7,7 @@
 .ph-svg, .ph-tethers { position: absolute; left: 0; top: 0; pointer-events: none; }
 .ph-svg { z-index: 0; }
 .ph-tethers { z-index: 6; }
-.ph-num { font-family: var(--font-mono); font-size: 15px; letter-spacing: .06em; fill: var(--ph-label); }
+.ph-num { font-family: var(--font-mono); font-size: 16px; letter-spacing: .06em; fill: var(--ph-label); }
 
 /* copy */
 .ph-copy { position: absolute; left: 64px; top: 64px; width: 480px; z-index: 5; }
@@ -54,7 +54,7 @@
 .ph-lg-v { color: var(--ph-verified); }
 .ph-idle { position: absolute; left: 24px; top: 60px; font-size: 24px; color: var(--ph-label); }
 .ph-prompt { position: absolute; left: 24px; top: 56px; font-size: calc(30px * var(--sm-type-k, 1)); line-height: 1.15; font-weight: 500; letter-spacing: var(--sm-type-tracking, -0.015em); color: var(--c-ink); opacity: 0; }
-.ph-slotno { position: absolute; right: 22px; font-family: var(--font-mono); font-size: 15px; letter-spacing: .06em; color: var(--ph-label); }
+.ph-slotno { position: absolute; right: 22px; font-family: var(--font-mono); font-size: 16px; letter-spacing: .06em; color: var(--ph-label); }
 .ph-hole { position: absolute; left: 24px; border: var(--sm-stroke-hair, 1px) dashed var(--ph-rule); border-radius: var(--sm-radius-md, 2px); }
 .ph-rec { position: absolute; left: 24px; height: 76px; background: var(--c-surface); border-bottom: var(--sm-stroke-hair, 1px) solid var(--ph-rule-soft); opacity: 0; }
 .ph-result { position: absolute; left: 24px; right: 24px; bottom: 12px; height: 30px; display: flex; align-items: baseline; gap: 10px; font-size: 22px; line-height: 30px; font-weight: 500; letter-spacing: -0.005em; color: var(--c-ink); white-space: nowrap; opacity: 0; }

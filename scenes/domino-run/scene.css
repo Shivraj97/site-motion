@@ -1,11 +1,11 @@
 .dr { background: transparent; } /* the stage paints the paper; a style motif sits between */
 .dr-svg { position: absolute; inset: 0; }
 .dr-copy { position: absolute; left: 110px; top: 210px; width: 470px; }
-.dr-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
+.dr-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
 .dr-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(54px * var(--sm-type-k, 1)); line-height: 1.03; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); }
 .dr-sub { margin-top: 18px; font-size: 19px; line-height: 1.5; color: var(--c-muted); }
-.dr-step { --on: 0; position: absolute; transform: translateX(-50%); display: grid; justify-items: center; gap: 4px; width: 190px; text-align: center; }
-.dr-n { font-family: var(--font-mono); font-size: 12px; color: var(--c-muted); }
-.dr-name { font-size: 16px; font-weight: 500; }
-.dr-done { font-family: var(--font-mono); font-size: 13px; padding: 4px 10px; border-radius: 999px; background: color-mix(in srgb, var(--c-positive) calc(var(--on) * 18%), transparent); color: color-mix(in srgb, var(--c-positive) calc(var(--on) * 100%), var(--c-faint, #bbb)); opacity: calc(0.35 + var(--on) * 0.65); }
-.dr-timer { position: absolute; left: 110px; top: 610px; font-family: var(--font-mono); font-size: 15px; color: var(--c-muted); font-variant-numeric: tabular-nums; }
+.dr-step { --on: 0; position: absolute; transform: translateX(-50%); display: grid; justify-items: center; gap: 5px; width: 190px; text-align: center; }
+.dr-n { font-family: var(--font-mono); font-size: 16px; color: var(--c-muted); }
+.dr-name { font-size: 19px; font-weight: 500; }
+.dr-done { font-family: var(--font-mono); font-size: 16px; padding: 4px 8px; border-radius: 999px; background: color-mix(in srgb, var(--c-positive) calc(var(--on) * 18%), transparent); color: color-mix(in srgb, var(--c-positive) calc(var(--on) * 100%), var(--c-faint, #bbb)); opacity: calc(0.35 + var(--on) * 0.65); }
+.dr-timer { position: absolute; left: 110px; top: 610px; font-family: var(--font-mono); font-size: 17px; color: var(--c-muted); font-variant-numeric: tabular-nums; }

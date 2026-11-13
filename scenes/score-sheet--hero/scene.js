@@ -47,7 +47,7 @@
         // the middle line is the parent's string: it sounds when a note lands on this stave
         const string = svg("path", { d: `M${LEFT} ${cy}H${END}`, fill: "none", stroke: quiet, "stroke-width": ui.stroke("hair", 1) }, s);
         const label = el("div", "ssh-name", root, name);
-        label.style.top = cy - 8 + "px";
+        label.style.top = cy - 9 + "px";
         return { cy, string, colour: pal[(i + 1) % pal.length] };
       });
       const sysTop = CY0 - 2 * SP, sysBot = CY0 + (n - 1) * GAP + 2 * SP;

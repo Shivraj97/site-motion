@@ -2,28 +2,28 @@
 
 /* copy, top left */
 .pbm-copy { position: absolute; top: 96px; }
-.pbm-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
+.pbm-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 14px; }
 .pbm-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(42px * var(--sm-type-k, 1)); line-height: 1.08; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
 .pbm-sub { margin-top: 20px; font-size: 18px; line-height: 1.5; color: var(--c-muted); }
 
 /* the focal figure, bottom left */
 .pbm-focal { position: absolute; top: 452px; opacity: 0; }
-.pbm-flabel { display: flex; align-items: center; gap: 9px; height: 20px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
+.pbm-flabel { display: flex; align-items: center; gap: 9px; height: 20px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; }
 .pbm-fdot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--c-positive, var(--c-accent)); } /* sm-native: a status dot stays round */
 .pbm-fnum { margin-top: 6px; height: 150px; font-family: var(--font-display, var(--font-sans)); font-size: calc(156px * var(--sm-type-k, 1)); line-height: 150px; letter-spacing: var(--sm-type-tracking, -0.04em); font-weight: var(--sm-type-weight, 400); font-variant-numeric: tabular-nums; color: var(--c-ink); white-space: nowrap; }
 .pbm-fresult { margin-top: 10px; font-size: 18px; line-height: 26px; color: var(--c-ink); white-space: nowrap; opacity: 0; }
 .pbm-cycle { margin-top: 22px; padding-top: 18px; border-top: var(--sm-stroke-hair, 1px) solid var(--sm-stroke-color, var(--c-line)); opacity: 0; }
 .pbm-cnum { display: flex; align-items: baseline; gap: 8px; font-family: var(--font-display, var(--font-sans)); font-size: calc(40px * var(--sm-type-k, 1)); line-height: 44px; letter-spacing: var(--sm-type-tracking, -0.02em); font-weight: var(--sm-type-weight, 400); font-variant-numeric: tabular-nums; color: var(--c-ink); white-space: nowrap; }
 .pbm-cunit { font-family: var(--font-sans); font-size: 18px; letter-spacing: 0; color: var(--c-muted); }
-.pbm-clabel { margin-top: 4px; font-size: 14px; line-height: 20px; color: var(--c-muted); white-space: nowrap; }
+.pbm-clabel { margin-top: 4px; font-size: 16px; line-height: 20px; color: var(--c-muted); white-space: nowrap; }
 
 /* chart frame */
 .pbm-chart { position: absolute; inset: 0; }
 .pbm-base { position: absolute; height: 0; border-top: var(--sm-stroke-fine, 1px) solid var(--sm-stroke-color, var(--c-line)); }
-.pbm-stage { position: absolute; display: flex; align-items: center; justify-content: center; gap: 8px; height: 22px; font-size: 15px; font-weight: 600; color: var(--c-ink); white-space: nowrap; }
+.pbm-stage { position: absolute; display: flex; align-items: center; justify-content: center; gap: 8px; height: 22px; font-size: 17px; font-weight: 600; color: var(--c-ink); white-space: nowrap; }
 .pbm-count { position: absolute; top: 0; height: 26px; text-align: center; font-family: var(--font-mono); font-size: 20px; line-height: 26px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--c-ink); opacity: 0; }
 .pbm-lines { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
-.pbm-rate { position: absolute; height: 26px; padding: 0 9px; box-sizing: border-box; border-radius: 999px; display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--c-ink); background: var(--c-surface); box-shadow: inset 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-line)); opacity: 0; z-index: 4; } /* sm-native: a rate chip stays a pill */
+.pbm-rate { position: absolute; height: 28px; padding: 0 8px; box-sizing: border-box; border-radius: 999px; display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 16px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--c-ink); background: var(--c-surface); box-shadow: inset 0 0 0 var(--sm-stroke-fine, 1px) var(--sm-stroke-color, var(--c-line)); opacity: 0; z-index: 4; } /* sm-native: a rate chip stays a pill */
 
 /* tiles: the deal cards in compact form */
 .pbm-ghosts, .pbm-tiles { position: absolute; inset: 0; }
@@ -32,4 +32,4 @@
 .pbm-lift { position: absolute; inset: 0; border-radius: inherit; box-shadow: var(--sm-shadow-3, 0 16px 28px -14px rgba(0,0,0,.35)); opacity: 0; pointer-events: none; }
 .pbm-ok { position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 var(--sm-stroke-bold, 2px) var(--c-positive, var(--c-accent)); opacity: 0; pointer-events: none; }
 .pbm-av { position: relative; flex: none; border-radius: 50%; display: grid; place-items: center; font-weight: 600; letter-spacing: .02em; box-shadow: inset 0 0 0 var(--sm-stroke-hair, 1px) var(--sm-stroke-color, rgba(0,0,0,.08)); } /* sm-native: an avatar stays round */
-.pbm-val { position: relative; margin-left: auto; font-family: var(--font-mono); font-size: 14px; font-variant-numeric: tabular-nums; color: var(--c-ink); white-space: nowrap; }
+.pbm-val { position: relative; margin-left: auto; font-family: var(--font-mono); font-size: 16px; font-variant-numeric: tabular-nums; color: var(--c-ink); white-space: nowrap; }

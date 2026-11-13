@@ -1,11 +1,11 @@
 .ssh { background: transparent; } /* the stage paints the paper; a style motif sits between */
 .ssh-svg { position: absolute; inset: 0; }
 .ssh-copy { position: absolute; left: 96px; top: 64px; }
-.ssh-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 18px; }
+.ssh-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 18px; }
 .ssh-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(84px * var(--sm-type-k, 1)); line-height: 1.02; letter-spacing: var(--sm-type-tracking, -0.03em); white-space: pre; font-weight: var(--sm-type-weight, 400); color: var(--c-ink); }
 .ssh-sub { position: absolute; left: 1060px; top: 118px; width: 430px; font-size: 19px; line-height: 1.5; color: var(--c-muted); }
-.ssh-name { position: absolute; left: 40px; width: 150px; text-align: right; font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; line-height: 16px; }
-.ssh-label { position: absolute; font-size: 15px; line-height: 18px; white-space: nowrap; color: var(--c-muted); opacity: 0; padding: 2px 8px; background: var(--c-paper); }
-.ssh-tag { position: absolute; left: 1290px; width: 214px; opacity: 0; }
+.ssh-name { position: absolute; left: 40px; width: 150px; text-align: right; font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); white-space: nowrap; line-height: 18px; }
+.ssh-label { position: absolute; font-size: 17px; line-height: 20px; white-space: nowrap; color: var(--c-muted); opacity: 0; padding: 2px 8px; background: var(--c-paper); }
+.ssh-tag { position: absolute; left: 1290px; width: 264px; opacity: 0; }
 .ssh-tag-word { font-family: var(--font-display, var(--font-sans)); font-size: calc(40px * var(--sm-type-k, 1)); line-height: 1; letter-spacing: var(--sm-type-tracking, -0.02em); font-weight: var(--sm-type-weight, 400); color: var(--c-ink); white-space: nowrap; }
-.ssh-tag-sum { margin-top: 12px; font-family: var(--font-mono); font-size: 13px; color: var(--c-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ssh-tag-sum { margin-top: 12px; font-family: var(--font-mono); font-size: 16px; color: var(--c-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }

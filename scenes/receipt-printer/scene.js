@@ -76,8 +76,8 @@
         const appear = tw(t, 0.05, 0.4, "soft");
         const fly = tw(t, at, 0.55, "inOut");
         const sink = tw(t, at + 0.5, 0.3, "soft");
-        const x = lerp(home.x, 1040, fly), y = lerp(home.y, 218, fly) + sink * 40;
-        card.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${lerp(home.r, 0, fly).toFixed(2)}deg) scale(${lerp(1, 0.86, fly).toFixed(3)})`;
+        const x = lerp(home.x, 1015, fly), y = lerp(home.y, 218, fly) + sink * 40;
+        card.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${lerp(home.r, 0, fly).toFixed(2)}deg) scale(1)`;
         card.style.opacity = (appear * (1 - sink)).toFixed(3);
         card.style.clipPath = `inset(0 0 ${(sink * 100).toFixed(1)}% 0)`;
       });
@@ -94,7 +94,7 @@
       });
       const after = start + S.rows.length * per + 0.2;
       S.foot.forEach((f, k) => { const p = tw(t, after + 0.2 + k * 0.4, 0.3, "snappy"); f.style.opacity = p.toFixed(3); height += 30 * p; });
-      height += 86 * tw(t, after + 1.2, 0.5, "snappy") + 30 * tw(t, after + 0.05, 0.2); // rule, barcode, serial
+      height += 92 * tw(t, after + 1.2, 0.5, "snappy") + 30 * tw(t, after + 0.05, 0.2); // rule, barcode, serial
       const printing = t > start - 0.4 && t < after + 1.7;
       S.led.classList.toggle("is-on", printing && Math.floor(t * 6) % 2 === 0);
       S.headBar.style.opacity = printing ? 1 : 0;

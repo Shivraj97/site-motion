@@ -2,6 +2,6 @@
 .sf-canvas { position: absolute; inset: 0; }
 .sf-canvas canvas { display: block; }
 .sf-label { position: absolute; left: 80px; top: 70px; }
-.sf-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 13px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
+.sf-eyebrow { font-family: var(--sm-label-font, var(--font-mono)); font-size: 16px; letter-spacing: var(--sm-label-tracking, .08em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); margin-bottom: 12px; }
 .sf-h { font-family: var(--font-display, var(--font-sans)); font-size: calc(46px * var(--sm-type-k, 1)); line-height: 1.05; letter-spacing: var(--sm-type-tracking, -0.02em); white-space: pre-line; font-weight: var(--sm-type-weight, 400); }
-.sf-tag { position: absolute; bottom: 70px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 14px; letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }
+.sf-tag { position: absolute; bottom: 70px; font-family: var(--sm-label-font, var(--font-mono)); font-size: 17px; letter-spacing: var(--sm-label-tracking, .06em); text-transform: var(--sm-label-transform, uppercase); font-style: var(--sm-label-style, normal); color: var(--c-muted); }

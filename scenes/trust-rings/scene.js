@@ -33,6 +33,8 @@
       const gap = n > 1 ? (RMAX - RIN) / (n - 1) : 0;
       const radii = rings.map((_, i) => RMAX - i * gap);
       const P = (r, a) => [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+      // the ring names sit a little right of twelve o'clock, clear of the chips on the upper request path
+      const NAME_AT = rad(-65);
       const LINE = ui.stroke("regular", 1.4), BOLD = ui.stroke("bold", 3.2);
 
       // ---- copy and the audit log share the right-hand column
@@ -57,7 +59,7 @@
       const defs = svg("defs", {}, s);
       // bands tint a little deeper toward the centre: defence in depth, read at a glance
       radii.forEach((r) => svg("circle", { cx, cy, r, fill: alpha(C.accent, 0.035), stroke: "none" }, s));
-      // each ring is an arc with a gap at twelve o'clock for its name (the gap is sized in render, from the set type)
+      // each ring is an arc with a gap near twelve o'clock for its name (the gap is sized in render, from the set type)
       const ringLines = radii.map(() => svg("path", { fill: "none", stroke: mix(C.ink, C.paper, 0.72), "stroke-width": LINE }, s));
       const closeLayer = svg("g", {}, s); // a closed ring sits under the segments other requests lit
       const litLayer = svg("g", {}, s);
@@ -70,16 +72,16 @@
       svg("path", { d: "M-6 -3 V-8 A6 6 0 0 1 6 -8 V-3" }, lock);
       svg("rect", { x: -9.5, y: -3, width: 19, height: 14, rx: 3, fill: C.ink, stroke: "none" }, lock); // sm-native: a glyph, not a card
       const core = el("div", "tr-core", root);
-      Object.assign(core.style, { left: cx - R0 + 12 + "px", top: cy - 12 + "px", width: 2 * (R0 - 12) + "px" });
+      Object.assign(core.style, { left: cx - R0 + 6 + "px", top: cy - 14 + "px", width: 2 * (R0 - 6) + "px" });
       el("div", "tr-core-name", core, (content.asset && content.asset.name) || "");
       el("div", "tr-core-detail", core, (content.asset && content.asset.detail) || "");
 
-      // ring names sit in the gap at the top of their ring
+      // ring names sit in the gap near the top of their ring
       const labels = rings.map((ring, i) => {
         const r = radii[i];
         svg("path", { id: `tr-arc-${i}`, d: `M${cx - r} ${cy} A${r} ${r} 0 0 1 ${cx + r} ${cy}`, fill: "none" }, defs);
         const text = svg("text", { class: "tr-ring-label", fill: C.muted, "dominant-baseline": "central" }, s);
-        const tp = svg("textPath", { href: `#tr-arc-${i}`, startOffset: "50%", "text-anchor": "middle" }, text);
+        const tp = svg("textPath", { href: `#tr-arc-${i}`, startOffset: `${(((NAME_AT + Math.PI) / Math.PI) * 100).toFixed(2)}%`, "text-anchor": "middle" }, text);
         tp.textContent = ring.name || "";
         return text;
       });
@@ -141,7 +143,9 @@
           const tick = el("span", "tr-tick", chip);
           tick.style.background = C.positive;
           el("span", "", chip, `${ring.short || ring.name} · ${ring.pass || ""}`);
-          const [chx, chy] = [nx + perp[0] * 34, ny + perp[1] * 34];
+          // beside the path; the outer ring's chip leans in, clear of the tag parked outside
+          const lean = i === 0 ? 18 : 0;
+          const [chx, chy] = [nx + perp[0] * 36 + dir[0] * lean, ny + perp[1] * 36 + dir[1] * lean];
           Object.assign(chip.style, { left: chx.toFixed(1) + "px", top: chy.toFixed(1) + "px" });
           return { r, arc, node, chip, at: arr[i] };
         });
@@ -186,7 +190,7 @@
         r.rowParts = [...row.children];
       });
 
-      return { cx, cy, R0, rings, radii, labels, ringLines, Q, P, statA, statB, corePing, LINE, BOLD, C };
+      return { cx, cy, R0, rings, radii, labels, ringLines, Q, P, statA, statB, corePing, LINE, BOLD, C, NAME_AT };
     },
 
     render(t, S, h) {
@@ -197,7 +201,7 @@
         return `M${x0.toFixed(1)} ${y0.toFixed(1)} A${r} ${r} 0 0 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`;
       };
       // the gap in each ring fits its name as set (the label voice may change the face)
-      const TOP = -Math.PI / 2;
+      const TOP = S.NAME_AT;
       const half = S.labels.map((tx, i) => {
         const L = tx.getComputedTextLength();
         return (Math.max(0, L) / 2 + 11) / S.radii[i];
